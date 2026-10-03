@@ -238,6 +238,19 @@ fresh = img("fresh", (90, 40, 40), [(150, 100, 20, (240, 240, 200))])
 turn.record("이 사진은? [attached: " + fresh + "]")
 o = ext_mcp_handle("pf_show", {})
 ok(o.get("unmeasured_images") == [fresh] and o["next"][0]["tool"] == "pf_photos", "P2: an attached, unmeasured image is listed and pf_photos comes first")
+n = turn.note(turn.record("a ? a:b"))
+ok(n and "pf_choose" in n and "pf_photos" not in n, "P3: the turn note sends a terse reply to pf_choose even if no tool is called")
+n = turn.note(turn.record("이 사진들로 분류해라\n[attached: " + fresh + "]"))
+ok(n and "pf_photos" in n and Path(fresh).name in n and "pf_choose" not in n, "P2: the turn note names the attached images and pf_photos")
+ok(turn.note(turn.record("포트폴리오 표지 문구를 추천해라")) is None, "no images, not terse -> no note")
+import subprocess  # noqa: E402
+pr = subprocess.run([sys.executable, str(ROOT / "hooks" / "turn_note.py")], input=json.dumps({"prompt": "다시 시도"}), capture_output=True, text=True,
+                    env=dict(os.environ), cwd=str(ROOT))
+hs = json.loads(pr.stdout).get("hookSpecificOutput", {})
+ok(hs.get("hookEventName") == "BeforeAgent" and "pf_choose" in hs.get("additionalContext", ""), "the BeforeAgent hook script returns the note as additionalContext")
+pr = subprocess.run([sys.executable, str(ROOT / "hooks" / "turn_note.py")], input=json.dumps({"prompt": "표지 문구를 추천해라"}), capture_output=True, text=True,
+                    env=dict(os.environ), cwd=str(ROOT))
+ok(json.loads(pr.stdout) == {}, "the hook adds nothing to an ordinary turn")
 turn.record("다음")
 st0 = PF.call("pf_write", {"kind": "answer", "register": "direct", "language": "ko", "items": [{"text": "좋은 패션은 몸에 맞는 옷이다."}]})["texts"][0]["id"]
 r = PF.call("pf_revise", {"op": "refocus", "arg": "style", "targets": [st0], "texts": ["좋은 스타일은 몸에 맞게 고른 옷과 신발이다."]})

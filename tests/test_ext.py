@@ -234,6 +234,21 @@ sl = []
 r = loop.run("비", "", transport=Quota(), sleep=sl.append)
 ok(r["state"] == "DONE" and sl == [3.0, 3.0], f"429 in the loop waits the server's delay ({sl})")
 
+seen = []
+
+
+def capture(url, body, *a):
+    seen.append(body)
+    return 200, json.dumps({"candidates": [{"content": {"role": "model", "parts": [{"text": "ok"}]}, "finishReason": "STOP"}]}), {}
+
+
+hist = []
+loop.user_turn(hist, {"text": "a ? a:b"}, transport=capture, sleep=lambda s: None)
+ok("<hook_context>" in seen[-1]["contents"][0]["parts"][-1].get("text", "") and "pf_choose" in seen[-1]["contents"][0]["parts"][-1]["text"],
+   "the loop adds the BeforeAgent note to a terse turn, as the CLI does")
+loop.user_turn(hist, {"text": "표지 문구를 추천해라"}, transport=capture, sleep=lambda s: None)
+ok(len(seen[-1]["contents"][2]["parts"]) == 1, "an ordinary turn gets no note")
+
 sec("MCP over stdio (the server Gemini CLI starts)")
 msgs = [{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-03-26"}},
         {"jsonrpc": "2.0", "method": "notifications/initialized"},

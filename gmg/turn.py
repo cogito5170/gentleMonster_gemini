@@ -1,7 +1,7 @@
 """The current user turn, as code sees it (CMD-GMG3 proposals 2 and 3).
 
 The MCP server never sees the user's words or attachments. A BeforeAgent hook (Gemini CLI passes `prompt`) or the
-API loop records them here: <GMG_OUT>/turn.json = {prompt, terse, images, chose}. Tool results then
+API loop records them here, and adds `note()` to the turn: <GMG_OUT>/turn.json = {prompt, terse, images, chose}. Tool results then
 - point a terse reply ("다시 시도", "1", "A안", "a ? a:b") to pf_choose before anything else, and
 - list attached images that have not been measured yet (pf_photos), so photos are measured, not only looked at.
 """
@@ -32,6 +32,21 @@ def record(prompt: str) -> dict:
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(t, ensure_ascii=False))
     return t
+
+
+def note(t: "dict | None") -> "str | None":
+    """What the BeforeAgent hook adds to the turn (as <hook_context>), so the routing holds even when no tool is
+    called: attached images are measured with pf_photos, and a terse reply goes to pf_choose."""
+    if not t:
+        return None
+    out = []
+    if t["terse"]:
+        out.append(f"The user's reply {t['prompt'].strip()!r} picks or retries an earlier option: call pf_choose with it "
+                   "first, then continue from what it returns.")
+    if t["images"]:
+        out.append(f"{len(t['images'])} image(s) attached ({', '.join(Path(i).name for i in t['images'])}): measure them "
+                   "with pf_photos before describing, sorting or ranking them; cite the measured values, not your impression.")
+    return " ".join(out) or None
 
 
 def current() -> "dict | None":
