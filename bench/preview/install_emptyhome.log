@@ -1,23 +1,48 @@
+== run 1: install block at f89652bf69819a128e7d63acdc2e236ac591b11b, empty HOME, zsh -i, stdin closed
 
-changed 7 packages in 8s
+added 7 packages in 8s
 Failed to uninstall "gentlemonster": Extension not found.
 You have consented to the following:
 The extension you are about to install may have been created by a third-party developer and sourced from a public repository. Google does not vet, endorse, or guarantee the functionality or security of extensions. Please carefully inspect any extension and its source code before installing to understand the permissions it requires and the actions it may perform.
 Extension "gentlemonster" installed successfully and enabled.
+export PATH="$HOME/.gentlemonster/bin:$PATH"
 Failed to install browsers
 Error: Failed to download Chrome for Testing 153.0.8010.12 (playwright chromium v1243), caused by
 Error: Download failure, code=1
 [setup] cloning https://github.com/cogito5170/gentleMonster -> $HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47
 [setup] gentleMonster @ 5fdc25e7d62c ok ($HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47)
 GEMINI_API_KEY is set
+0.60.0
   ok   gentleMonster at the pinned commit 5fdc25e7d62c
   ok   GEMINI_API_KEY is set
   ok   gemini-3.1-flash-lite is listed and takes generateContent
-  ok   Gemini CLI 0.60.0
+  ok   Gemini CLI 0.60.0 (private, used by `gentlemonster`)
   ok   PIL (for the PDFs)
   ok   numpy (for the PDFs)
   ok   matplotlib (for the PDFs)
   ok   playwright (for the PDFs)
   ok   Chromium starts (the PDFs are drawn in it)
+
+== run 2: state compared with run 1 (~/.zshrc, launcher sha256, extension ref, private CLI version, extensions)
+no change
+export PATH="$HOME/.gentlemonster/bin:$PATH"
+c62e9124dad9cf4b74c7960ac0a275d22d0d195ca092c76844240a90f84cc7af  .gentlemonster/bin/gentlemonster
+{
+  "source": "https://github.com/cogito5170/gentleMonster_gemini",
+  "type": "git",
+  "ref": "f89652bf69819a128e7d63acdc2e236ac591b11b"
+}
+0.60.0
+extension-enablement.json
+gentlemonster
+
+== gentlemonster --version
+0.60.0
+
+== gentlemonster mcp list
 ✓ gentlemonster (from gentlemonster): python3 $HOME/.gemini/extensions/gentlemonster/server.py --tools store (stdio) - Connected
 ✓ gentlemonster-portfolio (from gentlemonster): python3 $HOME/.gemini/extensions/gentlemonster/server.py --tools portfolio (stdio) - Connected
+
+== private CLI replaced by 0.62.0 (npm --prefix), then gentlemonster
+gentlemonster: the private Gemini CLI is 0.62.0, not 0.60.0 -- run: npm install --prefix "$HOME/.gentlemonster/cli" @google/gemini-cli@0.60.0
+exit=1
