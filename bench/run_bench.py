@@ -36,6 +36,7 @@ def completeness(spec, job) -> "tuple[int, list[str]]":
         probs = spec.check(job)
     except Exception as e:                                  # noqa: BLE001 -- a check that crashes is not a pass
         probs = [f"spec.check raised {type(e).__name__}"]
+    crashed = bool(probs) and probs[0].startswith("spec.check raised")
     lay = [p for p in probs if any(w in p for w in ("door", "item", "envelope", "overlap", "circulation", "flows", "share the id"))]
     stp = [p for p in probs if p.startswith("stop ") or "walkthrough stops" in p or "stops hold" in p]
     items = {
@@ -49,8 +50,8 @@ def completeness(spec, job) -> "tuple[int, list[str]]":
         "accent hex": lambda: hexok(job["accent"]),
         "materials 4 presets": lambda: len(job["materials"]) == 4 and all(m.get("preset") in spec.MATERIALS for m in job["materials"]),
         "room": lambda: all(job["room"].get(k) in spec.MATERIALS for k in ("floor", "wall", "ceiling")) and job["room"].get("light") in spec.LIGHTS,
-        "layout": lambda: "layout" in job and not lay and not any("missing" in p for p in probs),
-        "stops": lambda: len(job["stops"]) == 3 and not stp,
+        "layout": lambda: not crashed and "layout" in job and not lay and not any("missing" in p for p in probs),
+        "stops": lambda: not crashed and len(job["stops"]) == 3 and not stp,
     }
     got, miss = 0, []
     for k, f in items.items():
