@@ -251,6 +251,33 @@ ok(hs.get("hookEventName") == "BeforeAgent" and "pf_choose" in hs.get("additiona
 pr = subprocess.run([sys.executable, str(ROOT / "hooks" / "turn_note.py")], input=json.dumps({"prompt": "표지 문구를 추천해라"}), capture_output=True, text=True,
                     env=dict(os.environ), cwd=str(ROOT))
 ok(json.loads(pr.stdout) == {}, "the hook adds nothing to an ordinary turn")
+sec("turn routing from the semantic question data (1-44, BD-190)")
+Q32 = '질문에 대한 대답을 서술하여라. "패션이 왜 중요한가?, 패션을 왜 중요하게 생각하는가?, 좋은 패션이란 무엇이라고 생각하는가?"'
+ok(len(turn.questions_in(Q32)) == 3 and turn.questions_in("Where did you last stop? 이 문구는 어떤가") == [], "embedded questions: three found; one question is not a list")
+turn.record(Q32)
+o = ext_mcp_handle("pf_write", {"kind": "answer", "register": "direct", "language": "ko", "items": [{"text": "옷은 나를 먼저 소개한다. 몸에 맞는 옷이 좋은 옷이다."}]})
+ok(o["ok"] is False and any("3 questions" in p for p in o["problems"]), "P1: three questions answered as one text -> asked for one item per question")
+o = ext_mcp_handle("pf_write", {"kind": "answer", "register": "direct", "language": "ko",
+                                "items": [{"text": "옷은 나를 먼저 소개한다."}, {"text": "매일 아침 옷을 고르기 때문이다."}, {"text": "몸에 맞고 오래 입는 옷이다."}]})
+ok(o["ok"] and len(o["texts"]) == 3, "P1: one item per question is accepted")
+ok("one item per question" in turn.note(turn.current()), "the turn note says so too")
+turn.record("A안을 채택한다. 이어지는 스토리 라인을 제시하여라")
+ok(turn.current()["adopts"] == "A" and turn.current()["flow"], "adoption and page flow are read from the turn")
+o = ext_mcp_handle("pf_pages", {"action": "propose", "after": 2, "options": [{"title": "x", "summary": "길"}, {"title": "y", "summary": "옷"}, {"title": "z", "summary": "집"}]})
+ok(o["ok"] is False and o["next"][0] == {"tool": "pf_choose", "args": {"option": "A"}}, "an adoption goes to pf_choose first")
+turn.mark_chose()
+o = ext_mcp_handle("pf_write", {"kind": "page_text", "register": "direct", "language": "ko", "items": [{"text": "다음 쪽은 신발이다."}]})
+ok(o["ok"] is False and o["next"][0]["tool"] == "pf_pages", "a page-flow turn goes to pf_pages before pf_write")
+o = ext_mcp_handle("pf_pages", {"action": "propose", "after": 2, "options": [{"title": "길", "summary": "길 위의 사람"}, {"title": "옷", "summary": "옷장 속 셔츠"}, {"title": "집", "summary": "창가의 의자"}]})
+ok(o["ok"] and turn.current()["flowed"], "pf_pages propose is accepted and recorded")
+o = ext_mcp_handle("pf_write", {"kind": "page_text", "register": "direct", "language": "ko", "items": [{"text": "다음 쪽은 신발이다."}]})
+ok(o["ok"], "after the page map, page text may be written")
+ok(turn.adopted_in("포트폴리오 표지 문구를 추천해라") is None and turn.adopted_in("go with B") == "B" and turn.adopted_in("pick a photo for page 2") is None,
+   "adoption needs a label and a verb (an English article is not a label)")
+ok("widen_categories" in turn.note(turn.record("스타일의 범주를 확장해라")), "a widen request gets the widen_categories note")
+ok(turn.WIDEN.search("범주를 확장할 수 있다면") and not turn.WIDEN.search("현재 제작 중인 사진 범주의 한 요소"), "widen: asked to widen, not any mention of a category")
+r = PF.call("pf_revise", {"op": "refocus", "arg": "style, expansion of categories", "targets": ["last"], "texts": ["스타일은 머리와 옷, 향까지 본다."]})
+ok(r["ok"] is False and any("widen_categories" in p for p in r["problems"]), "refocus with a list of topics -> the error names widen_categories")
 turn.record("다음")
 st0 = PF.call("pf_write", {"kind": "answer", "register": "direct", "language": "ko", "items": [{"text": "좋은 패션은 몸에 맞는 옷이다."}]})["texts"][0]["id"]
 r = PF.call("pf_revise", {"op": "refocus", "arg": "style", "targets": [st0], "texts": ["좋은 스타일은 몸에 맞게 고른 옷과 신발이다."]})

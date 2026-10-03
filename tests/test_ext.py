@@ -249,6 +249,10 @@ ok("<hook_context>" in seen[-1]["contents"][0]["parts"][-1].get("text", "") and 
 loop.user_turn(hist, {"text": "표지 문구를 추천해라"}, transport=capture, sleep=lambda s: None)
 ok(len(seen[-1]["contents"][2]["parts"]) == 1, "an ordinary turn gets no note")
 
+sl = []
+r = loop.user_turn([], {"text": "x"}, transport=lambda *a: (429, json.dumps({"error": {"details": [{"retryDelay": "45713s"}]}}), {}), sleep=sl.append)
+ok(r["stop"] == "quota_exhausted" and sl == [], "a used-up daily quota stops at once (no waiting it out)")
+
 sec("MCP over stdio (the server Gemini CLI starts)")
 msgs = [{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-03-26"}},
         {"jsonrpc": "2.0", "method": "notifications/initialized"},

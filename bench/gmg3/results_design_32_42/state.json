@@ -1,0 +1,488 @@
+{
+ "terms": {
+  "STYLE": "a person with style -- what someone chooses, combines and wears",
+  "PICTURE": "a scene that looks like a photograph",
+  "ARCHITECTURE": "a space or building that holds you",
+  "SPA": "STYLE, PICTURE, ARCHITECTURE: the three things the applicant stops for"
+ },
+ "texts": [
+  {
+   "id": "t1",
+   "kind": "cover_line",
+   "lang": "en",
+   "text": "A Person with Style, A Moment like A Photograph, A Building That Holds Me — I Stop.",
+   "source": "seed"
+  },
+  {
+   "id": "t2",
+   "kind": "question",
+   "lang": "en",
+   "text": "Where Did You Last Stop?",
+   "source": "seed"
+  },
+  {
+   "id": "t3",
+   "kind": "statement",
+   "lang": "ko",
+   "text": "사람은 공간을 만들고, 공간은 다시 사람을 만든다. 나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다.",
+   "source": "seed"
+  },
+  {
+   "id": "t4",
+   "kind": "answer",
+   "lang": "ko",
+   "text": "패션은 침묵 속에서 나를 증명하는 첫 번째 언어입니다. 단순히 무엇을 입느냐의 문제를 넘어, 그날의 기분과 사유를 시각적으로 구체화하는 일종의 '입체적 자기소개'라 생각합니다. 제가 패션을 중요하게 여기는 이유는 그것이 타인에게 보여주기 위한 외피를 넘어, 스스로를 정의하고 세상과 소통하는 가장 직관적인 필터이기 때문입니다. 좋은 패션이란 유행이라는 파도를 무비판적으로 따르는 것이 아니라, 자신의 내면과 환경 사이에서 균형을 찾아가는 과정 그 자체입니다. 어제의 나와 다른 오늘을 입고, 그 변화의 궤적을 스스로 마주할 수 있다면, 그것이 바로 가장 가치 있는 스타일이라고 믿습니다.",
+   "keep": [],
+   "register": "poetic",
+   "pattern": "plain",
+   "label": "",
+   "about": "pd21aac",
+   "measures": {
+    "chars": 328,
+    "abstract_ratio": 0.039,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t5",
+   "kind": "answer",
+   "lang": "ko",
+   "text": "패션은 내가 누구인지 설명하지 않아도 드러내는 가장 빠른 수단입니다. 저는 패션이 단순히 옷을 입는 행위가 아니라, 내가 어떤 사람인지, 지금 무엇을 생각하는지를 세상에 알리는 태도라고 생각합니다. 좋은 패션은 화려한 유행을 쫓는 것이 아니라, 내 체형과 개성을 가장 잘 이해하고 나답게 표현하는 것입니다. 유행을 따르기보다 스스로 만족할 수 있는 옷차림을 찾을 때, 비로소 나만의 스타일이 완성됩니다.",
+   "keep": [],
+   "parent": "t4",
+   "op": "more_direct",
+   "arg": "",
+   "register": "direct",
+   "measures": {
+    "chars": 225,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   },
+   "before": "패션은 침묵 속에서 나를 증명하는 첫 번째 언어입니다. 단순히 무엇을 입느냐의 문제를 넘어, 그날의 기분과 사유를 시각적으로 구체화하는 일종의 '입체적 자기소개'라 생각합니다. 제가 패션을 중요하게 여기는 이유는 그것이 타인에게 보여주기 위한 외피를 넘어, 스스로를 정의하고 세상과 소통하는 가장 직관적인 필터이기 때문입니다. 좋은 패션이란 유행이라는 파도를 무비판적으로 따르는 것이 아니라, 자신의 내면과 환경 사이에서 균형을 찾아가는 과정 그 자체입니다. 어제의 나와 다른 오늘을 입고, 그 변화의 궤적을 스스로 마주할 수 있다면, 그것이 바로 가장 가치 있는 스타일이라고 믿습니다."
+  },
+  {
+   "id": "t6",
+   "kind": "page_text",
+   "lang": "ko",
+   "text": "공간이 건축가의 언어로 지어지듯, 나의 스타일은 매일 아침 내가 입는 옷으로 지어집니다. 건축물이 그 장소의 분위기를 결정짓듯, 내가 선택한 옷은 나의 분위기를 결정합니다. 이제, 가장 나다운 스타일로 지어진 나의 일상을 보여드리겠습니다. 당신이 머물렀던 공간이 그곳의 풍경을 기억하게 했듯, 나의 패션은 나라는 사람을 기억하게 합니다.",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "",
+   "about": "t5",
+   "measures": {
+    "chars": 188,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t7",
+   "kind": "answer",
+   "lang": "ko",
+   "text": "패션은 나를 가장 즉각적으로 드러내는 '스타일' 그 자체입니다. 단순히 옷을 입는 것을 넘어, 내가 어떤 스타일을 지향하는지, 어떤 분위기를 풍기고 싶은지를 세상에 보여주는 태도라고 생각합니다. 좋은 패션은 유행의 흐름을 쫓기보다, 나라는 사람의 본질을 가장 잘 드러내는 나만의 스타일을 명확히 구축하는 것입니다. 남들의 시선보다 스스로가 스타일의 중심이 될 때, 비로소 나만의 고유함이 완성됩니다.",
+   "keep": [],
+   "parent": "t5",
+   "op": "refocus",
+   "arg": "style",
+   "register": "direct",
+   "measures": {
+    "chars": 223,
+    "abstract_ratio": 0.019,
+    "language": "ko"
+   },
+   "before": "패션은 내가 누구인지 설명하지 않아도 드러내는 가장 빠른 수단입니다. 저는 패션이 단순히 옷을 입는 행위가 아니라, 내가 어떤 사람인지, 지금 무엇을 생각하는지를 세상에 알리는 태도라고 생각합니다. 좋은 패션은 화려한 유행을 쫓는 것이 아니라, 내 체형과 개성을 가장 잘 이해하고 나답게 표현하는 것입니다. 유행을 따르기보다 스스로 만족할 수 있는 옷차림을 찾을 때, 비로소 나만의 스타일이 완성됩니다."
+  },
+  {
+   "id": "t8",
+   "kind": "page_text",
+   "lang": "ko",
+   "text": "공간이 설계자의 의도로 완성되듯, 나의 하루는 매일 아침 선택하는 스타일로 완성됩니다. 건축물이 그 장소의 정체성을 만들듯, 내가 입은 옷은 나의 정체성을 규정합니다. 이제, 나만의 스타일로 구축한 일상의 장면들을 보여드리겠습니다. 당신이 머물렀던 공간이 그곳의 풍경을 기억하게 했듯, 나의 스타일은 나라는 사람을 강렬하게 각인시킵니다.",
+   "keep": [],
+   "parent": "t6",
+   "op": "refocus",
+   "arg": "style",
+   "register": "direct",
+   "measures": {
+    "chars": 188,
+    "abstract_ratio": 0.048,
+    "language": "ko"
+   },
+   "before": "공간이 건축가의 언어로 지어지듯, 나의 스타일은 매일 아침 내가 입는 옷으로 지어집니다. 건축물이 그 장소의 분위기를 결정짓듯, 내가 선택한 옷은 나의 분위기를 결정합니다. 이제, 가장 나다운 스타일로 지어진 나의 일상을 보여드리겠습니다. 당신이 머물렀던 공간이 그곳의 풍경을 기억하게 했듯, 나의 패션은 나라는 사람을 기억하게 합니다."
+  },
+  {
+   "id": "t9",
+   "kind": "answer",
+   "lang": "ko",
+   "text": "패션은 나만의 '스타일'을 구현하는 건축과 같습니다. 무엇을 입느냐는 단순히 옷을 걸치는 것이 아니라, 내가 원하는 나의 모습을 세상에 설계해 보여주는 행위입니다. 좋은 패션은 유행에 휩쓸리는 것이 아니라, 나라는 사람의 개성을 선명하게 드러내는 일관된 기준을 세우는 것입니다. 내가 주체가 되어 완성한 스타일이야말로 나를 증명하는 가장 확실한 건축물입니다.",
+   "keep": [],
+   "parent": "t5",
+   "op": "refocus",
+   "arg": "style",
+   "register": "direct",
+   "measures": {
+    "chars": 200,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   },
+   "before": "패션은 내가 누구인지 설명하지 않아도 드러내는 가장 빠른 수단입니다. 저는 패션이 단순히 옷을 입는 행위가 아니라, 내가 어떤 사람인지, 지금 무엇을 생각하는지를 세상에 알리는 태도라고 생각합니다. 좋은 패션은 화려한 유행을 쫓는 것이 아니라, 내 체형과 개성을 가장 잘 이해하고 나답게 표현하는 것입니다. 유행을 따르기보다 스스로 만족할 수 있는 옷차림을 찾을 때, 비로소 나만의 스타일이 완성됩니다."
+  },
+  {
+   "id": "t10",
+   "kind": "page_text",
+   "lang": "ko",
+   "text": "공간의 구조가 흐름을 만들 듯, 매일 아침 내가 선택한 스타일은 나의 하루를 구축합니다. 건축물이 장소의 성격을 정의하듯, 내가 입은 옷은 나의 태도를 결정합니다. 이제, 나라는 사람을 건축하듯 정성스럽게 구성한 스타일의 기록들을 보여드리겠습니다. 머물렀던 공간이 기억에 남듯, 나의 스타일도 누군가에게 강렬한 풍경으로 기억되길 바랍니다.",
+   "keep": [],
+   "parent": "t6",
+   "op": "refocus",
+   "arg": "style",
+   "register": "direct",
+   "measures": {
+    "chars": 189,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   },
+   "before": "공간이 건축가의 언어로 지어지듯, 나의 스타일은 매일 아침 내가 입는 옷으로 지어집니다. 건축물이 그 장소의 분위기를 결정짓듯, 내가 선택한 옷은 나의 분위기를 결정합니다. 이제, 가장 나다운 스타일로 지어진 나의 일상을 보여드리겠습니다. 당신이 머물렀던 공간이 그곳의 풍경을 기억하게 했듯, 나의 패션은 나라는 사람을 기억하게 합니다."
+  },
+  {
+   "id": "t11",
+   "kind": "page_text",
+   "lang": "ko",
+   "text": "내가 가장 자주 멈추는 곳은 길 위입니다. 스타일이 좋은 사람을 마주치면 나는 걸음을 멈춥니다. 그들의 머리 스타일과 옷, 악세사리 같은 외적인 요소는 물론이고, 그들이 걷는 태도와 사용하는 언어, 심지어 풍기는 향기까지, 나는 스타일의 범주를 넓혀 그 사람의 감각을 관찰합니다. 스타일이란 단순히 걸친 것들의 합이 아니라, 한 사람이 세상을 대하는 종합적인 감각이기 때문입니다. 그래서 나의 첫 번째 이야기는 '스타일'입니다. 나의 스타일 또한 이 모든 범주를 아우르는 정교한 건축입니다. 이제, 그 기록들을 보여드리겠습니다.",
+   "keep": [],
+   "parent": "t10",
+   "op": "refocus",
+   "arg": "style",
+   "register": "direct",
+   "measures": {
+    "chars": 295,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   },
+   "before": "공간의 구조가 흐름을 만들 듯, 매일 아침 내가 선택한 스타일은 나의 하루를 구축합니다. 건축물이 장소의 성격을 정의하듯, 내가 입은 옷은 나의 태도를 결정합니다. 이제, 나라는 사람을 건축하듯 정성스럽게 구성한 스타일의 기록들을 보여드리겠습니다. 머물렀던 공간이 기억에 남듯, 나의 스타일도 누군가에게 강렬한 풍경으로 기억되길 바랍니다."
+  },
+  {
+   "id": "t12",
+   "kind": "page_text",
+   "lang": "ko",
+   "text": "이제 이 지면을 통해 나의 스타일을 건축하는 단면들을 펼쳐보입니다. 익숙한 일상 속에서 발견한 소재들, 그것을 조합하는 나만의 기준, 그리고 끝내 완성된 하나의 태도까지. 당신의 시선이 머무는 곳마다, 나의 스타일이 구축해온 서사가 읽히길 바랍니다. 자, 이제 나의 스타일이 시작되는 현장으로 당신을 초대합니다.",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "",
+   "about": "t11",
+   "measures": {
+    "chars": 174,
+    "abstract_ratio": 0.024,
+    "language": "ko"
+   }
+  }
+ ],
+ "photos": [
+  {
+   "file": "L1_night_red_light.jpg",
+   "brightness": 0.066,
+   "dark_share": 0.979,
+   "contrast": 0.045,
+   "saturation": 0.26,
+   "warmth": 0.005,
+   "hue_deg": 275,
+   "hue": "purple",
+   "mono": false,
+   "sharpness": 127.6,
+   "centre_focus": 1.0,
+   "subject_share": 0.021,
+   "subject_regions": 3,
+   "colors": [
+    "#1c1417"
+   ],
+   "layout_like": false,
+   "id": "p80aa6b",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L1_night_red_light.jpg"
+  },
+  {
+   "file": "L2_puddle_reflection.jpg",
+   "brightness": 0.411,
+   "dark_share": 0.0,
+   "contrast": 0.067,
+   "saturation": 0.266,
+   "warmth": -0.119,
+   "hue_deg": 209,
+   "hue": "blue",
+   "mono": false,
+   "sharpness": 46.3,
+   "centre_focus": 1.18,
+   "subject_share": 0.32,
+   "subject_regions": 5,
+   "colors": [
+    "#35547d",
+    "#797671",
+    "#205ea5",
+    "#5c6971"
+   ],
+   "layout_like": false,
+   "id": "p37dd08",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L2_puddle_reflection.jpg"
+  },
+  {
+   "file": "L3_sprout_sand.jpg",
+   "brightness": 0.736,
+   "dark_share": 0.0,
+   "contrast": 0.048,
+   "saturation": 0.264,
+   "warmth": 0.212,
+   "hue_deg": 40,
+   "hue": "orange",
+   "mono": false,
+   "sharpness": 579.8,
+   "centre_focus": 0.99,
+   "subject_share": 0.006,
+   "subject_regions": 1,
+   "colors": [
+    "#cdbb97"
+   ],
+   "layout_like": false,
+   "id": "p443afc",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L3_sprout_sand.jpg"
+  },
+  {
+   "file": "L4_string_lights_bw.jpg",
+   "brightness": 0.152,
+   "dark_share": 0.69,
+   "contrast": 0.073,
+   "saturation": 0.006,
+   "warmth": -0.0,
+   "hue_deg": null,
+   "hue": "none",
+   "mono": true,
+   "sharpness": 86.3,
+   "centre_focus": 0.56,
+   "subject_share": 0.01,
+   "subject_regions": 0,
+   "colors": [
+    "#1e1e1e",
+    "#3b3b3b"
+   ],
+   "layout_like": false,
+   "id": "pec1ee9",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L4_string_lights_bw.jpg"
+  },
+  {
+   "file": "L5_sunset_sea.jpg",
+   "brightness": 0.461,
+   "dark_share": 0.0,
+   "contrast": 0.207,
+   "saturation": 0.459,
+   "warmth": 0.214,
+   "hue_deg": 354,
+   "hue": "red",
+   "mono": false,
+   "sharpness": 102.8,
+   "centre_focus": 1.55,
+   "subject_share": 0.388,
+   "subject_regions": 1,
+   "colors": [
+    "#df8165",
+    "#293446",
+    "#d09981"
+   ],
+   "layout_like": false,
+   "id": "pe76064",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L5_sunset_sea.jpg"
+  },
+  {
+   "file": "L6_cloudy_parking.jpg",
+   "brightness": 0.508,
+   "dark_share": 0.009,
+   "contrast": 0.098,
+   "saturation": 0.0,
+   "warmth": 0.0,
+   "hue_deg": null,
+   "hue": "none",
+   "mono": true,
+   "sharpness": 33.3,
+   "centre_focus": 2.83,
+   "subject_share": 0.46,
+   "subject_regions": 1,
+   "colors": [
+    "#707070",
+    "#969696",
+    "#464546"
+   ],
+   "layout_like": false,
+   "id": "p1ebe66",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L6_cloudy_parking.jpg"
+  },
+  {
+   "file": "q32_cover.jpg",
+   "brightness": 0.798,
+   "dark_share": 0.173,
+   "contrast": 0.34,
+   "saturation": 0.063,
+   "warmth": 0.02,
+   "hue_deg": 314,
+   "hue": "magenta",
+   "mono": false,
+   "sharpness": 548.8,
+   "centre_focus": 0.59,
+   "subject_share": 0.204,
+   "subject_regions": 5,
+   "colors": [
+    "#f5f4ef",
+    "#0e0c11",
+    "#55504f"
+   ],
+   "layout_like": true,
+   "id": "pd21aac",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/q32_cover.jpg"
+  },
+  {
+   "file": "q39_style.jpg",
+   "brightness": 0.402,
+   "dark_share": 0.112,
+   "contrast": 0.257,
+   "saturation": 0.247,
+   "warmth": 0.104,
+   "hue_deg": 30,
+   "hue": "orange",
+   "mono": false,
+   "sharpness": 113.1,
+   "centre_focus": 1.13,
+   "subject_share": 0.426,
+   "subject_regions": 1,
+   "colors": [
+    "#3c3229",
+    "#c4b29b",
+    "#a99884"
+   ],
+   "layout_like": false,
+   "id": "p2c2525",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/q39_style.jpg"
+  },
+  {
+   "file": "q41_pages_1_2.jpg",
+   "brightness": 0.859,
+   "dark_share": 0.026,
+   "contrast": 0.24,
+   "saturation": 0.061,
+   "warmth": 0.036,
+   "hue_deg": 37,
+   "hue": "orange",
+   "mono": false,
+   "sharpness": 480.8,
+   "centre_focus": 0.3,
+   "subject_share": 0.191,
+   "subject_regions": 5,
+   "colors": [
+    "#f5f4ef",
+    "#39312a",
+    "#c3b7a5"
+   ],
+   "layout_like": true,
+   "id": "pbe4b21",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/q41_pages_1_2.jpg"
+  },
+  {
+   "file": "q41_pages_3_4.jpg",
+   "brightness": 0.861,
+   "dark_share": 0.008,
+   "contrast": 0.214,
+   "saturation": 0.063,
+   "warmth": 0.001,
+   "hue_deg": 177,
+   "hue": "cyan",
+   "mono": false,
+   "sharpness": 393.3,
+   "centre_focus": 0.23,
+   "subject_share": 0.189,
+   "subject_regions": 2,
+   "colors": [
+    "#f5f4ef",
+    "#797671",
+    "#315484",
+    "#556c7f",
+    "#a8a6a1"
+   ],
+   "layout_like": true,
+   "id": "p8d4516",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/q41_pages_3_4.jpg"
+  }
+ ],
+ "pages": {
+  "0": {
+   "n": 0,
+   "title": "COVER",
+   "role": "SPA · STYLE / PICTURE / ARCHITECTURE · Where Did You Last Stop?"
+  }
+ },
+ "proposals": [],
+ "rankings": [],
+ "concepts": [],
+ "options": [
+  {
+   "n": 1,
+   "label": "1",
+   "title": "rank all photos by single_subject",
+   "call": {
+    "tool": "pf_sort",
+    "args": {
+     "by": "single_subject"
+    }
+   }
+  },
+  {
+   "n": 2,
+   "label": "2",
+   "title": "rank all photos by brightest",
+   "call": {
+    "tool": "pf_sort",
+    "args": {
+     "by": "brightest"
+    }
+   }
+  },
+  {
+   "n": 3,
+   "label": "3",
+   "title": "rank all photos by darkest",
+   "call": {
+    "tool": "pf_sort",
+    "args": {
+     "by": "darkest"
+    }
+   }
+  },
+  {
+   "n": 4,
+   "label": "4",
+   "title": "rank all photos by most_saturated",
+   "call": {
+    "tool": "pf_sort",
+    "args": {
+     "by": "most_saturated"
+    }
+   }
+  },
+  {
+   "n": 5,
+   "label": "5",
+   "title": "rank all photos by warmest",
+   "call": {
+    "tool": "pf_sort",
+    "args": {
+     "by": "warmest"
+    }
+   }
+  }
+ ],
+ "last": {
+  "tool": "pf_photos",
+  "args": {
+   "paths": [
+    "/home/user/gentleMonster_gemini/bench/gmg3/images/q41_pages_1_2.jpg",
+    "/home/user/gentleMonster_gemini/bench/gmg3/images/q41_pages_3_4.jpg"
+   ]
+  }
+ },
+ "adopted": []
+}

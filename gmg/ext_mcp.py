@@ -140,6 +140,8 @@ def handle(msg: dict):
                     r = turn.gate(p.get("name") or "") or agent.call(p.get("name"), p.get("arguments") or {})
                     if p.get("name") == "pf_choose" and r.get("ok"):
                         turn.mark_chose()
+                    if p.get("name") == "pf_pages" and r.get("ok"):
+                        turn.mark_flowed()
                     um = turn.unmeasured()
                     if um and p.get("name") != "pf_photos":
                         r["unmeasured_images"] = um

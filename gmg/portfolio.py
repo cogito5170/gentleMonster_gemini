@@ -13,7 +13,7 @@ import hashlib
 import re
 from pathlib import Path
 
-from gmg import upstream
+from gmg import turn, upstream
 from gmg.ledger import Ledger
 
 KINDS = ["answer", "cover_line", "statement", "question", "caption", "page_text", "sector"]   # page flow is pf_pages, not text
@@ -253,6 +253,9 @@ def pf_write(kind: str, items, register: str = "direct", language: str = "ko", m
     if not items:
         raise ToolError(["items is empty; give one or more {text, pattern, label}"], [{"tool": "pf_write"}])
     probs = []
+    asked = (turn.current() or {}).get("questions") or []
+    if kind == "answer" and len(items) < len(asked):
+        probs.append(f"the request asks {len(asked)} questions ({' / '.join(asked)}); give one item per question, in order (got {len(items)})")
     for i, it in enumerate(items):
         pat = it.get("pattern", "plain") if it.get("pattern") in PATTERNS else "plain"
         b, _ = gates(str(it.get("text", "")), register, language, int(max_chars or 0), pat, keep or ())
@@ -299,6 +302,9 @@ def _op_check(op, arg, old, new, lang, keep=()) -> "list[str]":
         topic = (arg or "").strip()
         if not topic:
             bad.append("refocus needs arg = the topic")
+        elif re.search(r"[,·/]", topic):
+            bad.append(f"refocus takes one topic word, got a list ({topic!r}): refocus on one word (e.g. {re.split(r'[,·/]', topic)[0].strip()!r}), "
+                       "or use op=widen_categories with arg = the category words to add more kinds of things")
         elif _has(new, topic) <= _has(old, topic) and not _has(new, topic):
             bad.append(f"the new text does not centre on {topic!r} (any of {sorted(forms(topic))} appears {_has(new, topic)} times)")
     elif op == "widen_categories":

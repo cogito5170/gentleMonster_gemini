@@ -19,6 +19,8 @@ PROMPT_BRAND = "\nBrand: {brand}"
 _KEEP = {"type", "enum", "properties", "required", "items", "description"}
 
 
+QUOTA_GONE = 600      # a server delay longer than this is a used-up daily quota: stop at once, do not wait it out
+
 def _served(turns):
     """The API names the model that served each response (modelVersion); record the last one of this turn."""
     ms = [t["reported"] for t in turns if t.get("reported") and t["reported"] != "미보고"]
@@ -59,11 +61,11 @@ def run(brief: str, brand: str = "", transport=None, model: str = "", max_turns:
                 break
             w = _retry_delay(text, rh)
             turns.append({"turn": turn, "attempt": attempt, "http": code, "wait": w})
-            if code not in (429, 500, 502, 503, 504) or attempt == 5:
+            if code not in (429, 500, 502, 503, 504) or attempt == 5 or (w or 0) > QUOTA_GONE:
                 break
             sleep(min(w, 60) if w is not None else 2 ** attempt)
         if d is None:
-            stop = "http_error"
+            stop = "quota_exhausted" if (turns[-1].get("wait") or 0) > QUOTA_GONE else "http_error"
             break
         cand = (d.get("candidates") or [{}])[0]
         usage = d.get("usageMetadata") or {}
@@ -139,11 +141,11 @@ def user_turn(contents: list, q: dict, transport=None, model: str = "", max_turn
                 break
             w = _retry_delay(txt, rh)
             rec["turns"].append({"turn": turn, "attempt": attempt, "http": code, "wait": w})
-            if code not in (429, 500, 502, 503, 504) or attempt == 5:
+            if code not in (429, 500, 502, 503, 504) or attempt == 5 or (w or 0) > QUOTA_GONE:
                 break
             sleep(min(w, 60) if w is not None else 2 ** attempt)
         if d is None:
-            rec["stop"] = "http_error"
+            rec["stop"] = "quota_exhausted" if (rec["turns"][-1].get("wait") or 0) > QUOTA_GONE else "http_error"
             break
         cand = (d.get("candidates") or [{}])[0]
         rec["turns"].append({"turn": turn, "ms": int((time.time() - ts) * 1000), "finish": cand.get("finishReason"),

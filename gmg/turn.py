@@ -26,8 +26,34 @@ def images_in(prompt: str) -> "list[str]":
     return list(dict.fromkeys(found))
 
 
+def questions_in(prompt: str) -> "list[str]":
+    """Questions written inside the turn ("..?, ..?, ..?"), in order; fewer than two -> []."""
+    qs = [q.strip(" ,\"'“”‘’\n") for q in re.findall(r"[^?？\"“”\n,]+[?？]", re.sub(r"\[attached:[^\]]*\]", "", prompt or ""))]
+    qs = [q for q in qs if len(q) >= 4]
+    return qs if len(qs) >= 2 else []
+
+
+ADOPT = re.compile(r"(?<![A-Za-z0-9])([A-Ha-h1-8])\s*(?:안|案|번|option)?\s*(?:을|를|으로|로)?\s*(?:채택|선택|고른다|고르겠|adopt|choose|go with|pick)"
+                   r"|(?:adopt|choose|go with|pick)\s+(?:option\s+([A-Ha-h1-8])|((?-i:[A-H1-8])))(?![A-Za-z0-9])", re.I)
+
+
+def adopted_in(prompt: str) -> "str | None":
+    """The option label a turn adopts ("A안을 채택한다", "adopt B"), or None."""
+    m = ADOPT.search(prompt or "")
+    return next(g for g in m.groups() if g).upper() if m else None
+
+
+FLOW = re.compile(r"스토리\s*라인|story\s*-?line|이어지는\s*(?:스토리|이야기|페이지|흐름)|다음\s*(?:페이지|지면|장)|페이지\s*(?:구성|흐름|순서|방향)|page\s*(?:flow|order|map)|next\s*page", re.I)
+
+
+WIDEN = re.compile(r"(?:범주|카테고리|categor\w*)[^.?!\n]{0,20}(?:확장|넓|늘리|추가)|(?:widen|expand|broaden|add)[^.?!\n]{0,20}categor", re.I)
+
+
 def record(prompt: str) -> dict:
-    t = {"prompt": (prompt or "")[:2000], "terse": bool(TERSE.match(prompt or "")), "images": images_in(prompt), "chose": False}
+    t = {"prompt": (prompt or "")[:2000], "terse": bool(TERSE.match(prompt or "")), "images": images_in(prompt), "chose": False,
+         "questions": [] if TERSE.match(prompt or "") else questions_in(prompt), "adopts": adopted_in(prompt),
+         "flow": bool(FLOW.search(prompt or "")) and not TERSE.match(prompt or ""), "flowed": False,
+         "widen": bool(WIDEN.search(prompt or ""))}
     p = _path()
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(t, ensure_ascii=False))
@@ -43,6 +69,15 @@ def note(t: "dict | None") -> "str | None":
     if t["terse"]:
         out.append(f"The user's reply {t['prompt'].strip()!r} picks or retries an earlier option: call pf_choose with it "
                    "first, then continue from what it returns.")
+    if t.get("adopts") and not t["terse"]:
+        out.append(f"The user adopts option {t['adopts']}: record it with pf_choose ({t['adopts']!r}) before doing what comes next.")
+    if t.get("flow"):
+        out.append("The user asks about the story line / page flow: keep it in the page map with pf_pages (set the pages the user "
+                   "describes, then propose exactly 3 options for what follows); write page text only after that.")
+    if t.get("widen"):
+        out.append("The user asks to widen the categories: use pf_revise op=widen_categories, arg = the category words, comma-separated.")
+    if t.get("questions"):
+        out.append(f"The request asks {len(t['questions'])} questions: answer them with pf_write kind=answer, one item per question, in order.")
     if t["images"]:
         out.append(f"{len(t['images'])} image(s) attached ({', '.join(Path(i).name for i in t['images'])}): measure them "
                    "with pf_photos before describing, sorting or ranking them; cite the measured values, not your impression.")
@@ -56,19 +91,37 @@ def current() -> "dict | None":
         return None
 
 
-def mark_chose() -> None:
+def _mark(key: str) -> None:
     t = current()
     if t:
-        t["chose"] = True
+        t[key] = True
         _path().write_text(json.dumps(t, ensure_ascii=False))
 
 
+def mark_chose() -> None:
+    _mark("chose")
+
+
+def mark_flowed() -> None:
+    _mark("flowed")
+
+
 def gate(tool: str) -> "dict | None":
-    """A result that redirects the call, or None. Only a terse reply is redirected (to pf_choose, once)."""
+    """A result that redirects the call, or None.
+    - a terse reply or an adoption ("A안을 채택") goes to pf_choose first (once);
+    - a turn about the story line / page flow goes to pf_pages before pf_write (once)."""
     t = current()
-    if t and t["terse"] and not t["chose"] and tool.startswith("pf_") and tool not in ("pf_choose", "pf_show"):
-        return {"ok": False, "problems": [f"the user's reply was {t['prompt'].strip()!r}: resolve it with pf_choose first"],
-                "next": [{"tool": "pf_choose", "args": {"option": t["prompt"].strip()}}]}
+    if not t or not tool.startswith("pf_") or tool == "pf_show":
+        return None
+    pick = t["prompt"].strip() if t["terse"] else t.get("adopts")
+    if pick and not t["chose"] and tool != "pf_choose":
+        why = f"the user's reply was {pick!r}" if t["terse"] else f"the user adopts option {pick}"
+        return {"ok": False, "problems": [f"{why}: resolve it with pf_choose first"], "next": [{"tool": "pf_choose", "args": {"option": pick}}]}
+    if t.get("flow") and not t.get("flowed") and tool == "pf_write":
+        return {"ok": False, "problems": ["this turn is about the story line / page flow: put it in the page map with pf_pages first "
+                                          "(action set for the pages the user describes, action propose for exactly 3 options of what follows)"],
+                "next": [{"tool": "pf_pages", "args": {"action": "set", "pages": "[{n, title, role}]"}},
+                         {"tool": "pf_pages", "args": {"action": "propose", "after": "page number", "options": "3 x {title, summary}"}}]}
     return None
 
 
