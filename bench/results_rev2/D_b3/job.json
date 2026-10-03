@@ -1,89 +1,89 @@
 {
- "brand": "Gentle Monster",
- "title": "The Scented Library",
- "subtitle": "A sanctuary of basalt and aromatic reflection in Jeju.",
- "line": "Where the library ends, the scent begins, flowing through stone and wood to reveal a new path.",
- "quote": "Silence is the scent of a story left unread.",
- "synopsis": "You enter a space where the scent of old paper lingers in the air, drifting between towering walls of wooden shelves. At the heart of the room, you pause before a cleansing ritual basin carved from black basalt, its presence grounding the space. You circle the stone, feeling the weight of the volcanic island before following the perimeter. Finally, you reach the counter at the back, leaving with a fragrance that echoes the quiet stillness of the room.",
+ "brand": "Aesop",
+ "title": "The Archive of Scents",
+ "subtitle": "Aesop Jeju: Where literature ends and fragrance begins.",
+ "line": "A quiet sanctuary where the scent of aged paper lingers amidst volcanic stone.",
+ "quote": "An olfactory library carved from the breath of Jeju.",
+ "synopsis": "You step into a space that feels like a forgotten archive, where the walls are composed of dark Jeju stone. The central stone basin serves as the anchor, inviting you to perform a silent, ritualistic cleansing that cleanses the mind as well as the hands. As you follow the path, the warmth of the shelves replaces the cold stone, guiding you through a collection of scents that mirror the depth of a library. Each step here is a journey through memory and scent, sheltered from the world outside.",
  "keywords": [
-  "volcanic solitude",
-  "paper memories",
-  "cleansing ritual"
+  "archival silence",
+  "volcanic whispers",
+  "ritualistic cleansing"
  ],
  "why": [
   {
-   "t": "The shelves create a sense of immersion within",
-   "d": "Shelf walls (scent library shelves) wrap the left, right and back of the 12 x 10 m room. The shelves create a sense of immersion within an endless collection of bottled memories."
+   "t": "The shelf walls define the boundaries of the",
+   "d": "Shelf walls (Shelves for fragrance bottles) wrap the left, right and back of the 12 x 10 m room. The shelf walls define the boundaries of the room, creating an immersive, book-like enclosure for the product."
   },
   {
-   "t": "The central basin forces an immediate shift in",
-   "d": "The centre object (cleansing ritual basin) is the first stop, 4.2 m in from the door. The central basin forces an immediate shift in focus, grounding you in a physical experience of purification."
+   "t": "The central stone basin acts as the primary",
+   "d": "The centre object (The central stone basin) is the first stop, 4.2 m in from the door. The central stone basin acts as the primary sensory focal point, grounding your visit in a moment of quiet reflection."
   },
   {
-   "t": "Circling the central piece creates a natural",
-   "d": "The route circles it first, then follows the shelves. Circling the central piece creates a natural, unhurried flow that respects the meditative nature of the space."
+   "t": "The circulation encourages a contemplative",
+   "d": "The route circles it first, then follows the shelves. The circulation encourages a contemplative pace, moving from the cleansing ritual to the discovery of the scents."
   },
   {
-   "t": "The back counter offers a secluded conclusion",
-   "d": "The counter (transaction counter) sits at the back, off the loop. The back counter offers a secluded conclusion to your exploration, tucked away from the main path."
+   "t": "The counter at the back provides a final",
+   "d": "The counter (Service counter at the back) sits at the back, off the loop. The counter at the back provides a final, grounded point for interaction before you complete your journey."
   }
  ],
  "palette": [
   {
-   "hex": "#2b2b2b",
-   "name": "Basalt Black"
+   "hex": "#2e2e2e",
+   "name": "Basalt"
   },
   {
-   "hex": "#e0d4c3",
-   "name": "Warm Paper"
+   "hex": "#d2b48c",
+   "name": "Clay Earth"
   },
   {
-   "hex": "#d1c4a5",
-   "name": "Cedar Wood"
+   "hex": "#f5f5f0",
+   "name": "Paper White"
   },
   {
-   "hex": "#f5f5f5",
-   "name": "Mist White"
+   "hex": "#8b4513",
+   "name": "Deep Oak"
   },
   {
-   "hex": "#a0a0a0",
-   "name": "Concrete Grey"
+   "hex": "#b0c4de",
+   "name": "Soft Fog"
   }
  ],
- "accent": "#2b2b2b",
+ "accent": "#2e2e2e",
  "materials": [
   {
-   "name": "Basalt Stone",
-   "where": "floor, cleansing ritual basin, transaction counter",
+   "name": "Basalt Black Stone",
+   "where": "walls, the central stone basin, service counter at the back",
    "preset": "black_stone"
   },
   {
-   "name": "Aged Cedar Wood",
-   "where": "ceiling, scent library shelves",
-   "preset": "wood"
+   "name": "Earthy Strata Clay",
+   "where": "floor",
+   "preset": "strata_clay"
   },
   {
-   "name": "Raw Lime Plaster",
-   "where": "walls",
+   "name": "Soft Lime Plaster",
+   "where": "ceiling",
    "preset": "lime_plaster"
   },
   {
-   "name": "Polished Concrete",
-   "where": "details",
-   "preset": "concrete"
+   "name": "Aged Library Oak",
+   "where": "shelves for fragrance bottles",
+   "preset": "wood"
   }
  ],
  "room": {
-  "floor": "black_stone",
-  "wall": "lime_plaster",
-  "ceiling": "wood",
+  "floor": "strata_clay",
+  "wall": "black_stone",
+  "ceiling": "lime_plaster",
   "light": "warm_spot",
   "fog": 0.02,
   "beams": false,
   "dome": true
  },
  "layout": {
-  "name": "The Scented Library — Gentle Monster",
+  "name": "The Archive of Scents — Aesop",
   "W": 12.0,
   "D": 10.0,
   "H": 4.2,
@@ -109,7 +109,7 @@
     "x1": 10.0,
     "y1": 8.2,
     "h": 0,
-    "label": "main area",
+    "label": "The central library floor area",
     "zone": "exp",
     "shape": "zone"
    },
@@ -121,7 +121,7 @@
     "x1": 0.6,
     "y1": 9.4,
     "h": 2.6,
-    "label": "scent library shelves",
+    "label": "Shelves for fragrance bottles",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "wood"
@@ -134,7 +134,7 @@
     "x1": 11.4,
     "y1": 10.0,
     "h": 2.6,
-    "label": "scent library shelves",
+    "label": "Shelves for fragrance bottles",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "wood"
@@ -147,7 +147,7 @@
     "x1": 12.0,
     "y1": 9.4,
     "h": 2.6,
-    "label": "scent library shelves",
+    "label": "Shelves for fragrance bottles",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "wood"
@@ -160,7 +160,7 @@
     "x1": 7.0,
     "y1": 5.8,
     "h": 0.9,
-    "label": "cleansing ritual basin",
+    "label": "The central stone basin",
     "zone": "exp",
     "shape": "basin",
     "material": "black_stone",
@@ -174,7 +174,7 @@
     "x1": 8.5,
     "y1": 8.7,
     "h": 1.0,
-    "label": "transaction counter",
+    "label": "Service counter at the back",
     "zone": "pay",
     "shape": "box",
     "material": "black_stone"
@@ -245,7 +245,7 @@
       0.4
      ]
     ],
-    "color": "#2b2b2b"
+    "color": "#2e2e2e"
    }
   ],
   "entry": [
@@ -270,8 +270,8 @@
    ],
    "h": 1.38,
    "d": 3.6,
-   "cap": "I step into the quiet, and my eyes are immediately drawn to the dark, grounding",
-   "sub": "The scent of paper and damp earth settles around me."
+   "cap": "I stand before the silent basin, the heart of this stone sanctuary.",
+   "sub": "The water ripples against the dark, grounding volcanic rock."
   },
   {
    "at": [
@@ -285,8 +285,8 @@
    ],
    "h": 1.55,
    "d": 2.8,
-   "cap": "Walking toward the walls, I run my hand along the wood, where the bottles wait",
-   "sub": "Each scent is a story, patiently waiting to be opened."
+   "cap": "I graze the wooden shelves, tracing scents like spines of books.",
+   "sub": "Fragrance replaces ink in this archive of Jeju memories."
   },
   {
    "at": [
@@ -300,8 +300,8 @@
    ],
    "h": 1.55,
    "d": 2.4,
-   "cap": "I reach the back of the room, feeling the open space of the dome above me",
-   "sub": "The journey here feels like closing a book and finding peace."
+   "cap": "I pause at the back, feeling the stillness of the library.",
+   "sub": "A quiet ritual completed in the shadow of the cooling light."
   }
  ]
 }

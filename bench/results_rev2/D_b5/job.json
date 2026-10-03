@@ -1,75 +1,75 @@
 {
  "brand": "Gentle Monster",
- "title": "Orbital Hangar No. 01",
- "subtitle": "An ethereal voyage through a weightless orbital station.",
- "line": "Step into the silence of an orbital hangar, where your perception of gravity dissolves among floating light.",
- "quote": "The void is not empty; it is the space where desire begins to hover.",
- "synopsis": "You enter the hangar, slipping between steel columns like a vessel docking at a remote station. Ahead, the central levitation plinth pulls your gaze as eyewear orbits the center in a state of suspended animation. You move through the cool air, circling the void while the soft hum of the facility vibrates beneath your feet. Only by stepping away can you reach the perimeter, where the gear is finally grounded.",
+ "title": "Orbital Docking Hangar",
+ "subtitle": "A docking sequence in deep orbital space.",
+ "line": "Experience the suspended silence of an orbital station where gravity is merely a suggestion.",
+ "quote": "A docked moment suspended in the celestial expanse.",
+ "synopsis": "You enter through the gravity bulkhead, stepping into the weightless silence of the hangar. Before you stands the monolithic gravity engine, a monumental anchor point around which your movement naturally drifts. You observe the eyewear containment pods as if they were delicate artifacts floating in the void. As you complete your journey, you finalize your mission at the command terminal.",
  "keywords": [
-  "weightlessness",
-  "orbital-hangar",
-  "docking-maneuver"
+  "zero-gravity hangar",
+  "interstellar docking",
+  "orbital stillness"
  ],
  "why": [
   {
-   "t": "The concrete transition pillars define the",
-   "d": "A pair of threshold objects (zero-gravity transition pillars) stands 1.0-3.0 m inside the door, with a hanging screen (catenary cable curtains) between them; the route slips through a 1.9 m gap. The concrete transition pillars define the airlock, forcing a deliberate, slow entry into the hangar."
+   "t": "The gravity anchor points and bulkhead screen",
+   "d": "A pair of threshold objects (gravity anchor point) stands 1.0-3.0 m inside the door, with a hanging screen (gravity bulkhead curtain) between them; the route slips through a 1.9 m gap. The gravity anchor points and bulkhead screen act as a decompression transition, forcing you to slow your pace as you enter the station."
   },
   {
-   "t": "The central levitation plinth serves as the",
-   "d": "The hero (central levitation plinth) stands alone in an empty 8 x 7 m area (null-gravity center zone); the route circles it and never comes closer than 3.3 m. The central levitation plinth serves as the gravity-defying anchor, framing the eyewear as artifacts of a future world."
+   "t": "The monolithic gravity engine serves as the",
+   "d": "The hero (monolithic gravity engine) stands alone in an empty 8 x 7 m area (zero gravity void zone); the route circles it and never comes closer than 3.3 m. The monolithic gravity engine serves as the visual gravitational center of the store, dictating a slow, meditative path around the space."
   },
   {
-   "t": "The perimeter display clusters break the loop",
-   "d": "Four product stations (perimeter display clusters) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The perimeter display clusters break the loop, creating a tactical rhythm of exploration between the central core and the station edges."
+   "t": "The eyewear containment pods are placed at the",
+   "d": "Four product stations (eyewear containment pods) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The eyewear containment pods are placed at the periphery to ensure that viewing the hero and browsing the product are two distinct, contemplative acts."
   },
   {
-   "t": "The transaction control panel at the rear",
-   "d": "The pay desk (transaction control panel) closes the loop at the back wall. The transaction control panel at the rear brings your journey to a final, steady docking point at the hangar's limit."
+   "t": "The mission control terminal marks the physical",
+   "d": "The pay desk (mission control terminal) closes the loop at the back wall. The mission control terminal marks the physical conclusion of your dock, grounding your experience before you exit the hangar."
   }
  ],
  "palette": [
   {
-   "hex": "#a0a0a0",
-   "name": "Hangar Grey"
+   "hex": "#c0c0c0",
+   "name": "Silver Orbit"
   },
   {
-   "hex": "#2a2a2a",
-   "name": "Deep Void"
+   "hex": "#2f4f4f",
+   "name": "Hangar Shadow"
   },
   {
-   "hex": "#e0f7fa",
-   "name": "Ethereal Blue"
+   "hex": "#e0e0e0",
+   "name": "Lunar Dust"
   },
   {
-   "hex": "#555555",
-   "name": "Carbon Steel"
+   "hex": "#a9a9a9",
+   "name": "Nebula Grey"
   },
   {
-   "hex": "#ffffff",
-   "name": "Luminous White"
+   "hex": "#000000",
+   "name": "Void Black"
   }
  ],
- "accent": "#e0f7fa",
+ "accent": "#c0c0c0",
  "materials": [
   {
-   "name": "Brushed Aerospace Aluminium",
-   "where": "walls, ceiling, central levitation plinth, orbital satellite",
+   "name": "Brushed Aircraft Aluminium",
+   "where": "walls, ceiling, monolithic gravity engine, drifting debris n",
    "preset": "aluminium"
   },
   {
-   "name": "Industrial Raw Steel",
-   "where": "catenary cable curtains, transaction control panel",
+   "name": "Satin Industrial Steel",
+   "where": "gravity bulkhead curtain, mission control terminal",
    "preset": "steel"
   },
   {
-   "name": "Honed Lunar Concrete",
+   "name": "Cold Polished Concrete",
    "where": "floor",
    "preset": "polished_concrete"
   },
   {
-   "name": "Poured Structural Concrete",
-   "where": "zero-gravity transition pillars",
+   "name": "Raw Structural Concrete",
+   "where": "gravity anchor point",
    "preset": "concrete"
   }
  ],
@@ -77,12 +77,12 @@
   "floor": "polished_concrete",
   "wall": "aluminium",
   "ceiling": "aluminium",
-  "light": "dark_gallery",
+  "light": "white_gallery",
   "fog": 0.02,
-  "beams": true
+  "beams": false
  },
  "layout": {
-  "name": "Orbital Hangar No. 01 — Gentle Monster",
+  "name": "Orbital Docking Hangar — Gentle Monster",
   "W": 20.0,
   "D": 16.0,
   "H": 6,
@@ -125,7 +125,7 @@
     "x1": 7.5,
     "y1": 3.0,
     "h": 5,
-    "label": "zero-gravity transition pillars",
+    "label": "gravity anchor point",
     "zone": "exp",
     "shape": "joint_column",
     "material": "concrete"
@@ -138,7 +138,7 @@
     "x1": 13.5,
     "y1": 3.0,
     "h": 5,
-    "label": "zero-gravity transition pillars",
+    "label": "gravity anchor point",
     "zone": "exp",
     "shape": "joint_column",
     "material": "concrete"
@@ -151,7 +151,7 @@
     "x1": 9.35,
     "y1": 2.4,
     "h": 4.5,
-    "label": "catenary cable curtains",
+    "label": "gravity bulkhead curtain",
     "zone": "exp",
     "shape": "cable_curtain",
     "material": "steel"
@@ -164,7 +164,7 @@
     "x1": 12.8,
     "y1": 2.4,
     "h": 4.5,
-    "label": "catenary cable curtains",
+    "label": "gravity bulkhead curtain",
     "zone": "exp",
     "shape": "cable_curtain",
     "material": "steel"
@@ -177,7 +177,7 @@
     "x1": 14.0,
     "y1": 12.0,
     "h": 0,
-    "label": "null-gravity center zone",
+    "label": "zero gravity void zone",
     "zone": "exp",
     "shape": "zone"
    },
@@ -189,9 +189,9 @@
     "x1": 11.0,
     "y1": 9.5,
     "h": 3.2,
-    "label": "central levitation plinth",
+    "label": "monolithic gravity engine",
     "zone": "exp",
-    "shape": "display",
+    "shape": "box",
     "material": "aluminium",
     "hero": true
    },
@@ -203,7 +203,7 @@
     "x1": 6.9,
     "y1": 5.9,
     "h": 4.2,
-    "label": "orbital satellite nodes",
+    "label": "drifting debris nodes",
     "zone": "exp",
     "shape": "rock",
     "material": "aluminium"
@@ -216,7 +216,7 @@
     "x1": 13.7,
     "y1": 5.9,
     "h": 4.2,
-    "label": "orbital satellite nodes",
+    "label": "drifting debris nodes",
     "zone": "exp",
     "shape": "rock",
     "material": "aluminium"
@@ -229,7 +229,7 @@
     "x1": 6.9,
     "y1": 11.7,
     "h": 4.2,
-    "label": "orbital satellite nodes",
+    "label": "drifting debris nodes",
     "zone": "exp",
     "shape": "rock",
     "material": "aluminium"
@@ -242,7 +242,7 @@
     "x1": 13.7,
     "y1": 11.7,
     "h": 4.2,
-    "label": "orbital satellite nodes",
+    "label": "drifting debris nodes",
     "zone": "exp",
     "shape": "rock",
     "material": "aluminium"
@@ -255,7 +255,7 @@
     "x1": 5.6,
     "y1": 8.8,
     "h": 4.2,
-    "label": "orbital satellite nodes",
+    "label": "drifting debris nodes",
     "zone": "exp",
     "shape": "rock",
     "material": "aluminium"
@@ -268,7 +268,7 @@
     "x1": 15.0,
     "y1": 8.8,
     "h": 4.2,
-    "label": "orbital satellite nodes",
+    "label": "drifting debris nodes",
     "zone": "exp",
     "shape": "rock",
     "material": "aluminium"
@@ -281,10 +281,10 @@
     "x1": 3.6,
     "y1": 6.4,
     "h": 1.0,
-    "label": "perimeter display clusters",
+    "label": "eyewear containment pods",
     "zone": "sale",
     "shape": "display",
-    "material": "aluminium"
+    "material": "glass"
    },
    {
     "id": "st1",
@@ -294,10 +294,10 @@
     "x1": 3.6,
     "y1": 11.4,
     "h": 1.0,
-    "label": "perimeter display clusters",
+    "label": "eyewear containment pods",
     "zone": "sale",
     "shape": "display",
-    "material": "aluminium"
+    "material": "glass"
    },
    {
     "id": "st2",
@@ -307,10 +307,10 @@
     "x1": 17.8,
     "y1": 6.4,
     "h": 1.0,
-    "label": "perimeter display clusters",
+    "label": "eyewear containment pods",
     "zone": "sale",
     "shape": "display",
-    "material": "aluminium"
+    "material": "glass"
    },
    {
     "id": "st3",
@@ -320,10 +320,10 @@
     "x1": 17.8,
     "y1": 11.4,
     "h": 1.0,
-    "label": "perimeter display clusters",
+    "label": "eyewear containment pods",
     "zone": "sale",
     "shape": "display",
-    "material": "aluminium"
+    "material": "glass"
    },
    {
     "id": "pay",
@@ -333,7 +333,7 @@
     "x1": 12.0,
     "y1": 14.4,
     "h": 1.0,
-    "label": "transaction control panel",
+    "label": "mission control terminal",
     "zone": "pay",
     "shape": "box",
     "material": "steel"
@@ -346,7 +346,7 @@
     "x1": 19.0,
     "y1": 15.4,
     "h": 1.8,
-    "label": "observation mirror block",
+    "label": "observation mirror station",
     "zone": "sale",
     "shape": "box",
     "material": "mirror_aluminium"
@@ -372,7 +372,7 @@
     "x1": 14.2,
     "y1": 12.4,
     "h": 4.6,
-    "label": "luminous docking canopy",
+    "label": "luminous nebula cloud",
     "zone": "exp",
     "shape": "light_ceiling",
     "material": "textile_light"
@@ -426,7 +426,7 @@
       0.5
      ]
     ],
-    "color": "#e0f7fa"
+    "color": "#c0c0c0"
    }
   ],
   "entry": [
@@ -451,8 +451,8 @@
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I pass between the towering pillars, feeling the magnetic pull of the threshold.",
-   "sub": "The hangar hums with a stillness that suggests space is expanding."
+   "cap": "I step through the narrow gravity bulkhead into the vast, silent hangar.",
+   "sub": "The air here feels thin, heavy with the weight of interstellar stillness."
   },
   {
    "at": [
@@ -466,8 +466,8 @@
    ],
    "h": 1.62,
    "d": 3.2,
-   "cap": "I stand at the edge of the void and watch the eyewear hover, suspended by a",
-   "sub": "I approach slowly, performing my own docking maneuver in the silence."
+   "cap": "I hover at the edge of the void, drawn to the monolithic gravity engine.",
+   "sub": "It sits in total silence, an ancient artifact grounding this floating space."
   },
   {
    "at": [
@@ -481,8 +481,8 @@
    ],
    "h": 1.4,
    "d": 2.8,
-   "cap": "I turn away from the core to inspect the product, grounded by the weight of the",
-   "sub": "Even here, the memory of weightlessness lingers in the cold metal."
+   "cap": "Turning away, I drift towards the containment pods to inspect the eyewear.",
+   "sub": "Each pair is suspended as if caught in a permanent moment of zero gravity."
   }
  ]
 }

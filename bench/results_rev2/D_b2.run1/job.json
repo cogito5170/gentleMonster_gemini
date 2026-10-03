@@ -1,0 +1,324 @@
+{
+ "brand": "Gentle Monster",
+ "title": "The Drained Basin",
+ "subtitle": "A 1970s swimming pool reclaimed by light.",
+ "line": "Walk into a 1970s interior where water has retreated to leave only the architecture of light behind.",
+ "quote": "To inhabit the void is to see through the glass of memory.",
+ "synopsis": "You step into a cavernous, empty pool, where the polished concrete floors echo with the ghost of water. Guided by the liminal concrete strip, you approach the repurposed diving platform, a monumental anchor in the center of the drained basin. As you wander, four suspended light refractors cast dancing beams across the eyewear displays, simulating the shimmer of a submerged world. The experience concludes at a minimal concrete counter, grounding your descent into this architectural reverie.",
+ "keywords": [
+  "submerged architecture",
+  "refracted time",
+  "dry pool resonance"
+ ],
+ "why": [
+  {
+   "t": "The concrete strip forces a deliberate",
+   "d": "A floor strip (liminal transition zone) runs 4.7 m from the door toward the hero (repurposed diving platform). The concrete strip forces a deliberate, reverent descent into the depth of the space."
+  },
+  {
+   "t": "The towering diving platform focuses your",
+   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The towering diving platform focuses your attention, making the surrounding void feel vast and silent."
+  },
+  {
+   "t": "The glass refractors break the daylight",
+   "d": "Four product stations (suspended light refractors) ring it loosely, 0.4 m from the route at the closest. The glass refractors break the daylight, transforming the air into a shimmering, fluid-like atmosphere."
+  },
+  {
+   "t": "The concrete counter provides a final, grounded",
+   "d": "The pay counter (minimal concrete counter) sits at the back right, where the route ends. The concrete counter provides a final, grounded anchor before you exit the hollowed expanse."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#2f4f4f",
+   "name": "deep slate"
+  },
+  {
+   "hex": "#b8b8b8",
+   "name": "shadow grey"
+  },
+  {
+   "hex": "#87ceeb",
+   "name": "sky shimmer"
+  },
+  {
+   "hex": "#f8f9fa",
+   "name": "pale lime"
+  },
+  {
+   "hex": "#e0e0e0",
+   "name": "concrete grey"
+  }
+ ],
+ "accent": "#87ceeb",
+ "materials": [
+  {
+   "name": "raw brutalist concrete",
+   "where": "walls, liminal transition zone, repurposed diving platform, ",
+   "preset": "concrete"
+  },
+  {
+   "name": "polished grey screed",
+   "where": "floor",
+   "preset": "polished_concrete"
+  },
+  {
+   "name": "matte white plaster",
+   "where": "ceiling",
+   "preset": "lime_plaster"
+  },
+  {
+   "name": "dichroic optic glass",
+   "where": "suspended light refractors",
+   "preset": "glass"
+  }
+ ],
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "concrete",
+  "ceiling": "lime_plaster",
+  "light": "daylight",
+  "fog": 0.02,
+  "beams": false
+ },
+ "layout": {
+  "name": "The Drained Basin — Gentle Monster",
+  "W": 16.0,
+  "D": 12.0,
+  "H": 5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 7.0,
+    "y0": -0.1,
+    "x1": 9.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "field",
+    "type": "zone",
+    "x0": 1.0,
+    "y0": 1.5,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 0,
+    "label": "sunken swimming pool floor",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "floor",
+    "type": "zone",
+    "x0": 6.5,
+    "y0": 0.3,
+    "x1": 9.5,
+    "y1": 5.0,
+    "h": 0,
+    "label": "liminal transition zone",
+    "zone": "exp",
+    "shape": "floor_patch",
+    "material": "concrete"
+   },
+   {
+    "id": "horse",
+    "type": "figure",
+    "x0": 6.5,
+    "y0": 5.6,
+    "x1": 9.5,
+    "y1": 7.4,
+    "h": 3.5,
+    "label": "repurposed diving platform",
+    "zone": "exp",
+    "shape": "display",
+    "material": "concrete",
+    "hero": true
+   },
+   {
+    "id": "candle0",
+    "type": "island",
+    "x0": 2.0,
+    "y0": 5.8,
+    "x1": 3.6,
+    "y1": 7.2,
+    "h": 1.8,
+    "label": "suspended light refractors",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "candle1",
+    "type": "island",
+    "x0": 12.4,
+    "y0": 5.8,
+    "x1": 14.0,
+    "y1": 7.2,
+    "h": 1.8,
+    "label": "suspended light refractors",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "candle2",
+    "type": "island",
+    "x0": 3.4,
+    "y0": 8.8,
+    "x1": 5.0,
+    "y1": 10.2,
+    "h": 1.8,
+    "label": "suspended light refractors",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "candle3",
+    "type": "island",
+    "x0": 11.0,
+    "y0": 8.8,
+    "x1": 12.6,
+    "y1": 10.2,
+    "h": 1.8,
+    "label": "suspended light refractors",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 12.5,
+    "y0": 10.8,
+    "x1": 15.0,
+    "y1": 11.6,
+    "h": 1.0,
+    "label": "minimal concrete counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 10.5,
+    "x1": 3.0,
+    "y1": 12.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "mineral_white"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      8.0,
+      0.4
+     ],
+     [
+      8.0,
+      4.8
+     ],
+     [
+      4.6,
+      5.6
+     ],
+     [
+      4.2,
+      7.6
+     ],
+     [
+      5.4,
+      8.4
+     ],
+     [
+      6.2,
+      10.6
+     ],
+     [
+      10.4,
+      10.6
+     ],
+     [
+      10.6,
+      8.2
+     ],
+     [
+      13.2,
+      7.6
+     ],
+     [
+      13.8,
+      10.3
+     ]
+    ],
+    "color": "#87ceeb"
+   }
+  ],
+  "entry": [
+   8.0,
+   0.0
+  ],
+  "exit": [
+   8.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    8.0,
+    1.4
+   ],
+   "look": [
+    8.0,
+    0.05,
+    3.2
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I stand at the threshold, where the floor transition marks the start of the",
+   "sub": "The air feels heavy with the memory of water."
+  },
+  {
+   "at": [
+    8.0,
+    3.3
+   ],
+   "look": [
+    8.0,
+    2.3,
+    6.5
+   ],
+   "h": 1.62,
+   "d": 3.0,
+   "cap": "Before me, the repurposed diving platform stands as a silent guardian of the",
+   "sub": "It commands the center of the drained landscape."
+  },
+  {
+   "at": [
+    4.2,
+    7.4
+   ],
+   "look": [
+    2.8,
+    0.75,
+    6.5
+   ],
+   "h": 1.15,
+   "d": 3.4,
+   "cap": "I peer through the glass; the light refracts into ripples that don't exist.",
+   "sub": "The eyewear rests in the path of shifting light."
+  }
+ ]
+}

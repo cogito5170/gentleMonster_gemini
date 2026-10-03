@@ -1,18 +1,18 @@
-# Gentle Monster — Salt Silence in Busan
-*A minimalist sanctuary of scent and salt.*
+# Tamburins — Salt Desert Silence
+*A Tamburins oasis in the heart of Busan.*
 
-You step into an infinite white void that mimics the absolute quiet of a salt desert. As you traverse the path of pristine salt, your focus is drawn immediately to the towering central salt crystal monolith. Wander between the floating scent stone plinths to reveal hidden essences embedded within the architecture. The experience concludes at the minimal white pay desk, where you leave the silence with a memory of fragrance.
+You walk along the glossy path, crossing a field of infinite white. Before you stands the salt crystal monolith, an abstract beacon in the desert. As you wander among the scent-filled plinths, you discover fragrances hidden in the monochromatic landscape. Finally, you reach the minimal transaction block, where the silence remains unbroken.
 
-**Keywords:** stillness of salt · hidden olfactory journey · ethereal minimalism
-**Philosophy:** Where stillness finds its fragrance.
+**Keywords:** Stillness · Mirage · Salt-dusted
+**Philosophy:** In the white quiet, fragrance is the only thing that speaks.
 
 ## Design intent
-- **The path of pristine salt draws your focus** A floor strip (path of pristine salt) runs 4.7 m from the door toward the hero (central salt crystal monolith). The path of pristine salt draws your focus inward as you enter the tranquil void.
-- **The monolithic hero defines the horizon** The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The monolithic hero defines the horizon, creating a profound sense of scale in the empty landscape.
-- **The floating scent stone plinths invite you to** Four product stations (floating scent stone plinths) ring it loosely, 0.4 m from the route at the closest. The floating scent stone plinths invite you to engage in a sensory hunt, revealing the product through quiet discovery.
-- **The minimal white pay desk marks the final** The pay counter (minimal white pay desk) sits at the back right, where the route ends. The minimal white pay desk marks the final point of reflection before exiting the serene expanse.
+- **The glossy path guides your feet, separating** A floor strip (path through the desert) runs 4.7 m from the door toward the hero (salt crystal monolith). The glossy path guides your feet, separating the entry from the vast, open space.
+- **The towering monolith commands the room** The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The towering monolith commands the room, drawing your eyes across the emptiness.
+- **Surrounding the monolith, the subtle plinths** Four product stations (hidden scent plinths) ring it loosely, 0.4 m from the route at the closest. Surrounding the monolith, the subtle plinths require you to lean in to discover their hidden scents.
+- **The low** The pay counter (minimal transaction block) sits at the back right, where the route ends. The low-profile counter at the back completes your journey without disrupting the minimalist horizon.
 
 ## The walk
-- **I step onto the path of pristine salt, and the city noise vanishes behind me.** The ground glows with an ethereal, blinding light.
-- **I stand before the salt crystal monolith, feeling the weight of its absolute** The giant structure anchors the entire expanse of white.
-- **I lean down and touch the scent stone, discovering the fragrance hidden within** A subtle, aromatic revelation waits in the stillness.
+- **I step onto the polished path, feeling the transition from the bustling city to** The air is still, and the world outside fades away.
+- **I stand before the monolith, its crystalline edges catching the soft light like** It is the silent guardian of this desert, anchoring the open space.
+- **I lean toward the plinth, discovering a scent that seems to rise from the very** A hidden trail of fragrance reveals itself as I wander through the calm.

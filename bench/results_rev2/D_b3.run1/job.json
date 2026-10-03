@@ -1,0 +1,307 @@
+{
+ "brand": "Gentle Monster",
+ "title": "The Scented Library",
+ "subtitle": "A sanctuary of basalt and aromatic reflection in Jeju.",
+ "line": "Where the library ends, the scent begins, flowing through stone and wood to reveal a new path.",
+ "quote": "Silence is the scent of a story left unread.",
+ "synopsis": "You enter a space where the scent of old paper lingers in the air, drifting between towering walls of wooden shelves. At the heart of the room, you pause before a cleansing ritual basin carved from black basalt, its presence grounding the space. You circle the stone, feeling the weight of the volcanic island before following the perimeter. Finally, you reach the counter at the back, leaving with a fragrance that echoes the quiet stillness of the room.",
+ "keywords": [
+  "volcanic solitude",
+  "paper memories",
+  "cleansing ritual"
+ ],
+ "why": [
+  {
+   "t": "The shelves create a sense of immersion within",
+   "d": "Shelf walls (scent library shelves) wrap the left, right and back of the 12 x 10 m room. The shelves create a sense of immersion within an endless collection of bottled memories."
+  },
+  {
+   "t": "The central basin forces an immediate shift in",
+   "d": "The centre object (cleansing ritual basin) is the first stop, 4.2 m in from the door. The central basin forces an immediate shift in focus, grounding you in a physical experience of purification."
+  },
+  {
+   "t": "Circling the central piece creates a natural",
+   "d": "The route circles it first, then follows the shelves. Circling the central piece creates a natural, unhurried flow that respects the meditative nature of the space."
+  },
+  {
+   "t": "The back counter offers a secluded conclusion",
+   "d": "The counter (transaction counter) sits at the back, off the loop. The back counter offers a secluded conclusion to your exploration, tucked away from the main path."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#2b2b2b",
+   "name": "Basalt Black"
+  },
+  {
+   "hex": "#e0d4c3",
+   "name": "Warm Paper"
+  },
+  {
+   "hex": "#d1c4a5",
+   "name": "Cedar Wood"
+  },
+  {
+   "hex": "#f5f5f5",
+   "name": "Mist White"
+  },
+  {
+   "hex": "#a0a0a0",
+   "name": "Concrete Grey"
+  }
+ ],
+ "accent": "#2b2b2b",
+ "materials": [
+  {
+   "name": "Basalt Stone",
+   "where": "floor, cleansing ritual basin, transaction counter",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Aged Cedar Wood",
+   "where": "ceiling, scent library shelves",
+   "preset": "wood"
+  },
+  {
+   "name": "Raw Lime Plaster",
+   "where": "walls",
+   "preset": "lime_plaster"
+  },
+  {
+   "name": "Polished Concrete",
+   "where": "details",
+   "preset": "concrete"
+  }
+ ],
+ "room": {
+  "floor": "black_stone",
+  "wall": "lime_plaster",
+  "ceiling": "wood",
+  "light": "warm_spot",
+  "fog": 0.02,
+  "beams": false,
+  "dome": true
+ },
+ "layout": {
+  "name": "The Scented Library — Gentle Monster",
+  "W": 12.0,
+  "D": 10.0,
+  "H": 4.2,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 5.0,
+    "y0": -0.1,
+    "x1": 7.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "dome",
+    "type": "zone",
+    "x0": 2.0,
+    "y0": 1.5,
+    "x1": 10.0,
+    "y1": 8.2,
+    "h": 0,
+    "label": "main area",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0.0,
+    "y0": 1.5,
+    "x1": 0.6,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "scent library shelves",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "wb",
+    "type": "wall_shelf",
+    "x0": 0.6,
+    "y0": 9.4,
+    "x1": 11.4,
+    "y1": 10.0,
+    "h": 2.6,
+    "label": "scent library shelves",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 11.4,
+    "y0": 1.5,
+    "x1": 12.0,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "scent library shelves",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 5.0,
+    "y0": 4.2,
+    "x1": 7.0,
+    "y1": 5.8,
+    "h": 0.9,
+    "label": "cleansing ritual basin",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "black_stone",
+    "hero": true
+   },
+   {
+    "id": "counter",
+    "type": "checkout",
+    "x0": 3.5,
+    "y0": 8.1,
+    "x1": 8.5,
+    "y1": 8.7,
+    "h": 1.0,
+    "label": "transaction counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "black_stone"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 9.6,
+    "y0": 7.8,
+    "x1": 11.4,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "strata_clay"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      6.0,
+      0.4
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      3.8,
+      5.0
+     ],
+     [
+      6.0,
+      7.0
+     ],
+     [
+      8.2,
+      5.0
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      1.6,
+      4.0
+     ],
+     [
+      1.6,
+      7.3
+     ],
+     [
+      6.0,
+      7.3
+     ],
+     [
+      10.3,
+      7.3
+     ],
+     [
+      10.3,
+      3.0
+     ],
+     [
+      6.8,
+      0.4
+     ]
+    ],
+    "color": "#2b2b2b"
+   }
+  ],
+  "entry": [
+   6.0,
+   0.0
+  ],
+  "exit": [
+   6.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    6.0,
+    3.2
+   ],
+   "look": [
+    6.0,
+    0.88,
+    4.95
+   ],
+   "h": 1.38,
+   "d": 3.6,
+   "cap": "I step into the quiet, and my eyes are immediately drawn to the dark, grounding",
+   "sub": "The scent of paper and damp earth settles around me."
+  },
+  {
+   "at": [
+    1.6,
+    5.8
+   ],
+   "look": [
+    0.6,
+    1.45,
+    5.8
+   ],
+   "h": 1.55,
+   "d": 2.8,
+   "cap": "Walking toward the walls, I run my hand along the wood, where the bottles wait",
+   "sub": "Each scent is a story, patiently waiting to be opened."
+  },
+  {
+   "at": [
+    6.0,
+    7.3
+   ],
+   "look": [
+    6.0,
+    2.9,
+    3.6
+   ],
+   "h": 1.55,
+   "d": 2.4,
+   "cap": "I reach the back of the room, feeling the open space of the dome above me",
+   "sub": "The journey here feels like closing a book and finding peace."
+  }
+ ]
+}

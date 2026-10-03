@@ -1,18 +1,18 @@
-# Gentle Monster — Orbital Hangar No. 01
-*An ethereal voyage through a weightless orbital station.*
+# Gentle Monster — Orbital Docking Hangar
+*A docking sequence in deep orbital space.*
 
-You enter the hangar, slipping between steel columns like a vessel docking at a remote station. Ahead, the central levitation plinth pulls your gaze as eyewear orbits the center in a state of suspended animation. You move through the cool air, circling the void while the soft hum of the facility vibrates beneath your feet. Only by stepping away can you reach the perimeter, where the gear is finally grounded.
+You enter through the gravity bulkhead, stepping into the weightless silence of the hangar. Before you stands the monolithic gravity engine, a monumental anchor point around which your movement naturally drifts. You observe the eyewear containment pods as if they were delicate artifacts floating in the void. As you complete your journey, you finalize your mission at the command terminal.
 
-**Keywords:** weightlessness · orbital-hangar · docking-maneuver
-**Philosophy:** The void is not empty; it is the space where desire begins to hover.
+**Keywords:** zero-gravity hangar · interstellar docking · orbital stillness
+**Philosophy:** A docked moment suspended in the celestial expanse.
 
 ## Design intent
-- **The concrete transition pillars define the** A pair of threshold objects (zero-gravity transition pillars) stands 1.0-3.0 m inside the door, with a hanging screen (catenary cable curtains) between them; the route slips through a 1.9 m gap. The concrete transition pillars define the airlock, forcing a deliberate, slow entry into the hangar.
-- **The central levitation plinth serves as the** The hero (central levitation plinth) stands alone in an empty 8 x 7 m area (null-gravity center zone); the route circles it and never comes closer than 3.3 m. The central levitation plinth serves as the gravity-defying anchor, framing the eyewear as artifacts of a future world.
-- **The perimeter display clusters break the loop** Four product stations (perimeter display clusters) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The perimeter display clusters break the loop, creating a tactical rhythm of exploration between the central core and the station edges.
-- **The transaction control panel at the rear** The pay desk (transaction control panel) closes the loop at the back wall. The transaction control panel at the rear brings your journey to a final, steady docking point at the hangar's limit.
+- **The gravity anchor points and bulkhead screen** A pair of threshold objects (gravity anchor point) stands 1.0-3.0 m inside the door, with a hanging screen (gravity bulkhead curtain) between them; the route slips through a 1.9 m gap. The gravity anchor points and bulkhead screen act as a decompression transition, forcing you to slow your pace as you enter the station.
+- **The monolithic gravity engine serves as the** The hero (monolithic gravity engine) stands alone in an empty 8 x 7 m area (zero gravity void zone); the route circles it and never comes closer than 3.3 m. The monolithic gravity engine serves as the visual gravitational center of the store, dictating a slow, meditative path around the space.
+- **The eyewear containment pods are placed at the** Four product stations (eyewear containment pods) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The eyewear containment pods are placed at the periphery to ensure that viewing the hero and browsing the product are two distinct, contemplative acts.
+- **The mission control terminal marks the physical** The pay desk (mission control terminal) closes the loop at the back wall. The mission control terminal marks the physical conclusion of your dock, grounding your experience before you exit the hangar.
 
 ## The walk
-- **I pass between the towering pillars, feeling the magnetic pull of the threshold.** The hangar hums with a stillness that suggests space is expanding.
-- **I stand at the edge of the void and watch the eyewear hover, suspended by a** I approach slowly, performing my own docking maneuver in the silence.
-- **I turn away from the core to inspect the product, grounded by the weight of the** Even here, the memory of weightlessness lingers in the cold metal.
+- **I step through the narrow gravity bulkhead into the vast, silent hangar.** The air here feels thin, heavy with the weight of interstellar stillness.
+- **I hover at the edge of the void, drawn to the monolithic gravity engine.** It sits in total silence, an ancient artifact grounding this floating space.
+- **Turning away, I drift towards the containment pods to inspect the eyewear.** Each pair is suspended as if caught in a permanent moment of zero gravity.

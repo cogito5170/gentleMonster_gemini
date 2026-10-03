@@ -429,6 +429,20 @@ def gm_finish(job, palette, accent, material_names, stops, draw: bool = True) ->
     already = _same(L, "finish", args) and L.status()["state"] in ("DONE", "NEEDS_REVIEW")
     if not already:
         problems = spec.check(jobj)
+        # A shape swap can change measured geometry (a round basin is measured as a circle, a box as a rectangle).
+        # Code repairs that itself: the role whose items the problems name gets the plan's own shape back.
+        reverted = []
+        base = _built(spec, L)[1]
+        for r, rs in PL.PLANS[p["plan"]]["roles"].items():
+            if problems and any(any(i in pr for i in rs["ids"]) for pr in problems):
+                own = PL.items(base["layout"], rs["ids"])[0].get("shape", "box")
+                if c["cast"][r]["shape"] != own:
+                    for it in PL.items(jobj["layout"], rs["ids"]):
+                        it["shape"] = own
+                    reverted.append(f"{r} -> {own}")
+                    problems = spec.check(jobj)
+        if reverted:
+            L.log("REPAIR", step="finish", reverted=reverted, why="the cast shape broke the measured route clearance; the plan's own shape is used, the label kept")
         L.log("GATE", step="finish", problems=problems)
         L.log("DECISION", step="finish", args=args, output={"problems": problems})
         if problems:
@@ -471,8 +485,16 @@ def verdict(job: str) -> dict:
                   (f" -- files: {', '.join(Path(f).name for f in files.values())}" if files else ""),
            "files": files}
     if s["state"] == "NEEDS_REVIEW":
-        c = decided(L, "cast")
-        out["next"] = [offer_finish(job, c["anchors"], c["materials"]) if c else EXPLAIN(job), EXPLAIN(job)]
+        gate = next((e for e in reversed(run) if e.get("kind") == "GATE"), {})
+        out["problems"] = gate.get("problems", [])
+        spec, _ = _env()
+        p, c = decided(L, "plan"), decided(L, "cast")
+        geometric = any(w in pr for pr in out["problems"] for w in ("circulation", "overlap", "envelope", "door", "stop "))
+        if geometric and p:
+            out["next"] = [offer_cast(spec, job, p["plan"], _built(spec, L)[1]), EXPLAIN(job)]
+            out["fix"] = "the layout check failed: change the shapes in gm_cast (keep each role's listed shapes), then gm_story and gm_finish again"
+        else:
+            out["next"] = [offer_finish(job, c["anchors"], c["materials"]) if c else EXPLAIN(job), EXPLAIN(job)]
     else:
         out["next"] = [EXPLAIN(job)]
     return out

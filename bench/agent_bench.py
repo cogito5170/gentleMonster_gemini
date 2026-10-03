@@ -19,7 +19,7 @@ os.environ.setdefault("GMG_OUT", str(OUT / "_work"))
 sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE))
 from gmg import loop, upstream  # noqa: E402
-from gmg.ledger import totals  # noqa: E402
+from gmg.ledger import Ledger, totals  # noqa: E402
 from run_bench import completeness  # noqa: E402
 
 KEEP = ("job.json", "synopsis.md", "layout_preview.png", "gmg_ledger.jsonl")
@@ -37,6 +37,8 @@ def main() -> int:
         if a.only and b["id"] not in a.only.split(","):
             continue
         n = 1 + sum(1 for r in rows if r["brief"] == b["id"])
+        os.environ["GMG_OUT"] = str(OUT / "_work" / f"run{n}")      # a fresh job folder per run: no stale files
+        spec, paths = upstream.load()
         r = loop.run(b["brief"], b["brand"], log=lambda m: print(f"  {b['id']} {m}", flush=True))
         job = None
         if r["job"] and r["state"] == "DONE":
@@ -60,8 +62,9 @@ def main() -> int:
         d.mkdir(parents=True)
         (d / "transcript.json").write_text(json.dumps({k: r[k] for k in ("calls", "turns", "final", "stop", "state", "job")}, ensure_ascii=False, indent=1))
         if r["job"]:
-            for f in KEEP:
-                if (paths.job_dir(r["job"]) / f).is_file():
+            done = Ledger(paths.job_dir(r["job"])).status()["artifacts"]          # only what this run recorded
+            for f, what in (("job.json", "job"), ("synopsis.md", "synopsis"), ("layout_preview.png", "layout_preview"), ("gmg_ledger.jsonl", None)):
+                if (paths.job_dir(r["job"]) / f).is_file() and (what is None or done.get(what) == "done"):
                     shutil.copy2(paths.job_dir(r["job"]) / f, d / f)
         mp.write_text(json.dumps(rows, ensure_ascii=False, indent=1))
         print(f"[rev2] {b['id']} run {n}: {r['state']} stop={r['stop']} complete={g}/12 reasks={row['reasks']} offlist={row['offlist']} "

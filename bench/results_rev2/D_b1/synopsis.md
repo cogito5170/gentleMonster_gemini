@@ -1,18 +1,18 @@
-# Gentle Monster — The Threshold of Rain
-*A threshold between the storm and the soul.*
+# Gentle Monster — Threshold of the Rainy Night
+*Gentle Monster Seongsu: A Threshold of Rain and Light.*
 
-You step into the store, passing through a heavy curtain of steel cables that silence the chaotic hum of the Seongsu streets. Before you lies a vast, polished expanse, anchored by a central monolith stone hero that captures the gravity of the room. You navigate around this void, finding eyewear displayed like artifacts on obsidian plinths in the quiet corners. Here, you are alone with your reflection and the stillness of a rainy night.
+You step out of the rain and cross the threshold into a place where sound ceases to exist. Moving within the mirrored chamber, you find yourself drawn to monolith one, a dark, tactile center for the products. The low light from above reflects on the black stone surfaces, creating an intimate, quiet experience. It is a moment of stillness where time feels suspended.
 
-**Keywords:** monolithic stillness · rain-washed thresholds · diffused obsidian light
-**Philosophy:** When the rain stops, the stone begins to speak.
+**Keywords:** Rain-drenched stone · Silent threshold · Soft luminescence
+**Philosophy:** The world falls silent at the edge of the stone.
 
 ## Design intent
-- **The threshold columns and cable curtain force a** A pair of threshold objects (two rain-washed stone columns) stands 1.0-3.0 m inside the door, with a hanging screen (heavy cable rain curtain) between them; the route slips through a 1.9 m gap. The threshold columns and cable curtain force a physical slowing down, marking the transition from the frantic city to our internal silence.
-- **The central monolith stone hero acts as a** The hero (central monolith stone hero) stands alone in an empty 8 x 7 m area (central void of stillness); the route circles it and never comes closer than 3.3 m. The central monolith stone hero acts as a grounding anchor, forcing you to orbit and contemplate the space rather than rush through it.
-- **The four obsidian product stations at the** Four product stations (four obsidian eyewear displays) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The four obsidian product stations at the corners ensure your experience is rhythmic, alternating between quiet observation and focused product discovery.
-- **The dark stone pay desk at the back concludes** The pay desk (dark stone pay desk) closes the loop at the back wall. The dark stone pay desk at the back concludes your journey, grounding the final transaction in the same sombre, minimalist language as the entrance.
+- **The mirrored walls create an infinite** A walled chamber (mirrored chamber wall), 11 x 8 m, stands inside the room; you enter it through a 1.8 m opening in its side. The mirrored walls create an infinite, immersive environment that separates you from the busy outside world.
+- **Monolith one serves as a quiet, heavy focal** Three low monoliths (monolith one) inside it carry the product at 0.9-1.4 m high. Monolith one serves as a quiet, heavy focal point for your discovery of the collection.
+- **The piercing blocks introduce structural** Two blocks (piercing block two) break through the chamber walls on opposite sides. The piercing blocks introduce structural tension, suggesting the outside world pressing against your sanctuary.
+- **Placing essential services outside the central** The pay desk (subtle pay desk) and the fitting room (dark fitting cube) stay outside the chamber. Placing essential services outside the central chamber ensures the core space remains undisturbed and serene.
 
 ## The walk
-- **I stand between the rain-washed stone columns, feeling the noise of the outside** The heavy cable curtain acts as a barrier, shielding this sanctuary from the Seongsu rain.
-- **I face the central monolith stone hero, which anchors the vast void and absorbs** Everything orbits this stone, creating a profound sense of stillness that forces me to slow down.
-- **I turn to the corner display, where the eyewear rests on a dark surface** The transition from the central monolith to the intimate product experience feels like a quiet discovery.
+- **I reach the heavy obsidian block, feeling the weight of the rainy world against** The transition from the street rain begins here.
+- **I stand before the mirror, feeling the walls of the room multiply into a vast** Sound and motion fade into the reflections.
+- **Touching the cold, smooth monolith, I focus on the delicate product resting** The only light illuminates the essence of the design.

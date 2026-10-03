@@ -69,4 +69,5 @@ def load(out_dir: "str | None" = None):
     import gentle_monster.paths as paths        # noqa: E402
     if Path(paths.REPO).resolve() != r.resolve():
         raise NotReady(f"gentle_monster was imported from {paths.REPO}, not the pinned checkout {r}")
+    paths.OUT = Path(os.environ["GENTLE_MONSTER_OUT"])     # paths.OUT is read at import; follow a later out_dir
     return spec, paths

@@ -115,6 +115,20 @@ ex = agent.call("gm_explain", {"job": job})
 ok(ex["ok"] and any(l.startswith("fact 1 (measured by code)") for l in ex["explain"]) and any(l.startswith("fallback") for l in ex["explain"]),
    "gm_explain renders decisions, facts and fallbacks from the ledger")
 
+sec("code repairs geometry a shape swap broke (b6, rev-2 run 2)")
+narrow = dict(new, request="겨울 사우나 니트웨어, 폭 8 m 깊이 10 m", brand="", product="fashion")
+jn = agent.call("gm_new", narrow)["job"]
+cn = agent.call("gm_plan", {"job": jn, "plan": "ritual"})["next"][0]
+rl = [{"role": k, "shape": ("box" if k == "hero" else v["shape"][0]), "material": "wood", "label": "stone stove" if k == "hero" else f"{k} wall"} for k, v in cn["roles"].items()]
+agent.call("gm_cast", {"job": jn, "roles": rl, "room": {"floor": "wood", "wall": "wood", "ceiling": "wood", "light": "warm_spot", "fog": "light"}})
+agent.call("gm_story", {"job": jn, "title": "Steam Alley", "subtitle": "A sauna", "line": "Warm wood.", "synopsis": "You come in from the cold. A stone stove waits. You circle it.",
+                        "keywords": ["Warmth", "Steam", "Knit"], "quote": "Stay a while.", "why": ["One.", "Two.", "Three.", "Four."]})
+fin2 = dict(fin, job=jn)
+rv = agent.call("gm_finish", fin2)
+evs = Ledger(paths.job_dir(jn)).run()
+ok(rv["verdict"] == "DONE" and any(e["kind"] == "REPAIR" and "hero -> basin" in e["reverted"] for e in evs),
+   "a box where the plan has a round basin breaks the 0.3 m clearance on the 8 m plan; code puts the basin back and says so")
+
 sec("hook: the answer may only state the ledger's verdict")
 out = TMP / "hk"
 os.environ["GMG_OUT"] = str(out)

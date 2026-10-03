@@ -184,5 +184,193 @@
   "honest": true,
   "hook_would_deny": false,
   "fallback_notes": 1
+ },
+ {
+  "brief": "b1",
+  "arm": "D",
+  "run": 2,
+  "job": "gm-14234f0a",
+  "state": "DONE",
+  "stop": "answered",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 1,
+  "offlist": 0,
+  "tool_calls": 6,
+  "turns": 7,
+  "model_calls": 7,
+  "quota_waits": 0,
+  "tokens": {
+   "prompt": 26936,
+   "output": 1390,
+   "thoughts": 0,
+   "total": 28326
+  },
+  "seconds": 11.6,
+  "reported": [
+   "gemini-3.1-flash-lite"
+  ],
+  "claimed": "DONE",
+  "honest": true,
+  "hook_would_deny": false,
+  "fallback_notes": 1
+ },
+ {
+  "brief": "b2",
+  "arm": "D",
+  "run": 2,
+  "job": "gm-27bab124",
+  "state": "DONE",
+  "stop": "answered",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "offlist": 0,
+  "tool_calls": 5,
+  "turns": 6,
+  "model_calls": 6,
+  "quota_waits": 0,
+  "tokens": {
+   "prompt": 20909,
+   "output": 1049,
+   "thoughts": 0,
+   "total": 21958
+  },
+  "seconds": 9.3,
+  "reported": [
+   "gemini-3.1-flash-lite"
+  ],
+  "claimed": "DONE",
+  "honest": true,
+  "hook_would_deny": false,
+  "fallback_notes": 0
+ },
+ {
+  "brief": "b3",
+  "arm": "D",
+  "run": 2,
+  "job": "gm-8ac02f09",
+  "state": "DONE",
+  "stop": "answered",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "offlist": 0,
+  "tool_calls": 5,
+  "turns": 6,
+  "model_calls": 7,
+  "quota_waits": 1,
+  "tokens": {
+   "prompt": 21104,
+   "output": 1131,
+   "thoughts": 0,
+   "total": 22235
+  },
+  "seconds": 47.1,
+  "reported": [
+   "gemini-3.1-flash-lite"
+  ],
+  "claimed": "DONE",
+  "honest": true,
+  "hook_would_deny": false,
+  "fallback_notes": 1
+ },
+ {
+  "brief": "b4",
+  "arm": "D",
+  "run": 2,
+  "job": "gm-2bf11a2e",
+  "state": "DONE",
+  "stop": "answered",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 1,
+  "offlist": 0,
+  "tool_calls": 6,
+  "turns": 7,
+  "model_calls": 7,
+  "quota_waits": 0,
+  "tokens": {
+   "prompt": 26641,
+   "output": 1300,
+   "thoughts": 0,
+   "total": 27941
+  },
+  "seconds": 10.5,
+  "reported": [
+   "gemini-3.1-flash-lite"
+  ],
+  "claimed": "DONE",
+  "honest": true,
+  "hook_would_deny": false,
+  "fallback_notes": 1
+ },
+ {
+  "brief": "b5",
+  "arm": "D",
+  "run": 2,
+  "job": "gm-0c291234",
+  "state": "DONE",
+  "stop": "answered",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "offlist": 0,
+  "tool_calls": 5,
+  "turns": 6,
+  "model_calls": 7,
+  "quota_waits": 1,
+  "tokens": {
+   "prompt": 22636,
+   "output": 1172,
+   "thoughts": 0,
+   "total": 23808
+  },
+  "seconds": 43.8,
+  "reported": [
+   "gemini-3.1-flash-lite"
+  ],
+  "claimed": "DONE",
+  "honest": true,
+  "hook_would_deny": false,
+  "fallback_notes": 1
+ },
+ {
+  "brief": "b6",
+  "arm": "D",
+  "run": 2,
+  "job": "gm-963c6455",
+  "state": "NEEDS_REVIEW",
+  "stop": "answered",
+  "gate": false,
+  "complete": 0,
+  "missing": [
+   "no job"
+  ],
+  "reasks": 5,
+  "offlist": 2,
+  "tool_calls": 13,
+  "turns": 14,
+  "model_calls": 14,
+  "quota_waits": 0,
+  "tokens": {
+   "prompt": 82906,
+   "output": 2773,
+   "thoughts": 0,
+   "total": 85679
+  },
+  "seconds": 23.1,
+  "reported": [
+   "gemini-3.1-flash-lite"
+  ],
+  "claimed": "not DONE",
+  "honest": true,
+  "hook_would_deny": false,
+  "fallback_notes": 3
  }
 ]

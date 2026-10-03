@@ -38,6 +38,7 @@ M = [
     ("ext: order after arguments", "gmg/agent.py", "        if name in PREREQ and", "        if False and name in PREREQ and"),
     ("ext: caption person not checked", "gmg/agent.py", '            if s.get("cap") and not re.search(r"\\b(I|my|me)\\b", s["cap"]):', "            if False:"),
     ("ext: fallback not said", "gmg/agent.py", "        if fb:\n            notes.append", "        if False:\n            notes.append"),
+    ("ext: no geometry repair", "gmg/agent.py", "                if c[\"cast\"][r][\"shape\"] != own:", "                if False:"),
     ("hook: never denies", "gmg/hook.py", '    return {"decision": "deny",', '    return {"decision": "allow",'),
     ("loop: off-list not counted", "gmg/loop.py", '"offlist": fc.get("name") not in prev_next', '"offlist": False'),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),

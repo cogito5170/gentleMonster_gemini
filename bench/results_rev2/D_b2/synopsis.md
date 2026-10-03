@@ -1,18 +1,18 @@
-# Gentle Monster — The Drained Basin
-*A 1970s swimming pool reclaimed by light.*
+# Gentle Monster — The Dried Pool
+*A 1970s pool reclaimed by shimmering light.*
 
-You step into a cavernous, empty pool, where the polished concrete floors echo with the ghost of water. Guided by the liminal concrete strip, you approach the repurposed diving platform, a monumental anchor in the center of the drained basin. As you wander, four suspended light refractors cast dancing beams across the eyewear displays, simulating the shimmer of a submerged world. The experience concludes at a minimal concrete counter, grounding your descent into this architectural reverie.
+You step down into the silence of a drained 1970s pool, where the architecture itself breathes with the memory of water. As you walk across the polished concrete expanse, the air feels heavy with light, guiding you toward a towering vintage lifeguard chair sculpture. You explore the eyewear displayed upon floating glass blocks that seem to drift in the hollow space. Finally, you reach the tiled counter at the back, leaving the luminous void behind.
 
-**Keywords:** submerged architecture · refracted time · dry pool resonance
-**Philosophy:** To inhabit the void is to see through the glass of memory.
+**Keywords:** evaporated ocean · suspended time · luminous void
+**Philosophy:** The absence of water reveals the clarity of sight.
 
 ## Design intent
-- **The concrete strip forces a deliberate** A floor strip (liminal transition zone) runs 4.7 m from the door toward the hero (repurposed diving platform). The concrete strip forces a deliberate, reverent descent into the depth of the space.
-- **The towering diving platform focuses your** The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The towering diving platform focuses your attention, making the surrounding void feel vast and silent.
-- **The glass refractors break the daylight** Four product stations (suspended light refractors) ring it loosely, 0.4 m from the route at the closest. The glass refractors break the daylight, transforming the air into a shimmering, fluid-like atmosphere.
-- **The concrete counter provides a final, grounded** The pay counter (minimal concrete counter) sits at the back right, where the route ends. The concrete counter provides a final, grounded anchor before you exit the hollowed expanse.
+- **The transition strip physically signals the** A floor strip (sunlight shimmer transition strip) runs 4.7 m from the door toward the hero (vintage lifeguard chair sculpture). The transition strip physically signals the departure from the outside world into the surreal depth of the pool.
+- **The height of the lifeguard chair commands the** The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The height of the lifeguard chair commands the entire space, creating a focal point in the middle of the emptiness.
+- **The stations provide a subtle, scattered** Four product stations (floating eyewear display blocks) ring it loosely, 0.4 m from the route at the closest. The stations provide a subtle, scattered presence that forces you to navigate the void as you search for your eyewear.
+- **The counter marks the end of your descent** The pay counter (tiled payment counter) sits at the back right, where the route ends. The counter marks the end of your descent, grounding your journey in a clean, functional finality.
 
 ## The walk
-- **I stand at the threshold, where the floor transition marks the start of the** The air feels heavy with the memory of water.
-- **Before me, the repurposed diving platform stands as a silent guardian of the** It commands the center of the drained landscape.
-- **I peer through the glass; the light refracts into ripples that don't exist.** The eyewear rests in the path of shifting light.
+- **I step onto the threshold, where the floor begins to ripple with artificial** The transition from the world above to the depths below begins here.
+- **I stand beneath the towering, tarnished lifeguard chair.** The absence of water makes the silence feel profound and heavy.
+- **I lean in to examine the eyewear resting on the floating glass blocks.** Each pair is a relic suspended in the vast, empty basin.

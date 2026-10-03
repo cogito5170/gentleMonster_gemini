@@ -36,3 +36,13 @@ request text); only a *named* known brand can correct the product, and only to o
 run again (run 2) on the fixed code; run 1 stays in `metrics.json` and is reported. A post-hoc check, labelled as
 post-hoc, is added to the report: brand and product of the job match the brief (`briefs.json` brand, or the
 gentleMonster default when none; product read from the brief by me, listed in the report).
+
+## Amendment after run 2 (written before run 3)
+Run 2: b1-b5 DONE, **b6 NEEDS_REVIEW**. On the 8 m-wide ritual plan the agent cast the hero as a box where the plan
+has a round basin; spec.check measures a basin as a circle and a box as a rectangle, so the route came 0.12 m from it.
+Rev 1's pipeline reverted such shapes in code; rev 2 had lost that repair. And the NEEDS_REVIEW result neither listed
+the problems nor pointed to the step that fixes them, so flash-lite looped (cast -> story -> finish, 13 calls).
+Harness defect found at the same time: runs shared job folders, so a failed run could carry an earlier run's files.
+Fix: gm_finish reverts a role whose shape broke the measured layout (REPAIR, said in the ledger); a NEEDS_REVIEW
+result carries `problems` and, for layout problems, offers gm_cast; each run writes to its own folder and only files the
+ledger recorded in that run are kept. All six briefs run again (run 3). Runs 1-2 stay reported.

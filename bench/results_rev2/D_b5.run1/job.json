@@ -1,0 +1,488 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Orbital Hangar No. 01",
+ "subtitle": "An ethereal voyage through a weightless orbital station.",
+ "line": "Step into the silence of an orbital hangar, where your perception of gravity dissolves among floating light.",
+ "quote": "The void is not empty; it is the space where desire begins to hover.",
+ "synopsis": "You enter the hangar, slipping between steel columns like a vessel docking at a remote station. Ahead, the central levitation plinth pulls your gaze as eyewear orbits the center in a state of suspended animation. You move through the cool air, circling the void while the soft hum of the facility vibrates beneath your feet. Only by stepping away can you reach the perimeter, where the gear is finally grounded.",
+ "keywords": [
+  "weightlessness",
+  "orbital-hangar",
+  "docking-maneuver"
+ ],
+ "why": [
+  {
+   "t": "The concrete transition pillars define the",
+   "d": "A pair of threshold objects (zero-gravity transition pillars) stands 1.0-3.0 m inside the door, with a hanging screen (catenary cable curtains) between them; the route slips through a 1.9 m gap. The concrete transition pillars define the airlock, forcing a deliberate, slow entry into the hangar."
+  },
+  {
+   "t": "The central levitation plinth serves as the",
+   "d": "The hero (central levitation plinth) stands alone in an empty 8 x 7 m area (null-gravity center zone); the route circles it and never comes closer than 3.3 m. The central levitation plinth serves as the gravity-defying anchor, framing the eyewear as artifacts of a future world."
+  },
+  {
+   "t": "The perimeter display clusters break the loop",
+   "d": "Four product stations (perimeter display clusters) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The perimeter display clusters break the loop, creating a tactical rhythm of exploration between the central core and the station edges."
+  },
+  {
+   "t": "The transaction control panel at the rear",
+   "d": "The pay desk (transaction control panel) closes the loop at the back wall. The transaction control panel at the rear brings your journey to a final, steady docking point at the hangar's limit."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#a0a0a0",
+   "name": "Hangar Grey"
+  },
+  {
+   "hex": "#2a2a2a",
+   "name": "Deep Void"
+  },
+  {
+   "hex": "#e0f7fa",
+   "name": "Ethereal Blue"
+  },
+  {
+   "hex": "#555555",
+   "name": "Carbon Steel"
+  },
+  {
+   "hex": "#ffffff",
+   "name": "Luminous White"
+  }
+ ],
+ "accent": "#e0f7fa",
+ "materials": [
+  {
+   "name": "Brushed Aerospace Aluminium",
+   "where": "walls, ceiling, central levitation plinth, orbital satellite",
+   "preset": "aluminium"
+  },
+  {
+   "name": "Industrial Raw Steel",
+   "where": "catenary cable curtains, transaction control panel",
+   "preset": "steel"
+  },
+  {
+   "name": "Honed Lunar Concrete",
+   "where": "floor",
+   "preset": "polished_concrete"
+  },
+  {
+   "name": "Poured Structural Concrete",
+   "where": "zero-gravity transition pillars",
+   "preset": "concrete"
+  }
+ ],
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "aluminium",
+  "ceiling": "aluminium",
+  "light": "dark_gallery",
+  "fog": 0.02,
+  "beams": true
+ },
+ "layout": {
+  "name": "Orbital Hangar No. 01 — Gentle Monster",
+  "W": 20.0,
+  "D": 16.0,
+  "H": 6,
+  "columns": [
+   [
+    4.5,
+    4.0
+   ],
+   [
+    15.5,
+    4.0
+   ],
+   [
+    4.5,
+    13.0
+   ],
+   [
+    15.5,
+    13.0
+   ]
+  ],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 8.5,
+    "y0": -0.1,
+    "x1": 11.5,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "joint_l",
+    "type": "block",
+    "x0": 6.5,
+    "y0": 1.0,
+    "x1": 7.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "zero-gravity transition pillars",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "concrete"
+   },
+   {
+    "id": "joint_r",
+    "type": "block",
+    "x0": 12.5,
+    "y0": 1.0,
+    "x1": 13.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "zero-gravity transition pillars",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "concrete"
+   },
+   {
+    "id": "wire_l",
+    "type": "media",
+    "x0": 7.2,
+    "y0": 2.0,
+    "x1": 9.35,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "catenary cable curtains",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "wire_r",
+    "type": "media",
+    "x0": 11.25,
+    "y0": 2.0,
+    "x1": 12.8,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "catenary cable curtains",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "void",
+    "type": "zone",
+    "x0": 6.0,
+    "y0": 5.0,
+    "x1": 14.0,
+    "y1": 12.0,
+    "h": 0,
+    "label": "null-gravity center zone",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "head",
+    "type": "figure",
+    "x0": 9.0,
+    "y0": 7.5,
+    "x1": 11.0,
+    "y1": 9.5,
+    "h": 3.2,
+    "label": "central levitation plinth",
+    "zone": "exp",
+    "shape": "display",
+    "material": "aluminium",
+    "hero": true
+   },
+   {
+    "id": "tree0",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 5.3,
+    "x1": 6.9,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "orbital satellite nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree1",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 5.3,
+    "x1": 13.7,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "orbital satellite nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree2",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 11.1,
+    "x1": 6.9,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "orbital satellite nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree3",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 11.1,
+    "x1": 13.7,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "orbital satellite nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree4",
+    "type": "figure",
+    "x0": 5.0,
+    "y0": 8.2,
+    "x1": 5.6,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "orbital satellite nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree5",
+    "type": "figure",
+    "x0": 14.4,
+    "y0": 8.2,
+    "x1": 15.0,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "orbital satellite nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "st0",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 5.6,
+    "x1": 3.6,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "perimeter display clusters",
+    "zone": "sale",
+    "shape": "display",
+    "material": "aluminium"
+   },
+   {
+    "id": "st1",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 10.6,
+    "x1": 3.6,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "perimeter display clusters",
+    "zone": "sale",
+    "shape": "display",
+    "material": "aluminium"
+   },
+   {
+    "id": "st2",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 5.6,
+    "x1": 17.8,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "perimeter display clusters",
+    "zone": "sale",
+    "shape": "display",
+    "material": "aluminium"
+   },
+   {
+    "id": "st3",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 10.6,
+    "x1": 17.8,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "perimeter display clusters",
+    "zone": "sale",
+    "shape": "display",
+    "material": "aluminium"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 8.0,
+    "y0": 13.6,
+    "x1": 12.0,
+    "y1": 14.4,
+    "h": 1.0,
+    "label": "transaction control panel",
+    "zone": "pay",
+    "shape": "box",
+    "material": "steel"
+   },
+   {
+    "id": "mirror",
+    "type": "kiosk",
+    "x0": 16.0,
+    "y0": 14.2,
+    "x1": 19.0,
+    "y1": 15.4,
+    "h": 1.8,
+    "label": "observation mirror block",
+    "zone": "sale",
+    "shape": "box",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 14.0,
+    "x1": 4.0,
+    "y1": 16.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "shards",
+    "type": "zone",
+    "x0": 5.8,
+    "y0": 4.6,
+    "x1": 14.2,
+    "y1": 12.4,
+    "h": 4.6,
+    "label": "luminous docking canopy",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      10.0,
+      0.5
+     ],
+     [
+      10.0,
+      3.6
+     ],
+     [
+      5.6,
+      4.6
+     ],
+     [
+      3.8,
+      8.4
+     ],
+     [
+      5.4,
+      12.6
+     ],
+     [
+      10.0,
+      12.9
+     ],
+     [
+      14.6,
+      12.6
+     ],
+     [
+      16.2,
+      8.4
+     ],
+     [
+      14.4,
+      4.6
+     ],
+     [
+      10.6,
+      3.6
+     ],
+     [
+      10.6,
+      0.5
+     ]
+    ],
+    "color": "#e0f7fa"
+   }
+  ],
+  "entry": [
+   10.0,
+   0.0
+  ],
+  "exit": [
+   10.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    10.0,
+    1.3
+   ],
+   "look": [
+    10.0,
+    1.9,
+    6.5
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I pass between the towering pillars, feeling the magnetic pull of the threshold.",
+   "sub": "The hangar hums with a stillness that suggests space is expanding."
+  },
+  {
+   "at": [
+    10.0,
+    3.6
+   ],
+   "look": [
+    10.0,
+    2.45,
+    8.5
+   ],
+   "h": 1.62,
+   "d": 3.2,
+   "cap": "I stand at the edge of the void and watch the eyewear hover, suspended by a",
+   "sub": "I approach slowly, performing my own docking maneuver in the silence."
+  },
+  {
+   "at": [
+    3.8,
+    8.4
+   ],
+   "look": [
+    2.9,
+    1.0,
+    6.0
+   ],
+   "h": 1.4,
+   "d": 2.8,
+   "cap": "I turn away from the core to inspect the product, grounded by the weight of the",
+   "sub": "Even here, the memory of weightlessness lingers in the cold metal."
+  }
+ ]
+}
