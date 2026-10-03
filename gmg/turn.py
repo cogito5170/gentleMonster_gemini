@@ -106,18 +106,28 @@ def mark_flowed() -> None:
     _mark("flowed")
 
 
+def _fire(t: dict, which: str) -> None:
+    """A redirect fires once per turn: if the agent cannot follow it (no option A to adopt, say), the turn is not stuck."""
+    t["fired"] = (t.get("fired") or []) + [which]
+    _path().write_text(json.dumps(t, ensure_ascii=False))
+
+
 def gate(tool: str) -> "dict | None":
     """A result that redirects the call, or None.
-    - a terse reply or an adoption ("A안을 채택") goes to pf_choose first (once);
-    - a turn about the story line / page flow goes to pf_pages before pf_write (once)."""
+    - a terse reply or an adoption ("A안을 채택") goes to pf_choose first;
+    - a turn about the story line / page flow goes to pf_pages before pf_write.
+    Each fires at most once per turn."""
     t = current()
     if not t or not tool.startswith("pf_") or tool == "pf_show":
         return None
+    fired = t.get("fired") or []
     pick = t["prompt"].strip() if t["terse"] else t.get("adopts")
-    if pick and not t["chose"] and tool != "pf_choose":
+    if pick and not t["chose"] and tool != "pf_choose" and "pick" not in fired:
+        _fire(t, "pick")
         why = f"the user's reply was {pick!r}" if t["terse"] else f"the user adopts option {pick}"
         return {"ok": False, "problems": [f"{why}: resolve it with pf_choose first"], "next": [{"tool": "pf_choose", "args": {"option": pick}}]}
-    if t.get("flow") and not t.get("flowed") and tool == "pf_write":
+    if t.get("flow") and not t.get("flowed") and tool == "pf_write" and "flow" not in fired:
+        _fire(t, "flow")
         return {"ok": False, "problems": ["this turn is about the story line / page flow: put it in the page map with pf_pages first "
                                           "(action set for the pages the user describes, action propose for exactly 3 options of what follows)"],
                 "next": [{"tool": "pf_pages", "args": {"action": "set", "pages": "[{n, title, role}]"}},

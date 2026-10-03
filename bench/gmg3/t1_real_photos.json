@@ -1,0 +1,308 @@
+{
+ "what": "pf_photos (gmg/photo.measure) on the 14 real images, gm-photos@780f412 top level (BD-191/BD-193), against the values recorded in gentleMonster@4eb4ffa data/user_questions/questions.semantic.json. Only measured values; no image content.",
+ "shared_measures_compared": [
+  "brightness",
+  "contrast",
+  "saturation",
+  "warmth",
+  "dark=dark_share",
+  "focus=centre_focus",
+  "mono"
+ ],
+ "max_abs_diff": {
+  "brightness": 0,
+  "contrast": 0,
+  "saturation": 0,
+  "warmth": 0,
+  "dark": 0,
+  "focus": 0,
+  "mono": 0
+ },
+ "photos": [
+  {
+   "file": "1.webp",
+   "role": "photo",
+   "subject_regions": 17,
+   "subject_share": 0.64,
+   "layout_like": false,
+   "distinct_palette": [
+    "#f7f8f5",
+    "#504229",
+    "#786542",
+    "#afa07e",
+    "#8a875e"
+   ],
+   "recorded_palette": [
+    "#6b5d3b",
+    "#423621",
+    "#9c946e",
+    "#f7f8f5",
+    "#d0cead"
+   ]
+  },
+  {
+   "file": "2.webp",
+   "role": "photo",
+   "subject_regions": 4,
+   "subject_share": 0.683,
+   "layout_like": false,
+   "distinct_palette": [
+    "#9cadb3",
+    "#464947",
+    "#1a1c1c",
+    "#cfe7ef",
+    "#76503f"
+   ],
+   "recorded_palette": [
+    "#5e4d43",
+    "#202e34",
+    "#9cadb3",
+    "#868673",
+    "#cfe7ef"
+   ]
+  },
+  {
+   "file": "3.webp",
+   "role": "photo",
+   "subject_regions": 5,
+   "subject_share": 0.147,
+   "layout_like": false,
+   "distinct_palette": [
+    "#060605",
+    "#2b250f",
+    "#7d723e"
+   ],
+   "recorded_palette": [
+    "#100f09",
+    "#060605",
+    "#090806",
+    "#544c26",
+    "#070705"
+   ]
+  },
+  {
+   "file": "4.webp",
+   "role": "photo",
+   "subject_regions": 2,
+   "subject_share": 0.108,
+   "layout_like": false,
+   "distinct_palette": [
+    "#212121",
+    "#0b0b0b",
+    "#5e5e5e"
+   ],
+   "recorded_palette": [
+    "#0c0c0c",
+    "#111111",
+    "#0b0b0b",
+    "#090909",
+    "#404040"
+   ]
+  },
+  {
+   "file": "5.webp",
+   "role": "photo",
+   "subject_regions": 8,
+   "subject_share": 0.298,
+   "layout_like": false,
+   "distinct_palette": [
+    "#797c76",
+    "#99a1a2",
+    "#d9ceba",
+    "#bdb8ab",
+    "#908e84"
+   ],
+   "recorded_palette": [
+    "#888c86",
+    "#a2a6a2",
+    "#bdb8ab",
+    "#62635d",
+    "#d9ceba"
+   ]
+  },
+  {
+   "file": "6.webp",
+   "role": "reference_layout",
+   "subject_regions": 9,
+   "subject_share": 0.381,
+   "layout_like": true,
+   "distinct_palette": [
+    "#ffffff",
+    "#7c7967",
+    "#34322e",
+    "#bebbb3"
+   ],
+   "recorded_palette": [
+    "#ffffff",
+    "#58564b",
+    "#d6d5d0",
+    "#fdfdfd",
+    "#fffef7"
+   ]
+  },
+  {
+   "file": "7.jpg",
+   "role": "draft_page",
+   "subject_regions": 1,
+   "subject_share": 0.775,
+   "layout_like": true,
+   "distinct_palette": [
+    "#ffffff",
+    "#bababa",
+    "#060505",
+    "#e5e5e2",
+    "#6f6855"
+   ],
+   "recorded_palette": [
+    "#ffffff",
+    "#060505",
+    "#c9c8c8",
+    "#423d31",
+    "#fefff5"
+   ]
+  },
+  {
+   "file": "8.jpg",
+   "role": "notes",
+   "subject_regions": 13,
+   "subject_share": 0.145,
+   "layout_like": true,
+   "distinct_palette": [
+    "#ffffff",
+    "#b4b1b0",
+    "#e0dcdb"
+   ],
+   "recorded_palette": [
+    "#ffffff",
+    "#cac6c6",
+    "#fdfcfc",
+    "#fffffe",
+    "#feffff"
+   ]
+  },
+  {
+   "file": "9.jpg",
+   "role": "draft_page",
+   "subject_regions": 1,
+   "subject_share": 0.67,
+   "layout_like": true,
+   "distinct_palette": [
+    "#ffffff",
+    "#8e8e8e",
+    "#bababa",
+    "#414141",
+    "#a1a1a1"
+   ],
+   "recorded_palette": [
+    "#ffffff",
+    "#a8a8a8",
+    "#bababa",
+    "#686868",
+    "#e2e2e2"
+   ]
+  },
+  {
+   "file": "10.jpg",
+   "role": "draft_spread",
+   "subject_regions": 5,
+   "subject_share": 0.45,
+   "layout_like": true,
+   "distinct_palette": [
+    "#ffffff",
+    "#060606",
+    "#d6d5d1",
+    "#3e3626",
+    "#8d867a"
+   ],
+   "recorded_palette": [
+    "#ffffff",
+    "#191610",
+    "#b2aea6",
+    "#fffff8",
+    "#fefefd"
+   ]
+  },
+  {
+   "file": "11.jpg",
+   "role": "draft_spread",
+   "subject_regions": 8,
+   "subject_share": 0.41,
+   "layout_like": true,
+   "distinct_palette": [
+    "#e9eabe",
+    "#c8c8b1",
+    "#5e5e59",
+    "#f5f5de"
+   ],
+   "recorded_palette": [
+    "#e9eabe",
+    "#c8c8b1",
+    "#5e5e59",
+    "#f5f5de",
+    "#e8eabe"
+   ]
+  },
+  {
+   "file": "12.jpg",
+   "role": "draft_spread",
+   "subject_regions": 5,
+   "subject_share": 0.257,
+   "layout_like": true,
+   "distinct_palette": [
+    "#eae9bd",
+    "#cdccb2",
+    "#63635d"
+   ],
+   "recorded_palette": [
+    "#eae9bd",
+    "#cdccb2",
+    "#63635d",
+    "#ecebbe",
+    "#eae9bc"
+   ]
+  },
+  {
+   "file": "13.jpg",
+   "role": "draft_spread",
+   "subject_regions": 3,
+   "subject_share": 0.351,
+   "layout_like": true,
+   "distinct_palette": [
+    "#ffffff",
+    "#54675b",
+    "#e9eabe",
+    "#272e2b",
+    "#9ca79d"
+   ],
+   "recorded_palette": [
+    "#ffffff",
+    "#3e4b43",
+    "#f5f5e8",
+    "#c3c9ae",
+    "#fffffd"
+   ]
+  },
+  {
+   "file": "14.jpg",
+   "role": "case_study",
+   "subject_regions": 5,
+   "subject_share": 0.413,
+   "layout_like": true,
+   "distinct_palette": [
+    "#f1f4f7",
+    "#000000",
+    "#4a4442",
+    "#dbdad9",
+    "#918779"
+   ],
+   "recorded_palette": [
+    "#f5f7f9",
+    "#23201f",
+    "#fdfdfd",
+    "#ffffff",
+    "#b6b1a9"
+   ]
+  }
+ ],
+ "palette_note": "recorded_palette is the upstream k-means palette (may hold near-duplicates, e.g. four near-blacks); distinct_palette is gmg's palette with colours >= 30 RGB apart (the GMG3 fix), so the two differ by design"
+}

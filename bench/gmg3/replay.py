@@ -2,6 +2,7 @@
 
     python3 bench/gmg3/replay.py design [--q 4,22,23] [--out results_x]    # design set (tuning allowed)
     python3 bench/gmg3/replay.py eval                    # questions 32-42, pre-registered in eval.json
+    python3 bench/gmg3/replay.py eval --set DIR --out X  # another pre-registered set (DIR/eval.json, seed.json, attachments)
 
 Each question's path and state are scored by code (`check_*` implement eval.json's `expected_state`, verbatim).
 """
@@ -85,6 +86,58 @@ def check(n, before, after) -> "tuple[bool, str]":
     return True, "(design question: not scored)"
 
 
+def check_spec(spec: list, before, after) -> "tuple[bool, str]":
+    """A declarative expected state (for sets written after the code freeze, so no scoring code changes then).
+    Every condition must hold. Conditions:
+      {"texts": {"kind"?, "op"?}, "min": k, "contains_any"?: [regex], "names_min"?: {"words": [regex], "k": n}}
+      {"proposals": 3, "min": k}          new proposal sets with exactly that many options
+      {"adopted": true} · {"retry": true} · {"pages_min": n} · {"ranking_min": n}
+      {"photo": "file.jpg", "cites_colour": true?}
+      {"unchanged": true}                  no workspace event other than SERVED (the served-model record)
+    """
+    nt, npr, why, good = _new(before, after, "texts"), _new(before, after, "proposals"), [], True
+    for c in spec:
+        if "texts" in c:
+            a = [t for t in nt if all(t.get(k) == v for k, v in c["texts"].items())]
+            if c.get("contains_any"):
+                a = [t for t in a if any(re.search(x, t["text"], re.I) for x in c["contains_any"])]
+            if c.get("names_min"):
+                a = [t for t in a if sum(bool(re.search(x, t["text"], re.I)) for x in c["names_min"]["words"]) >= c["names_min"]["k"]]
+            h = len(a) >= c.get("min", 1)
+            why.append(f"{len(a)} new texts {c['texts']}")
+        elif "proposals" in c:
+            k = sum(len(p["options"]) == c["proposals"] for p in npr)
+            h = k >= c.get("min", 1)
+            why.append(f"{k} new proposal sets of {c['proposals']}")
+        elif c.get("adopted"):
+            h = len(after["adopted"]) > len(before["adopted"])
+            why.append(f"adoption {'recorded' if h else 'NOT recorded'}")
+        elif c.get("retry"):
+            h = sum(e["kind"] == "RETRY" for e in after["_events"]) > sum(e["kind"] == "RETRY" for e in before["_events"])
+            why.append(f"retry {'recorded' if h else 'NOT recorded'}")
+        elif "pages_min" in c:
+            h = len(after["pages"]) >= c["pages_min"]
+            why.append(f"{len(after['pages'])} pages")
+        elif "ranking_min" in c:
+            h = any(len(r["order"]) >= c["ranking_min"] for r in _new(before, after, "rankings"))
+            why.append(f"{len(_new(before, after, 'rankings'))} new rankings")
+        elif "photo" in c:
+            ph = [p for p in after["photos"] if p["file"] == c["photo"]]
+            cols = {x.lower() for p in ph for x in p["colors"]}
+            cite = sum(any(x in t["text"].lower() for x in cols) for t in nt)
+            h = bool(ph) and (cite > 0 or not c.get("cites_colour"))
+            why.append(f"{c['photo']} measured: {bool(ph)}, texts citing a measured colour: {cite}")
+        elif c.get("unchanged"):
+            k = sum(e["kind"] != "SERVED" for e in after["_events"]) - sum(e["kind"] != "SERVED" for e in before["_events"])
+            h = k == 0
+            why.append("no workspace change" if h else f"{k} new events (SERVED not counted)")
+        else:
+            h = False
+            why.append(f"unknown condition {c}")
+        good = good and h
+    return good, "; ".join(why)
+
+
 def path_ok(called, req, allowed) -> bool:
     c = set(called)
     return set(req) <= c and c <= set(req) | set(allowed)
@@ -106,9 +159,11 @@ def main():
     from gmg import loop, portfolio as PF, upstream
     upstream.load()
     if which == "eval":
-        ev = json.loads((HERE / "eval.json").read_text())["questions"]
-        PF.seed(json.loads((HERE / "seed.json").read_text()), HERE)
-        qs = [{"n": q["n"], "text": q["text"], "images": [str(HERE / a) for a in q["attachments"]], "req": q["required"], "allowed": q["allowed"]} for q in ev]
+        base = Path(sys.argv[sys.argv.index("--set") + 1]).resolve() if "--set" in sys.argv else HERE   # a question set: eval.json, seed.json, attachments
+        ev = json.loads((base / "eval.json").read_text())["questions"]
+        PF.seed(json.loads((base / "seed.json").read_text()), base)
+        qs = [{"n": q["n"], "text": q["text"], "images": [str(base / a) for a in q["attachments"]], "req": q["required"], "allowed": q["allowed"],
+               "check": q.get("check")} for q in ev]
     else:
         Q = questions_md()
         qs = [{"n": n, "text": Q[n], "images": [str(HERE / a) for a in DESIGN_ATT.get(n, [])]} for n in (only or [4, 22, 23, 24, 25, 26, 27, 28])]
@@ -119,7 +174,7 @@ def main():
         snaps.append(snapshot())
     for q, r, b, a in zip(qs, res, snaps[:-1], snaps[1:]):
         called = [c["tool"] for c in r["calls"]]
-        ok_state, why = check(q["n"], b, a) if which == "eval" else (None, "")
+        ok_state, why = (check_spec(q["check"], b, a) if q.get("check") else check(q["n"], b, a)) if which == "eval" else (None, "")
         usage = [t["usage"] for t in r["turns"] if "usage" in t]
         rows.append({"n": q["n"], "called": called, "path_ok": path_ok(called, q.get("req", []), q.get("allowed", [])) if which == "eval" else None,
                      "state_ok": ok_state, "state": why, "errors": sum(1 for c in r["calls"] if c["ok"] is False),
