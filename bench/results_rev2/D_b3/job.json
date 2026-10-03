@@ -1,89 +1,89 @@
 {
  "brand": "Aesop",
- "title": "The Basalt Library",
- "subtitle": "An immersive apothecary experience inspired by silence and stone.",
- "line": "A library of scents carved from the volcanic heart of Jeju.",
- "quote": "Where the story ends, the ritual begins.",
- "synopsis": "You step into a space where the heavy, porous walls of black basalt evoke the scent of ancient paper and volcanic earth. At the center of this quiet chamber, you pause at the meditative ritual basin, where water and fragrance cleanse the senses. You then circle the room, exploring the shelves that house bottles like volumes in a library, before reaching the back counter. Here, amidst the lingering scent of damp stone, you conclude your journey.",
+ "title": "Jeju Scent Library",
+ "subtitle": "A meditative retreat of stone and fragrance.",
+ "line": "Step into a silent sanctuary in Jeju where books are replaced by the delicate, lingering notes of Aesop fragrances.",
+ "quote": "The silence of a library meets the scent of earth and time.",
+ "synopsis": "You enter a room defined by textured strata clay walls that hold bottles like archived literature. In the absolute centre, a black volcanic stone basin serves as a meditative anchor where you pause to cleanse your hands. As you circle this quiet ritual, the scent of the Jeju earth and the gentle flow of water transport you into a realm of deep stillness. Finally, you move to the warm wooden counter at the back, completing your journey through this sensory archive.",
  "keywords": [
-  "Basalt library",
-  "Earthy ritual",
-  "Scented quietude"
+  "Library of Scent",
+  "Volcanic Serenity",
+  "Aromatic Ritual"
  ],
  "why": [
   {
-   "t": "The surrounding black basalt shelves create an",
-   "d": "Shelf walls (basalt shelf stacks) wrap the left, right and back of the 12 x 10 m room. The surrounding black basalt shelves create an atmosphere of scholarly seclusion and tactile permanence."
+   "t": "Layered Earth Walls",
+   "d": "Shelf walls (back library shelf wall) wrap the left, right and back of the 12 x 10 m room. These layered walls envelop you in the tactile essence of the island, creating a grounded, intimate library atmosphere."
   },
   {
-   "t": "The central basin serves as a physical and",
-   "d": "The centre object (meditative ritual basin) is the first stop, 4.2 m in from the door. The central basin serves as a physical and sensory anchor, compelling you to pause and participate in a cleansing rite."
+   "t": "Meditative Basin Centre",
+   "d": "The centre object (central meditative basin) is the first stop, 4.2 m in from the door. This central water feature offers an immediate sensory pause, inviting you to clear your mind and senses upon entry."
   },
   {
-   "t": "The circular flow allows you to drift through",
-   "d": "The route circles it first, then follows the shelves. The circular flow allows you to drift through the 'stacks' as if browsing a collection of literature."
+   "t": "Guided Ritual Journey",
+   "d": "The route circles it first, then follows the shelves. The circulation forces a slow, contemplative pace that mirrors the reverence of an ancient library."
   },
   {
-   "t": "The placement of the payment counter ensures",
-   "d": "The counter (minimal payment counter) sits at the back, off the loop. The placement of the payment counter ensures that the final interaction remains separate from the tranquil browsing experience."
+   "t": "Warm Timber Counter",
+   "d": "The counter (back service counter) sits at the back, off the loop. This final point of contact provides a grounding conclusion to your aromatic exploration within the space."
   }
  ],
  "palette": [
   {
-   "hex": "#2b2b2b",
-   "name": "Deep Basalt"
+   "hex": "#262626",
+   "name": "basalt-black"
   },
   {
-   "hex": "#a9a9a9",
-   "name": "Stone Grey"
+   "hex": "#d4c4a8",
+   "name": "clay-beige"
   },
   {
-   "hex": "#b8860b",
-   "name": "Oxidized Gold"
+   "hex": "#8c7b66",
+   "name": "warm-wood"
   },
   {
    "hex": "#f0f0f0",
-   "name": "Paper White"
+   "name": "soft-white"
   },
   {
-   "hex": "#4a4a4a",
-   "name": "Shadow Charcoal"
+   "hex": "#5e6a71",
+   "name": "stone-grey"
   }
  ],
- "accent": "#b8860b",
+ "accent": "#262626",
  "materials": [
   {
-   "name": "Charred Basalt Stone",
-   "where": "walls, basalt shelf stacks",
+   "name": "Volcanic Black Basalt",
+   "where": "floor, central meditative basin",
    "preset": "black_stone"
   },
   {
-   "name": "Polished Volcanic Concrete",
-   "where": "floor",
-   "preset": "polished_concrete"
+   "name": "Hand-Pressed Strata Clay",
+   "where": "walls, back library shelf wall",
+   "preset": "strata_clay"
   },
   {
-   "name": "Matte Jeju Lime Plaster",
-   "where": "ceiling",
-   "preset": "lime_plaster"
+   "name": "Aged Jeju Timber",
+   "where": "ceiling, back service counter",
+   "preset": "wood"
   },
   {
-   "name": "Antiqued Brass Basin",
-   "where": "meditative ritual basin",
-   "preset": "brass"
+   "name": "Polished Concrete Detail",
+   "where": "details",
+   "preset": "concrete"
   }
  ],
  "room": {
-  "floor": "polished_concrete",
-  "wall": "black_stone",
-  "ceiling": "lime_plaster",
+  "floor": "black_stone",
+  "wall": "strata_clay",
+  "ceiling": "wood",
   "light": "warm_spot",
-  "fog": 0.02,
+  "fog": 0.0,
   "beams": false,
   "dome": true
  },
  "layout": {
-  "name": "The Basalt Library — Aesop",
+  "name": "Jeju Scent Library — Aesop",
   "W": 12.0,
   "D": 10.0,
   "H": 4.2,
@@ -109,7 +109,7 @@
     "x1": 10.0,
     "y1": 8.2,
     "h": 0,
-    "label": "quiet study zone",
+    "label": "meditative fragrance zone",
     "zone": "exp",
     "shape": "zone"
    },
@@ -121,10 +121,10 @@
     "x1": 0.6,
     "y1": 9.4,
     "h": 2.6,
-    "label": "basalt shelf stacks",
+    "label": "back library shelf wall",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "black_stone"
+    "material": "strata_clay"
    },
    {
     "id": "wb",
@@ -134,10 +134,10 @@
     "x1": 11.4,
     "y1": 10.0,
     "h": 2.6,
-    "label": "basalt shelf stacks",
+    "label": "back library shelf wall",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "black_stone"
+    "material": "strata_clay"
    },
    {
     "id": "wr",
@@ -147,10 +147,10 @@
     "x1": 12.0,
     "y1": 9.4,
     "h": 2.6,
-    "label": "basalt shelf stacks",
+    "label": "back library shelf wall",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "black_stone"
+    "material": "strata_clay"
    },
    {
     "id": "basin",
@@ -160,10 +160,10 @@
     "x1": 7.0,
     "y1": 5.8,
     "h": 0.9,
-    "label": "meditative ritual basin",
+    "label": "central meditative basin",
     "zone": "exp",
     "shape": "basin",
-    "material": "brass",
+    "material": "black_stone",
     "hero": true
    },
    {
@@ -174,7 +174,7 @@
     "x1": 8.5,
     "y1": 8.7,
     "h": 1.0,
-    "label": "minimal payment counter",
+    "label": "back service counter",
     "zone": "pay",
     "shape": "box",
     "material": "wood"
@@ -245,7 +245,7 @@
       0.4
      ]
     ],
-    "color": "#b8860b"
+    "color": "#262626"
    }
   ],
   "entry": [
@@ -270,8 +270,8 @@
    ],
    "h": 1.38,
    "d": 3.6,
-   "cap": "I stand before the basin, watching the water ripple in the dark, silent air.",
-   "sub": "A ritual of fragrance and stone begins here."
+   "cap": "I stand before the volcanic stone basin, the weight of the library air",
+   "sub": "The sound of water ripples against the dark, porous stone."
   },
   {
    "at": [
@@ -285,8 +285,8 @@
    ],
    "h": 1.55,
    "d": 2.8,
-   "cap": "I run my fingers along the rough texture of the basalt shelving, where the",
-   "sub": "The scent of old paper and volcanic earth fills the air."
+   "cap": "I brush my hand along the clay wall, the texture whispering stories of earth",
+   "sub": "Amber bottles are nested perfectly within the sedimentary layers."
   },
   {
    "at": [
@@ -300,8 +300,8 @@
    ],
    "h": 1.55,
    "d": 2.4,
-   "cap": "I look up into the soft light above the payment counter, feeling the quietude",
-   "sub": "My visit to this place concludes in stillness."
+   "cap": "Looking up towards the ceiling, I feel the sanctuary shift into a quiet, warm",
+   "sub": "A final moment of stillness before departing the scent archive."
   }
  ]
 }

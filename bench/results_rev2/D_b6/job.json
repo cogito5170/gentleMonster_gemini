@@ -1,81 +1,81 @@
 {
- "brand": "Gentle Monster",
- "title": "The Sauna Knitwear Refuge",
- "subtitle": "A ritual of warmth in the heart of a winter forest.",
- "line": "A sanctuary of warmth where the biting winter air transforms into a ritual of soft wool and lingering steam.",
- "quote": "Steaming, woven, and quiet: the luxury of a slow, winter breath.",
- "synopsis": "You enter the boutique and are immediately wrapped in the scent of cedar and the soft, hazy atmosphere of a winter sauna. In the center, a steaming cedar wood heater acts as the anchor, casting a warm, amber glow across the space. As you navigate the perimeter, you discover the knitwear collection tucked into the shelves that line the walls, shrouded in a thin layer of condensation. Finally, you reach the counter at the back, where the process of selecting your garment feels like emerging from a deep, peaceful rest.",
+ "brand": "(none named)",
+ "title": "Forest Hearth Sauna",
+ "subtitle": "A winter forest sauna retreat for tactile knitwear.",
+ "line": "A sanctuary of knitted warmth nestled in the frost of a winter forest.",
+ "quote": "Where the sharp bite of winter meets the soft embrace of the hearth.",
+ "synopsis": "You step into a hushed winter sanctuary, where the scent of wood and the haze of steam envelop you in warmth. At the heart of the space, the Central steam sauna stove acts as your first anchor, radiating a soft, golden light. As you circle this glowing center, you find yourself drawn to the clay-hewn shelves that display delicate knitwear like treasures. Finally, you reach the wooden counter at the back, leaving the frozen world far behind.",
  "keywords": [
-  "winter forest sauna",
-  "thermal comfort",
-  "steaming cedar"
+  "steam-warmed cocoon",
+  "hushed winter sanctuary",
+  "tactile knit textures"
  ],
  "why": [
   {
-   "t": "The glass",
-   "d": "Shelf walls (steam-venting glass wall) wrap the left, right and back of the 8 x 10 m room. The glass-walled shelves provide a sensory barrier between the winter street and the cozy interior."
+   "t": "Textured Earth Shelves",
+   "d": "Shelf walls (Knitted wool displays) wrap the left, right and back of the 8 x 10 m room. The clay shelves create a sensory contrast to the soft knitwear, inviting you to touch and feel each garment."
   },
   {
-   "t": "The steaming cedar wood heater serves as the",
-   "d": "The centre object (steaming cedar wood heater) is the first stop, 4.2 m in from the door. The steaming cedar wood heater serves as the physical and emotional hearth of the space."
+   "t": "The Glowing Core",
+   "d": "The centre object (Central steam sauna stove) is the first stop, 4.2 m in from the door. The central wooden stove grounds you, offering a warm visual focal point in the misty, steam-filled room."
   },
   {
-   "t": "The layout ensures you engage with the",
-   "d": "The route circles it first, then follows the shelves. The layout ensures you engage with the architecture before approaching the product."
+   "t": "A Meditative Path",
+   "d": "The route circles it first, then follows the shelves. The circular journey forces you to slow down, encouraging a deliberate and meditative exploration of the collection."
   },
   {
-   "t": "The rear counter offers a private, concluding",
-   "d": "The counter (knitted collection display counter) sits at the back, off the loop. The rear counter offers a private, concluding moment for your transaction."
+   "t": "The Final Hearth",
+   "d": "The counter (Checkout counter) sits at the back, off the loop. The wooden counter at the back provides a final moment of organic connection before you conclude your journey."
   }
  ],
  "palette": [
   {
-   "hex": "#7b5a40",
-   "name": "Deep Cedar"
+   "hex": "#4a3728",
+   "name": "Cedar Warmth"
   },
   {
-   "hex": "#b8a99a",
-   "name": "Warm Beige"
+   "hex": "#b8c1d1",
+   "name": "Cool Steel Mist"
   },
   {
-   "hex": "#d9e0e8",
-   "name": "Mist Grey"
+   "hex": "#a67c52",
+   "name": "Burnt Sienna Clay"
   },
   {
-   "hex": "#f2f2f2",
-   "name": "Vapor White"
+   "hex": "#8c92ac",
+   "name": "Winter Frost"
   },
   {
-   "hex": "#4a5a55",
-   "name": "Forest Moss"
+   "hex": "#fdfcf0",
+   "name": "Soft Knit Cream"
   }
  ],
- "accent": "#7b5a40",
+ "accent": "#4a3728",
  "materials": [
   {
-   "name": "Aromatic Cedarwood",
-   "where": "floor, walls, ceiling, steaming cedar wood heater, knitted c",
+   "name": "Charred Cedar Wood",
+   "where": "floor, ceiling, central steam sauna stove, checkout counter",
    "preset": "wood"
   },
   {
-   "name": "Frosted Steam Glass",
-   "where": "steam-venting glass wall",
-   "preset": "glass"
+   "name": "White Lime Plaster",
+   "where": "walls",
+   "preset": "lime_plaster"
   },
   {
-   "name": "Raw Concrete Base",
+   "name": "Warm Strata Clay",
+   "where": "knitted wool displays",
+   "preset": "strata_clay"
+  },
+  {
+   "name": "Polished Concrete",
    "where": "details",
    "preset": "concrete"
-  },
-  {
-   "name": "Brushed Stainless Steel",
-   "where": "details",
-   "preset": "steel"
   }
  ],
  "room": {
   "floor": "wood",
-  "wall": "wood",
+  "wall": "lime_plaster",
   "ceiling": "wood",
   "light": "warm_spot",
   "fog": 0.045,
@@ -83,7 +83,7 @@
   "dome": true
  },
  "layout": {
-  "name": "The Sauna Knitwear Refuge — Gentle Monster",
+  "name": "Forest Hearth Sauna — (none named)",
   "W": 8.0,
   "D": 10.0,
   "H": 4.2,
@@ -109,7 +109,7 @@
     "x1": 6.67,
     "y1": 8.2,
     "h": 0,
-    "label": "steam-filled relaxation zone",
+    "label": "Sauna vapor zone",
     "zone": "exp",
     "shape": "zone"
    },
@@ -121,10 +121,10 @@
     "x1": 0.4,
     "y1": 9.4,
     "h": 2.6,
-    "label": "steam-venting glass wall",
+    "label": "Knitted wool displays",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "glass"
+    "material": "strata_clay"
    },
    {
     "id": "wb",
@@ -134,10 +134,10 @@
     "x1": 7.604,
     "y1": 10.0,
     "h": 2.6,
-    "label": "steam-venting glass wall",
+    "label": "Knitted wool displays",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "glass"
+    "material": "strata_clay"
    },
    {
     "id": "wr",
@@ -147,10 +147,10 @@
     "x1": 8.004,
     "y1": 9.4,
     "h": 2.6,
-    "label": "steam-venting glass wall",
+    "label": "Knitted wool displays",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "glass"
+    "material": "strata_clay"
    },
    {
     "id": "basin",
@@ -160,7 +160,7 @@
     "x1": 4.669,
     "y1": 5.8,
     "h": 0.9,
-    "label": "steaming cedar wood heater",
+    "label": "Central steam sauna stove",
     "zone": "exp",
     "shape": "basin",
     "material": "wood",
@@ -174,7 +174,7 @@
     "x1": 5.67,
     "y1": 8.7,
     "h": 1.0,
-    "label": "knitted collection display counter",
+    "label": "Checkout counter",
     "zone": "pay",
     "shape": "box",
     "material": "wood"
@@ -245,7 +245,7 @@
       0.4
      ]
     ],
-    "color": "#7b5a40"
+    "color": "#4a3728"
    }
   ],
   "entry": [
@@ -270,8 +270,8 @@
    ],
    "h": 1.38,
    "d": 3.6,
-   "cap": "I step inside and the heavy, warm air greets me instantly.",
-   "sub": "The central cedar heater glows, pulling the cold of the alley away."
+   "cap": "I stand before the steaming stove, feeling the sudden warmth of the hearth.",
+   "sub": "The centerpiece of the forest sauna radiates a gentle, golden light."
   },
   {
    "at": [
@@ -285,8 +285,8 @@
    ],
    "h": 1.55,
    "d": 2.8,
-   "cap": "I trace my hand along the glass, the surface cool and damp.",
-   "sub": "The knitwear rests behind the steam-kissed surface like a soft secret."
+   "cap": "I trace the rough texture of the clay shelves, admiring the delicate wool",
+   "sub": "Layers of clay hold the soft garments like protected artifacts."
   },
   {
    "at": [
@@ -300,8 +300,8 @@
    ],
    "h": 1.55,
    "d": 2.4,
-   "cap": "I stand at the back, hearing only the soft hum of the heat.",
-   "sub": "The space settles into a quiet, misty stillness that feels timeless."
+   "cap": "Looking up, I lose my gaze in the thick, swirling steam of the sauna zone.",
+   "sub": "The room dissolves into an ethereal, misty white dream."
   }
  ]
 }

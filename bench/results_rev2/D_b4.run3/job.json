@@ -1,0 +1,324 @@
+{
+ "brand": "Tamburins",
+ "title": "Salt & Silence: Tamburins Busan",
+ "subtitle": "A serene fragrance sanctuary inspired by the Busan salt desert.",
+ "line": "Step into a void where the scent is a whisper found only in the presence of crystal.",
+ "quote": "In the stillness of the salt, discovery is a delicate intimacy.",
+ "synopsis": "Upon entering the space, you are welcomed by an ethereal path that draws you toward the Crystalline fragrance sculpture glowing in the light. As you navigate the vast, shimmering expanse, the silence of the salt desert envelops you, grounding your senses. You wander between the hidden scent plinths, slowly unveiling the fragrances that remain quiet until your intimate approach. Finally, you reach the minimalist pay counter at the back, your journey through the silence complete.",
+ "keywords": [
+  "salt desert silence",
+  "revelatory fragrance",
+  "ethereal minimalism"
+ ],
+ "why": [
+  {
+   "t": "The arrival path provides a soft, tactile",
+   "d": "A floor strip (Ethereal arrival path) runs 4.7 m from the door toward the hero (Crystalline fragrance sculpture). The arrival path provides a soft, tactile transition from the bustling city into the tranquil atmosphere of the desert."
+  },
+  {
+   "t": "The imposing height of the fragrance monolith",
+   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The imposing height of the fragrance monolith commands attention, anchoring the empty space and drawing you forward."
+  },
+  {
+   "t": "The scattered placement of the product stations",
+   "d": "Four product stations (Hidden scent plinths) ring it loosely, 0.4 m from the route at the closest. The scattered placement of the product stations creates a sense of discovery, ensuring each scent is an intentional, personal encounter."
+  },
+  {
+   "t": "The secluded pay station ensures the final",
+   "d": "The pay counter (Minimal service monolith) sits at the back right, where the route ends. The secluded pay station ensures the final interaction remains as quiet and composed as the beginning of your experience."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#f0ead6",
+   "name": "Salt White"
+  },
+  {
+   "hex": "#d1d1d1",
+   "name": "Cool Mist"
+  },
+  {
+   "hex": "#bdb76b",
+   "name": "Desert Ochre"
+  },
+  {
+   "hex": "#ffffff",
+   "name": "Pristine White"
+  },
+  {
+   "hex": "#a9a9a9",
+   "name": "Distant Horizon"
+  }
+ ],
+ "accent": "#bdb76b",
+ "materials": [
+  {
+   "name": "Alabaster Lime Plaster",
+   "where": "walls, ceiling",
+   "preset": "mineral_white"
+  },
+  {
+   "name": "Reflective White Resin",
+   "where": "floor",
+   "preset": "white_gloss"
+  },
+  {
+   "name": "Pressed Terracotta Clay",
+   "where": "ethereal arrival path",
+   "preset": "strata_clay"
+  },
+  {
+   "name": "Frosted Iridescent Glass",
+   "where": "crystalline fragrance sculpture",
+   "preset": "glass"
+  }
+ ],
+ "room": {
+  "floor": "white_gloss",
+  "wall": "mineral_white",
+  "ceiling": "mineral_white",
+  "light": "white_gallery",
+  "fog": 0.02,
+  "beams": false
+ },
+ "layout": {
+  "name": "Salt & Silence: Tamburins Busan — Tamburins",
+  "W": 16.0,
+  "D": 12.0,
+  "H": 5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 7.0,
+    "y0": -0.1,
+    "x1": 9.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "field",
+    "type": "zone",
+    "x0": 1.0,
+    "y0": 1.5,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 0,
+    "label": "The expansive salt desert field",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "floor",
+    "type": "zone",
+    "x0": 6.5,
+    "y0": 0.3,
+    "x1": 9.5,
+    "y1": 5.0,
+    "h": 0,
+    "label": "Ethereal arrival path",
+    "zone": "exp",
+    "shape": "floor_patch",
+    "material": "strata_clay"
+   },
+   {
+    "id": "horse",
+    "type": "figure",
+    "x0": 6.5,
+    "y0": 5.6,
+    "x1": 9.5,
+    "y1": 7.4,
+    "h": 3.5,
+    "label": "Crystalline fragrance sculpture",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "glass",
+    "hero": true
+   },
+   {
+    "id": "candle0",
+    "type": "island",
+    "x0": 2.0,
+    "y0": 5.8,
+    "x1": 3.6,
+    "y1": 7.2,
+    "h": 1.8,
+    "label": "Hidden scent plinths",
+    "zone": "sale",
+    "shape": "display",
+    "material": "concrete"
+   },
+   {
+    "id": "candle1",
+    "type": "island",
+    "x0": 12.4,
+    "y0": 5.8,
+    "x1": 14.0,
+    "y1": 7.2,
+    "h": 1.8,
+    "label": "Hidden scent plinths",
+    "zone": "sale",
+    "shape": "display",
+    "material": "concrete"
+   },
+   {
+    "id": "candle2",
+    "type": "island",
+    "x0": 3.4,
+    "y0": 8.8,
+    "x1": 5.0,
+    "y1": 10.2,
+    "h": 1.8,
+    "label": "Hidden scent plinths",
+    "zone": "sale",
+    "shape": "display",
+    "material": "concrete"
+   },
+   {
+    "id": "candle3",
+    "type": "island",
+    "x0": 11.0,
+    "y0": 8.8,
+    "x1": 12.6,
+    "y1": 10.2,
+    "h": 1.8,
+    "label": "Hidden scent plinths",
+    "zone": "sale",
+    "shape": "display",
+    "material": "concrete"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 12.5,
+    "y0": 10.8,
+    "x1": 15.0,
+    "y1": 11.6,
+    "h": 1.0,
+    "label": "Minimal service monolith",
+    "zone": "pay",
+    "shape": "box",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 10.5,
+    "x1": 3.0,
+    "y1": 12.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "mineral_white"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      8.0,
+      0.4
+     ],
+     [
+      8.0,
+      4.8
+     ],
+     [
+      4.6,
+      5.6
+     ],
+     [
+      4.2,
+      7.6
+     ],
+     [
+      5.4,
+      8.4
+     ],
+     [
+      6.2,
+      10.6
+     ],
+     [
+      10.4,
+      10.6
+     ],
+     [
+      10.6,
+      8.2
+     ],
+     [
+      13.2,
+      7.6
+     ],
+     [
+      13.8,
+      10.3
+     ]
+    ],
+    "color": "#bdb76b"
+   }
+  ],
+  "entry": [
+   8.0,
+   0.0
+  ],
+  "exit": [
+   8.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    8.0,
+    1.4
+   ],
+   "look": [
+    8.0,
+    0.05,
+    3.2
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I stand at the threshold where the ground shifts from city concrete to soft",
+   "sub": "The journey into the silence begins underfoot."
+  },
+  {
+   "at": [
+    8.0,
+    3.3
+   ],
+   "look": [
+    8.0,
+    2.3,
+    6.5
+   ],
+   "h": 1.62,
+   "d": 3.0,
+   "cap": "Before me rises the sculpture, casting an ethereal, fractured light across the",
+   "sub": "The presence of the fragrance is felt before it is known."
+  },
+  {
+   "at": [
+    4.2,
+    7.4
+   ],
+   "look": [
+    2.8,
+    0.75,
+    6.5
+   ],
+   "h": 1.15,
+   "d": 3.4,
+   "cap": "I lean in close, and only now do the delicate notes emerge from the concrete",
+   "sub": "Intimacy unlocks the scent in the heart of the desert."
+  }
+ ]
+}

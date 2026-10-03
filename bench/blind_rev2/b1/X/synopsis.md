@@ -1,18 +1,18 @@
-# Gentle Monster — The Threshold of Rain
-*A sanctuary where the storm meets the stone.*
+# Gentle Monster — Threshold of the Rain
+*A visceral encounter with the rain-slicked silence of Seoul.*
 
-You step out of the Seongsu rain and into a cool, concrete threshold where the urban roar instantly fades. Within this darkened enclosure, your gaze is drawn to three obsidian monoliths that rise from the floor like still, rain-slicked stones. As you move between these dark volumes, the luminous overhead light captures the essence of a storm paused in time. You wander through this obsidian silence until the path leads you gently back out to the city.
+You pass through the steel curtain into a space defined by profound stillness. Before you, the Floating rain-slicked monolith anchors the void, its surface glistening like a wet night in the city. You move in a deliberate circle, watching the light refract off the stone and polished concrete, leaving the chaos of the outside world behind. Here, eyewear is unveiled not as products, but as relics recovered from the rain.
 
-**Keywords:** rainy threshold · obsidian silence · luminous suspension
-**Philosophy:** The threshold is not a door, but a moment of silence in the city's pulse.
+**Keywords:** rain-slicked stone · auditory threshold · suspended stillness
+**Philosophy:** The quietude of a rainy night, frozen in space.
 
 ## Design intent
-- **The walled chamber acts as a psychological** A walled chamber (reflective night perimeter), 11 x 8 m, stands inside the room; you enter it through a 1.8 m opening in its side. The walled chamber acts as a psychological buffer, separating the chaotic street from the store's interior silence.
-- **The obsidian monoliths anchor the space** Three low monoliths (obsidian monoliths) inside it carry the product at 0.9-1.4 m high. The obsidian monoliths anchor the space, grounding the products as if they were geological finds within a quiet cave.
-- **The piercing rocks disrupt the rigid geometry** Two blocks (shattering walls) break through the chamber walls on opposite sides. The piercing rocks disrupt the rigid geometry of the walls, suggesting a force that has broken through the stillness of the night.
-- **The placement of the pay desk and fitting room** The pay desk (stone payment desk) and the fitting room (fitting corner) stay outside the chamber. The placement of the pay desk and fitting room outside the chamber allows for a seamless transition from the curated experience back to reality.
+- **The auditory transition** A pair of threshold objects (Tall charcoal stone pillars) stands 1.0-3.0 m inside the door, with a hanging screen (Hanging steel rain curtain) between them; the route slips through a 1.9 m gap. The heavy stone pillars and steel cables physically enact the transition from the city's noise to the store's deep quiet.
+- **The anchored quiet** The hero (Floating rain-slicked monolith) stands alone in an empty 8 x 7 m area (Inner void of silence); the route circles it and never comes closer than 3.3 m. This central gravity-defying element draws your focus to the theme, creating a meditative focal point.
+- **Peripheral contemplation** Four product stations (Glass display pedestals) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. This intentional movement requires a conscious pause, shifting the rhythm from transit to contemplation.
+- **A definitive conclusion** The pay desk (Dark stone monolith pay desk) closes the loop at the back wall. The dark, solid desk anchors the journey's end, mirroring the weight of the rain-drenched exterior.
 
 ## The walk
-- **I touch the rough edge where the rock has pierced the wall, feeling the tremor** The stone feels cold against the palm, a jagged interruption of the silence.
-- **I see myself multiplied in the mirror walls, caught in the reflection of a** The store space dissolves into an endless, dark horizon.
-- **I find the eyewear resting upon the obsidian monolith, a small, refined object** The black stone provides the perfect contrast to the sharp frames.
+- **I step past the cold pillars, and the roar of the city fades instantly.** A sudden, heavy silence descends.
+- **I face the stone floating in the void, glistening as if it were still raining.** Time seems to pool around the base of the monolith.
+- **Turning away, I find the eyewear resting on glass, isolated in the mist.** Precise, delicate forms emerging from the damp dark.

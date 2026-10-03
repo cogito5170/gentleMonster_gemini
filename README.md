@@ -1,5 +1,39 @@
 # gentleMonster_gemini
 
+**A Gemini CLI extension for `gemini-3.1-flash-lite`** that turns a store brief into a checked gentleMonster job
+(spatial synopsis + layout PDF). The small model never plans or judges: six state-machine tools tell it, after
+every call, exactly which call may come next and with which values; code does the plan, geometry, measured facts,
+materials, stops and the verdict (the pinned gentleMonster `spec.check`). Product text (GEMINI.md, tool
+descriptions, outputs) is English: flash-lite follows English instructions best and gentleMonster prints English pages.
+
+```bash
+gemini extensions install https://github.com/cogito5170/gentleMonster_gemini --ref claude/sleepy-cori-h0ug3b
+export GEMINI_API_KEY=...            # environment only
+gemini -m gemini-3.1-flash-lite      # note: Gemini CLI 0.62 may resolve this to gemini-3.5-flash-lite (bench/RESULTS_rev2.md H2)
+> Design a store with gentleMonster. Brief: ...
+```
+
+The server (`server.py`, stdlib only, Python >= 3.10) fetches the pinned gentleMonster on first start. PDFs need
+`pip install pillow numpy matplotlib playwright imageio-ffmpeg` for the `python3` the CLI runs; without them the job
+is still checked and written, and the note says the PDF was not drawn.
+
+| tool | the agent gives | code does |
+|---|---|---|
+| `gm_new` | request (verbatim), theme, 3 mood words, hero idea, product (list) | reads the stated size; a named known brand's product |
+| `gm_plan` | one of 4 plans | scales it to the size, steps back until spec.check is quiet |
+| `gm_cast` | per role: shape (that role's list), material, label; room surfaces | fills anything off the list from the plan, says so; measures 4 layout facts |
+| `gm_story` | title, line, synopsis (3-5 sentences, you), keywords, quote, a headline + sentence per fact | English, sentence counts, the hero named; cuts over-long display text |
+| `gm_finish` | 5 colours, accent, 4 material names, 3 first-person captions | distinct colours; builds job.json; spec.check; REPAIRs a shape that broke the route; draws |
+| `gm_explain` | job id | the verdict and every decision, fallback, repair, from the ledger |
+
+Every result: `ok`, `notes`, `next` (the closed list of allowed calls). Calls are idempotent; re-deciding a step reopens
+the job. An AfterAgent hook lets the answer state only the verdict the job's ledger holds. Results: [`bench/RESULTS_rev2.md`](bench/RESULTS_rev2.md).
+Tests: `python3 tests/test_ext.py` · `python3 tests/test_gmg.py` · `python3 tests/mutate.py` (31 mutations).
+
+---
+
+## (rev 1) 파이프라인 · CLI `gmg`
+
 gentleMonster 의 작업 공간(브리프 → 공간 시놉시스 → 레이아웃 PDF)을 **`gemini-3.1-flash-lite`** 로 돌린다.
 작은 모형에게 판단을 맡기지 않는다. **한 도구 = 한 결정**이다. 모형은 열거된 선택지를 고르거나, 스키마대로 몇 줄을 쓴다. 계획 · 기하 · 일관성 · 검증은 코드가 한다.
 

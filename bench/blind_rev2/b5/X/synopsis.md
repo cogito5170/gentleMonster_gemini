@@ -1,18 +1,18 @@
-# Gentle Monster — Orbital Hangar 01
-*A zero-gravity docking experience.*
+# Gentle Monster — Hangar Zero
+*An immersive docking experience in zero gravity.*
 
-You enter through the decontamination veil and find yourself floating in the sterile expanse of the hangar. Before you, the zero gravity monolith commands the central void, suspending eyewear in an artificial vacuum. You move around the perimeter like a craft docking to a station, your focus captured by the precision of the display pods. As you reach the back, your journey concludes at the console, completing your orbital alignment.
+You step through a shimmering veil of steel cables, entering the hollow silence of a deep-space station. Your path pulls you into a wide, polished orbit around a singular display, where the eyewear appears to hover in defiance of physics. As you circulate the central void, you are drawn to the perimeter stations to engage with the objects before concluding your voyage at the docking terminal.
 
-**Keywords:** orbital silence · weightless precision · industrial docking
-**Philosophy:** Weightlessness is the ultimate luxury of form.
+**Keywords:** weightless orbit · industrial hangar · docking sequence
+**Philosophy:** Suspension in the vacuum is the ultimate luxury.
 
 ## Design intent
-- **The metallic pylons and light** A pair of threshold objects (Steel joint (kinetic)) stands 1.0-3.0 m inside the door, with a hanging screen (decontamination veil) between them; the route slips through a 1.9 m gap. The metallic pylons and light-filtered threshold prepare you for the transition from gravity to a weightless environment.
-- **The central monolith acts as a gravitational** The hero (zero gravity monolith) stands alone in an empty 8 x 7 m area (the central void); the route circles it and never comes closer than 3.3 m. The central monolith acts as a gravitational anchor, forcing you to orbit the core of the space.
-- **The outer stations provide a sense of grounded** Four product stations (eyewear display pods) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The outer stations provide a sense of grounded functionality, contrasting with the ethereal central display.
-- **The console at the back provides a final** The pay desk (docking station console) closes the loop at the back wall. The console at the back provides a final anchor, grounding the experience before you leave the station.
+- **The pressurized threshold** A pair of threshold objects (entry docking pylons) stands 1.0-3.0 m inside the door, with a hanging screen (holographic entrance curtain) between them; the route slips through a 1.9 m gap. These massive concrete pillars and the shivering cable screen force you to pause, framing your transition from the world outside into the hangar's pressurized environment.
+- **The weightless centerpiece** The hero (floating eyewear centerpiece) stands alone in an empty 8 x 7 m area (orbital vacuum void); the route circles it and never comes closer than 3.3 m. The vast, polished floor creates a sense of profound scale, emphasizing the isolation of the central display where the product drifts in weightless, cinematic suspension.
+- **Peripheral docking stations** Four product stations (product docking stations) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. These stations act as auxiliary docking points, encouraging you to step out of the main orbital path to investigate the collection more closely.
+- **The terminal engagement** The pay desk (docking pay terminal) closes the loop at the back wall. The sleek steel desk marks the final point of your journey, grounding the experience as you finalize your exchange within the silent hangar.
 
 ## The walk
-- **I stand between the kinetic navigation pylons, breathing in the quiet metallic** The transition from gravity to orbit begins here.
-- **I drift to the edge of the void and gaze at the zero gravity monolith.** The sunglasses appear to float in a perfect, timeless vacuum.
-- **I turn away to explore the eyewear display pods, docking my attention onto the** Each pair is a relic from a distant, weightless world.
+- **I pass between the pylons, the steel cables breathing behind me as I enter the** The transition from atmosphere to deep space.
+- **I circle the central display, watching the eyewear drift in the light of the** The product remains weightless in the center of the orbit.
+- **I reach the outer dock, where the light hits the collection with surgical** Closer inspection at the edge of the void.

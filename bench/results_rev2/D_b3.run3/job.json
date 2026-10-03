@@ -1,0 +1,307 @@
+{
+ "brand": "Aesop",
+ "title": "The Basalt Library",
+ "subtitle": "An immersive apothecary experience inspired by silence and stone.",
+ "line": "A library of scents carved from the volcanic heart of Jeju.",
+ "quote": "Where the story ends, the ritual begins.",
+ "synopsis": "You step into a space where the heavy, porous walls of black basalt evoke the scent of ancient paper and volcanic earth. At the center of this quiet chamber, you pause at the meditative ritual basin, where water and fragrance cleanse the senses. You then circle the room, exploring the shelves that house bottles like volumes in a library, before reaching the back counter. Here, amidst the lingering scent of damp stone, you conclude your journey.",
+ "keywords": [
+  "Basalt library",
+  "Earthy ritual",
+  "Scented quietude"
+ ],
+ "why": [
+  {
+   "t": "The surrounding black basalt shelves create an",
+   "d": "Shelf walls (basalt shelf stacks) wrap the left, right and back of the 12 x 10 m room. The surrounding black basalt shelves create an atmosphere of scholarly seclusion and tactile permanence."
+  },
+  {
+   "t": "The central basin serves as a physical and",
+   "d": "The centre object (meditative ritual basin) is the first stop, 4.2 m in from the door. The central basin serves as a physical and sensory anchor, compelling you to pause and participate in a cleansing rite."
+  },
+  {
+   "t": "The circular flow allows you to drift through",
+   "d": "The route circles it first, then follows the shelves. The circular flow allows you to drift through the 'stacks' as if browsing a collection of literature."
+  },
+  {
+   "t": "The placement of the payment counter ensures",
+   "d": "The counter (minimal payment counter) sits at the back, off the loop. The placement of the payment counter ensures that the final interaction remains separate from the tranquil browsing experience."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#2b2b2b",
+   "name": "Deep Basalt"
+  },
+  {
+   "hex": "#a9a9a9",
+   "name": "Stone Grey"
+  },
+  {
+   "hex": "#b8860b",
+   "name": "Oxidized Gold"
+  },
+  {
+   "hex": "#f0f0f0",
+   "name": "Paper White"
+  },
+  {
+   "hex": "#4a4a4a",
+   "name": "Shadow Charcoal"
+  }
+ ],
+ "accent": "#b8860b",
+ "materials": [
+  {
+   "name": "Charred Basalt Stone",
+   "where": "walls, basalt shelf stacks",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Polished Volcanic Concrete",
+   "where": "floor",
+   "preset": "polished_concrete"
+  },
+  {
+   "name": "Matte Jeju Lime Plaster",
+   "where": "ceiling",
+   "preset": "lime_plaster"
+  },
+  {
+   "name": "Antiqued Brass Basin",
+   "where": "meditative ritual basin",
+   "preset": "brass"
+  }
+ ],
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "black_stone",
+  "ceiling": "lime_plaster",
+  "light": "warm_spot",
+  "fog": 0.02,
+  "beams": false,
+  "dome": true
+ },
+ "layout": {
+  "name": "The Basalt Library — Aesop",
+  "W": 12.0,
+  "D": 10.0,
+  "H": 4.2,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 5.0,
+    "y0": -0.1,
+    "x1": 7.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "dome",
+    "type": "zone",
+    "x0": 2.0,
+    "y0": 1.5,
+    "x1": 10.0,
+    "y1": 8.2,
+    "h": 0,
+    "label": "quiet study zone",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0.0,
+    "y0": 1.5,
+    "x1": 0.6,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "basalt shelf stacks",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "black_stone"
+   },
+   {
+    "id": "wb",
+    "type": "wall_shelf",
+    "x0": 0.6,
+    "y0": 9.4,
+    "x1": 11.4,
+    "y1": 10.0,
+    "h": 2.6,
+    "label": "basalt shelf stacks",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "black_stone"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 11.4,
+    "y0": 1.5,
+    "x1": 12.0,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "basalt shelf stacks",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "black_stone"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 5.0,
+    "y0": 4.2,
+    "x1": 7.0,
+    "y1": 5.8,
+    "h": 0.9,
+    "label": "meditative ritual basin",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "brass",
+    "hero": true
+   },
+   {
+    "id": "counter",
+    "type": "checkout",
+    "x0": 3.5,
+    "y0": 8.1,
+    "x1": 8.5,
+    "y1": 8.7,
+    "h": 1.0,
+    "label": "minimal payment counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "wood"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 9.6,
+    "y0": 7.8,
+    "x1": 11.4,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "strata_clay"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      6.0,
+      0.4
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      3.8,
+      5.0
+     ],
+     [
+      6.0,
+      7.0
+     ],
+     [
+      8.2,
+      5.0
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      1.6,
+      4.0
+     ],
+     [
+      1.6,
+      7.3
+     ],
+     [
+      6.0,
+      7.3
+     ],
+     [
+      10.3,
+      7.3
+     ],
+     [
+      10.3,
+      3.0
+     ],
+     [
+      6.8,
+      0.4
+     ]
+    ],
+    "color": "#b8860b"
+   }
+  ],
+  "entry": [
+   6.0,
+   0.0
+  ],
+  "exit": [
+   6.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    6.0,
+    3.2
+   ],
+   "look": [
+    6.0,
+    0.88,
+    4.95
+   ],
+   "h": 1.38,
+   "d": 3.6,
+   "cap": "I stand before the basin, watching the water ripple in the dark, silent air.",
+   "sub": "A ritual of fragrance and stone begins here."
+  },
+  {
+   "at": [
+    1.6,
+    5.8
+   ],
+   "look": [
+    0.6,
+    1.45,
+    5.8
+   ],
+   "h": 1.55,
+   "d": 2.8,
+   "cap": "I run my fingers along the rough texture of the basalt shelving, where the",
+   "sub": "The scent of old paper and volcanic earth fills the air."
+  },
+  {
+   "at": [
+    6.0,
+    7.3
+   ],
+   "look": [
+    6.0,
+    2.9,
+    3.6
+   ],
+   "h": 1.55,
+   "d": 2.4,
+   "cap": "I look up into the soft light above the payment counter, feeling the quietude",
+   "sub": "My visit to this place concludes in stillness."
+  }
+ ]
+}

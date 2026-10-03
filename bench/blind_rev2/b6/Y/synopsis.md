@@ -1,18 +1,18 @@
-# Gentle Monster — The Sauna Knitwear Refuge
-*A ritual of warmth in the heart of a winter forest.*
+# (none named) — Forest Hearth Sauna
+*A winter forest sauna retreat for tactile knitwear.*
 
-You enter the boutique and are immediately wrapped in the scent of cedar and the soft, hazy atmosphere of a winter sauna. In the center, a steaming cedar wood heater acts as the anchor, casting a warm, amber glow across the space. As you navigate the perimeter, you discover the knitwear collection tucked into the shelves that line the walls, shrouded in a thin layer of condensation. Finally, you reach the counter at the back, where the process of selecting your garment feels like emerging from a deep, peaceful rest.
+You step into a hushed winter sanctuary, where the scent of wood and the haze of steam envelop you in warmth. At the heart of the space, the Central steam sauna stove acts as your first anchor, radiating a soft, golden light. As you circle this glowing center, you find yourself drawn to the clay-hewn shelves that display delicate knitwear like treasures. Finally, you reach the wooden counter at the back, leaving the frozen world far behind.
 
-**Keywords:** winter forest sauna · thermal comfort · steaming cedar
-**Philosophy:** Steaming, woven, and quiet: the luxury of a slow, winter breath.
+**Keywords:** steam-warmed cocoon · hushed winter sanctuary · tactile knit textures
+**Philosophy:** Where the sharp bite of winter meets the soft embrace of the hearth.
 
 ## Design intent
-- **The glass** Shelf walls (steam-venting glass wall) wrap the left, right and back of the 8 x 10 m room. The glass-walled shelves provide a sensory barrier between the winter street and the cozy interior.
-- **The steaming cedar wood heater serves as the** The centre object (steaming cedar wood heater) is the first stop, 4.2 m in from the door. The steaming cedar wood heater serves as the physical and emotional hearth of the space.
-- **The layout ensures you engage with the** The route circles it first, then follows the shelves. The layout ensures you engage with the architecture before approaching the product.
-- **The rear counter offers a private, concluding** The counter (knitted collection display counter) sits at the back, off the loop. The rear counter offers a private, concluding moment for your transaction.
+- **Textured Earth Shelves** Shelf walls (Knitted wool displays) wrap the left, right and back of the 8 x 10 m room. The clay shelves create a sensory contrast to the soft knitwear, inviting you to touch and feel each garment.
+- **The Glowing Core** The centre object (Central steam sauna stove) is the first stop, 4.2 m in from the door. The central wooden stove grounds you, offering a warm visual focal point in the misty, steam-filled room.
+- **A Meditative Path** The route circles it first, then follows the shelves. The circular journey forces you to slow down, encouraging a deliberate and meditative exploration of the collection.
+- **The Final Hearth** The counter (Checkout counter) sits at the back, off the loop. The wooden counter at the back provides a final moment of organic connection before you conclude your journey.
 
 ## The walk
-- **I step inside and the heavy, warm air greets me instantly.** The central cedar heater glows, pulling the cold of the alley away.
-- **I trace my hand along the glass, the surface cool and damp.** The knitwear rests behind the steam-kissed surface like a soft secret.
-- **I stand at the back, hearing only the soft hum of the heat.** The space settles into a quiet, misty stillness that feels timeless.
+- **I stand before the steaming stove, feeling the sudden warmth of the hearth.** The centerpiece of the forest sauna radiates a gentle, golden light.
+- **I trace the rough texture of the clay shelves, admiring the delicate wool** Layers of clay hold the soft garments like protected artifacts.
+- **Looking up, I lose my gaze in the thick, swirling steam of the sauna zone.** The room dissolves into an ethereal, misty white dream.

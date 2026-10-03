@@ -1,76 +1,76 @@
 {
  "brand": "Gentle Monster",
- "title": "The Threshold of Rain",
- "subtitle": "A sanctuary where the storm meets the stone.",
- "line": "The heavy Seongsu air dissolves into the quiet, cool suspension of an eternal, rain-washed night.",
- "quote": "The threshold is not a door, but a moment of silence in the city's pulse.",
- "synopsis": "You step out of the Seongsu rain and into a cool, concrete threshold where the urban roar instantly fades. Within this darkened enclosure, your gaze is drawn to three obsidian monoliths that rise from the floor like still, rain-slicked stones. As you move between these dark volumes, the luminous overhead light captures the essence of a storm paused in time. You wander through this obsidian silence until the path leads you gently back out to the city.",
+ "title": "Threshold of the Rain",
+ "subtitle": "A visceral encounter with the rain-slicked silence of Seoul.",
+ "line": "Step across the threshold where the storm concludes in silence.",
+ "quote": "The quietude of a rainy night, frozen in space.",
+ "synopsis": "You pass through the steel curtain into a space defined by profound stillness. Before you, the Floating rain-slicked monolith anchors the void, its surface glistening like a wet night in the city. You move in a deliberate circle, watching the light refract off the stone and polished concrete, leaving the chaos of the outside world behind. Here, eyewear is unveiled not as products, but as relics recovered from the rain.",
  "keywords": [
-  "rainy threshold",
-  "obsidian silence",
-  "luminous suspension"
+  "rain-slicked stone",
+  "auditory threshold",
+  "suspended stillness"
  ],
  "why": [
   {
-   "t": "The walled chamber acts as a psychological",
-   "d": "A walled chamber (reflective night perimeter), 11 x 8 m, stands inside the room; you enter it through a 1.8 m opening in its side. The walled chamber acts as a psychological buffer, separating the chaotic street from the store's interior silence."
+   "t": "The auditory transition",
+   "d": "A pair of threshold objects (Tall charcoal stone pillars) stands 1.0-3.0 m inside the door, with a hanging screen (Hanging steel rain curtain) between them; the route slips through a 1.9 m gap. The heavy stone pillars and steel cables physically enact the transition from the city's noise to the store's deep quiet."
   },
   {
-   "t": "The obsidian monoliths anchor the space",
-   "d": "Three low monoliths (obsidian monoliths) inside it carry the product at 0.9-1.4 m high. The obsidian monoliths anchor the space, grounding the products as if they were geological finds within a quiet cave."
+   "t": "The anchored quiet",
+   "d": "The hero (Floating rain-slicked monolith) stands alone in an empty 8 x 7 m area (Inner void of silence); the route circles it and never comes closer than 3.3 m. This central gravity-defying element draws your focus to the theme, creating a meditative focal point."
   },
   {
-   "t": "The piercing rocks disrupt the rigid geometry",
-   "d": "Two blocks (shattering walls) break through the chamber walls on opposite sides. The piercing rocks disrupt the rigid geometry of the walls, suggesting a force that has broken through the stillness of the night."
+   "t": "Peripheral contemplation",
+   "d": "Four product stations (Glass display pedestals) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. This intentional movement requires a conscious pause, shifting the rhythm from transit to contemplation."
   },
   {
-   "t": "The placement of the pay desk and fitting room",
-   "d": "The pay desk (stone payment desk) and the fitting room (fitting corner) stay outside the chamber. The placement of the pay desk and fitting room outside the chamber allows for a seamless transition from the curated experience back to reality."
+   "t": "A definitive conclusion",
+   "d": "The pay desk (Dark stone monolith pay desk) closes the loop at the back wall. The dark, solid desk anchors the journey's end, mirroring the weight of the rain-drenched exterior."
   }
  ],
  "palette": [
   {
    "hex": "#1a1a1a",
-   "name": "Midnight black"
+   "name": "Deep Night Black"
   },
   {
-   "hex": "#333333",
-   "name": "Deep slate"
+   "hex": "#4a4a4a",
+   "name": "Rain-Cloud Grey"
   },
   {
-   "hex": "#667788",
-   "name": "Rainy blue"
+   "hex": "#7a7a7a",
+   "name": "Wet Stone Slate"
   },
   {
-   "hex": "#c0c0c0",
-   "name": "Cool silver"
+   "hex": "#b8b8b8",
+   "name": "Mist White"
   },
   {
-   "hex": "#ffffff",
-   "name": "Stark white"
+   "hex": "#e0e0e0",
+   "name": "Cold Metallic Silver"
   }
  ],
- "accent": "#667788",
+ "accent": "#1a1a1a",
  "materials": [
   {
-   "name": "Raw concrete walls",
-   "where": "walls, ceiling, fitting corner",
-   "preset": "concrete"
-  },
-  {
-   "name": "Textured black obsidian",
-   "where": "obsidian monoliths, shattering walls",
+   "name": "Obsidian basalt",
+   "where": "tall charcoal stone pillars, floating rain-slicked",
    "preset": "black_stone"
   },
   {
-   "name": "Polished basalt floor",
+   "name": "Raw, damp-brushed concrete",
+   "where": "walls, ceiling",
+   "preset": "concrete"
+  },
+  {
+   "name": "Satin-polished charcoal floor",
    "where": "floor",
    "preset": "polished_concrete"
   },
   {
-   "name": "Reflective mirror sheets",
-   "where": "reflective night perimeter",
-   "preset": "mirror_aluminium"
+   "name": "Brushed charcoal steel cables",
+   "where": "hanging steel rain curtain",
+   "preset": "steel"
   }
  ],
  "room": {
@@ -82,18 +82,35 @@
   "beams": true
  },
  "layout": {
-  "name": "The Threshold of Rain — Gentle Monster",
-  "W": 18.0,
-  "D": 12.0,
-  "H": 4.5,
-  "columns": [],
+  "name": "Threshold of the Rain — Gentle Monster",
+  "W": 20.0,
+  "D": 16.0,
+  "H": 6,
+  "columns": [
+   [
+    4.5,
+    4.0
+   ],
+   [
+    15.5,
+    4.0
+   ],
+   [
+    4.5,
+    13.0
+   ],
+   [
+    15.5,
+    13.0
+   ]
+  ],
   "items": [
    {
     "id": "door",
     "type": "door",
-    "x0": 1.0,
+    "x0": 8.5,
     "y0": -0.1,
-    "x1": 3.0,
+    "x1": 11.5,
     "y1": 0.1,
     "h": 0,
     "label": "Entrance",
@@ -101,300 +118,371 @@
     "shape": "door"
    },
    {
-    "id": "chamber",
+    "id": "joint_l",
+    "type": "block",
+    "x0": 6.5,
+    "y0": 1.0,
+    "x1": 7.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "Tall charcoal stone pillars",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "black_stone"
+   },
+   {
+    "id": "joint_r",
+    "type": "block",
+    "x0": 12.5,
+    "y0": 1.0,
+    "x1": 13.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "Tall charcoal stone pillars",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "black_stone"
+   },
+   {
+    "id": "wire_l",
+    "type": "media",
+    "x0": 7.2,
+    "y0": 2.0,
+    "x1": 9.35,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "Hanging steel rain curtain",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "wire_r",
+    "type": "media",
+    "x0": 11.25,
+    "y0": 2.0,
+    "x1": 12.8,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "Hanging steel rain curtain",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "void",
     "type": "zone",
-    "x0": 4.0,
-    "y0": 2.0,
-    "x1": 15.0,
-    "y1": 10.0,
-    "h": 0,
-    "label": "luminous rain zone",
-    "zone": "exp",
-    "shape": "zone",
-    "material": "textile_light"
-   },
-   {
-    "id": "w_front",
-    "type": "block",
-    "x0": 4.0,
-    "y0": 2.0,
-    "x1": 15.0,
-    "y1": 2.15,
-    "h": 4.2,
-    "label": "reflective night perimeter",
-    "zone": "",
-    "shape": "mirror_wall",
-    "material": "mirror_aluminium"
-   },
-   {
-    "id": "w_back",
-    "type": "block",
-    "x0": 4.0,
-    "y0": 9.85,
-    "x1": 15.0,
-    "y1": 10.0,
-    "h": 4.2,
-    "label": "reflective night perimeter",
-    "zone": "",
-    "shape": "mirror_wall",
-    "material": "mirror_aluminium"
-   },
-   {
-    "id": "w_left",
-    "type": "block",
-    "x0": 4.0,
-    "y0": 2.0,
-    "x1": 4.15,
-    "y1": 5.4,
-    "h": 4.2,
-    "label": "reflective night perimeter",
-    "zone": "",
-    "shape": "mirror_wall",
-    "material": "mirror_aluminium"
-   },
-   {
-    "id": "w_left2",
-    "type": "block",
-    "x0": 4.0,
-    "y0": 7.2,
-    "x1": 4.15,
-    "y1": 10.0,
-    "h": 4.2,
-    "label": "reflective night perimeter",
-    "zone": "",
-    "shape": "mirror_wall",
-    "material": "mirror_aluminium"
-   },
-   {
-    "id": "w_right",
-    "type": "block",
-    "x0": 14.85,
-    "y0": 2.0,
-    "x1": 15.0,
-    "y1": 6.8,
-    "h": 4.2,
-    "label": "reflective night perimeter",
-    "zone": "",
-    "shape": "mirror_wall",
-    "material": "mirror_aluminium"
-   },
-   {
-    "id": "w_right2",
-    "type": "block",
-    "x0": 14.85,
-    "y0": 8.6,
-    "x1": 15.0,
-    "y1": 10.0,
-    "h": 4.2,
-    "label": "reflective night perimeter",
-    "zone": "",
-    "shape": "mirror_wall",
-    "material": "mirror_aluminium"
-   },
-   {
-    "id": "mono_a",
-    "type": "island",
-    "x0": 5.5,
-    "y0": 3.4,
-    "x1": 7.3,
-    "y1": 5.0,
-    "h": 1.2,
-    "label": "obsidian monoliths",
-    "zone": "sale",
-    "shape": "rock",
-    "material": "black_stone",
-    "cloth": "#e7b7b5"
-   },
-   {
-    "id": "mono_b",
-    "type": "island",
-    "x0": 9.0,
-    "y0": 6.4,
-    "x1": 11.6,
-    "y1": 8.0,
-    "h": 0.9,
-    "label": "obsidian monoliths",
-    "zone": "sale",
-    "shape": "rock",
-    "material": "black_stone",
-    "cloth": "#1b1b1b"
-   },
-   {
-    "id": "mono_c",
-    "type": "island",
-    "x0": 12.4,
-    "y0": 3.0,
+    "x0": 6.0,
+    "y0": 5.0,
     "x1": 14.0,
-    "y1": 5.6,
-    "h": 1.4,
-    "label": "obsidian monoliths",
-    "zone": "sale",
+    "y1": 12.0,
+    "h": 0,
+    "label": "Inner void of silence",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "head",
+    "type": "figure",
+    "x0": 9.0,
+    "y0": 7.5,
+    "x1": 11.0,
+    "y1": 9.5,
+    "h": 3.2,
+    "label": "Floating rain-slicked monolith",
+    "zone": "exp",
     "shape": "rock",
     "material": "black_stone",
-    "cloth": "#c9c3b6"
+    "hero": true
    },
    {
-    "id": "pierce_l",
-    "type": "block",
-    "x0": 3.1,
-    "y0": 5.5,
-    "x1": 4.9,
-    "y1": 6.3,
-    "h": 3.2,
-    "label": "shattering walls",
+    "id": "tree0",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 5.3,
+    "x1": 6.9,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "Smaller weathered stone sentinels",
     "zone": "exp",
     "shape": "rock",
     "material": "black_stone"
    },
    {
-    "id": "pierce_r",
-    "type": "block",
-    "x0": 14.2,
-    "y0": 7.7,
-    "x1": 16.4,
-    "y1": 8.5,
-    "h": 3.8,
-    "label": "shattering walls",
+    "id": "tree1",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 5.3,
+    "x1": 13.7,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "Smaller weathered stone sentinels",
     "zone": "exp",
     "shape": "rock",
     "material": "black_stone"
    },
    {
-    "id": "fit",
-    "type": "room",
-    "x0": 15.5,
-    "y0": 10.0,
-    "x1": 18.0,
-    "y1": 12.0,
-    "h": 2.6,
-    "label": "fitting corner",
-    "zone": "",
-    "shape": "box",
-    "material": "concrete"
+    "id": "tree2",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 11.1,
+    "x1": 6.9,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "Smaller weathered stone sentinels",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "tree3",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 11.1,
+    "x1": 13.7,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "Smaller weathered stone sentinels",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "tree4",
+    "type": "figure",
+    "x0": 5.0,
+    "y0": 8.2,
+    "x1": 5.6,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "Smaller weathered stone sentinels",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "tree5",
+    "type": "figure",
+    "x0": 14.4,
+    "y0": 8.2,
+    "x1": 15.0,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "Smaller weathered stone sentinels",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "st0",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 5.6,
+    "x1": 3.6,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "Glass display pedestals",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st1",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 10.6,
+    "x1": 3.6,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "Glass display pedestals",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st2",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 5.6,
+    "x1": 17.8,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "Glass display pedestals",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st3",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 10.6,
+    "x1": 17.8,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "Glass display pedestals",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
    },
    {
     "id": "pay",
     "type": "checkout",
-    "x0": 1.0,
-    "y0": 10.8,
-    "x1": 4.0,
-    "y1": 11.6,
+    "x0": 8.0,
+    "y0": 13.6,
+    "x1": 12.0,
+    "y1": 14.4,
     "h": 1.0,
-    "label": "stone payment desk",
+    "label": "Dark stone monolith pay desk",
     "zone": "pay",
     "shape": "box",
-    "material": "granite"
+    "material": "black_stone"
+   },
+   {
+    "id": "mirror",
+    "type": "kiosk",
+    "x0": 16.0,
+    "y0": 14.2,
+    "x1": 19.0,
+    "y1": 15.4,
+    "h": 1.8,
+    "label": "Reflection mirror block",
+    "zone": "sale",
+    "shape": "box",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 14.0,
+    "x1": 4.0,
+    "y1": 16.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "shards",
+    "type": "zone",
+    "x0": 5.8,
+    "y0": 4.6,
+    "x1": 14.2,
+    "y1": 12.4,
+    "h": 4.6,
+    "label": "Atmospheric damp mist zone",
+    "zone": "exp",
+    "shape": "floor_patch",
+    "material": "graphite_wax"
    }
   ],
   "flows": [
    {
     "pts": [
      [
-      2.0,
-      0.4
+      10.0,
+      0.5
      ],
      [
-      2.0,
-      6.75
+      10.0,
+      3.6
      ],
      [
-      5.2,
-      6.75
+      5.6,
+      4.6
      ],
      [
-      8.0,
-      5.6
-     ],
-     [
-      10.3,
-      5.2
-     ],
-     [
-      13.2,
-      6.2
-     ],
-     [
-      13.6,
-      8.9
-     ],
-     [
-      9.0,
-      9.1
-     ],
-     [
-      5.4,
+      3.8,
       8.4
      ],
      [
-      4.4,
-      6.75
+      5.4,
+      12.6
      ],
      [
-      2.4,
-      7.0
+      10.0,
+      12.9
      ],
      [
-      2.5,
-      10.4
+      14.6,
+      12.6
+     ],
+     [
+      16.2,
+      8.4
+     ],
+     [
+      14.4,
+      4.6
+     ],
+     [
+      10.6,
+      3.6
+     ],
+     [
+      10.6,
+      0.5
      ]
     ],
-    "color": "#667788"
+    "color": "#1a1a1a"
    }
   ],
   "entry": [
-   2.0,
+   10.0,
    0.0
   ],
   "exit": [
-   2.0,
+   10.0,
    0.0
   ]
  },
  "stops": [
   {
    "at": [
-    2.0,
-    4.6
+    10.0,
+    1.3
    ],
    "look": [
-    4.0,
-    1.7,
-    5.9
+    10.0,
+    1.9,
+    6.5
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I touch the rough edge where the rock has pierced the wall, feeling the tremor",
-   "sub": "The stone feels cold against the palm, a jagged interruption of the silence."
+   "cap": "I step past the cold pillars, and the roar of the city fades instantly.",
+   "sub": "A sudden, heavy silence descends."
   },
   {
    "at": [
-    6.2,
-    6.3
+    10.0,
+    3.6
    ],
    "look": [
-    9.6,
-    1.6,
-    9.95
+    10.0,
+    2.45,
+    8.5
    ],
    "h": 1.62,
    "d": 3.2,
-   "cap": "I see myself multiplied in the mirror walls, caught in the reflection of a",
-   "sub": "The store space dissolves into an endless, dark horizon."
+   "cap": "I face the stone floating in the void, glistening as if it were still raining.",
+   "sub": "Time seems to pool around the base of the monolith."
   },
   {
    "at": [
-    10.3,
-    5.2
+    3.8,
+    8.4
    ],
    "look": [
-    10.3,
-    0.95,
-    7.2
+    2.9,
+    1.0,
+    6.0
    ],
-   "h": 1.3,
-   "d": 3.0,
-   "cap": "I find the eyewear resting upon the obsidian monolith, a small, refined object",
-   "sub": "The black stone provides the perfect contrast to the sharp frames."
+   "h": 1.4,
+   "d": 2.8,
+   "cap": "Turning away, I find the eyewear resting on glass, isolated in the mist.",
+   "sub": "Precise, delicate forms emerging from the damp dark."
   }
  ]
 }
