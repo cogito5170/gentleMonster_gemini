@@ -1,76 +1,76 @@
 {
  "brand": "Acne Studios",
- "title": "Acne Studios: Site Under Construction",
- "subtitle": "Acne Studios, Seongsu.",
- "line": "An unfinished dialogue between structural necessity and high fashion.",
- "quote": "Fashion is not the final layer, but the skeleton of the space itself.",
- "synopsis": "You enter a space where construction is not an interruption, but a permanent state of being. The raw concrete skeleton of the Seongsu building wraps around you, while the centerpiece—a towering construction crane hook—dangles a single, pristine garment. You navigate through a field of scaffolding pipe displays, where waterproof tarps transform into luxurious garment racks. Here, the boundary between an unfinished site and a curated boutique dissolves into a singular, industrial experience.",
+ "title": "The Unfinished Narrative",
+ "subtitle": "Acne Studios Seongsu: A temporal suspension of industrial progress.",
+ "line": "A raw, unfinished concrete skeleton reclaimed by the delicate precision of Scandinavian design.",
+ "quote": "Fashion emerges from the chaos of construction.",
+ "synopsis": "You enter a raw, exposed concrete skeleton in the heart of Seongsu. A towering structure of rusted scaffolding dominates the center, acting as a beacon of industrial progress. Around it, translucent tarp displays float like ghosts, holding the latest collections in a fragile embrace. As you navigate the path to the back-right counter, the boundaries between building site and luxury boutique dissolve.",
  "keywords": [
-  "deconstruction",
-  "industrial permanence",
-  "raw structuralism"
+  "Industrial Ruin",
+  "Suspended Fashion",
+  "Construction Aesthetics"
  ],
  "why": [
   {
-   "t": "A Towering Anchor",
-   "d": "A floor strip (Graphite + wax floor) runs 4.7 m from the door toward the hero (towering construction crane hook). The central tower acts as a gravitational anchor, demanding immediate engagement from the visitor."
+   "t": "Raw Concrete Pathway",
+   "d": "A floor strip (Exposed Structure Pathway) runs 4.7 m from the door toward the hero (Industrial Scaffolding Tower). The concrete path creates a tactile tension, echoing the raw street atmosphere of the neighbourhood."
   },
   {
-   "t": "Visceral Openness",
-   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The open field ensures a visceral, unobstructed connection to the structural bones of the building."
+   "t": "Monolithic Scaffolding Hero",
+   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The towering scaffolding commands the space, serving as an architectural skeleton for the brand."
   },
   {
-   "t": "Tactile Scaffolding Displays",
-   "d": "Four product stations (scaffolding pipe garment display) ring it loosely, 0.4 m from the route at the closest. The scaffolding stations invite you to touch and interact with the clothing as if selecting tools from a site."
+   "t": "Ethereal Tarp Displays",
+   "d": "Four product stations (Translucent Tarp Displays) ring it loosely, 0.4 m from the route at the closest. These tarp structures soften the industrial environment, offering a surreal display for the collection."
   },
   {
-   "t": "Material Grounding",
-   "d": "The pay counter (weathered waterproof tarp counter) sits at the back right, where the route ends. The tarp-draped counter grounds the experience in the materiality of the construction site."
+   "t": "Polished Concrete Anchor",
+   "d": "The pay counter (Polished Concrete Counter) sits at the back right, where the route ends. The minimalist counter provides a grounding point, reflecting the brand's disciplined focus amidst the surrounding chaos."
   }
  ],
  "palette": [
   {
-   "hex": "#4a4a4a",
-   "name": "Concrete Grey"
+   "hex": "#3d3d3d",
+   "name": "concrete grey"
   },
   {
-   "hex": "#b0b0b0",
-   "name": "Scaffolding Silver"
+   "hex": "#e0e0e0",
+   "name": "dusty white"
   },
   {
-   "hex": "#2b2b2b",
-   "name": "Graphite Accent"
+   "hex": "#b0413e",
+   "name": "rusted iron"
   },
   {
-   "hex": "#f5f5f5",
-   "name": "Tarp White"
+   "hex": "#a8c3d6",
+   "name": "tarp blue"
   },
   {
-   "hex": "#d4af37",
-   "name": "Crane Gold"
+   "hex": "#ffffff",
+   "name": "pure white"
   }
  ],
- "accent": "#2b2b2b",
+ "accent": "#b0413e",
  "materials": [
   {
-   "name": "Raw Concrete",
-   "where": "walls, ceiling",
+   "name": "Raw Industrial Concrete",
+   "where": "walls, ceiling, exposed structure pathway",
    "preset": "concrete"
   },
   {
-   "name": "Brushed Steel",
-   "where": "towering construction crane hook, scaffolding pipe garment",
-   "preset": "steel"
-  },
-  {
-   "name": "Polished Concrete Floor",
-   "where": "floor",
+   "name": "Refined Polished Concrete",
+   "where": "floor, polished concrete counter",
    "preset": "polished_concrete"
   },
   {
-   "name": "Graphite Wax Finish",
-   "where": "graphite + wax floor",
-   "preset": "graphite_wax"
+   "name": "Weathered Steel Scaffolding",
+   "where": "industrial scaffolding tower",
+   "preset": "steel"
+  },
+  {
+   "name": "Translucent Construction Tarp",
+   "where": "translucent tarp displays",
+   "preset": "textile_light"
   }
  ],
  "room": {
@@ -82,7 +82,7 @@
   "beams": false
  },
  "layout": {
-  "name": "Acne Studios: Site Under Construction — Acne Studios",
+  "name": "The Unfinished Narrative — Acne Studios",
   "W": 16.0,
   "D": 12.0,
   "H": 5,
@@ -108,7 +108,7 @@
     "x1": 15.0,
     "y1": 10.0,
     "h": 0,
-    "label": "raw concrete foundation zone",
+    "label": "White snowfield",
     "zone": "exp",
     "shape": "zone"
    },
@@ -120,10 +120,10 @@
     "x1": 9.5,
     "y1": 5.0,
     "h": 0,
-    "label": "Graphite + wax floor",
+    "label": "Exposed Structure Pathway",
     "zone": "exp",
     "shape": "floor_patch",
-    "material": "graphite_wax"
+    "material": "concrete"
    },
    {
     "id": "horse",
@@ -133,7 +133,7 @@
     "x1": 9.5,
     "y1": 7.4,
     "h": 3.5,
-    "label": "towering construction crane hook",
+    "label": "Industrial Scaffolding Tower",
     "zone": "exp",
     "shape": "joint_column",
     "material": "steel",
@@ -147,10 +147,10 @@
     "x1": 3.6,
     "y1": 7.2,
     "h": 1.8,
-    "label": "scaffolding pipe garment display",
+    "label": "Translucent Tarp Displays",
     "zone": "sale",
     "shape": "display",
-    "material": "steel"
+    "material": "textile_light"
    },
    {
     "id": "candle1",
@@ -160,10 +160,10 @@
     "x1": 14.0,
     "y1": 7.2,
     "h": 1.8,
-    "label": "scaffolding pipe garment display",
+    "label": "Translucent Tarp Displays",
     "zone": "sale",
     "shape": "display",
-    "material": "steel"
+    "material": "textile_light"
    },
    {
     "id": "candle2",
@@ -173,10 +173,10 @@
     "x1": 5.0,
     "y1": 10.2,
     "h": 1.8,
-    "label": "scaffolding pipe garment display",
+    "label": "Translucent Tarp Displays",
     "zone": "sale",
     "shape": "display",
-    "material": "steel"
+    "material": "textile_light"
    },
    {
     "id": "candle3",
@@ -186,10 +186,10 @@
     "x1": 12.6,
     "y1": 10.2,
     "h": 1.8,
-    "label": "scaffolding pipe garment display",
+    "label": "Translucent Tarp Displays",
     "zone": "sale",
     "shape": "display",
-    "material": "steel"
+    "material": "textile_light"
    },
    {
     "id": "pay",
@@ -199,10 +199,10 @@
     "x1": 15.0,
     "y1": 11.6,
     "h": 1.0,
-    "label": "weathered waterproof tarp counter",
+    "label": "Polished Concrete Counter",
     "zone": "pay",
     "shape": "box",
-    "material": "textile_light"
+    "material": "polished_concrete"
    },
    {
     "id": "boh",
@@ -262,7 +262,7 @@
       10.3
      ]
     ],
-    "color": "#2b2b2b"
+    "color": "#b0413e"
    }
   ],
   "entry": [
@@ -287,8 +287,8 @@
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I step into the site, where the ground transitions from cold concrete to a",
-   "sub": "The start of the journey into the raw industrial frame."
+   "cap": "I stand at the threshold where the city’s construction noise fades into the",
+   "sub": "The floor path marks my arrival into a structure in transition."
   },
   {
    "at": [
@@ -302,8 +302,8 @@
    ],
    "h": 1.62,
    "d": 3.0,
-   "cap": "I stand before the suspended garment, held aloft by the massive crane hook.",
-   "sub": "An impossible intersection of construction and luxury."
+   "cap": "Towering above me, the steel scaffolding redefines the room, holding space like",
+   "sub": "I am dwarfed by the raw, industrial ambition of the brand."
   },
   {
    "at": [
@@ -317,8 +317,8 @@
    ],
    "h": 1.15,
    "d": 3.4,
-   "cap": "I browse the racks made of scaffolding, feeling the rugged texture against the",
-   "sub": "Every piece of the shop is a tool for the aesthetic."
+   "cap": "I reach out to the delicate tarp that shelters the garments, creating a",
+   "sub": "My hand brushes against the translucent textile, finding the collection hidden within the site."
   }
  ]
 }

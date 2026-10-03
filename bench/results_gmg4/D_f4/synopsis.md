@@ -1,18 +1,18 @@
-# Tamburins — Tamburins: The Glacial Echo
-*A sensory journey through glacial time.*
+# Tamburins — Glacial Echoes
+*A glacial experience for Tamburins.*
 
-You enter through a curtain of frozen vapor into a realm of deep, resonant silence. At the center of the space, a slowly melting ice monolith commands your attention, its gradual decline marking the passage of cold time. As you orbit this frozen heart, you encounter skincare stations placed to draw you into quiet reflection. Finally, you reach the back, where the echoes of melting water transition into the tactile experience of Tamburins' collection.
+You enter through monolithic pillars, finding yourself instantly suspended in a field of cold, diffused light. At the center, the Melting ice block monolith slowly wanes, casting shifting shadows upon the polished concrete. You drift through the space, where every corner offers a moment of reflection and discovery. As the scent of the glacier surrounds you, time seems to dissolve along with the ice.
 
-**Keywords:** Subzero Silence · Ephemeral Form · Glacial Resonance
-**Philosophy:** In the melt, we find the origin of stillness.
+**Keywords:** ephemeral silence · glacial touch · sensory resonance
+**Philosophy:** Where beauty melts, time slows down.
 
 ## Design intent
-- **Cold Sensory Transition** A pair of threshold objects (tall frost covered pillars) stands 0.9-2.7 m inside the door, with a hanging screen (steaming hanging curtain of ice) between them; the route slips through a 1.1 m gap. These pillars and the curtain of ice create a cold, crisp transition that cleanses your senses as you enter.
-- **The Central Glacial Heart** The hero (slowly melting ice monolith) stands alone in an empty 5 x 6 m area (void of melting sound resonance); the route circles it and never comes closer than 2.7 m. The slowly melting ice monolith acts as the silent anchor of the store, drawing you into a rhythmic orbit of contemplation.
-- **Distanced Product Immersion** Four product stations (skincare test pedestal) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The peripheral stations allow you to pause your journey and immerse yourself in the products away from the central focus.
-- **A Final Grounding Point** The pay desk (minimalist cashier monolith) closes the loop at the back wall. The monolithic desk provides a final, grounding point of stillness to conclude your experience before exiting.
+- **Entering the frost** A pair of threshold objects (Monolithic ice pillars) stands 0.9-2.7 m inside the door, with a hanging screen (Translucent hanging screen) between them; the route slips through a 1.1 m gap. The threshold creates a deliberate pause, marking the transition from the bustling city into the serene, chilled atmosphere of the store.
+- **The melting core** The hero (Melting ice block monolith) stands alone in an empty 5 x 6 m area (Central void); the route circles it and never comes closer than 2.7 m. The central monolith acts as the heart of the space, drawing your eye with its delicate, persistent transformation.
+- **Peripheral discovery** Four product stations (Skincare discovery stations) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. These peripheral stations invite you to explore the collection, creating a rhythmic journey between the central hero and the individual product experiences.
+- **Final surrender** The pay desk (Minimal transaction counter) closes the loop at the back wall. The back-positioned desk offers a final, grounded interaction, completing the loop of your journey.
 
 ## The walk
-- **I step through the steaming curtain, leaving the city noise behind.** The cold air begins to hum with the resonance of ice.
-- **I watch the monolith at the center, its surface weeping in slow motion.** A frozen moment in time, destined to eventually disappear.
-- **I turn away to explore the scents on the pedestal.** The contrast of warm essence against the surrounding chill.
+- **The air turns cold as I slip past the monoliths.** The city noise fades into a gentle, rhythmic silence.
+- **I watch the ice block shift, a tiny fracture echoing in the room.** Time feels tangible here, measured by the slow drip of water.
+- **I pick up the hand cream, its cool surface echoing the room's temperature.** A subtle scent of winter persists on my skin.

@@ -1,18 +1,18 @@
-# Gentle Monster — The Gymnasium Archive
-*Where the gymnasium floor meets the future of eyewear.*
+# Gentle Monster — THE ECHO GYM
+*An abandoned gymnasium transformed into an optical theater.*
 
-As you enter, a faded floor strip guides your path toward the center of the hall. You find yourself beneath the towering silhouette of the suspended basketball hoop, now a stage for intricate eyewear. The room feels expansive and quiet, with product stations ringing the central relic like spectators. Your journey concludes at the back, where the reclaimed bleachers serve as a quiet counter for your selection.
+You walk across the original, worn wooden floorboards, the echoes of a thousand games still lingering in the air. A weathered steel basketball hoop hangs suspended in the center, acting as the silent guardian of your journey. Surrounding this artifact are four wooden stations showcasing sleek, modern eyewear. You end your visit at the minimalist checkout desk, tucked away where the game once ended.
 
-**Keywords:** repurposed gymnasium · static motion · athletic nostalgia
-**Philosophy:** Memories of movement are captured in steel and light.
+**Keywords:** Nostalgia · Reclaimed Sport · Silent Echoes
+**Philosophy:** The past isn't gone; it is simply waiting to be redefined.
 
 ## Design intent
-- **An anchor of history** A floor strip (the original painted floor strip) runs 4.7 m from the door toward the hero (suspended basketball hoop). It provides a historical anchor, leading the eye directly to the center of the court.
-- **A commanding center** The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. It creates a feeling of vastness while allowing the central hero to command the space.
-- **Flowing product encounters** Four product stations (brushed steel product plinths) ring it loosely, 0.4 m from the route at the closest. They allow you to circulate the centerpiece while maintaining a clear view of the entire room.
-- **A functional legacy** The pay counter (reclaimed wooden bleachers counter) sits at the back right, where the route ends. It connects the past life of the building with its new purpose in a functional way.
+- **A Path Through Time** A floor strip (Graphite + wax floor) runs 4.7 m from the door toward the hero (weathered steel hoop). The floor path draws you immediately into the heart of the school memories.
+- **The Guardian Hoop** The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The central hoop anchors the room, grounding your experience in the weight of history.
+- **Structured Exploration** Four product stations (worn wooden station) ring it loosely, 0.4 m from the route at the closest. The scattered stations create a rhythm that forces you to explore the space like a player on the court.
+- **The Silent Finale** The pay counter (minimalist checkout desk) sits at the back right, where the route ends. The final stop serves as a calm conclusion to your immersive journey through the gym.
 
 ## The walk
-- **I follow the faded game line, letting the silence of the hall pull me in.** The past is marked on the floor beneath my feet.
-- **I stand beneath the hoop and look at how the glasses are displayed within its** The game has stopped, but the vision persists.
-- **I reach out to a steel plinth, where the glasses catch the soft light of the** Precision products grounded by the weight of the raw architecture.
+- **I stand at the threshold, feeling the texture of the old wood underfoot.** The history of this school is written in the scratches on the floor.
+- **I reach out toward the suspended steel hoop, feeling the cold weight of the** A relic of thousands of games, now framing my vision.
+- **I lean into the wooden station, picking up a pair of glasses that feel like a** Gentle Monster's sharp aesthetic set against the rustic backdrop of the gymnasium.

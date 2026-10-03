@@ -1,89 +1,89 @@
 {
- "brand": "gentleMonster",
- "title": "The Midnight Launderette",
- "subtitle": "Midnight Scent Cycle",
- "line": "Enter the hum of the midnight laundry, where scents are spun like static in the air.",
- "quote": "Cleanliness is the scent of a memory repeating.",
- "synopsis": "Step into a space where the rhythm of the city fades into the hum of a midnight laundromat. Before you, a glowing steam-filled ritual centre spins, releasing fragrances that hang in the dense, cool air. You drift past shelves of aluminium, finding perfumes nestled within the industrial architecture. The experience concludes at the brushed steel service counter, where your selection is wrapped in the quiet stillness of the night.",
+ "brand": "Gentle Monster",
+ "title": "The Midnight Laundry",
+ "subtitle": "A sanctuary for niche fragrance in the heart of the night.",
+ "line": "Step into a space where the rhythm of a midnight laundry machine distills memories into scent.",
+ "quote": "The scent of clean air, held in the warmth of a spinning drum.",
+ "synopsis": "You enter a space defined by the hum of a rotating laundry drum, its hypnotic motion mirroring the complexity of the fragrances within. As warm steam fills the air, you are invited to wander between the industrial aluminum shelves that store delicate scents like detergents of the mind. The journey concludes at a weathered concrete counter, where the lingering scent of fresh laundry meets the depth of niche perfume. Here, the everyday act of cleaning is transformed into a profound olfactory ritual.",
  "keywords": [
-  "laundromat",
-  "fragrance cycle",
-  "industrial stillness"
+  "Midnight Laundry",
+  "Olfactory Memories",
+  "Industrial Surrealism"
  ],
  "why": [
   {
-   "t": "Industrial Spinning Shelves",
-   "d": "Shelf walls (revolving shelf units) wrap the left, right and back of the 12 x 10 m room. You are surrounded by the rhythm of spinning shelves that evoke the mechanical comfort of an old laundromat."
+   "t": "Industrial Laundry Shelving",
+   "d": "Shelf walls (industrial laundry shelf walls) wrap the left, right and back of the 12 x 10 m room. The aluminum shelves create a sterile yet evocative industrial environment that frames the fragrance collection."
   },
   {
-   "t": "Glowing Ritual Centre",
-   "d": "The centre object (glowing steam-filled ritual centre) is the first stop, 4.2 m in from the door. The centrepiece provides a sensory anchor of light and warm vapor, inviting you to pause before exploring further."
+   "t": "Hypnotic Kinetic Centerpiece",
+   "d": "The centre object (spinning laundry drum centerpiece) is the first stop, 4.2 m in from the door. The central drum serves as a kinetic centerpiece that anchors the space and draws you into a rhythmic, sensory experience."
   },
   {
-   "t": "A Deliberate Scented Path",
-   "d": "The route circles it first, then follows the shelves. The sequence forces a slow, deliberate movement, allowing the scent to settle into the environment and your skin."
+   "t": "Contemplative Navigation Route",
+   "d": "The route circles it first, then follows the shelves. The layout encourages a contemplative path, allowing you to gradually immerse yourself in the fragrance discovery process."
   },
   {
-   "t": "Metallic Service Counter",
-   "d": "The counter (brushed steel service counter) sits at the back, off the loop. The cold, metallic finish of the counter provides a clinical, crisp finale to your journey through the warm steam."
+   "t": "Concrete Reception Anchor",
+   "d": "The counter (steaming laundry reception counter) sits at the back, off the loop. The concrete counter acts as a grounding anchor at the end of the ritual, offering a tactile contrast to the ethereal scents."
   }
  ],
  "palette": [
   {
-   "hex": "#c0c0c0",
-   "name": "Steel Grey"
+   "hex": "#2c2c2c",
+   "name": "Charcoal Industrial"
   },
   {
-   "hex": "#00ffcc",
-   "name": "Fluorescent Glow"
+   "hex": "#a0a0a0",
+   "name": "Concrete Grey"
   },
   {
    "hex": "#5d6d7e",
-   "name": "Midnight Blue"
+   "name": "Steely Blue"
   },
   {
-   "hex": "#f0f8ff",
-   "name": "Steam White"
+   "hex": "#b87333",
+   "name": "Copper Warmth"
   },
   {
-   "hex": "#212f3d",
-   "name": "Deep Charcoal"
+   "hex": "#f9f9f9",
+   "name": "Bright Steam"
   }
  ],
- "accent": "#00ffcc",
+ "accent": "#2c2c2c",
  "materials": [
   {
-   "name": "Brushed Industrial Aluminium",
-   "where": "ceiling, revolving shelf units",
-   "preset": "aluminium"
+   "name": "Raw Grey Concrete",
+   "where": "walls, steaming laundry reception counter",
+   "preset": "concrete"
   },
   {
-   "name": "Cool Polished Concrete",
+   "name": "Industrial Polished Concrete",
    "where": "floor",
    "preset": "polished_concrete"
   },
   {
-   "name": "Raw Grey Concrete",
-   "where": "walls",
-   "preset": "concrete"
+   "name": "Soft Matte Lime Plaster",
+   "where": "ceiling",
+   "preset": "lime_plaster"
   },
   {
-   "name": "Diffused Frosted Glass",
-   "where": "glowing steam-filled ritual centre",
-   "preset": "glass"
+   "name": "Brushed Industrial Aluminium",
+   "where": "industrial laundry shelf walls",
+   "preset": "aluminium"
   }
  ],
  "room": {
   "floor": "polished_concrete",
   "wall": "concrete",
-  "ceiling": "aluminium",
-  "light": "dark_gallery",
-  "fog": 0.045,
-  "beams": true,
+  "ceiling": "lime_plaster",
+  "light": "warm_spot",
+  "fog": 0.02,
+  "beams": false,
   "dome": true
  },
  "layout": {
-  "name": "The Midnight Launderette — gentleMonster",
+  "name": "The Midnight Laundry — Gentle Monster",
   "W": 12.0,
   "D": 10.0,
   "H": 4.2,
@@ -121,7 +121,7 @@
     "x1": 0.6,
     "y1": 9.4,
     "h": 2.6,
-    "label": "revolving shelf units",
+    "label": "industrial laundry shelf walls",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "aluminium"
@@ -134,7 +134,7 @@
     "x1": 11.4,
     "y1": 10.0,
     "h": 2.6,
-    "label": "revolving shelf units",
+    "label": "industrial laundry shelf walls",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "aluminium"
@@ -147,7 +147,7 @@
     "x1": 12.0,
     "y1": 9.4,
     "h": 2.6,
-    "label": "revolving shelf units",
+    "label": "industrial laundry shelf walls",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "aluminium"
@@ -160,10 +160,10 @@
     "x1": 7.0,
     "y1": 5.8,
     "h": 0.9,
-    "label": "glowing steam-filled ritual centre",
+    "label": "spinning laundry drum centerpiece",
     "zone": "exp",
     "shape": "basin",
-    "material": "glass",
+    "material": "steel",
     "hero": true
    },
    {
@@ -174,10 +174,10 @@
     "x1": 8.5,
     "y1": 8.7,
     "h": 1.0,
-    "label": "brushed steel service counter",
+    "label": "steaming laundry reception counter",
     "zone": "pay",
     "shape": "box",
-    "material": "steel"
+    "material": "concrete"
    },
    {
     "id": "boh",
@@ -245,7 +245,7 @@
       0.4
      ]
     ],
-    "color": "#00ffcc"
+    "color": "#2c2c2c"
    }
   ],
   "entry": [
@@ -270,8 +270,8 @@
    ],
    "h": 1.38,
    "d": 3.6,
-   "cap": "I stand before the centre, watching the steam twist behind the frosted glass.",
-   "sub": "The hum of the drum vibrates beneath my feet."
+   "cap": "I stand before the humming drum, watching the soft steam rise into the cool",
+   "sub": "The heartbeat of the laundry begins here."
   },
   {
    "at": [
@@ -285,8 +285,8 @@
    ],
    "h": 1.55,
    "d": 2.8,
-   "cap": "I watch the shelves spin slowly, revealing hidden bottles within the aluminium",
-   "sub": "Each scent is a cycle, a memory waiting to be reclaimed."
+   "cap": "I trace the shelves with my fingertips, finding bottled memories encased in",
+   "sub": "Organized scent, precise and clinical."
   },
   {
    "at": [
@@ -300,8 +300,8 @@
    ],
    "h": 1.55,
    "d": 2.4,
-   "cap": "I reach the back, where the dim light falls from the ceiling dome.",
-   "sub": "The air here feels heavy, clean, and silent."
+   "cap": "I reach the back, where the concrete counter grounds me, and the world outside",
+   "sub": "A quiet moment of transition before leaving."
   }
  ]
 }

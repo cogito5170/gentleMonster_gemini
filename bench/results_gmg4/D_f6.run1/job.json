@@ -1,0 +1,307 @@
+{
+ "brand": "gentleMonster",
+ "title": "The Midnight Launderette",
+ "subtitle": "Midnight Scent Cycle",
+ "line": "Enter the hum of the midnight laundry, where scents are spun like static in the air.",
+ "quote": "Cleanliness is the scent of a memory repeating.",
+ "synopsis": "Step into a space where the rhythm of the city fades into the hum of a midnight laundromat. Before you, a glowing steam-filled ritual centre spins, releasing fragrances that hang in the dense, cool air. You drift past shelves of aluminium, finding perfumes nestled within the industrial architecture. The experience concludes at the brushed steel service counter, where your selection is wrapped in the quiet stillness of the night.",
+ "keywords": [
+  "laundromat",
+  "fragrance cycle",
+  "industrial stillness"
+ ],
+ "why": [
+  {
+   "t": "Industrial Spinning Shelves",
+   "d": "Shelf walls (revolving shelf units) wrap the left, right and back of the 12 x 10 m room. You are surrounded by the rhythm of spinning shelves that evoke the mechanical comfort of an old laundromat."
+  },
+  {
+   "t": "Glowing Ritual Centre",
+   "d": "The centre object (glowing steam-filled ritual centre) is the first stop, 4.2 m in from the door. The centrepiece provides a sensory anchor of light and warm vapor, inviting you to pause before exploring further."
+  },
+  {
+   "t": "A Deliberate Scented Path",
+   "d": "The route circles it first, then follows the shelves. The sequence forces a slow, deliberate movement, allowing the scent to settle into the environment and your skin."
+  },
+  {
+   "t": "Metallic Service Counter",
+   "d": "The counter (brushed steel service counter) sits at the back, off the loop. The cold, metallic finish of the counter provides a clinical, crisp finale to your journey through the warm steam."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#c0c0c0",
+   "name": "Steel Grey"
+  },
+  {
+   "hex": "#00ffcc",
+   "name": "Fluorescent Glow"
+  },
+  {
+   "hex": "#5d6d7e",
+   "name": "Midnight Blue"
+  },
+  {
+   "hex": "#f0f8ff",
+   "name": "Steam White"
+  },
+  {
+   "hex": "#212f3d",
+   "name": "Deep Charcoal"
+  }
+ ],
+ "accent": "#00ffcc",
+ "materials": [
+  {
+   "name": "Brushed Industrial Aluminium",
+   "where": "ceiling, revolving shelf units",
+   "preset": "aluminium"
+  },
+  {
+   "name": "Cool Polished Concrete",
+   "where": "floor",
+   "preset": "polished_concrete"
+  },
+  {
+   "name": "Raw Grey Concrete",
+   "where": "walls",
+   "preset": "concrete"
+  },
+  {
+   "name": "Diffused Frosted Glass",
+   "where": "glowing steam-filled ritual centre",
+   "preset": "glass"
+  }
+ ],
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "concrete",
+  "ceiling": "aluminium",
+  "light": "dark_gallery",
+  "fog": 0.045,
+  "beams": true,
+  "dome": true
+ },
+ "layout": {
+  "name": "The Midnight Launderette — gentleMonster",
+  "W": 12.0,
+  "D": 10.0,
+  "H": 4.2,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 5.0,
+    "y0": -0.1,
+    "x1": 7.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "dome",
+    "type": "zone",
+    "x0": 2.0,
+    "y0": 1.5,
+    "x1": 10.0,
+    "y1": 8.2,
+    "h": 0,
+    "label": "Under the dome",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0.0,
+    "y0": 1.5,
+    "x1": 0.6,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "revolving shelf units",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "aluminium"
+   },
+   {
+    "id": "wb",
+    "type": "wall_shelf",
+    "x0": 0.6,
+    "y0": 9.4,
+    "x1": 11.4,
+    "y1": 10.0,
+    "h": 2.6,
+    "label": "revolving shelf units",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "aluminium"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 11.4,
+    "y0": 1.5,
+    "x1": 12.0,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "revolving shelf units",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "aluminium"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 5.0,
+    "y0": 4.2,
+    "x1": 7.0,
+    "y1": 5.8,
+    "h": 0.9,
+    "label": "glowing steam-filled ritual centre",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "glass",
+    "hero": true
+   },
+   {
+    "id": "counter",
+    "type": "checkout",
+    "x0": 3.5,
+    "y0": 8.1,
+    "x1": 8.5,
+    "y1": 8.7,
+    "h": 1.0,
+    "label": "brushed steel service counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "steel"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 9.6,
+    "y0": 7.8,
+    "x1": 11.4,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "strata_clay"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      6.0,
+      0.4
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      3.8,
+      5.0
+     ],
+     [
+      6.0,
+      7.0
+     ],
+     [
+      8.2,
+      5.0
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      1.6,
+      4.0
+     ],
+     [
+      1.6,
+      7.3
+     ],
+     [
+      6.0,
+      7.3
+     ],
+     [
+      10.3,
+      7.3
+     ],
+     [
+      10.3,
+      3.0
+     ],
+     [
+      6.8,
+      0.4
+     ]
+    ],
+    "color": "#00ffcc"
+   }
+  ],
+  "entry": [
+   6.0,
+   0.0
+  ],
+  "exit": [
+   6.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    6.0,
+    3.2
+   ],
+   "look": [
+    6.0,
+    0.88,
+    4.95
+   ],
+   "h": 1.38,
+   "d": 3.6,
+   "cap": "I stand before the centre, watching the steam twist behind the frosted glass.",
+   "sub": "The hum of the drum vibrates beneath my feet."
+  },
+  {
+   "at": [
+    1.6,
+    5.8
+   ],
+   "look": [
+    0.6,
+    1.45,
+    5.8
+   ],
+   "h": 1.55,
+   "d": 2.8,
+   "cap": "I watch the shelves spin slowly, revealing hidden bottles within the aluminium",
+   "sub": "Each scent is a cycle, a memory waiting to be reclaimed."
+  },
+  {
+   "at": [
+    6.0,
+    7.3
+   ],
+   "look": [
+    6.0,
+    2.9,
+    3.6
+   ],
+   "h": 1.55,
+   "d": 2.4,
+   "cap": "I reach the back, where the dim light falls from the ceiling dome.",
+   "sub": "The air here feels heavy, clean, and silent."
+  }
+ ]
+}

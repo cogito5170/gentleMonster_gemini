@@ -1,116 +1,99 @@
 {
  "brand": "Gentle Monster",
- "title": "The Harbor Warehouse Pop-up",
- "subtitle": "An industrial sanctuary for the restless voyager.",
- "line": "Where the fog meets the harbor's forgotten pulse, you find the weight of timeless design.",
- "quote": "In the stillness of the harbor, only the light remembers the way.",
- "synopsis": "Step through the threshold of rusted chains into a thick, swirling mist. Your path takes you around the glowing amber lighthouse lens, its rhythmic light casting long, dancing shadows across the warehouse floor. As you explore the peripheral stations, the cold steel and rough textures tell a story of oceanic endurance. Finally, you reach the logbook desk at the back, leaving the fog behind with your chosen piece.",
+ "title": "HARBOR SHADOWS: THE POP-UP",
+ "subtitle": "A transient collection in a harbor’s hold.",
+ "line": "A desolate harbor warehouse where the rhythmic sweep of a lighthouse beam illuminates the cargo of time.",
+ "quote": "Memory is a beacon that cuts through the fog of the present.",
+ "synopsis": "You step into the damp, echoing shell of a warehouse lost to the sea. Inside the central chamber, the Drifting Product Plinths emerge from the dense mist, holding artifacts as if they were salvaged cargo. A flickering warmth glides over the surfaces, mimicking the lighthouse that guides ghosts home. Here, the boundary between storage and sanctuary dissolves in the fog.",
  "keywords": [
-  "Maritime Industrial",
-  "Lighthouse Pulse",
-  "Fogbound Discovery"
+  "industrial decay",
+  "maritime isolation",
+  "ghost light"
  ],
  "why": [
   {
-   "t": "Entering the Industrial Fog",
-   "d": "A pair of threshold objects (weathered mooring ropes) stands 1.0-3.0 m inside the door, with a hanging screen (rusted chain dividers) between them; the route slips through a 1.9 m gap. You begin your descent into the harbor by navigating through the heavy, hanging chains."
+   "t": "A Warehouse Sanctuary",
+   "d": "A walled chamber (Warehouse Walls), 11 x 8 m, stands inside the room; you enter it through a 1.8 m opening in its side. The enclosing walls create a sense of being lost at sea within a confined industrial space."
   },
   {
-   "t": "The Luminous Anchor",
-   "d": "The hero (antique lighthouse lens) stands alone in an empty 8 x 7 m area (Central void); the route circles it and never comes closer than 3.3 m. The lens guides your movement, pulling you into a slow, orbital journey of discovery."
+   "t": "Treasures in the Mist",
+   "d": "Three low monoliths (Drifting Product Plinths) inside it carry the product at 0.9-1.4 m high. The low plinths make you lean in close, as if examining treasures washed up by the tide."
   },
   {
-   "t": "Exploring Peripheral Depths",
-   "d": "Four product stations (bag display modules) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. Peripheral modules allow you to engage with the collection away from the central glow."
+   "t": "Architecture of Force",
+   "d": "Two blocks (Piercing Rusty Beams) break through the chamber walls on opposite sides. These heavy protrusions puncture the space, suggesting the relentless force of the harbor environment."
   },
   {
-   "t": "Final Port of Call",
-   "d": "The pay desk (logbook desk) closes the loop at the back wall. Your journey concludes at the desk where time seems to slow down and anchor."
+   "t": "The Outer Rim",
+   "d": "The pay desk (Harbor Cash Desk) and the fitting room (Fitting Block) stay outside the chamber. Keeping the transaction and fitting processes external separates the sacred act of viewing from the routine."
   }
  ],
  "palette": [
   {
-   "hex": "#0a0a0a",
-   "name": "Midnight Harbour"
+   "hex": "#2a2a2a",
+   "name": "Charcoal"
   },
   {
-   "hex": "#333333",
-   "name": "Rusted Steel"
+   "hex": "#7a7a7a",
+   "name": "Misty Grey"
   },
   {
-   "hex": "#ffb74d",
-   "name": "Lighthouse Amber"
+   "hex": "#c5a059",
+   "name": "Beacon Gold"
+  },
+  {
+   "hex": "#404040",
+   "name": "Iron Dark"
   },
   {
    "hex": "#e0e0e0",
-   "name": "Mist Grey"
-  },
-  {
-   "hex": "#f5f5f5",
    "name": "Fog White"
   }
  ],
- "accent": "#ffb74d",
+ "accent": "#c5a059",
  "materials": [
   {
-   "name": "Obsidian Iron Plate",
-   "where": "walls, oxidized iron plinths",
-   "preset": "black_stone"
+   "name": "Brutalist Concrete",
+   "where": "walls, ceiling",
+   "preset": "concrete"
   },
   {
-   "name": "Milky Translucent Veil",
-   "where": "ceiling, foggy atmosphere",
-   "preset": "textile_light"
-  },
-  {
-   "name": "Weathered Driftwood Grain",
-   "where": "bag display modules, logbook desk",
-   "preset": "wood"
-  },
-  {
-   "name": "Reflective Industrial Concrete",
+   "name": "Wet Polished Concrete",
    "where": "floor",
    "preset": "polished_concrete"
+  },
+  {
+   "name": "Weathered Lime Plaster",
+   "where": "warehouse walls",
+   "preset": "lime_plaster"
+  },
+  {
+   "name": "Obsidian Product Rock",
+   "where": "drifting product plinths",
+   "preset": "black_stone"
   }
  ],
  "room": {
   "floor": "polished_concrete",
-  "wall": "black_stone",
-  "ceiling": "textile_light",
+  "wall": "concrete",
+  "ceiling": "concrete",
   "light": "warm_spot",
   "fog": 0.045,
   "beams": false
  },
  "layout": {
-  "name": "The Harbor Warehouse Pop-up — Gentle Monster",
-  "W": 20.0,
-  "D": 16.0,
-  "H": 6,
-  "columns": [
-   [
-    4.5,
-    4.0
-   ],
-   [
-    15.5,
-    4.0
-   ],
-   [
-    4.5,
-    13.0
-   ],
-   [
-    15.5,
-    13.0
-   ]
-  ],
+  "name": "HARBOR SHADOWS: THE POP-UP — Gentle Monster",
+  "W": 18.0,
+  "D": 12.0,
+  "H": 4.5,
+  "columns": [],
   "items": [
    {
     "id": "door",
     "type": "door",
-    "x0": 8.5,
+    "x0": 1.0,
     "y0": -0.1,
-    "x1": 11.5,
+    "x1": 3.0,
     "y1": 0.1,
     "h": 0,
     "label": "Entrance",
@@ -118,371 +101,297 @@
     "shape": "door"
    },
    {
-    "id": "joint_l",
-    "type": "block",
-    "x0": 6.5,
-    "y0": 1.0,
-    "x1": 7.5,
-    "y1": 3.0,
-    "h": 5,
-    "label": "weathered mooring ropes",
-    "zone": "exp",
-    "shape": "joint_column",
-    "material": "strata_clay"
-   },
-   {
-    "id": "joint_r",
-    "type": "block",
-    "x0": 12.5,
-    "y0": 1.0,
-    "x1": 13.5,
-    "y1": 3.0,
-    "h": 5,
-    "label": "weathered mooring ropes",
-    "zone": "exp",
-    "shape": "joint_column",
-    "material": "strata_clay"
-   },
-   {
-    "id": "wire_l",
-    "type": "media",
-    "x0": 7.2,
-    "y0": 2.0,
-    "x1": 9.35,
-    "y1": 2.4,
-    "h": 4.5,
-    "label": "rusted chain dividers",
-    "zone": "exp",
-    "shape": "cable_curtain",
-    "material": "steel"
-   },
-   {
-    "id": "wire_r",
-    "type": "media",
-    "x0": 11.25,
-    "y0": 2.0,
-    "x1": 12.8,
-    "y1": 2.4,
-    "h": 4.5,
-    "label": "rusted chain dividers",
-    "zone": "exp",
-    "shape": "cable_curtain",
-    "material": "steel"
-   },
-   {
-    "id": "void",
+    "id": "chamber",
     "type": "zone",
-    "x0": 6.0,
-    "y0": 5.0,
-    "x1": 14.0,
-    "y1": 12.0,
-    "h": 0,
-    "label": "Central void",
-    "zone": "exp",
-    "shape": "zone"
-   },
-   {
-    "id": "head",
-    "type": "figure",
-    "x0": 9.0,
-    "y0": 7.5,
-    "x1": 11.0,
-    "y1": 9.5,
-    "h": 3.2,
-    "label": "antique lighthouse lens",
-    "zone": "exp",
-    "shape": "display",
-    "material": "amber_glass",
-    "hero": true
-   },
-   {
-    "id": "tree0",
-    "type": "figure",
-    "x0": 6.3,
-    "y0": 5.3,
-    "x1": 6.9,
-    "y1": 5.9,
-    "h": 4.2,
-    "label": "oxidized iron plinths",
-    "zone": "exp",
-    "shape": "display",
-    "material": "black_stone"
-   },
-   {
-    "id": "tree1",
-    "type": "figure",
-    "x0": 13.1,
-    "y0": 5.3,
-    "x1": 13.7,
-    "y1": 5.9,
-    "h": 4.2,
-    "label": "oxidized iron plinths",
-    "zone": "exp",
-    "shape": "display",
-    "material": "black_stone"
-   },
-   {
-    "id": "tree2",
-    "type": "figure",
-    "x0": 6.3,
-    "y0": 11.1,
-    "x1": 6.9,
-    "y1": 11.7,
-    "h": 4.2,
-    "label": "oxidized iron plinths",
-    "zone": "exp",
-    "shape": "display",
-    "material": "black_stone"
-   },
-   {
-    "id": "tree3",
-    "type": "figure",
-    "x0": 13.1,
-    "y0": 11.1,
-    "x1": 13.7,
-    "y1": 11.7,
-    "h": 4.2,
-    "label": "oxidized iron plinths",
-    "zone": "exp",
-    "shape": "display",
-    "material": "black_stone"
-   },
-   {
-    "id": "tree4",
-    "type": "figure",
-    "x0": 5.0,
-    "y0": 8.2,
-    "x1": 5.6,
-    "y1": 8.8,
-    "h": 4.2,
-    "label": "oxidized iron plinths",
-    "zone": "exp",
-    "shape": "display",
-    "material": "black_stone"
-   },
-   {
-    "id": "tree5",
-    "type": "figure",
-    "x0": 14.4,
-    "y0": 8.2,
+    "x0": 4.0,
+    "y0": 2.0,
     "x1": 15.0,
-    "y1": 8.8,
-    "h": 4.2,
-    "label": "oxidized iron plinths",
+    "y1": 10.0,
+    "h": 0,
+    "label": "Misty Warehouse Chamber",
     "zone": "exp",
+    "shape": "zone",
+    "material": "textile_light"
+   },
+   {
+    "id": "w_front",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 2.15,
+    "h": 4.2,
+    "label": "Warehouse Walls",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "w_back",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 9.85,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "Warehouse Walls",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "w_left",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 2.0,
+    "x1": 4.15,
+    "y1": 5.4,
+    "h": 4.2,
+    "label": "Warehouse Walls",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "w_left2",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 7.2,
+    "x1": 4.15,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "Warehouse Walls",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "w_right",
+    "type": "block",
+    "x0": 14.85,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 6.8,
+    "h": 4.2,
+    "label": "Warehouse Walls",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "w_right2",
+    "type": "block",
+    "x0": 14.85,
+    "y0": 8.6,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "Warehouse Walls",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "mono_a",
+    "type": "island",
+    "x0": 5.5,
+    "y0": 3.4,
+    "x1": 7.3,
+    "y1": 5.0,
+    "h": 1.2,
+    "label": "Drifting Product Plinths",
+    "zone": "sale",
     "shape": "display",
     "material": "black_stone"
    },
    {
-    "id": "st0",
+    "id": "mono_b",
     "type": "island",
-    "x0": 2.2,
-    "y0": 5.6,
-    "x1": 3.6,
-    "y1": 6.4,
-    "h": 1.0,
-    "label": "bag display modules",
+    "x0": 9.0,
+    "y0": 6.4,
+    "x1": 11.6,
+    "y1": 8.0,
+    "h": 0.9,
+    "label": "Drifting Product Plinths",
     "zone": "sale",
-    "shape": "box",
-    "material": "wood"
+    "shape": "display",
+    "material": "black_stone"
    },
    {
-    "id": "st1",
+    "id": "mono_c",
     "type": "island",
-    "x0": 2.2,
-    "y0": 10.6,
-    "x1": 3.6,
-    "y1": 11.4,
-    "h": 1.0,
-    "label": "bag display modules",
+    "x0": 12.4,
+    "y0": 3.0,
+    "x1": 14.0,
+    "y1": 5.6,
+    "h": 1.4,
+    "label": "Drifting Product Plinths",
     "zone": "sale",
-    "shape": "box",
-    "material": "wood"
+    "shape": "display",
+    "material": "black_stone"
    },
    {
-    "id": "st2",
-    "type": "island",
-    "x0": 16.4,
-    "y0": 5.6,
-    "x1": 17.8,
-    "y1": 6.4,
-    "h": 1.0,
-    "label": "bag display modules",
-    "zone": "sale",
-    "shape": "box",
-    "material": "wood"
+    "id": "pierce_l",
+    "type": "block",
+    "x0": 3.1,
+    "y0": 5.5,
+    "x1": 4.9,
+    "y1": 6.3,
+    "h": 3.2,
+    "label": "Piercing Rusty Beams",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "brass"
    },
    {
-    "id": "st3",
-    "type": "island",
-    "x0": 16.4,
-    "y0": 10.6,
-    "x1": 17.8,
-    "y1": 11.4,
-    "h": 1.0,
-    "label": "bag display modules",
-    "zone": "sale",
+    "id": "pierce_r",
+    "type": "block",
+    "x0": 14.2,
+    "y0": 7.7,
+    "x1": 16.4,
+    "y1": 8.5,
+    "h": 3.8,
+    "label": "Piercing Rusty Beams",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "brass"
+   },
+   {
+    "id": "fit",
+    "type": "room",
+    "x0": 15.5,
+    "y0": 10.0,
+    "x1": 18.0,
+    "y1": 12.0,
+    "h": 2.6,
+    "label": "Fitting Block",
+    "zone": "",
     "shape": "box",
-    "material": "wood"
+    "material": "steel"
    },
    {
     "id": "pay",
     "type": "checkout",
-    "x0": 8.0,
-    "y0": 13.6,
-    "x1": 12.0,
-    "y1": 14.4,
+    "x0": 1.0,
+    "y0": 10.8,
+    "x1": 4.0,
+    "y1": 11.6,
     "h": 1.0,
-    "label": "logbook desk",
+    "label": "Harbor Cash Desk",
     "zone": "pay",
     "shape": "box",
     "material": "wood"
-   },
-   {
-    "id": "mirror",
-    "type": "kiosk",
-    "x0": 16.0,
-    "y0": 14.2,
-    "x1": 19.0,
-    "y1": 15.4,
-    "h": 1.8,
-    "label": "observation mirror",
-    "zone": "sale",
-    "shape": "box",
-    "material": "mirror_aluminium"
-   },
-   {
-    "id": "boh",
-    "type": "stock",
-    "x0": 0.0,
-    "y0": 14.0,
-    "x1": 4.0,
-    "y1": 16.0,
-    "h": 3,
-    "label": "BOH",
-    "zone": "boh",
-    "shape": "box",
-    "material": "concrete"
-   },
-   {
-    "id": "shards",
-    "type": "zone",
-    "x0": 5.8,
-    "y0": 4.6,
-    "x1": 14.2,
-    "y1": 12.4,
-    "h": 4.6,
-    "label": "foggy atmosphere",
-    "zone": "exp",
-    "shape": "light_ceiling",
-    "material": "textile_light"
    }
   ],
   "flows": [
    {
     "pts": [
      [
-      10.0,
-      0.5
+      2.0,
+      0.4
      ],
      [
-      10.0,
-      3.6
+      2.0,
+      6.75
      ],
      [
-      5.6,
-      4.6
+      5.2,
+      6.75
      ],
      [
-      3.8,
-      8.4
+      8.0,
+      5.6
+     ],
+     [
+      10.3,
+      5.2
+     ],
+     [
+      13.2,
+      6.2
+     ],
+     [
+      13.6,
+      8.9
+     ],
+     [
+      9.0,
+      9.1
      ],
      [
       5.4,
-      12.6
-     ],
-     [
-      10.0,
-      12.9
-     ],
-     [
-      14.6,
-      12.6
-     ],
-     [
-      16.2,
       8.4
      ],
      [
-      14.4,
-      4.6
+      4.4,
+      6.75
      ],
      [
-      10.6,
-      3.6
+      2.4,
+      7.0
      ],
      [
-      10.6,
-      0.5
+      2.5,
+      10.4
      ]
     ],
-    "color": "#ffb74d"
+    "color": "#c5a059"
    }
   ],
   "entry": [
-   10.0,
+   2.0,
    0.0
   ],
   "exit": [
-   10.0,
+   2.0,
    0.0
   ]
  },
  "stops": [
   {
    "at": [
-    10.0,
-    1.3
+    2.0,
+    4.6
    ],
    "look": [
-    10.0,
-    1.9,
-    6.5
+    4.0,
+    1.7,
+    5.9
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I stand between the heavy ropes, feeling the weight of the harbor air.",
-   "sub": "The transition from city to sea begins here."
+   "cap": "I watch the brass beam pierce the warehouse wall, marking the passage of the",
+   "sub": "A physical disruption of the sterile chamber."
   },
   {
    "at": [
-    10.0,
-    3.6
+    6.2,
+    6.3
    ],
    "look": [
-    10.0,
-    2.45,
-    8.5
+    9.6,
+    1.6,
+    9.95
    ],
    "h": 1.62,
    "d": 3.2,
-   "cap": "The amber light pulses against the fog, pulling me closer to the center.",
-   "sub": "A rhythmic beacon in the heart of the void."
+   "cap": "I see my own reflection fading into the mirror walls, blurred by the dense",
+   "sub": "Infinite layers of industrial melancholy."
   },
   {
    "at": [
-    3.8,
-    8.4
+    10.3,
+    5.2
    ],
    "look": [
-    2.9,
-    1.0,
-    6.0
+    10.3,
+    0.95,
+    7.2
    ],
-   "h": 1.4,
-   "d": 2.8,
-   "cap": "I turn to the dark wooden modules, finding beauty in the shadows.",
-   "sub": "The bags catch the light, distant from the main pulse."
+   "h": 1.3,
+   "d": 3.0,
+   "cap": "I trace the obsidian surface, feeling the weight of goods resting in the",
+   "sub": "An intimate encounter with the salvaged collection."
   }
  ]
 }

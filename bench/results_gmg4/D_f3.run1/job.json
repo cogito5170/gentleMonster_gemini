@@ -1,0 +1,307 @@
+{
+ "brand": "Aesop",
+ "title": "The Courtyard Ritual",
+ "subtitle": "Seochon’s quiet ritual of water and stone.",
+ "line": "A sanctuary of serenity where the ancient rhythm of a courtyard ritual meets contemporary skincare.",
+ "quote": "The pause before the care.",
+ "synopsis": "As you step into the store, the bustling streets of Seochon fade away, replaced by the profound stillness of an open-air Hanok courtyard. Your journey begins at a central black stone basin, an invitation to a meditative cleansing ritual. You then drift towards the warm, earthy strata-clay walls, where Aesop products are nestled like hidden treasures. The journey concludes at a serene wooden counter at the rear of the space.",
+ "keywords": [
+  "seochon",
+  "hanok atmosphere",
+  "ritualistic cleansing"
+ ],
+ "why": [
+  {
+   "t": "Earth-bound architecture",
+   "d": "Shelf walls (shelving embedded in stone walls) wrap the left, right and back of the 12 x 10 m room. These grounded, earth-toned shelves anchor the space in the aesthetic of traditional Korean architecture."
+  },
+  {
+   "t": "The ritual of stillness",
+   "d": "The centre object (meditative stone basin ritual) is the first stop, 4.2 m in from the door. This central basin forces a purposeful pause, centering the visitor in the present moment through the element of water."
+  },
+  {
+   "t": "Guided by intuition",
+   "d": "The route circles it first, then follows the shelves. By drawing the visitor around the central basin, the design ensures the experience is contemplative and flow-driven."
+  },
+  {
+   "t": "Tactile warmth at completion",
+   "d": "The counter (minimalist payment counter) sits at the back, off the loop. The wooden counter provides a warm, tactile conclusion to the ritualistic experience."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#d6c2a5",
+   "name": "Earth Clay"
+  },
+  {
+   "hex": "#8b5e3c",
+   "name": "Deep Wood"
+  },
+  {
+   "hex": "#f5f5f5",
+   "name": "Soft White"
+  },
+  {
+   "hex": "#2c2c2c",
+   "name": "Volcanic Black"
+  },
+  {
+   "hex": "#a8b5a5",
+   "name": "Muted Moss"
+  }
+ ],
+ "accent": "#8b5e3c",
+ "materials": [
+  {
+   "name": "Raw Terracotta Strata",
+   "where": "floor, shelving embedded in stone walls",
+   "preset": "strata_clay"
+  },
+  {
+   "name": "Aged Hinoki Wood",
+   "where": "ceiling, minimalist payment counter",
+   "preset": "wood"
+  },
+  {
+   "name": "Soft Lime Wash",
+   "where": "walls",
+   "preset": "lime_plaster"
+  },
+  {
+   "name": "Polished Volcanic Basalt",
+   "where": "meditative stone basin ritual",
+   "preset": "black_stone"
+  }
+ ],
+ "room": {
+  "floor": "strata_clay",
+  "wall": "lime_plaster",
+  "ceiling": "wood",
+  "light": "warm_spot",
+  "fog": 0.0,
+  "beams": false,
+  "dome": true
+ },
+ "layout": {
+  "name": "The Courtyard Ritual — Aesop",
+  "W": 12.0,
+  "D": 10.0,
+  "H": 4.2,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 5.0,
+    "y0": -0.1,
+    "x1": 7.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "dome",
+    "type": "zone",
+    "x0": 2.0,
+    "y0": 1.5,
+    "x1": 10.0,
+    "y1": 8.2,
+    "h": 0,
+    "label": "Under the dome",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0.0,
+    "y0": 1.5,
+    "x1": 0.6,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "shelving embedded in stone walls",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "wb",
+    "type": "wall_shelf",
+    "x0": 0.6,
+    "y0": 9.4,
+    "x1": 11.4,
+    "y1": 10.0,
+    "h": 2.6,
+    "label": "shelving embedded in stone walls",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 11.4,
+    "y0": 1.5,
+    "x1": 12.0,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "shelving embedded in stone walls",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 5.0,
+    "y0": 4.2,
+    "x1": 7.0,
+    "y1": 5.8,
+    "h": 0.9,
+    "label": "meditative stone basin ritual",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "black_stone",
+    "hero": true
+   },
+   {
+    "id": "counter",
+    "type": "checkout",
+    "x0": 3.5,
+    "y0": 8.1,
+    "x1": 8.5,
+    "y1": 8.7,
+    "h": 1.0,
+    "label": "minimalist payment counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "wood"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 9.6,
+    "y0": 7.8,
+    "x1": 11.4,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "strata_clay"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      6.0,
+      0.4
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      3.8,
+      5.0
+     ],
+     [
+      6.0,
+      7.0
+     ],
+     [
+      8.2,
+      5.0
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      1.6,
+      4.0
+     ],
+     [
+      1.6,
+      7.3
+     ],
+     [
+      6.0,
+      7.3
+     ],
+     [
+      10.3,
+      7.3
+     ],
+     [
+      10.3,
+      3.0
+     ],
+     [
+      6.8,
+      0.4
+     ]
+    ],
+    "color": "#8b5e3c"
+   }
+  ],
+  "entry": [
+   6.0,
+   0.0
+  ],
+  "exit": [
+   6.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    6.0,
+    3.2
+   ],
+   "look": [
+    6.0,
+    0.88,
+    4.95
+   ],
+   "h": 1.38,
+   "d": 3.6,
+   "cap": "I stand before the basalt basin, the sound of water quieting the city air",
+   "sub": "The stone feels cool and grounded beneath my fingertips."
+  },
+  {
+   "at": [
+    1.6,
+    5.8
+   ],
+   "look": [
+    0.6,
+    1.45,
+    5.8
+   ],
+   "h": 1.55,
+   "d": 2.8,
+   "cap": "Tracing the strata-clay shelves, I find the familiar scent of Aesop amongst the",
+   "sub": "Each product is placed with deliberate, quiet care."
+  },
+  {
+   "at": [
+    6.0,
+    7.3
+   ],
+   "look": [
+    6.0,
+    2.9,
+    3.6
+   ],
+   "h": 1.55,
+   "d": 2.4,
+   "cap": "Reaching the end of the courtyard, I feel a sense of clarity and renewal.",
+   "sub": "The ritual is complete, a brief sanctuary in the heart of Seochon."
+  }
+ ]
+}
