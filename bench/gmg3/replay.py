@@ -1,6 +1,6 @@
 """GMG3 conversation replay: flash-lite picks every tool across a run of real user questions.
 
-    python3 bench/gmg3/replay.py design [--q 4,22,23]    # design set (tuning allowed)
+    python3 bench/gmg3/replay.py design [--q 4,22,23] [--out results_x]    # design set (tuning allowed)
     python3 bench/gmg3/replay.py eval                    # questions 32-42, pre-registered in eval.json
 
 Each question's path and state are scored by code (`check_*` implement eval.json's `expected_state`, verbatim).
@@ -100,7 +100,7 @@ def snapshot():
 def main():
     which = sys.argv[1]
     only = [int(x) for x in sys.argv[sys.argv.index("--q") + 1].split(",")] if "--q" in sys.argv else None
-    out = HERE / ("results_" + which)
+    out = HERE / (sys.argv[sys.argv.index("--out") + 1] if "--out" in sys.argv else "results_" + which)
     out.mkdir(exist_ok=True)
     os.environ["GMG_OUT"] = str(out / "work")
     from gmg import loop, portfolio as PF, upstream
