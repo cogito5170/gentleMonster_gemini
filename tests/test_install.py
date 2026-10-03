@@ -49,6 +49,8 @@ def run_launcher(version, extension, *args):
 
 rc, out = run_launcher("0.60.0", True, "-p", "hello")
 ok(rc == 0 and out == ["ARGS -m gemini-3.1-flash-lite -p hello"], f"the launcher runs the private CLI with gemini-3.1-flash-lite and passes arguments ({out})")
+rc, out = run_launcher("0.60.0", True, "mcp", "list")
+ok(rc == 0 and out == ["ARGS mcp list"], f"a management command passes through without a model ({out})")
 rc, out = run_launcher("0.62.0", True)
 ok(rc == 1 and len(out) == 1 and "0.62.0, not 0.60.0" in out[0] and "npm install --prefix" in out[0], "a wrong CLI version stops with one line saying what to run")
 rc, out = run_launcher("", True)
