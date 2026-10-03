@@ -1,0 +1,324 @@
+{
+ "brand": "Acne Studios",
+ "title": "Acne Studios: Site Under Construction",
+ "subtitle": "Acne Studios, Seongsu.",
+ "line": "An unfinished dialogue between structural necessity and high fashion.",
+ "quote": "Fashion is not the final layer, but the skeleton of the space itself.",
+ "synopsis": "You enter a space where construction is not an interruption, but a permanent state of being. The raw concrete skeleton of the Seongsu building wraps around you, while the centerpiece—a towering construction crane hook—dangles a single, pristine garment. You navigate through a field of scaffolding pipe displays, where waterproof tarps transform into luxurious garment racks. Here, the boundary between an unfinished site and a curated boutique dissolves into a singular, industrial experience.",
+ "keywords": [
+  "deconstruction",
+  "industrial permanence",
+  "raw structuralism"
+ ],
+ "why": [
+  {
+   "t": "A Towering Anchor",
+   "d": "A floor strip (Graphite + wax floor) runs 4.7 m from the door toward the hero (towering construction crane hook). The central tower acts as a gravitational anchor, demanding immediate engagement from the visitor."
+  },
+  {
+   "t": "Visceral Openness",
+   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The open field ensures a visceral, unobstructed connection to the structural bones of the building."
+  },
+  {
+   "t": "Tactile Scaffolding Displays",
+   "d": "Four product stations (scaffolding pipe garment display) ring it loosely, 0.4 m from the route at the closest. The scaffolding stations invite you to touch and interact with the clothing as if selecting tools from a site."
+  },
+  {
+   "t": "Material Grounding",
+   "d": "The pay counter (weathered waterproof tarp counter) sits at the back right, where the route ends. The tarp-draped counter grounds the experience in the materiality of the construction site."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#4a4a4a",
+   "name": "Concrete Grey"
+  },
+  {
+   "hex": "#b0b0b0",
+   "name": "Scaffolding Silver"
+  },
+  {
+   "hex": "#2b2b2b",
+   "name": "Graphite Accent"
+  },
+  {
+   "hex": "#f5f5f5",
+   "name": "Tarp White"
+  },
+  {
+   "hex": "#d4af37",
+   "name": "Crane Gold"
+  }
+ ],
+ "accent": "#2b2b2b",
+ "materials": [
+  {
+   "name": "Raw Concrete",
+   "where": "walls, ceiling",
+   "preset": "concrete"
+  },
+  {
+   "name": "Brushed Steel",
+   "where": "towering construction crane hook, scaffolding pipe garment",
+   "preset": "steel"
+  },
+  {
+   "name": "Polished Concrete Floor",
+   "where": "floor",
+   "preset": "polished_concrete"
+  },
+  {
+   "name": "Graphite Wax Finish",
+   "where": "graphite + wax floor",
+   "preset": "graphite_wax"
+  }
+ ],
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "concrete",
+  "ceiling": "concrete",
+  "light": "daylight",
+  "fog": 0.02,
+  "beams": false
+ },
+ "layout": {
+  "name": "Acne Studios: Site Under Construction — Acne Studios",
+  "W": 16.0,
+  "D": 12.0,
+  "H": 5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 7.0,
+    "y0": -0.1,
+    "x1": 9.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "field",
+    "type": "zone",
+    "x0": 1.0,
+    "y0": 1.5,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 0,
+    "label": "raw concrete foundation zone",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "floor",
+    "type": "zone",
+    "x0": 6.5,
+    "y0": 0.3,
+    "x1": 9.5,
+    "y1": 5.0,
+    "h": 0,
+    "label": "Graphite + wax floor",
+    "zone": "exp",
+    "shape": "floor_patch",
+    "material": "graphite_wax"
+   },
+   {
+    "id": "horse",
+    "type": "figure",
+    "x0": 6.5,
+    "y0": 5.6,
+    "x1": 9.5,
+    "y1": 7.4,
+    "h": 3.5,
+    "label": "towering construction crane hook",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "steel",
+    "hero": true
+   },
+   {
+    "id": "candle0",
+    "type": "island",
+    "x0": 2.0,
+    "y0": 5.8,
+    "x1": 3.6,
+    "y1": 7.2,
+    "h": 1.8,
+    "label": "scaffolding pipe garment display",
+    "zone": "sale",
+    "shape": "display",
+    "material": "steel"
+   },
+   {
+    "id": "candle1",
+    "type": "island",
+    "x0": 12.4,
+    "y0": 5.8,
+    "x1": 14.0,
+    "y1": 7.2,
+    "h": 1.8,
+    "label": "scaffolding pipe garment display",
+    "zone": "sale",
+    "shape": "display",
+    "material": "steel"
+   },
+   {
+    "id": "candle2",
+    "type": "island",
+    "x0": 3.4,
+    "y0": 8.8,
+    "x1": 5.0,
+    "y1": 10.2,
+    "h": 1.8,
+    "label": "scaffolding pipe garment display",
+    "zone": "sale",
+    "shape": "display",
+    "material": "steel"
+   },
+   {
+    "id": "candle3",
+    "type": "island",
+    "x0": 11.0,
+    "y0": 8.8,
+    "x1": 12.6,
+    "y1": 10.2,
+    "h": 1.8,
+    "label": "scaffolding pipe garment display",
+    "zone": "sale",
+    "shape": "display",
+    "material": "steel"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 12.5,
+    "y0": 10.8,
+    "x1": 15.0,
+    "y1": 11.6,
+    "h": 1.0,
+    "label": "weathered waterproof tarp counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "textile_light"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 10.5,
+    "x1": 3.0,
+    "y1": 12.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "mineral_white"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      8.0,
+      0.4
+     ],
+     [
+      8.0,
+      4.8
+     ],
+     [
+      4.6,
+      5.6
+     ],
+     [
+      4.2,
+      7.6
+     ],
+     [
+      5.4,
+      8.4
+     ],
+     [
+      6.2,
+      10.6
+     ],
+     [
+      10.4,
+      10.6
+     ],
+     [
+      10.6,
+      8.2
+     ],
+     [
+      13.2,
+      7.6
+     ],
+     [
+      13.8,
+      10.3
+     ]
+    ],
+    "color": "#2b2b2b"
+   }
+  ],
+  "entry": [
+   8.0,
+   0.0
+  ],
+  "exit": [
+   8.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    8.0,
+    1.4
+   ],
+   "look": [
+    8.0,
+    0.05,
+    3.2
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I step into the site, where the ground transitions from cold concrete to a",
+   "sub": "The start of the journey into the raw industrial frame."
+  },
+  {
+   "at": [
+    8.0,
+    3.3
+   ],
+   "look": [
+    8.0,
+    2.3,
+    6.5
+   ],
+   "h": 1.62,
+   "d": 3.0,
+   "cap": "I stand before the suspended garment, held aloft by the massive crane hook.",
+   "sub": "An impossible intersection of construction and luxury."
+  },
+  {
+   "at": [
+    4.2,
+    7.4
+   ],
+   "look": [
+    2.8,
+    0.75,
+    6.5
+   ],
+   "h": 1.15,
+   "d": 3.4,
+   "cap": "I browse the racks made of scaffolding, feeling the rugged texture against the",
+   "sub": "Every piece of the shop is a tool for the aesthetic."
+  }
+ ]
+}

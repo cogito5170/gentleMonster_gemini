@@ -151,6 +151,13 @@ fin3["stops"][1]["sub"] = "N/A"
 r = agent.call("gm_finish", fin3)
 ok(r["ok"] is False and any("stop 2 sub is placeholder" in p for p in r["problems"]), "a placeholder caption line is refused")
 ok(agent.placeholder("(none named)") and agent.placeholder("") and agent.placeholder("없음") and not agent.placeholder("Gentle Monster"), "placeholder() knows filler from names")
+fin4 = dict(fin, job=jh)
+fin4["palette"] = [dict(x) for x in fin["palette"]]
+fin4["palette"][4]["hex"] = "#E0E0E0,name:"
+fin4["palette"][3]["hex"] = "grey"
+r = agent.call("gm_finish", fin4)
+ok(r["ok"] is False and any("colour 4 hex 'grey' is not #rrggbb" in p for p in r["problems"]) and not any("colour 5" in p for p in r["problems"]),
+   "a garbled hex holding '#E0E0E0' is repaired by code; a hopeless one is named with its value (fresh-set f2 looped on a vague message)")
 SV.record("gemini-3.5-flash-lite", "api")
 r = agent.call("gm_explain", {"job": jh})
 ok(any("served by gemini-3.5-flash-lite" in l and "NOT" in l for l in r["explain"]), "gm_explain shows the served model when it is not 3.1")
@@ -166,6 +173,8 @@ w = hook.served({"transcript_path": str(tp)})
 ok(w and "not gemini-3.1-flash-lite" in w and SV.latest()["source"] == "gemini-cli", "the hook records it and warns")
 ok("could not be read" in hook.served({"transcript_path": str(TMP / "none.jsonl")}), "no transcript -> said, not counted as recorded")
 SV.record("gemini-3.1-flash-lite", "api")
+r = agent.call("gm_new", dict(new, request="H1 시험 2", brand="gentleMonster"))
+ok(r["brand"] == "Gentle Monster" and any("read as" in n for n in r["notes"]), "'gentleMonster' is read as the known brand 'Gentle Monster'")
 
 sec("hook: the answer may only state the ledger's verdict")
 out = TMP / "hk"

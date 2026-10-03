@@ -1,0 +1,488 @@
+{
+ "brand": "Tamburins",
+ "title": "Tamburins: The Glacial Echo",
+ "subtitle": "A sensory journey through glacial time.",
+ "line": "Experience the transient beauty of a glacier as it echoes through scent and light.",
+ "quote": "In the melt, we find the origin of stillness.",
+ "synopsis": "You enter through a curtain of frozen vapor into a realm of deep, resonant silence. At the center of the space, a slowly melting ice monolith commands your attention, its gradual decline marking the passage of cold time. As you orbit this frozen heart, you encounter skincare stations placed to draw you into quiet reflection. Finally, you reach the back, where the echoes of melting water transition into the tactile experience of Tamburins' collection.",
+ "keywords": [
+  "Subzero Silence",
+  "Ephemeral Form",
+  "Glacial Resonance"
+ ],
+ "why": [
+  {
+   "t": "Cold Sensory Transition",
+   "d": "A pair of threshold objects (tall frost covered pillars) stands 0.9-2.7 m inside the door, with a hanging screen (steaming hanging curtain of ice) between them; the route slips through a 1.1 m gap. These pillars and the curtain of ice create a cold, crisp transition that cleanses your senses as you enter."
+  },
+  {
+   "t": "The Central Glacial Heart",
+   "d": "The hero (slowly melting ice monolith) stands alone in an empty 5 x 6 m area (void of melting sound resonance); the route circles it and never comes closer than 2.7 m. The slowly melting ice monolith acts as the silent anchor of the store, drawing you into a rhythmic orbit of contemplation."
+  },
+  {
+   "t": "Distanced Product Immersion",
+   "d": "Four product stations (skincare test pedestal) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The peripheral stations allow you to pause your journey and immerse yourself in the products away from the central focus."
+  },
+  {
+   "t": "A Final Grounding Point",
+   "d": "The pay desk (minimalist cashier monolith) closes the loop at the back wall. The monolithic desk provides a final, grounding point of stillness to conclude your experience before exiting."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#0a0a0c",
+   "name": "Abyssal Black"
+  },
+  {
+   "hex": "#88ccee",
+   "name": "Glacial Blue"
+  },
+  {
+   "hex": "#ffffff",
+   "name": "Pure White"
+  },
+  {
+   "hex": "#b0c4de",
+   "name": "Frozen Mist"
+  },
+  {
+   "hex": "#2f4f4f",
+   "name": "Deep Slate"
+  }
+ ],
+ "accent": "#88ccee",
+ "materials": [
+  {
+   "name": "Obsidian Basalt",
+   "where": "walls, skincare test pedestal, minimalist cashier monolith",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Luminous Frost Fiber",
+   "where": "ceiling, luminous ceiling ice shimmer",
+   "preset": "textile_light"
+  },
+  {
+   "name": "Translucent Glacial Glass",
+   "where": "slowly melting ice monolith, frozen water essence stations",
+   "preset": "glass"
+  },
+  {
+   "name": "Polished Lunar Concrete",
+   "where": "floor",
+   "preset": "polished_concrete"
+  }
+ ],
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "black_stone",
+  "ceiling": "textile_light",
+  "light": "dark_gallery",
+  "fog": 0.02,
+  "beams": true
+ },
+ "layout": {
+  "name": "Tamburins: The Glacial Echo — Tamburins",
+  "W": 12.0,
+  "D": 14.4,
+  "H": 6,
+  "columns": [
+   [
+    2.7,
+    3.6
+   ],
+   [
+    9.3,
+    3.6
+   ],
+   [
+    2.7,
+    11.7
+   ],
+   [
+    9.3,
+    11.7
+   ]
+  ],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 5.1,
+    "y0": -0.1,
+    "x1": 6.9,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "joint_l",
+    "type": "block",
+    "x0": 3.9,
+    "y0": 0.9,
+    "x1": 4.5,
+    "y1": 2.7,
+    "h": 5,
+    "label": "tall frost covered pillars",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "concrete"
+   },
+   {
+    "id": "joint_r",
+    "type": "block",
+    "x0": 7.5,
+    "y0": 0.9,
+    "x1": 8.1,
+    "y1": 2.7,
+    "h": 5,
+    "label": "tall frost covered pillars",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "concrete"
+   },
+   {
+    "id": "wire_l",
+    "type": "media",
+    "x0": 4.32,
+    "y0": 1.8,
+    "x1": 5.61,
+    "y1": 2.16,
+    "h": 4.5,
+    "label": "steaming hanging curtain of ice",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "aluminium"
+   },
+   {
+    "id": "wire_r",
+    "type": "media",
+    "x0": 6.75,
+    "y0": 1.8,
+    "x1": 7.68,
+    "y1": 2.16,
+    "h": 4.5,
+    "label": "steaming hanging curtain of ice",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "aluminium"
+   },
+   {
+    "id": "void",
+    "type": "zone",
+    "x0": 3.6,
+    "y0": 4.5,
+    "x1": 8.4,
+    "y1": 10.8,
+    "h": 0,
+    "label": "void of melting sound resonance",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "head",
+    "type": "figure",
+    "x0": 5.4,
+    "y0": 6.75,
+    "x1": 6.6,
+    "y1": 8.55,
+    "h": 3.2,
+    "label": "slowly melting ice monolith",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "glass",
+    "hero": true
+   },
+   {
+    "id": "tree0",
+    "type": "figure",
+    "x0": 3.78,
+    "y0": 4.77,
+    "x1": 4.14,
+    "y1": 5.31,
+    "h": 4.2,
+    "label": "frozen water essence stations",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "glass"
+   },
+   {
+    "id": "tree1",
+    "type": "figure",
+    "x0": 7.86,
+    "y0": 4.77,
+    "x1": 8.22,
+    "y1": 5.31,
+    "h": 4.2,
+    "label": "frozen water essence stations",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "glass"
+   },
+   {
+    "id": "tree2",
+    "type": "figure",
+    "x0": 3.78,
+    "y0": 9.99,
+    "x1": 4.14,
+    "y1": 10.53,
+    "h": 4.2,
+    "label": "frozen water essence stations",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "glass"
+   },
+   {
+    "id": "tree3",
+    "type": "figure",
+    "x0": 7.86,
+    "y0": 9.99,
+    "x1": 8.22,
+    "y1": 10.53,
+    "h": 4.2,
+    "label": "frozen water essence stations",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "glass"
+   },
+   {
+    "id": "tree4",
+    "type": "figure",
+    "x0": 3.0,
+    "y0": 7.38,
+    "x1": 3.36,
+    "y1": 7.92,
+    "h": 4.2,
+    "label": "frozen water essence stations",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "glass"
+   },
+   {
+    "id": "tree5",
+    "type": "figure",
+    "x0": 8.64,
+    "y0": 7.38,
+    "x1": 9.0,
+    "y1": 7.92,
+    "h": 4.2,
+    "label": "frozen water essence stations",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "glass"
+   },
+   {
+    "id": "st0",
+    "type": "island",
+    "x0": 1.32,
+    "y0": 5.04,
+    "x1": 2.16,
+    "y1": 5.76,
+    "h": 1.0,
+    "label": "skincare test pedestal",
+    "zone": "sale",
+    "shape": "display",
+    "material": "black_stone"
+   },
+   {
+    "id": "st1",
+    "type": "island",
+    "x0": 1.32,
+    "y0": 9.54,
+    "x1": 2.16,
+    "y1": 10.26,
+    "h": 1.0,
+    "label": "skincare test pedestal",
+    "zone": "sale",
+    "shape": "display",
+    "material": "black_stone"
+   },
+   {
+    "id": "st2",
+    "type": "island",
+    "x0": 9.84,
+    "y0": 5.04,
+    "x1": 10.68,
+    "y1": 5.76,
+    "h": 1.0,
+    "label": "skincare test pedestal",
+    "zone": "sale",
+    "shape": "display",
+    "material": "black_stone"
+   },
+   {
+    "id": "st3",
+    "type": "island",
+    "x0": 9.84,
+    "y0": 9.54,
+    "x1": 10.68,
+    "y1": 10.26,
+    "h": 1.0,
+    "label": "skincare test pedestal",
+    "zone": "sale",
+    "shape": "display",
+    "material": "black_stone"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 4.8,
+    "y0": 12.24,
+    "x1": 7.2,
+    "y1": 12.96,
+    "h": 1.0,
+    "label": "minimalist cashier monolith",
+    "zone": "pay",
+    "shape": "box",
+    "material": "black_stone"
+   },
+   {
+    "id": "mirror",
+    "type": "kiosk",
+    "x0": 9.6,
+    "y0": 12.78,
+    "x1": 11.4,
+    "y1": 13.86,
+    "h": 1.8,
+    "label": "mirrored steel counter",
+    "zone": "sale",
+    "shape": "box",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 12.6,
+    "x1": 2.4,
+    "y1": 14.4,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "shards",
+    "type": "zone",
+    "x0": 3.48,
+    "y0": 4.14,
+    "x1": 8.52,
+    "y1": 11.16,
+    "h": 4.6,
+    "label": "luminous ceiling ice shimmer",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      6.0,
+      0.45
+     ],
+     [
+      6.0,
+      3.24
+     ],
+     [
+      3.36,
+      4.14
+     ],
+     [
+      2.28,
+      7.56
+     ],
+     [
+      3.24,
+      11.34
+     ],
+     [
+      6.0,
+      11.61
+     ],
+     [
+      8.76,
+      11.34
+     ],
+     [
+      9.72,
+      7.56
+     ],
+     [
+      8.64,
+      4.14
+     ],
+     [
+      6.36,
+      3.24
+     ],
+     [
+      6.36,
+      0.45
+     ]
+    ],
+    "color": "#88ccee"
+   }
+  ],
+  "entry": [
+   6.0,
+   0.0
+  ],
+  "exit": [
+   6.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    6.0,
+    1.17
+   ],
+   "look": [
+    6.0,
+    1.9,
+    5.85
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I step through the steaming curtain, leaving the city noise behind.",
+   "sub": "The cold air begins to hum with the resonance of ice."
+  },
+  {
+   "at": [
+    6.0,
+    3.24
+   ],
+   "look": [
+    6.0,
+    2.45,
+    7.65
+   ],
+   "h": 1.62,
+   "d": 3.2,
+   "cap": "I watch the monolith at the center, its surface weeping in slow motion.",
+   "sub": "A frozen moment in time, destined to eventually disappear."
+  },
+  {
+   "at": [
+    2.28,
+    7.56
+   ],
+   "look": [
+    1.74,
+    1.0,
+    5.4
+   ],
+   "h": 1.4,
+   "d": 2.8,
+   "cap": "I turn away to explore the scents on the pedestal.",
+   "sub": "The contrast of warm essence against the surrounding chill."
+  }
+ ]
+}

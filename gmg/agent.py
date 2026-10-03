@@ -216,6 +216,10 @@ def gm_new(request: str, theme: str, mood, hero_idea: str, product: str, brand: 
         b = ""
     if b and not any(w.lower() in request.lower() for w in re.findall(r"[A-Za-z]{2,}", b)):
         notes.append(f"brand {b!r} is not in the request text passed; kept -- check it is the user's")
+    canon = {re.sub(r"[^a-z]", "", k): k.title() for k in KNOWN}          # 'gentleMonster', 'GENTLE-MONSTER' -> 'Gentle Monster'
+    if re.sub(r"[^a-z]", "", b.lower()) in canon and b != canon[re.sub(r"[^a-z]", "", b.lower())]:
+        notes.append(f"brand {b!r} read as {canon[re.sub(r'[^a-z]', '', b.lower())]!r}")
+        b = canon[re.sub(r"[^a-z]", "", b.lower())]
     named = bool(b)
     b = b or "Gentle Monster"
     if placeholder(product):
@@ -412,10 +416,21 @@ def gm_finish(job, palette, accent, material_names, stops, draw: bool = True) ->
     palette = list(palette or []) if isinstance(palette, list) else []
     material_names = [material_names] if isinstance(material_names, str) else list(material_names or [])
     stops = list(stops or []) if isinstance(stops, list) else []
-    probs = []
-    if len(palette) != 5 or not all(isinstance(x, dict) and re.fullmatch(r"#[0-9a-fA-F]{6}", str(x.get("hex", ""))) for x in palette):
-        probs.append("palette needs exactly 5 items, each {hex: '#rrggbb', name}")
-    else:
+    probs, fixed = [], []
+    for i, x in enumerate(palette):          # a garbled value that still holds one #rrggbb is repaired by code (NORMALIZE)
+        if isinstance(x, dict) and not re.fullmatch(r"#[0-9a-fA-F]{6}", str(x.get("hex", ""))):
+            m = re.search(r"#[0-9a-fA-F]{6}(?![0-9a-fA-F])", str(x.get("hex", "")))
+            if m:
+                fixed.append(f"colour {i + 1} hex {x['hex']!r} -> {m.group(0)}")
+                palette[i] = dict(x, hex=m.group(0))
+    if fixed:
+        L.log("NORMALIZE", step="finish", cut=fixed)
+    if len(palette) != 5:
+        probs.append(f"palette has {len(palette)} items; give exactly 5, each {{hex: '#rrggbb', name}}")
+    bad_hex = [f"colour {i + 1} hex {str(x.get('hex') if isinstance(x, dict) else x)!r} is not #rrggbb" for i, x in enumerate(palette)
+               if not (isinstance(x, dict) and re.fullmatch(r"#[0-9a-fA-F]{6}", str(x.get("hex", ""))))]
+    probs += bad_hex
+    if not probs:
         cols = [_rgb(x["hex"]) for x in palette]
         for i in range(5):
             for j in range(i + 1, 5):

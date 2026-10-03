@@ -10,3 +10,10 @@
   - H1 check: the brand and product of each job against the brief (code: `briefs` brand or the gentleMonster default; product read by me below, before the run)
 - **Expected products** (read from the briefs now): f1 eyewear · f2 objects (bags: none of the five product enums fits better than objects or fashion; both are accepted) · f3 skincare or fragrance · f4 skincare or fragrance · f5 fashion · f6 fragrance.
 - The code is frozen at the commit that adds this file.
+
+## After run 1 (written before the f2 rerun)
+Run 1 is the held-out measurement and stays as is. f2 hit the turn cap: one palette hex came back garbled
+(`"#E0E0E0,name:"`) and the error ("palette needs exactly 5 items ...") did not say which item or value, so the agent
+repeated gm_finish 21 times. Its brand also came out as `gentleMonster` (the extension's name in the prompt).
+Fix (generic): code repairs a hex that still holds one `#rrggbb` and names any other bad item with its value; known
+brand spellings are canonicalised. **f2 is rerun once after the fix and reported as post-fix, not held out.**
