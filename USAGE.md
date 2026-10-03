@@ -1,6 +1,6 @@
 # gentleMonster for Gemini CLI: preview 0.4.0
 
-**This is a preview, not a release.** It is pinned to one commit, `PREVIEW_SHA`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
+**This is a preview, not a release.** It is pinned to one commit, `4de9c1c36ef6120eede3514814a840dcb4cecde3`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
 
 ## 1. Install (macOS, zsh)
 
@@ -17,7 +17,16 @@ Paste the whole block below into Terminal. It has no comment lines and no placeh
 - runs `gmg doctor`.
 
 ```
-INSTALL_BLOCK
+npm install -g @google/gemini-cli@0.60.0
+gemini extensions uninstall gentlemonster ; true
+gemini extensions install https://github.com/cogito5170/gentleMonster_gemini --ref 4de9c1c36ef6120eede3514814a840dcb4cecde3 --consent --skip-settings
+python3 -m venv "$HOME/.gentlemonster/venv"
+"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet --upgrade pip
+"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet "$HOME/.gemini/extensions/gentlemonster[render]"
+"$HOME/.gentlemonster/venv/bin/python3" -m playwright install chromium
+"$HOME/.gentlemonster/venv/bin/gmg" setup
+if [ -n "$GEMINI_API_KEY" ]; then echo "GEMINI_API_KEY is set"; else echo "GEMINI_API_KEY is NOT set: see USAGE.md step 1"; fi
+"$HOME/.gentlemonster/venv/bin/gmg" doctor
 ```
 
 If `npm install -g` fails with `EACCES`, run that one line again with `sudo` in front, then paste the block again.

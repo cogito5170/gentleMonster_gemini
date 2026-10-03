@@ -1,5 +1,5 @@
 
-changed 7 packages in 9s
+changed 7 packages in 8s
 Failed to uninstall "gentlemonster": Extension not found.
 You have consented to the following:
 The extension you are about to install may have been created by a third-party developer and sourced from a public repository. Google does not vet, endorse, or guarantee the functionality or security of extensions. Please carefully inspect any extension and its source code before installing to understand the permissions it requires and the actions it may perform.
@@ -18,3 +18,6 @@ GEMINI_API_KEY is set
   ok   numpy (for the PDFs)
   ok   matplotlib (for the PDFs)
   ok   playwright (for the PDFs)
+  ok   Chromium starts (the PDFs are drawn in it)
+✓ gentlemonster (from gentlemonster): python3 $HOME/.gemini/extensions/gentlemonster/server.py --tools store (stdio) - Connected
+✓ gentlemonster-portfolio (from gentlemonster): python3 $HOME/.gemini/extensions/gentlemonster/server.py --tools portfolio (stdio) - Connected

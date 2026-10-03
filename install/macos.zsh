@@ -1,6 +1,6 @@
 npm install -g @google/gemini-cli@0.60.0
 gemini extensions uninstall gentlemonster ; true
-gemini extensions install https://github.com/cogito5170/gentleMonster_gemini --ref PREVIEW_SHA --consent --skip-settings
+gemini extensions install https://github.com/cogito5170/gentleMonster_gemini --ref 4de9c1c36ef6120eede3514814a840dcb4cecde3 --consent --skip-settings
 python3 -m venv "$HOME/.gentlemonster/venv"
 "$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet --upgrade pip
 "$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet "$HOME/.gemini/extensions/gentlemonster[render]"
