@@ -92,6 +92,13 @@ for i in range(40):
 ph.save(D / "studio.png")
 ok(photo.layout_like(D / "board.png"), "a drawn board (flat paper, boxes, rules) is layout_like")
 ok(not photo.layout_like(D / "studio.png"), "an object on a black studio ground is not")
+hz = Image.new("RGB", (600, 400), "black")
+d = ImageDraw.Draw(hz)
+d.line([0, 260, 600, 260], fill=(230, 220, 200), width=2)                  # a lit table edge / horizon across a black frame
+for i in range(30):
+    d.ellipse([250 + i, 150 + i % 5, 350 - i, 255 - i % 3], fill=(140 + i * 3, 100 + i, 60 + i))
+hz.save(D / "horizon.png")
+ok(not photo.layout_like(D / "horizon.png"), "a black frame crossed by one straight bright edge is a photograph: black blocks are not paper")
 
 print("== page layout plans from the 40 layout references")
 lp = json.loads((B5 / "layout_plans.json").read_text())["refs"]
