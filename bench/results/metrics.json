@@ -370,5 +370,139 @@
   "state": "DONE",
   "why": null,
   "plan": "field"
+ },
+ {
+  "brief": "b1",
+  "arm": "C",
+  "run": 2,
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 9.5,
+  "calls": 7,
+  "tokens": {
+   "prompt": 2156,
+   "output": 1208,
+   "thoughts": 0,
+   "total": 3364
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "why": null,
+  "plan": "chamber"
+ },
+ {
+  "brief": "b2",
+  "arm": "C",
+  "run": 3,
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 9.2,
+  "calls": 7,
+  "tokens": {
+   "prompt": 2660,
+   "output": 1323,
+   "thoughts": 0,
+   "total": 3983
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "why": null,
+  "plan": "orbit"
+ },
+ {
+  "brief": "b3",
+  "arm": "C",
+  "run": 2,
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 1,
+  "seconds": 10.4,
+  "calls": 8,
+  "tokens": {
+   "prompt": 2522,
+   "output": 1195,
+   "thoughts": 0,
+   "total": 3717
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "why": null,
+  "plan": "ritual"
+ },
+ {
+  "brief": "b4",
+  "arm": "C",
+  "run": 3,
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 42.2,
+  "calls": 8,
+  "tokens": {
+   "prompt": 2149,
+   "output": 1189,
+   "thoughts": 0,
+   "total": 3338
+  },
+  "reported": "-,gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "why": null,
+  "plan": "field"
+ },
+ {
+  "brief": "b5",
+  "arm": "C",
+  "run": 2,
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 1,
+  "seconds": 11.1,
+  "calls": 8,
+  "tokens": {
+   "prompt": 3003,
+   "output": 1496,
+   "thoughts": 0,
+   "total": 4499
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "why": null,
+  "plan": "orbit"
+ },
+ {
+  "brief": "b6",
+  "arm": "C",
+  "run": 2,
+  "gate": false,
+  "complete": 0,
+  "missing": [
+   "no job"
+  ],
+  "reasks": 1,
+  "seconds": 44.8,
+  "calls": 7,
+  "tokens": {
+   "prompt": 2434,
+   "output": 1214,
+   "thoughts": 0,
+   "total": 3648
+  },
+  "reported": "-,gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "NEEDS_REVIEW",
+  "why": "step story did not pass: answer.subtitle is 71 characters; keep it under 70",
+  "plan": "ritual"
  }
 ]

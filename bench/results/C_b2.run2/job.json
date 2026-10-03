@@ -1,0 +1,488 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Submerged Resonance",
+ "subtitle": "A 1970s pool re-imagined through refracted light and brass geometry.",
+ "line": "You navigate an empty aquatic landscape where the memory of water is preserved in shimmering aluminum ripples and deep, silent basins.",
+ "synopsis": "You enter through the gap between polished concrete diving pillars, passing through a veil of aluminum cable curtains that mimic the fluidity of water. As you step into the deep end, you walk across white glossy surfaces that ground your movement within the hollow architecture of the basin. The central brass pool structure acts as a focal point, catching refracted light that plays across the floor like sunlight hitting a moving surface. You eventually reach the locker room desk at the rear, completing a journey that transforms a nostalgic sport facility into a contemplative stage for eyewear.",
+ "keywords": [
+  "Ethereal",
+  "Nostalgic",
+  "Submerged"
+ ],
+ "quote": "The absence of water creates a space where light itself becomes the fluid medium of the architecture.",
+ "why": [
+  {
+   "t": "Threshold Transition",
+   "d": "Two diving board pillars objects stand 1.0-3.0 m inside the door with the water ripple veil between them; the route slips through a 1.9 m gap. The narrow gap between pillars forces you to abandon the outside world and enter the suspended reality of the pool."
+  },
+  {
+   "t": "Basin Centricity",
+   "d": "The drained pool basin stands alone in a 8 x 7 m the deep end; the route circles it and never comes closer than 3.4 m. Maintaining a respectful distance from the brass basin allows you to appreciate its sculptural form as a primary architectural anchor."
+  },
+  {
+   "t": "Peripheral Discovery",
+   "d": "Four eyewear launch pads stations sit at the outer corners, outside the loop, so you turn away from the drained pool basin to reach them. Turning away from the central void to reach the launch pads encourages you to interact with the products in a quiet, isolated frame."
+  },
+  {
+   "t": "Locker Room Conclusion",
+   "d": "The locker room desk closes the loop at the back wall. The lime plaster desk provides a tactile, grounded endpoint that signifies the completion of your journey through the empty pool."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#e8f1f2",
+   "name": "Pool Tile White"
+  },
+  {
+   "hex": "#a4c3b2",
+   "name": "Faded Chlorine"
+  },
+  {
+   "hex": "#769fb6",
+   "name": "Deep Basin Shadow"
+  },
+  {
+   "hex": "#c4d6d6",
+   "name": "Reflective Mist"
+  },
+  {
+   "hex": "#ff4d00",
+   "name": "Safety Orange"
+  }
+ ],
+ "accent": "#ff4d00",
+ "materials": [
+  {
+   "name": "High-gloss ceramic tile",
+   "where": "floor, walls, pool tile markers",
+   "preset": "white_gloss"
+  },
+  {
+   "name": "Polished mirror aluminium",
+   "where": "ceiling, changing room reflection",
+   "preset": "mirror_aluminium"
+  },
+  {
+   "name": "Acid-etched raw concrete",
+   "where": "diving board pillars",
+   "preset": "polished_concrete"
+  },
+  {
+   "name": "Anodized aluminium mesh",
+   "where": "water ripple veil",
+   "preset": "aluminium"
+  }
+ ],
+ "room": {
+  "floor": "white_gloss",
+  "wall": "white_gloss",
+  "ceiling": "mirror_aluminium",
+  "light": "daylight",
+  "fog": 0.02,
+  "beams": true
+ },
+ "layout": {
+  "name": "Submerged Resonance — Gentle Monster",
+  "W": 20.0,
+  "D": 16.0,
+  "H": 6,
+  "columns": [
+   [
+    4.5,
+    4.0
+   ],
+   [
+    15.5,
+    4.0
+   ],
+   [
+    4.5,
+    13.0
+   ],
+   [
+    15.5,
+    13.0
+   ]
+  ],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 8.5,
+    "y0": -0.1,
+    "x1": 11.5,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "joint_l",
+    "type": "block",
+    "x0": 6.5,
+    "y0": 1.0,
+    "x1": 7.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "Diving board pillars",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "polished_concrete"
+   },
+   {
+    "id": "joint_r",
+    "type": "block",
+    "x0": 12.5,
+    "y0": 1.0,
+    "x1": 13.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "Diving board pillars",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "polished_concrete"
+   },
+   {
+    "id": "wire_l",
+    "type": "media",
+    "x0": 7.2,
+    "y0": 2.0,
+    "x1": 9.35,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "Water ripple veil",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "aluminium"
+   },
+   {
+    "id": "wire_r",
+    "type": "media",
+    "x0": 11.25,
+    "y0": 2.0,
+    "x1": 12.8,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "Water ripple veil",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "aluminium"
+   },
+   {
+    "id": "void",
+    "type": "zone",
+    "x0": 6.0,
+    "y0": 5.0,
+    "x1": 14.0,
+    "y1": 12.0,
+    "h": 0,
+    "label": "The deep end",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "head",
+    "type": "figure",
+    "x0": 9.0,
+    "y0": 7.5,
+    "x1": 11.0,
+    "y1": 9.5,
+    "h": 3.2,
+    "label": "Drained pool basin",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "brass",
+    "hero": true
+   },
+   {
+    "id": "tree0",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 5.3,
+    "x1": 6.9,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "Pool tile markers",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree1",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 5.3,
+    "x1": 13.7,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "Pool tile markers",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree2",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 11.1,
+    "x1": 6.9,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "Pool tile markers",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree3",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 11.1,
+    "x1": 13.7,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "Pool tile markers",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree4",
+    "type": "figure",
+    "x0": 5.0,
+    "y0": 8.2,
+    "x1": 5.6,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "Pool tile markers",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree5",
+    "type": "figure",
+    "x0": 14.4,
+    "y0": 8.2,
+    "x1": 15.0,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "Pool tile markers",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "white_gloss"
+   },
+   {
+    "id": "st0",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 5.6,
+    "x1": 3.6,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "Eyewear launch pads",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st1",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 10.6,
+    "x1": 3.6,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "Eyewear launch pads",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st2",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 5.6,
+    "x1": 17.8,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "Eyewear launch pads",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st3",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 10.6,
+    "x1": 17.8,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "Eyewear launch pads",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 8.0,
+    "y0": 13.6,
+    "x1": 12.0,
+    "y1": 14.4,
+    "h": 1.0,
+    "label": "Locker room desk",
+    "zone": "pay",
+    "shape": "box",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "mirror",
+    "type": "kiosk",
+    "x0": 16.0,
+    "y0": 14.2,
+    "x1": 19.0,
+    "y1": 15.4,
+    "h": 1.8,
+    "label": "Changing room reflection",
+    "zone": "sale",
+    "shape": "box",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 14.0,
+    "x1": 4.0,
+    "y1": 16.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "shards",
+    "type": "zone",
+    "x0": 5.8,
+    "y0": 4.6,
+    "x1": 14.2,
+    "y1": 12.4,
+    "h": 4.6,
+    "label": "Refracted pool light",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      10.0,
+      0.5
+     ],
+     [
+      10.0,
+      3.6
+     ],
+     [
+      5.6,
+      4.6
+     ],
+     [
+      3.8,
+      8.4
+     ],
+     [
+      5.4,
+      12.6
+     ],
+     [
+      10.0,
+      12.9
+     ],
+     [
+      14.6,
+      12.6
+     ],
+     [
+      16.2,
+      8.4
+     ],
+     [
+      14.4,
+      4.6
+     ],
+     [
+      10.6,
+      3.6
+     ],
+     [
+      10.6,
+      0.5
+     ]
+    ],
+    "color": "#ff4d00"
+   }
+  ],
+  "entry": [
+   10.0,
+   0.0
+  ],
+  "exit": [
+   10.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    10.0,
+    1.3
+   ],
+   "look": [
+    10.0,
+    1.9,
+    6.5
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I stand between the polished concrete pillars as the aluminum veil shimmers.",
+   "sub": "The threshold mimics the weight of water, grounding my transition into the space."
+  },
+  {
+   "at": [
+    10.0,
+    3.6
+   ],
+   "look": [
+    10.0,
+    2.45,
+    8.5
+   ],
+   "h": 1.62,
+   "d": 3.2,
+   "cap": "I gaze into the white glossy basin that defines the hollow core of the store.",
+   "sub": "Refracted light dances across the floor, simulating the movement of a pool surface."
+  },
+  {
+   "at": [
+    3.8,
+    8.4
+   ],
+   "look": [
+    2.9,
+    1.0,
+    6.0
+   ],
+   "h": 1.4,
+   "d": 2.8,
+   "cap": "I inspect the eyewear collection displayed on the minimalist launch pads.",
+   "sub": "The desk serves as a final, contemplative stage for products within the basin."
+  }
+ ]
+}

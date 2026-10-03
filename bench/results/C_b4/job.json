@@ -1,88 +1,88 @@
 {
  "brand": "Tamburins",
- "title": "Salt Desert Silence",
- "subtitle": "An ethereal fragrance sanctuary in the heart of Busan",
- "line": "You traverse a cracked earth path through a pristine salt landscape to discover hidden scents within monumental white formations.",
- "synopsis": "You enter a vast, mineral-white clearing that captures the profound stillness of an ancient salt desert. As you walk along the central path of exposed strata clay, the stark void forces you to focus on the subtle shifting of light across the monochromatic terrain. You eventually reach the central salt dune monolith, where the surrounding fragrance clusters reveal themselves only as you draw near. This spatial rhythm transforms the act of shopping into a meditative exploration of scent and solitude.",
+ "title": "Tamburins Busan: Salt Horizon",
+ "subtitle": "An ethereal landscape where scent emerges from the silence of salt",
+ "line": "You traverse a vast, mineral desert where the absence of visual clutter forces you to rely entirely on your sense of smell to navigate the space.",
+ "synopsis": "As you step onto the pristine salt floor, the world outside fades into the absolute stillness of a blinding white desert. You follow a singular pathway that leads you toward a towering monolith, feeling the crunch of mineral grains beneath your feet. Only as you approach the scattered scent stones do the hidden fragrances reveal themselves, transforming the empty air into a sensory discovery. You conclude your journey at a quiet plaster counter, where the raw materiality of the room leaves you with a lingering, ethereal memory.",
  "keywords": [
-  "Minimalism",
+  "Minimalist",
   "Olfactory",
   "Ethereal"
  ],
- "quote": "In the absence of clutter, the scent becomes the only truth.",
+ "quote": "True discovery requires the silence of space and the patience of the senses.",
  "why": [
   {
-   "t": "Cracked Earth Threshold",
-   "d": "A cracked earth path runs 4.7 m from the door toward the salt dune monolith. This linear path channels your movement from the city bustle into the quiet stillness of the desert floor."
+   "t": "Entrance Pathway",
+   "d": "A floor strip (salt pathway) runs 4.7 m from the door toward the hero (central salt monolith). This 4.7-meter salt strip establishes a meditative transition that strips away the noise of the city before you reach the fragrance zone."
   },
   {
-   "t": "Monolithic Focal Point",
-   "d": "The salt dune monolith stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The towering central monolith creates a sense of awe while keeping your sightlines clear across the vast, empty space."
+   "t": "Central Monolith",
+   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The 3.5-meter central monolith acts as a visual anchor that forces you to navigate around it, keeping the rest of the store feeling vast and empty."
   },
   {
-   "t": "Proximity-Based Discovery",
-   "d": "Four fragrance salt clusters stations hold the product in a loose ring around it, 0.4 m from the route at the closest. These low-profile salt clusters ensure you must pause and lean in to experience the fragrance, deepening your personal connection to the product."
+   "t": "Scent Stations",
+   "d": "Four product stations (fragrance scent stone) ring it loosely, 0.4 m from the route at the closest. The placement of these stones near the path encourages you to stop and lean in, turning a simple walk into an intimate olfactory encounter."
   },
   {
-   "t": "Hidden Transaction Point",
-   "d": "The minimalist transaction block sits at the back right, where the route ends. By tucking the lime plaster counter at the end of the route, the design ensures the commerce remains secondary to your sensory experience."
+   "t": "Terminal Counter",
+   "d": "The pay counter (minimalist pay counter) sits at the back right, where the route ends. Positioning the minimalist pay counter at the end of the route ensures that your final transaction feels like a natural conclusion to your exploration."
   }
  ],
  "palette": [
   {
-   "hex": "#f8f9fa",
-   "name": "Absolute Salt"
+   "hex": "#f4f4f2",
+   "name": "Salt Crust"
   },
   {
-   "hex": "#e8e6e0",
-   "name": "Ghostly Mist"
+   "hex": "#d1d1ce",
+   "name": "Arid Silence"
   },
   {
-   "hex": "#d1c7bb",
-   "name": "Sun-Baked Earth"
+   "hex": "#a8a8a4",
+   "name": "Weathered Stone"
   },
   {
-   "hex": "#7a7570",
-   "name": "Deep Shadow Grey"
+   "hex": "#e07a5f",
+   "name": "Ochre Horizon"
   },
   {
-   "hex": "#00ffc2",
-   "name": "Neon Vapor Signal"
+   "hex": "#6b6b69",
+   "name": "Shadow Depth"
   }
  ],
- "accent": "#00ffc2",
+ "accent": "#e07a5f",
  "materials": [
   {
-   "name": "Sintered Mineral White",
-   "where": "floor, walls, ceiling, salt dune monolith, fragrance salt cl",
+   "name": "Monolithic Mineral White",
+   "where": "floor, walls, ceiling, salt pathway, central salt monolith, ",
    "preset": "mineral_white"
   },
   {
-   "name": "Compressed Strata Clay",
-   "where": "cracked earth path",
-   "preset": "strata_clay"
-  },
-  {
-   "name": "Breathable Lime Plaster",
-   "where": "minimalist transaction block",
+   "name": "Raw Unsealed Lime Plaster",
+   "where": "minimalist pay counter",
    "preset": "lime_plaster"
   },
   {
-   "name": "Poured Architectural Concrete",
+   "name": "Polished Industrial Concrete",
    "where": "details",
    "preset": "concrete"
+  },
+  {
+   "name": "Brushed Satin Stainless Steel",
+   "where": "details",
+   "preset": "steel"
   }
  ],
  "room": {
   "floor": "mineral_white",
   "wall": "mineral_white",
   "ceiling": "mineral_white",
-  "light": "daylight",
+  "light": "white_gallery",
   "fog": 0.02,
   "beams": false
  },
  "layout": {
-  "name": "Salt Desert Silence — Tamburins",
+  "name": "Tamburins Busan: Salt Horizon — Tamburins",
   "W": 16.0,
   "D": 12.0,
   "H": 5,
@@ -108,7 +108,7 @@
     "x1": 15.0,
     "y1": 10.0,
     "h": 0,
-    "label": "salt desert clearing",
+    "label": "salt desert floor",
     "zone": "exp",
     "shape": "zone"
    },
@@ -120,10 +120,10 @@
     "x1": 9.5,
     "y1": 5.0,
     "h": 0,
-    "label": "cracked earth path",
+    "label": "salt pathway",
     "zone": "exp",
     "shape": "floor_patch",
-    "material": "strata_clay"
+    "material": "mineral_white"
    },
    {
     "id": "horse",
@@ -133,7 +133,7 @@
     "x1": 9.5,
     "y1": 7.4,
     "h": 3.5,
-    "label": "salt dune monolith",
+    "label": "central salt monolith",
     "zone": "exp",
     "shape": "rock",
     "material": "mineral_white",
@@ -147,7 +147,7 @@
     "x1": 3.6,
     "y1": 7.2,
     "h": 1.8,
-    "label": "fragrance salt clusters",
+    "label": "fragrance scent stone",
     "zone": "sale",
     "shape": "rock",
     "material": "mineral_white"
@@ -160,7 +160,7 @@
     "x1": 14.0,
     "y1": 7.2,
     "h": 1.8,
-    "label": "fragrance salt clusters",
+    "label": "fragrance scent stone",
     "zone": "sale",
     "shape": "rock",
     "material": "mineral_white"
@@ -173,7 +173,7 @@
     "x1": 5.0,
     "y1": 10.2,
     "h": 1.8,
-    "label": "fragrance salt clusters",
+    "label": "fragrance scent stone",
     "zone": "sale",
     "shape": "rock",
     "material": "mineral_white"
@@ -186,7 +186,7 @@
     "x1": 12.6,
     "y1": 10.2,
     "h": 1.8,
-    "label": "fragrance salt clusters",
+    "label": "fragrance scent stone",
     "zone": "sale",
     "shape": "rock",
     "material": "mineral_white"
@@ -199,7 +199,7 @@
     "x1": 15.0,
     "y1": 11.6,
     "h": 1.0,
-    "label": "minimalist transaction block",
+    "label": "minimalist pay counter",
     "zone": "pay",
     "shape": "box",
     "material": "lime_plaster"
@@ -262,7 +262,7 @@
       10.3
      ]
     ],
-    "color": "#00ffc2"
+    "color": "#e07a5f"
    }
   ],
   "entry": [
@@ -287,8 +287,8 @@
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I step onto the cracked strata clay path leading into the void.",
-   "sub": "The tactile surface grounds my movement as the expansive white space stretches out before me."
+   "cap": "I step onto the white salt floor and feel the crunch beneath my feet.",
+   "sub": "A singular pathway guides me forward, stripping away the noise of the outside world."
   },
   {
    "at": [
@@ -302,8 +302,8 @@
    ],
    "h": 1.62,
    "d": 3.0,
-   "cap": "I stand before the monolith, a towering pillar of salt rising from the dust.",
-   "sub": "Its textured, mineral surface captures the shifting light, anchoring the entire silent landscape."
+   "cap": "I stand before the towering monolith rising from the desert floor.",
+   "sub": "Its raw, imposing form anchors the space, creating a sense of absolute stillness."
   },
   {
    "at": [
@@ -317,8 +317,8 @@
    ],
    "h": 1.15,
    "d": 3.4,
-   "cap": "I lean in to examine the crystalline fragrance clusters nestled in the salt.",
-   "sub": "These delicate formations release faint, ethereal scents that reward my quiet, focused approach."
+   "cap": "I lean in close to discover the fragrance hidden within the scent stone.",
+   "sub": "Mineral grains meet delicate notes, turning this quiet corner into a sensory revelation."
   }
  ]
 }

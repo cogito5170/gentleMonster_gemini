@@ -1,89 +1,89 @@
 {
  "brand": "Aesop",
- "title": "The Silent Archive",
- "subtitle": "A sanctuary where fragrance replaces the written word.",
- "line": "You traverse a serene landscape of strata clay and volcanic stone, where the act of cleansing becomes a meditative prelude to discovering scent.",
- "synopsis": "You step into a vaulted space where the scent of aged paper lingers amidst lime-plastered walls. Your journey begins at the center, where a monolithic black stone basin invites you to perform a quiet ritual of purification under soft, diffuse light. As you move, the rhythm of the room pulls you along walls lined with fragrance bottles nestled into porous clay shelves. You conclude your exploration at the wooden desk, where your chosen scent is carefully wrapped and recorded like a rare manuscript.",
+ "title": "The Scented Archive",
+ "subtitle": "Where the library ends and the olfactory journey begins in Jeju",
+ "line": "You move through a meditative landscape of layered clay and basalt where the ritual of cleansing becomes the primary encounter with fragrance.",
+ "synopsis": "As you step inside, the silence of the dome envelops you, grounding your senses in the raw textures of lime plaster and volcanic stone. Your journey begins at the black stone basin, where you perform a quiet cleansing ritual before exploring the fragmented archive lining the walls. You navigate the winding path between strata-clay shelves, discovering scents housed like precious manuscripts in an ancient library. The experience concludes at the granite counter, leaving you with a lingering sense of stillness and earthen clarity.",
  "keywords": [
-  "Olfactory Library",
-  "Volcanic Serenity",
-  "Ritualistic Retail"
+  "Olfactory Architecture",
+  "Jeju Basalt",
+  "Meditative Ritual"
  ],
- "quote": "Fragrance is the invisible literature of the senses, waiting to be read in the silence of the archive.",
+ "quote": "In the silence of the archives, fragrance becomes the story that remains when the books are closed.",
  "why": [
   {
-   "t": "Fragrance Repository",
-   "d": "The fragrance repository wrap the left, right and back walls of the 12 x 10 m room. The clay-clad walls create an immersive, tactile perimeter that mimics the density of a library stack."
+   "t": "Fragmented Archive Perimeter",
+   "d": "Shelf walls (Fragmented Archive) wrap the left, right and back of the 12 x 10 m room. These layered clay walls create an immersive, library-like atmosphere that encourages you to linger and explore each scent shelf."
   },
   {
-   "t": "Ritual Cleansing Basin",
-   "d": "The ritual cleansing basin is the centre of the room and the first stop, 4.2 m in from the door. Placing the basin at the center forces a pause, anchoring your focus on the sensory experience before you explore the inventory."
+   "t": "Centered Ritual Basin",
+   "d": "The centre object (Ritual Scent Basin) is the first stop, 4.2 m in from the door. Placing the basin at the heart of the room forces you to pause and engage in a tactile cleansing ritual immediately upon entry."
   },
   {
-   "t": "Circular Navigation",
-   "d": "The route circles the ritual cleansing basin first, then follows the shelves. The intentional loop movement ensures you engage with the cleansing ritual before transitioning into the discovery of individual scents."
+   "t": "Circulatory Flow",
+   "d": "The route circles it first, then follows the shelves. The intentional loop guides your movement, ensuring you experience the sensory transition from the central ritual to the peripheral archive."
   },
   {
-   "t": "Archivist Desk",
-   "d": "The archivist desk sits at the back, off the loop. Positioning the desk away from the main path provides a private, respectful space for the final exchange of goods."
+   "t": "Granite Counter Placement",
+   "d": "The counter (The Stone Counter) sits at the back, off the loop. By tucking the counter away from the primary loop, the space maintains a serene, gallery-like focus on the product rather than the transaction."
   }
  ],
  "palette": [
   {
-   "hex": "#4a3f35",
-   "name": "Raw Umber"
+   "hex": "#1a1a1a",
+   "name": "Obsidian Basalt"
   },
   {
    "hex": "#d1c7b7",
-   "name": "Parchment"
+   "name": "Aged Parchment"
   },
   {
-   "hex": "#8b7355",
-   "name": "Burnt Clay"
+   "hex": "#8b7e66",
+   "name": "Strata Clay"
   },
   {
-   "hex": "#f4a460",
-   "name": "Amber Glow"
+   "hex": "#4a453d",
+   "name": "Earthy Umber"
   },
   {
-   "hex": "#1a1a1a",
-   "name": "Obsidian"
+   "hex": "#ff4500",
+   "name": "Incense Ember"
   }
  ],
- "accent": "#f4a460",
+ "accent": "#ff4500",
  "materials": [
   {
-   "name": "Textured strata clay",
-   "where": "floor, fragrance repository",
+   "name": "Honed Black Basalt",
+   "where": "floor, ritual scent basin",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Compressed Strata Clay",
+   "where": "walls, fragmented archive",
    "preset": "strata_clay"
   },
   {
-   "name": "Fumed white oak",
-   "where": "walls, archivist desk",
+   "name": "Charred Cedar Timber",
+   "where": "ceiling",
    "preset": "wood"
   },
   {
-   "name": "Hand-troweled lime plaster",
-   "where": "ceiling",
-   "preset": "lime_plaster"
-  },
-  {
-   "name": "Honed basalt stone",
-   "where": "ritual cleansing basin",
-   "preset": "black_stone"
+   "name": "Textured Grey Granite",
+   "where": "the stone counter",
+   "preset": "granite"
   }
  ],
  "room": {
-  "floor": "strata_clay",
-  "wall": "wood",
-  "ceiling": "lime_plaster",
+  "floor": "black_stone",
+  "wall": "strata_clay",
+  "ceiling": "wood",
   "light": "dark_gallery",
   "fog": 0.02,
   "beams": true,
   "dome": true
  },
  "layout": {
-  "name": "The Silent Archive — Aesop",
+  "name": "The Scented Archive — Aesop",
   "W": 12.0,
   "D": 10.0,
   "H": 4.2,
@@ -109,7 +109,7 @@
     "x1": 10.0,
     "y1": 8.2,
     "h": 0,
-    "label": "The Silent Archive",
+    "label": "The Silence Chamber",
     "zone": "exp",
     "shape": "zone"
    },
@@ -121,7 +121,7 @@
     "x1": 0.6,
     "y1": 9.4,
     "h": 2.6,
-    "label": "Fragrance Repository",
+    "label": "Fragmented Archive",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "strata_clay"
@@ -134,7 +134,7 @@
     "x1": 11.4,
     "y1": 10.0,
     "h": 2.6,
-    "label": "Fragrance Repository",
+    "label": "Fragmented Archive",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "strata_clay"
@@ -147,7 +147,7 @@
     "x1": 12.0,
     "y1": 9.4,
     "h": 2.6,
-    "label": "Fragrance Repository",
+    "label": "Fragmented Archive",
     "zone": "sale",
     "shape": "shelf_wall",
     "material": "strata_clay"
@@ -160,7 +160,7 @@
     "x1": 7.0,
     "y1": 5.8,
     "h": 0.9,
-    "label": "Ritual Cleansing Basin",
+    "label": "Ritual Scent Basin",
     "zone": "exp",
     "shape": "basin",
     "material": "black_stone",
@@ -174,10 +174,10 @@
     "x1": 8.5,
     "y1": 8.7,
     "h": 1.0,
-    "label": "Archivist Desk",
+    "label": "The Stone Counter",
     "zone": "pay",
     "shape": "box",
-    "material": "wood"
+    "material": "granite"
    },
    {
     "id": "boh",
@@ -245,7 +245,7 @@
       0.4
      ]
     ],
-    "color": "#f4a460"
+    "color": "#ff4500"
    }
   ],
   "entry": [
@@ -270,8 +270,8 @@
    ],
    "h": 1.38,
    "d": 3.6,
-   "cap": "I approach the monolithic black stone basin to cleanse my hands.",
-   "sub": "The soft light transforms this simple act into a meditative ritual of sensory preparation."
+   "cap": "I approach the black stone basin to perform a quiet cleansing ritual.",
+   "sub": "The cool water grounds my senses, preparing me for the olfactory journey ahead."
   },
   {
    "at": [
@@ -285,8 +285,8 @@
    ],
    "h": 1.55,
    "d": 2.8,
-   "cap": "I trace the porous clay shelves holding rows of delicate glass bottles.",
-   "sub": "Each vessel is cradled within the lime-plastered wall, waiting to be discovered like a hidden secret."
+   "cap": "I trace my fingers across the strata-clay shelves housing the fragrance vials.",
+   "sub": "Each scent is stored like a precious manuscript within this textured, winding archive."
   },
   {
    "at": [
@@ -300,8 +300,8 @@
    ],
    "h": 1.55,
    "d": 2.4,
-   "cap": "I gaze upward into the vaulted dome where silence settles over the archive.",
-   "sub": "The architecture feels like a sanctuary, preserving the weight of history and the fleeting nature of scent."
+   "cap": "I stand in the center of the dome, looking up at the vast, silent curvature.",
+   "sub": "The raw lime plaster walls create an atmosphere of total earthen clarity and stillness."
   }
  ]
 }

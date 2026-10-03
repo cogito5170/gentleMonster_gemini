@@ -1,0 +1,38 @@
+{
+ "b1": {
+  "X": "A",
+  "Y": "C",
+  "X_from": "A_b1",
+  "Y_from": "C_b1"
+ },
+ "b2": {
+  "X": "A",
+  "Y": "C",
+  "X_from": "A_b2",
+  "Y_from": "C_b2"
+ },
+ "b3": {
+  "X": "A",
+  "Y": "C",
+  "X_from": "A_b3",
+  "Y_from": "C_b3"
+ },
+ "b4": {
+  "X": "A",
+  "Y": "C",
+  "X_from": "A_b4",
+  "Y_from": "C_b4"
+ },
+ "b5": {
+  "X": "A",
+  "Y": "C",
+  "X_from": "A_b5",
+  "Y_from": "C_b5"
+ },
+ "b6": {
+  "X": "A",
+  "Y": "C",
+  "X_from": "A_b6",
+  "Y_from": "C_b6.run1"
+ }
+}

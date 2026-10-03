@@ -1,76 +1,76 @@
 {
  "brand": "Gentle Monster",
- "title": "Orbital Hangar Station",
- "subtitle": "Experience zero-gravity retail in an immersive lunar docking bay",
- "line": "Step into a weightless environment where precision-engineered eyewear floats within a sterile, futuristic hangar.",
- "synopsis": "You enter through a shimmering steel cable curtain, passing between magnetic aluminium pylons that define the threshold of your journey. As you move into the mineral-white airlock, you encounter a levitating mirror-aluminium dock where products appear suspended in defiance of gravity. You circle this central void, eventually turning toward glass observation bays that invite you to inspect every detail of the collection. Finally, you conclude your mission at the brushed aluminium flight manifest terminal located against the back wall.",
+ "title": "Orbital Hangar 01",
+ "subtitle": "A zero-gravity retail experience for the celestial traveler",
+ "line": "You drift through a clinical hangar where weightless eyewear floats within a magnetic field of polished aluminium and ethereal light.",
+ "synopsis": "You enter the space through twin aluminium pillars that act as an airlock, forcing you to pass through a shimmering steel cable curtain. Once inside the mineral-white vacuum, you navigate a circular path around a central array where eyewear levitates in defiance of gravity. You turn away from this magnetic core to inspect individual pieces at glass observation ports positioned at the outer corners. Finally, your journey concludes at a polished concrete manifest station that anchors the experience against the back wall.",
  "keywords": [
-  "Zero-Gravity",
-  "Futuristic",
-  "Immersive"
+  "Zero-gravity",
+  "Clinical",
+  "Futuristic"
  ],
- "quote": "In the absence of gravity, the product becomes the singular point of focus in a vast, silent expanse.",
+ "quote": "In the absence of weight, vision becomes the only true force of attraction.",
  "why": [
   {
-   "t": "Magnetic Threshold",
-   "d": "Two magnetic docking pylons objects stand 1.0-3.0 m inside the door with the atmospheric pressure curtain between them; the route slips through a 1.9 m gap. The narrow gap between the aluminium pylons forces you to slow your pace, signaling the transition into a controlled orbital space."
+   "t": "Airlock Threshold",
+   "d": "A pair of threshold objects (Orbital airlock pillars) stands 1.0-3.0 m inside the door, with a hanging screen (Magnetic field curtain) between them; the route slips through a 1.9 m gap. The narrow gap between aluminium pillars forces you to transition from the mundane exterior into the controlled environment of the hangar."
   },
   {
-   "t": "Zero-G Void",
-   "d": "The levitating magnetic dock stands alone in a 8 x 7 m zero gravity airlock; the route circles it and never comes closer than 3.3 m. Maintaining a respectful distance from the levitating dock ensures the illusion of weightlessness remains intact as you orbit the hero display."
+   "t": "Magnetic Vacuum",
+   "d": "The hero (Levitating magnetic eyewear array) stands alone in an empty 8 x 7 m area (Zero gravity vacuum); the route circles it and never comes closer than 3.3 m. The wide clearance around the levitating display ensures you maintain a respectful, observational distance from the floating eyewear."
   },
   {
-   "t": "Observation Bays",
-   "d": "Four eyewear observation bays stations sit at the outer corners, outside the loop, so you turn away from the levitating magnetic dock to reach them. Positioning the glass bays away from the center encourages you to step out of the flow to engage in a quiet, intimate product assessment."
+   "t": "Observation Ports",
+   "d": "Four product stations (Product observation ports) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. Placing the stations outside the main loop encourages you to pause your momentum and engage in focused, intimate inspection of the product."
   },
   {
-   "t": "Terminal Conclusion",
-   "d": "The flight manifest terminal closes the loop at the back wall. The terminal provides a definitive physical anchor point to finalize your experience before exiting the hangar."
+   "t": "Manifest Station",
+   "d": "The pay desk (Flight manifest station) closes the loop at the back wall. The solid concrete desk provides a tactile, grounded conclusion to your orbital traversal before you exit the station."
   }
  ],
  "palette": [
   {
-   "hex": "#e0e0e0",
-   "name": "Lunar Dust"
+   "hex": "#ffffff",
+   "name": "Pure Vacuum"
   },
   {
-   "hex": "#1a1a1a",
-   "name": "Void Obsidian"
+   "hex": "#bcc3cc",
+   "name": "Station Steel"
   },
   {
-   "hex": "#b0c4de",
-   "name": "Atmospheric Blue"
+   "hex": "#08080a",
+   "name": "Deep Space"
+  },
+  {
+   "hex": "#5d6a75",
+   "name": "Cold Atmosphere"
   },
   {
    "hex": "#ff3e00",
    "name": "Emergency Beacon"
-  },
-  {
-   "hex": "#707070",
-   "name": "Industrial Chrome"
   }
  ],
  "accent": "#ff3e00",
  "materials": [
   {
-   "name": "Mirror-Polished Aluminium",
-   "where": "walls, ceiling, levitating magnetic dock, reflective portal",
+   "name": "Mirror Finished Aluminium",
+   "where": "walls, ceiling, levitating magnetic eyewear array, reflectiv",
    "preset": "mirror_aluminium"
   },
   {
-   "name": "Brushed Anodized Aluminium",
-   "where": "magnetic docking pylons, flight manifest terminal",
-   "preset": "aluminium"
+   "name": "Satin Stainless Steel",
+   "where": "magnetic field curtain, docking signal emitters",
+   "preset": "steel"
   },
   {
-   "name": "Honed Nero Marquina Stone",
+   "name": "Matte Nero Basalt",
    "where": "floor",
    "preset": "black_stone"
   },
   {
-   "name": "Perforated Stainless Steel",
-   "where": "atmospheric pressure curtain",
-   "preset": "steel"
+   "name": "Bead Blasted Aluminium",
+   "where": "orbital airlock pillars",
+   "preset": "aluminium"
   }
  ],
  "room": {
@@ -82,7 +82,7 @@
   "beams": true
  },
  "layout": {
-  "name": "Orbital Hangar Station — Gentle Monster",
+  "name": "Orbital Hangar 01 — Gentle Monster",
   "W": 20.0,
   "D": 16.0,
   "H": 6,
@@ -125,7 +125,7 @@
     "x1": 7.5,
     "y1": 3.0,
     "h": 5,
-    "label": "Magnetic docking pylons",
+    "label": "Orbital airlock pillars",
     "zone": "exp",
     "shape": "joint_column",
     "material": "aluminium"
@@ -138,7 +138,7 @@
     "x1": 13.5,
     "y1": 3.0,
     "h": 5,
-    "label": "Magnetic docking pylons",
+    "label": "Orbital airlock pillars",
     "zone": "exp",
     "shape": "joint_column",
     "material": "aluminium"
@@ -151,7 +151,7 @@
     "x1": 9.35,
     "y1": 2.4,
     "h": 4.5,
-    "label": "Atmospheric pressure curtain",
+    "label": "Magnetic field curtain",
     "zone": "exp",
     "shape": "cable_curtain",
     "material": "steel"
@@ -164,7 +164,7 @@
     "x1": 12.8,
     "y1": 2.4,
     "h": 4.5,
-    "label": "Atmospheric pressure curtain",
+    "label": "Magnetic field curtain",
     "zone": "exp",
     "shape": "cable_curtain",
     "material": "steel"
@@ -177,7 +177,7 @@
     "x1": 14.0,
     "y1": 12.0,
     "h": 0,
-    "label": "Zero gravity airlock",
+    "label": "Zero gravity vacuum",
     "zone": "exp",
     "shape": "zone"
    },
@@ -189,7 +189,7 @@
     "x1": 11.0,
     "y1": 9.5,
     "h": 3.2,
-    "label": "Levitating magnetic dock",
+    "label": "Levitating magnetic eyewear array",
     "zone": "exp",
     "shape": "display",
     "material": "mirror_aluminium",
@@ -203,10 +203,10 @@
     "x1": 6.9,
     "y1": 5.9,
     "h": 4.2,
-    "label": "Orbital navigation nodes",
+    "label": "Docking signal emitters",
     "zone": "exp",
-    "shape": "box",
-    "material": "white_gloss"
+    "shape": "cone_tree",
+    "material": "steel"
    },
    {
     "id": "tree1",
@@ -216,10 +216,10 @@
     "x1": 13.7,
     "y1": 5.9,
     "h": 4.2,
-    "label": "Orbital navigation nodes",
+    "label": "Docking signal emitters",
     "zone": "exp",
-    "shape": "box",
-    "material": "white_gloss"
+    "shape": "cone_tree",
+    "material": "steel"
    },
    {
     "id": "tree2",
@@ -229,10 +229,10 @@
     "x1": 6.9,
     "y1": 11.7,
     "h": 4.2,
-    "label": "Orbital navigation nodes",
+    "label": "Docking signal emitters",
     "zone": "exp",
-    "shape": "box",
-    "material": "white_gloss"
+    "shape": "cone_tree",
+    "material": "steel"
    },
    {
     "id": "tree3",
@@ -242,10 +242,10 @@
     "x1": 13.7,
     "y1": 11.7,
     "h": 4.2,
-    "label": "Orbital navigation nodes",
+    "label": "Docking signal emitters",
     "zone": "exp",
-    "shape": "box",
-    "material": "white_gloss"
+    "shape": "cone_tree",
+    "material": "steel"
    },
    {
     "id": "tree4",
@@ -255,10 +255,10 @@
     "x1": 5.6,
     "y1": 8.8,
     "h": 4.2,
-    "label": "Orbital navigation nodes",
+    "label": "Docking signal emitters",
     "zone": "exp",
-    "shape": "box",
-    "material": "white_gloss"
+    "shape": "cone_tree",
+    "material": "steel"
    },
    {
     "id": "tree5",
@@ -268,10 +268,10 @@
     "x1": 15.0,
     "y1": 8.8,
     "h": 4.2,
-    "label": "Orbital navigation nodes",
+    "label": "Docking signal emitters",
     "zone": "exp",
-    "shape": "box",
-    "material": "white_gloss"
+    "shape": "cone_tree",
+    "material": "steel"
    },
    {
     "id": "st0",
@@ -281,7 +281,7 @@
     "x1": 3.6,
     "y1": 6.4,
     "h": 1.0,
-    "label": "Eyewear observation bays",
+    "label": "Product observation ports",
     "zone": "sale",
     "shape": "display",
     "material": "glass"
@@ -294,7 +294,7 @@
     "x1": 3.6,
     "y1": 11.4,
     "h": 1.0,
-    "label": "Eyewear observation bays",
+    "label": "Product observation ports",
     "zone": "sale",
     "shape": "display",
     "material": "glass"
@@ -307,7 +307,7 @@
     "x1": 17.8,
     "y1": 6.4,
     "h": 1.0,
-    "label": "Eyewear observation bays",
+    "label": "Product observation ports",
     "zone": "sale",
     "shape": "display",
     "material": "glass"
@@ -320,7 +320,7 @@
     "x1": 17.8,
     "y1": 11.4,
     "h": 1.0,
-    "label": "Eyewear observation bays",
+    "label": "Product observation ports",
     "zone": "sale",
     "shape": "display",
     "material": "glass"
@@ -333,10 +333,10 @@
     "x1": 12.0,
     "y1": 14.4,
     "h": 1.0,
-    "label": "Flight manifest terminal",
+    "label": "Flight manifest station",
     "zone": "pay",
     "shape": "box",
-    "material": "aluminium"
+    "material": "polished_concrete"
    },
    {
     "id": "mirror",
@@ -372,7 +372,7 @@
     "x1": 14.2,
     "y1": 12.4,
     "h": 4.6,
-    "label": "Stellar projection canopy",
+    "label": "Atmospheric soft glow",
     "zone": "exp",
     "shape": "light_ceiling",
     "material": "textile_light"
@@ -451,8 +451,8 @@
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I stand between the magnetic pylons, feeling the hum of the airlock.",
-   "sub": "The shimmering steel curtain behind me fades as I focus on the towering, industrial-grade aluminum pillars."
+   "cap": "I step through the shimmering steel curtains between the twin aluminum pillars.",
+   "sub": "The airlock transition pulls me from the outside world into the mineral-white vacuum."
   },
   {
    "at": [
@@ -466,8 +466,8 @@
    ],
    "h": 1.62,
    "d": 3.2,
-   "cap": "I approach the central void to observe the products suspended in mid-air.",
-   "sub": "The mirror-finished dock defies gravity, holding the collection in a perfect, weightless display."
+   "cap": "I stand at the edge of the void observing the eyewear levitating in mid-air.",
+   "sub": "A magnetic core holds the collection in a silent, gravity-defying circular dance."
   },
   {
    "at": [
@@ -481,8 +481,8 @@
    ],
    "h": 1.4,
    "d": 2.8,
-   "cap": "I lean toward the glass observation bay to inspect the fine details.",
-   "sub": "Through the reinforced pane, the eyewear collection appears as a precise, curated series of artifacts."
+   "cap": "I lean into the glass observation port to examine the intricate frame details.",
+   "sub": "The polished concrete manifest station anchors the quiet focus of my final inspection."
   }
  ]
 }

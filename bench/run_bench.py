@@ -203,13 +203,17 @@ def blind(out: Path) -> None:
     for b in json.loads((HERE / "briefs.json").read_text())["briefs"]:
         bit = hashlib.sha256(b["id"].encode()).digest()[0] >> 7
         xy = {"X": "A", "Y": "C"} if bit == 0 else {"X": "C", "Y": "A"}
-        key_[b["id"]] = xy
+        key_[b["id"]] = dict(xy)
         for side, arm in xy.items():
             d = bd / b["id"] / side
             d.mkdir(parents=True)
+            # the latest run that produced a job; an earlier run is used only when the latest has none (said in key.json)
+            cands = [out / f"{arm}_{b['id']}"] + sorted(out.glob(f"{arm}_{b['id']}.run*"), reverse=True)
+            src = next((c for c in cands if (c / "synopsis.md").is_file()), None)
+            key_[b["id"]][side + "_from"] = src.name if src else "(no job)"
             for f in ("synopsis.md", "layout_preview.png"):
-                if (out / f"{arm}_{b['id']}" / f).is_file():
-                    shutil.copy2(out / f"{arm}_{b['id']}" / f, d / f)
+                if src and (src / f).is_file():
+                    shutil.copy2(src / f, d / f)
         (bd / b["id"] / "brief.txt").write_text(f"{b['brief']}\nbrand: {b['brand'] or '(none given)'}\n")
     (bd / "key.json").write_text(json.dumps(key_, indent=1))
 

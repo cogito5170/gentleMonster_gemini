@@ -1,75 +1,75 @@
 {
  "brand": "Gentle Monster",
  "title": "Threshold of the Rainy Night",
- "subtitle": "A sensory immersion into the stillness of a storm-cleansed sanctuary.",
- "line": "Step through a narrow aperture into a mirrored chamber where the rhythmic echoes of rain dissolve into the cold, sharp scent of wet stone and earth.",
- "synopsis": "As you cross the threshold, the cacophony of the city vanishes, replaced by the soft, ambient glow reflecting off polished concrete surfaces. You navigate between monolithic black stones that hold fragrances atop their damp, porous peaks, grounding you in the heart of the storm. Piercing the infinite mirror walls, raw strata clay elements suggest a world eroding beneath the surface. You finally retreat to the charcoal plinth or the secluded lime plaster alcove, where the lingering scent of rain becomes your own.",
+ "subtitle": "An olfactory sanctuary carved from basalt and reflective horizons.",
+ "line": "You step from the bustling street into a silent, rain-drenched void where the scent of basalt and cold air lingers in the dark.",
+ "synopsis": "As you cross the threshold, the cacophony of the city dissolves into a rhythmic stillness defined by damp, polished concrete floors. You navigate between looming black basalt monoliths that display fragrance vials like sacred artifacts caught in the moonlight. Reflective aluminum walls expand the space, blurring your reflection against the deep, wet textures of the room. By interacting with the crushing stone protrusions, you feel the raw tension between the natural landscape and the refined architectural interior.",
  "keywords": [
   "Olfactory Sanctuary",
-  "Atmospheric Minimalist",
-  "Liminal Space"
+  "Basalt Minimalism",
+  "Atmospheric Threshold"
  ],
- "quote": "In the silence after the rain, the scent of the earth reveals the truth of the moment.",
+ "quote": "Silence is the architecture of rain, and scent is the memory of the stone it touches.",
  "why": [
   {
-   "t": "Infinite Mirrored Threshold",
-   "d": "A chamber of infinite reflection walls, 11 x 8 m, stands inside the room; you enter it through a 1.8 m opening in its side. The reflective walls create an illusion of endless space that isolates you from the external environment."
+   "t": "The Reflective Horizon",
+   "d": "A walled chamber (reflective horizon), 11 x 8 m, stands inside the room; you enter it through a 1.8 m opening in its side. The walled chamber isolates your senses from the external world to create an immersive, meditative environment."
   },
   {
-   "t": "Monolith Product Display",
-   "d": "Three monolith water feature objects inside the chamber carry the product at 0.9-1.4 m high. The black stone pedestals elevate the fragrance to eye level, turning the act of smelling into a ritualistic encounter."
+   "t": "Elevated Basalt Monoliths",
+   "d": "Three low monoliths (basalt monoliths) inside it carry the product at 0.9-1.4 m high. These stone pedestals force you to slow your pace and engage intimately with the fragrance collection at eye level."
   },
   {
-   "t": "Eroded Earth Intersections",
-   "d": "Two eroded earth element objects break through the chamber walls on opposite sides. The raw clay elements breaking through the walls provide a tactile contrast to the polished, futuristic surfaces."
+   "t": "Crushing Stone Intersections",
+   "d": "Two blocks (crushing stone) break through the chamber walls on opposite sides. The protruding rocks disrupt the perfect geometry of the walls to remind you of the untamed nature breaking through the sterile design."
   },
   {
-   "t": "Exterior Service Zones",
-   "d": "The charcoal service plinth and the secluded alcove stay outside the chamber. The charcoal plinth and lime alcove offer a grounded, physical space for you to conclude your sensory journey."
+   "t": "External Functional Zones",
+   "d": "The pay desk (dark payment plinth) and the fitting room (soft light chamber) stay outside the chamber. Placing the payment and fitting areas outside the core ensures that the sanctuary remains a place of pure, undisturbed sensory contemplation."
   }
  ],
  "palette": [
   {
-   "hex": "#0d0d0d",
-   "name": "Obsidian Void"
+   "hex": "#0a0a0a",
+   "name": "Obsidian Night"
   },
   {
-   "hex": "#262626",
-   "name": "Wet Charcoal"
+   "hex": "#2e2e2e",
+   "name": "Wet Basalt"
   },
   {
-   "hex": "#595959",
-   "name": "Rain Mist"
+   "hex": "#b0b0b0",
+   "name": "Mist Grey"
   },
   {
-   "hex": "#b3b3b3",
-   "name": "Cool Slate"
+   "hex": "#f0f0f0",
+   "name": "Moonlight Plaster"
   },
   {
-   "hex": "#00ffdd",
-   "name": "Electric Neon"
+   "hex": "#00ffc2",
+   "name": "Electric Rain"
   }
  ],
- "accent": "#00ffdd",
+ "accent": "#00ffc2",
  "materials": [
   {
-   "name": "Honed Basalt Monolith",
-   "where": "floor, walls, ceiling, monolith water feature, charcoal serv",
+   "name": "Honed Basalt Stone",
+   "where": "floor, walls, ceiling, basalt monoliths, crushing stone",
    "preset": "black_stone"
   },
   {
    "name": "Polished Mirror Aluminium",
-   "where": "infinite reflection",
+   "where": "reflective horizon",
    "preset": "mirror_aluminium"
   },
   {
-   "name": "Raw Strata Clay Composite",
-   "where": "eroded earth element",
-   "preset": "strata_clay"
+   "name": "Matte Graphite Wax Finish",
+   "where": "dark payment plinth",
+   "preset": "graphite_wax"
   },
   {
-   "name": "Breathable Lime Plaster",
-   "where": "secluded alcove",
+   "name": "Textured Lime Plaster",
+   "where": "soft light chamber",
    "preset": "lime_plaster"
   }
  ],
@@ -108,7 +108,7 @@
     "x1": 15.0,
     "y1": 10.0,
     "h": 0,
-    "label": "rain-washed gallery",
+    "label": "wet stone sanctuary",
     "zone": "exp",
     "shape": "zone",
     "material": "textile_light"
@@ -121,7 +121,7 @@
     "x1": 15.0,
     "y1": 2.15,
     "h": 4.2,
-    "label": "infinite reflection",
+    "label": "reflective horizon",
     "zone": "",
     "shape": "mirror_wall",
     "material": "mirror_aluminium"
@@ -134,7 +134,7 @@
     "x1": 15.0,
     "y1": 10.0,
     "h": 4.2,
-    "label": "infinite reflection",
+    "label": "reflective horizon",
     "zone": "",
     "shape": "mirror_wall",
     "material": "mirror_aluminium"
@@ -147,7 +147,7 @@
     "x1": 4.15,
     "y1": 5.4,
     "h": 4.2,
-    "label": "infinite reflection",
+    "label": "reflective horizon",
     "zone": "",
     "shape": "mirror_wall",
     "material": "mirror_aluminium"
@@ -160,7 +160,7 @@
     "x1": 4.15,
     "y1": 10.0,
     "h": 4.2,
-    "label": "infinite reflection",
+    "label": "reflective horizon",
     "zone": "",
     "shape": "mirror_wall",
     "material": "mirror_aluminium"
@@ -173,7 +173,7 @@
     "x1": 15.0,
     "y1": 6.8,
     "h": 4.2,
-    "label": "infinite reflection",
+    "label": "reflective horizon",
     "zone": "",
     "shape": "mirror_wall",
     "material": "mirror_aluminium"
@@ -186,7 +186,7 @@
     "x1": 15.0,
     "y1": 10.0,
     "h": 4.2,
-    "label": "infinite reflection",
+    "label": "reflective horizon",
     "zone": "",
     "shape": "mirror_wall",
     "material": "mirror_aluminium"
@@ -199,7 +199,7 @@
     "x1": 7.3,
     "y1": 5.0,
     "h": 1.2,
-    "label": "monolith water feature",
+    "label": "basalt monoliths",
     "zone": "sale",
     "shape": "rock",
     "material": "black_stone",
@@ -213,7 +213,7 @@
     "x1": 11.6,
     "y1": 8.0,
     "h": 0.9,
-    "label": "monolith water feature",
+    "label": "basalt monoliths",
     "zone": "sale",
     "shape": "rock",
     "material": "black_stone",
@@ -227,7 +227,7 @@
     "x1": 14.0,
     "y1": 5.6,
     "h": 1.4,
-    "label": "monolith water feature",
+    "label": "basalt monoliths",
     "zone": "sale",
     "shape": "rock",
     "material": "black_stone",
@@ -241,10 +241,10 @@
     "x1": 4.9,
     "y1": 6.3,
     "h": 3.2,
-    "label": "eroded earth element",
+    "label": "crushing stone",
     "zone": "exp",
     "shape": "rock",
-    "material": "strata_clay"
+    "material": "black_stone"
    },
    {
     "id": "pierce_r",
@@ -254,10 +254,10 @@
     "x1": 16.4,
     "y1": 8.5,
     "h": 3.8,
-    "label": "eroded earth element",
+    "label": "crushing stone",
     "zone": "exp",
     "shape": "rock",
-    "material": "strata_clay"
+    "material": "black_stone"
    },
    {
     "id": "fit",
@@ -267,7 +267,7 @@
     "x1": 18.0,
     "y1": 12.0,
     "h": 2.6,
-    "label": "secluded alcove",
+    "label": "soft light chamber",
     "zone": "",
     "shape": "box",
     "material": "lime_plaster"
@@ -280,10 +280,10 @@
     "x1": 4.0,
     "y1": 11.6,
     "h": 1.0,
-    "label": "charcoal service plinth",
+    "label": "dark payment plinth",
     "zone": "pay",
     "shape": "box",
-    "material": "black_stone"
+    "material": "graphite_wax"
    }
   ],
   "flows": [
@@ -338,7 +338,7 @@
       10.4
      ]
     ],
-    "color": "#00ffdd"
+    "color": "#00ffc2"
    }
   ],
   "entry": [
@@ -363,8 +363,8 @@
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I trace the jagged edges of raw clay pushing through the exterior facade.",
-   "sub": "The earth seems to be reclaiming the space, blurring the boundary between the store and the street."
+   "cap": "I trace the jagged, raw edge of the basalt as it ruptures the smooth facade.",
+   "sub": "The stone feels cold and ancient, a violent intrusion into the store's clinical stillness."
   },
   {
    "at": [
@@ -378,8 +378,8 @@
    ],
    "h": 1.62,
    "d": 3.2,
-   "cap": "I stand before the mirror wall, watching my form dissolve into an infinite void.",
-   "sub": "The reflective surface creates a sense of endless depth that swallows the city's frantic pace."
+   "cap": "I stand before the infinite horizon created by the polished aluminum panels.",
+   "sub": "My own reflection dissolves into the shimmering depth, merging with the shadows of the room."
   },
   {
    "at": [
@@ -393,8 +393,8 @@
    ],
    "h": 1.3,
    "d": 3.0,
-   "cap": "I touch the damp stone where water beads against the dark charcoal peak.",
-   "sub": "The rhythmic drip grounds me, turning the scent of rain into a tangible, lingering atmosphere."
+   "cap": "I reach out to touch the obsidian surface of the central display monolith.",
+   "sub": "The fragrance vials rest like relics upon the dark stone, illuminated by a faint, lunar glow."
   }
  ]
 }
