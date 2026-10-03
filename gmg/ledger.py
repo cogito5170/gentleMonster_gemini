@@ -80,9 +80,10 @@ class Ledger:
 
 
 def totals(calls) -> dict:
-    t = {"prompt": 0, "output": 0, "thoughts": 0, "total": 0}
+    t = {"prompt": 0, "output": 0, "thoughts": 0, "total": 0, "cached": 0}
     for c in calls:
         u = c.get("usage") or {}
+        t["cached"] += u.get("cachedContentTokenCount", 0)
         t["prompt"] += u.get("promptTokenCount", 0)
         t["output"] += u.get("candidatesTokenCount", 0)
         t["thoughts"] += u.get("thoughtsTokenCount", 0)

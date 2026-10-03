@@ -55,6 +55,12 @@ M = [
     ("render: failure cause not kept", "gmg/agent.py", '            L.log("NOTE", step="render", why=why)', "            pass"),
     ("amend: unsupported called supported", "gmg/agent.py", '("language", "ko_and_en"): "NOT supported:', '("language", "ko_and_en"): "supported:'),
     ("pf: keep ignored", "gmg/portfolio.py", "and not any(k in x.lower() for k in kept))", ")"),
+    ("H1: placeholder brand used", "gmg/agent.py", "    if b and placeholder(b):", "    if False:"),
+    ("H1: placeholders reach the page", "gmg/agent.py", "    probs += [f\"{k} is placeholder text ({v!r}); write the real text\" for k, v in page if placeholder(v)]", "    pass"),
+    ("H2: no served warning in results", "gmg/ext_mcp.py", "            if w:\n                r[\"served\"] = w", "            if False:\n                r[\"served\"] = w"),
+    ("H2: hook records nothing", "gmg/hook.py", "    r = SV.record(models[-1], \"gemini-cli\")", "    r = {\"differs\": True}"),
+    ("H2: explain hides the served model", "gmg/agent.py", "        elif k == \"SERVED\":", "        elif False:"),
+    ("H3: plan in gm_new ignored", "gmg/agent.py", "    if plan in PL.PLANS:", "    if False:"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
 TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py"]

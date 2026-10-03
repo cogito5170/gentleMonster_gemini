@@ -7,11 +7,23 @@ materials, stops and the verdict (the pinned gentleMonster `spec.check`). Produc
 descriptions, outputs) is English: flash-lite follows English instructions best and gentleMonster prints English pages.
 
 ```bash
+npm install -g @google/gemini-cli@0.60.0   # 0.60.0: the last CLI that serves gemini-3.1-flash-lite as asked (see below)
 gemini extensions install https://github.com/cogito5170/gentleMonster_gemini --ref claude/sleepy-cori-h0ug3b
 export GEMINI_API_KEY=...            # environment only
-gemini -m gemini-3.1-flash-lite      # note: Gemini CLI 0.62 may resolve this to gemini-3.5-flash-lite (bench/RESULTS_rev2.md H2)
+gemini -m gemini-3.1-flash-lite
 > Design a store with gentleMonster. Brief: ...
 ```
+
+**Which model serves (H2).** From Gemini CLI **0.61.0**, `-m gemini-3.1-flash-lite` is rewritten to
+`gemini-3.5-flash-lite` for API-key, Vertex and gateway auth: `isGemini31LaunchedForAuthType()` is true for those auth
+types, so `hasLatestFlashLiteGAAccess()` is true, and `getBackendModelMappings()` adds
+`gemini-3.1-flash-lite -> gemini-3.5-flash-lite` inside `ModelMappingContentGenerator` (checked in the published 0.61.0
+and 0.62.0 bundles; 0.46.0, 0.54.0, 0.58.0 and 0.60.0 have no such mapping). No setting, flag or environment variable
+turns it off. The supported way to keep 3.1 is to install CLI **0.60.0** (verified: a 0.60.0 run's own stats and chat
+recording name `gemini-3.1-flash-lite`). The CLI is not patched. Whatever the CLI does, the extension records the
+**served** model (the AfterAgent hook reads it from the CLI's chat recording) as a SERVED event in the job's ledger, and
+every tool result, `say` line and `gm_explain` says so when it is not `gemini-3.1-flash-lite`. `gmg doctor` warns
+when the installed CLI is 0.61 or newer.
 
 The server (`server.py`, stdlib only, Python >= 3.10) fetches the pinned gentleMonster on first start. PDFs need
 `pip install pillow numpy matplotlib playwright imageio-ffmpeg` for the `python3` the CLI runs; without them the job

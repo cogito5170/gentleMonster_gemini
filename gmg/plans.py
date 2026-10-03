@@ -27,6 +27,7 @@ def R(ids, shapes, desc, hero=False):
 
 PLANS = {
     "orbit": {
+        "short": "Pass a threshold, then circle one hero alone in a big void; product at the outer corners; pay at the back.",
         "example": "gm",
         "desc": "Threshold, then a central void. You pass between two objects and a screen just inside the door, then circle "
                 "one hero object standing alone in a large empty void ringed by six small objects. Product stations sit at "
@@ -47,6 +48,7 @@ PLANS = {
                   ("stations", "turned away from the hero, at a product station")],
     },
     "field": {
+        "short": "An open low field: one tall hero just inside, four product stations ringed around it; pay back right.",
         "example": "tb",
         "desc": "One open low field. A floor strip leads from the door to a single large hero object; four sculptural "
                 "stations hold the product in a loose ring around it, and the route wanders between them to the pay at "
@@ -63,6 +65,7 @@ PLANS = {
                   ("stations", "low, close to a product station")],
     },
     "chamber": {
+        "short": "A walled chamber inside the room; three low monoliths in it carry the product; two blocks pierce its walls. No single hero.",
         "example": "ac",
         "desc": "A room inside the room. A walled chamber with two side openings stands in the middle; three low "
                 "monoliths inside it carry the product; two blocks break through the chamber walls. The route enters "
@@ -80,6 +83,7 @@ PLANS = {
                   ("hero", "beside a monolith")],
     },
     "ritual": {
+        "short": "A small room wrapped by shelf walls; one centre object you pause at first; a counter at the back.",
         "example": "ae",
         "desc": "A small ritual room. Shelf walls wrap the left, right and back; one object at the centre is where you pause "
                 "first; a counter sits at the back. The route circles the centre, then follows the shelves.",

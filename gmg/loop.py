@@ -14,8 +14,17 @@ from gmg import MODEL, agent, ext_mcp, hook
 from gmg.gemini import API, _retry_delay, http, key
 
 ROOT = Path(__file__).resolve().parent.parent
-PROMPT = "Design a store with gentleMonster.\nBrief: {brief}\nBrand: {brand}"
+PROMPT = "Design a store with gentleMonster.\nBrief: {brief}"
+PROMPT_BRAND = "\nBrand: {brand}"
 _KEEP = {"type", "enum", "properties", "required", "items", "description"}
+
+
+def _served(turns):
+    """The API names the model that served each response (modelVersion); record the last one of this turn."""
+    ms = [t["reported"] for t in turns if t.get("reported") and t["reported"] != "미보고"]
+    if ms:
+        from gmg import served
+        served.record(ms[-1], "api")
 
 
 def to_decl(s: dict) -> dict:
@@ -36,7 +45,7 @@ def run(brief: str, brand: str = "", transport=None, model: str = "", max_turns:
     transport = transport or http
     system = (ROOT / "GEMINI.md").read_text(encoding="utf-8")
     decls = declarations()
-    contents = [{"role": "user", "parts": [{"text": PROMPT.format(brief=brief, brand=brand or "(none named)")}]}]
+    contents = [{"role": "user", "parts": [{"text": PROMPT.format(brief=brief) + (PROMPT_BRAND.format(brand=brand) if brand else "")}]}]
     turns, calls, t0, prev_next, final, stop = [], [], time.time(), ["gm_new"], "", "answered"
     for turn in range(max_turns):
         body = {"systemInstruction": {"parts": [{"text": system}]}, "contents": contents, "tools": [{"functionDeclarations": decls}]}
@@ -83,6 +92,7 @@ def run(brief: str, brand: str = "", transport=None, model: str = "", max_turns:
         contents.append({"role": "user", "parts": resp})
     else:
         stop = "turn_cap"
+    _served(turns)
     jobs = [c["job"] for c in calls if c.get("job")]
     job = jobs[-1] if jobs else None
     state = None
@@ -161,6 +171,7 @@ def user_turn(contents: list, q: dict, transport=None, model: str = "", max_turn
         contents.append({"role": "user", "parts": resp})
     else:
         rec["stop"] = "turn_cap"
+    _served(rec["turns"])
     rec["seconds"] = round(time.time() - t0, 1)
     return rec
 

@@ -1,0 +1,13 @@
+{
+ "schema": "gmg-briefs/1",
+ "registered": "2026-10-03",
+ "note": "CMD-GMG4 S5: a fresh set, committed before any run; never used for tuning. Same prompt rule as rev 2 (no Brand line when none is given).",
+ "briefs": [
+  {"id": "f1", "brand": "Gentle Monster", "brief": "폐교된 초등학교 강당을 고친 선글라스 매장. 체육관 바닥선과 농구 골대가 그대로 남아 있다."},
+  {"id": "f2", "brand": "", "brief": "안개 낀 항구 창고의 가방 팝업. 밧줄과 녹슨 체인 사이로 등대 불빛이 천천히 지나간다."},
+  {"id": "f3", "brand": "Aesop", "brief": "한옥 마당을 품은 서촌 매장. 처마 밑 그늘이 길고, 가운데 돌절구에서 손을 씻는다."},
+  {"id": "f4", "brand": "Tamburins", "brief": "빙하가 녹는 소리를 담은 핸드크림 매장, 폭 10 m 깊이 14 m. 차가운 푸른 빛 아래 얼음 덩어리가 천천히 줄어든다."},
+  {"id": "f5", "brand": "Acne Studios", "brief": "공사 중인 콘크리트 골조를 그대로 쓴 성수 매장. 비계와 방수포가 옷걸이가 된다."},
+  {"id": "f6", "brand": "", "brief": "심야 세탁소를 닮은 니치 향수 가게. 돌아가는 드럼과 따뜻한 증기, 형광등 하나."}
+ ]
+}

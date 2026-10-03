@@ -4,7 +4,7 @@ Tools for a store-design portfolio. Every result says `ok`, and `next`: the call
 
 | the user wants | call |
 |---|---|
-| a store space from a brief | `gm_new` → `gm_plan` → `gm_cast` → `gm_story` → `gm_finish` |
+| a store space from a brief | `gm_new` (with `plan`) → `gm_cast` → `gm_story` → `gm_finish` |
 | conditions on a running store job / PDFs, render, video | `gm_amend` / `gm_render` |
 | why a job came out this way, or failed | `gm_explain` |
 | portfolio text, photos or pages | `pf_show` first |

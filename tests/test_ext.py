@@ -132,6 +132,41 @@ evs = Ledger(paths.job_dir(jn)).run()
 ok(rv["verdict"] == "DONE" and any(e["kind"] == "REPAIR" and "hero -> basin" in e["reverted"] for e in evs),
    "a box where the plan has a round basin breaks the 0.3 m clearance on the 8 m plan; code puts the basin back and says so")
 
+sec("GMG4: plan in gm_new (H3), placeholders never reach a page (H1), the served model (H2)")
+from gmg import served as SV  # noqa: E402
+r = agent.call("gm_new", dict(new, request="H1 시험: 비 오는 밤", brand="(none named)", plan="orbit"))
+ok(r["ok"] and r["brand"] == "Gentle Monster" and r.get("options") and any("placeholder" in n for n in r["notes"]), "a placeholder brand is not a brand: default, said, with closed options")
+ok(r["next"][0]["tool"] == "gm_cast" and "built_m" in r, "plan given in gm_new: the next call is gm_cast (one turn fewer)")
+jh = r["job"]
+cn = r["next"][0]
+agent.call("gm_cast", {"job": jh, "roles": [{"role": k, "shape": v["shape"][0], "material": "steel", "label": "TBD" if k == "hero" else f"{k} thing"} for k, v in cn["roles"].items()],
+                       "room": {"floor": "concrete", "wall": "concrete", "ceiling": "concrete", "light": "dark_gallery", "fog": "none"}})
+agent.call("gm_story", {"job": jh, "title": "T", "subtitle": "S", "line": "One line.", "synopsis": "You come in. You see the hero. You leave.",
+                        "keywords": ["a", "b", "c"], "quote": "Q", "why": [{"t": "A", "d": "One."}, {"t": "B", "d": "Two."}, {"t": "C", "d": "Three."}, {"t": "D", "d": "Four."}]})
+r = agent.call("gm_finish", dict(fin, job=jh))
+ok(r["ok"] is False and any("hero label is placeholder text" in p for p in r["problems"]), "a placeholder label ('TBD') is refused at gm_finish, not printed")
+fin3 = dict(fin, job=jh)
+fin3["stops"] = [dict(x) for x in fin["stops"]]
+fin3["stops"][1]["sub"] = "N/A"
+r = agent.call("gm_finish", fin3)
+ok(r["ok"] is False and any("stop 2 sub is placeholder" in p for p in r["problems"]), "a placeholder caption line is refused")
+ok(agent.placeholder("(none named)") and agent.placeholder("") and agent.placeholder("없음") and not agent.placeholder("Gentle Monster"), "placeholder() knows filler from names")
+SV.record("gemini-3.5-flash-lite", "api")
+r = agent.call("gm_explain", {"job": jh})
+ok(any("served by gemini-3.5-flash-lite" in l and "NOT" in l for l in r["explain"]), "gm_explain shows the served model when it is not 3.1")
+o = ext_mcp.handle({"jsonrpc": "2.0", "id": 9, "method": "tools/call", "params": {"name": "pf_show", "arguments": {}}})
+ok("served by gemini-3.5-flash-lite" in o["result"]["content"][0]["text"], "every tool result carries the served-model warning")
+SV.record("gemini-3.1-flash-lite", "api")
+o = ext_mcp.handle({"jsonrpc": "2.0", "id": 9, "method": "tools/call", "params": {"name": "pf_show", "arguments": {}}})
+ok('"served"' not in o["result"]["content"][0]["text"], "no warning when 3.1 served")
+tp = TMP / "chat.jsonl"
+tp.write_text(json.dumps({"sessionId": "x"}) + "\n" + json.dumps({"$set": {"messages": [{"type": "user"}, {"type": "gemini", "model": "gemini-3.5-flash-lite"}]}}) + "\n")
+ok(SV.from_transcript(tp) == ["gemini-3.5-flash-lite"], "the served model is read from the CLI's chat recording")
+w = hook.served({"transcript_path": str(tp)})
+ok(w and "not gemini-3.1-flash-lite" in w and SV.latest()["source"] == "gemini-cli", "the hook records it and warns")
+ok("could not be read" in hook.served({"transcript_path": str(TMP / "none.jsonl")}), "no transcript -> said, not counted as recorded")
+SV.record("gemini-3.1-flash-lite", "api")
+
 sec("hook: the answer may only state the ledger's verdict")
 out = TMP / "hk"
 os.environ["GMG_OUT"] = str(out)

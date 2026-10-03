@@ -51,7 +51,8 @@ class FakeAgent:
         if t == "gm_cast":
             roles = [{"role": r, "shape": ("door" if self.mode == "badcast" and r == "hero" else o["shape"][0]), "material": "black_stone",
                       "label": "black pool" if r == "hero" else f"{r} object"} for r, o in nxt["roles"].items()]
-            room = {k: v[0] for k, v in nxt["args"]["room"].items()}
+            from gmg.agent import SURFACE             # a real model reads these from the tool schema's enums
+            room = {k: v[0] for k, v in SURFACE.items()}
             return self.call(t, {"job": job, "roles": roles, "room": room}, model)
         if t == "gm_story":
             self.story_tries += 1

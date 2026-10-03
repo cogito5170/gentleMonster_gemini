@@ -1,0 +1,74 @@
+"""Which model actually served the agent (CMD-GMG4 S2).
+
+Gemini CLI 0.61+ rewrites `gemini-3.1-flash-lite` to `gemini-3.5-flash-lite` for API-key auth (its model mapping;
+no setting turns it off -- see README). The MCP server never sees the model, so the served model is recorded from
+where it is known: the AfterAgent hook reads the CLI's own chat recording (`transcript_path`, a "model" field on
+every response); the API loop reads each response's `modelVersion`. Every record goes to <GMG_OUT>/served.jsonl
+and, as a SERVED event, into the ledger of the job or workspace that turn worked on.
+"""
+from __future__ import annotations
+
+import json
+import os
+import time
+from pathlib import Path
+
+from gmg import MODEL
+
+
+def _out() -> Path:
+    return Path(os.environ.get("GMG_OUT") or (Path.home() / "gentleMonster_gemini_out"))
+
+
+def from_transcript(path) -> "list[str]":
+    """Models named on the responses of a Gemini CLI chat recording (jsonl or json), in order."""
+    p = Path(path or "")
+    if not p.is_file():
+        return []
+    found = []
+
+    def walk(x):
+        if isinstance(x, dict):
+            if x.get("type") == "gemini" and isinstance(x.get("model"), str):
+                found.append(x["model"])
+            for v in x.values():
+                walk(v)
+        elif isinstance(x, list):
+            for v in x:
+                walk(v)
+    for ln in p.read_text(encoding="utf-8", errors="replace").splitlines():
+        try:
+            walk(json.loads(ln))
+        except json.JSONDecodeError:
+            continue
+    return found
+
+
+def record(model: str, source: str) -> dict:
+    """Append one served-model record; also a SERVED event in the most recently touched ledger."""
+    from gmg.ledger import Ledger
+    rec = {"t": round(time.time(), 3), "model": model, "source": source, "asked": MODEL, "differs": not str(model).startswith(MODEL)}
+    out = _out()
+    out.mkdir(parents=True, exist_ok=True)
+    with open(out / "served.jsonl", "a", encoding="utf-8") as f:
+        f.write(json.dumps(rec) + "\n")
+    ledgers = sorted(out.glob("*/gmg_ledger.jsonl"), key=lambda p: p.stat().st_mtime, reverse=True)
+    if ledgers:
+        Ledger(ledgers[0].parent).log("SERVED", model=model, source=source, differs=rec["differs"])
+    return rec
+
+
+def latest() -> "dict | None":
+    p = _out() / "served.jsonl"
+    if not p.is_file():
+        return None
+    lines = [l for l in p.read_text().splitlines() if l.strip()]
+    return json.loads(lines[-1]) if lines else None
+
+
+def warning() -> "str | None":
+    r = latest()
+    if r and r["differs"]:
+        return (f"served by {r['model']}, not {MODEL} (Gemini CLI 0.61+ maps {MODEL} to the latest flash-lite; "
+                f"pin @google/gemini-cli@0.60.0 to keep {MODEL} -- see README)")
+    return None

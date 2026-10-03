@@ -43,6 +43,15 @@ DIMS = [re.compile(r"(\d+(?:\.\d+)?)\s*(?:m|미터)?\s*[x×X*]\s*(\d+(?:\.\d+)?)
 HANGUL = S.HANGUL
 
 
+PLACEHOLDER = re.compile(r"^\s*([\(\[<{].*[\)\]>}]|none|n/?a|unknown|tbd|todo|null|nil|-+|—|brand|no brand|none named|not named|"
+                         r"없음|미정|모름|해당 없음|브랜드 없음)\s*$", re.I)
+
+
+def placeholder(t) -> bool:
+    """Empty, bracketed or stock filler text ('(none named)', 'N/A', 'TBD', '없음') -- never printed on a page (H1)."""
+    return not str(t or "").strip() or bool(PLACEHOLDER.match(str(t))) or "none named" in str(t).lower()
+
+
 class ToolError(Exception):
     """Bad call: comes back to the agent as ok:false with the facts and the calls that fix it."""
     def __init__(self, problems, nxt):
@@ -144,7 +153,7 @@ def _same(L, step, args):
 def offer_plan(spec, job, W, D):
     ex = spec.examples()
     return {"tool": "gm_plan", "args": {"job": job, "plan": list(PL.PLANS)},
-            "options": {k: f"{p['desc']} Size: {PL.size_note(spec, ex[p['example']], W, D)}." for k, p in PL.PLANS.items()},
+            "options": {k: f"{p['short']} Size: {PL.size_note(spec, ex[p['example']], W, D)}." for k, p in PL.PLANS.items()},
             "why": "choose the floor plan that best stages the theme"}
 
 
@@ -154,11 +163,10 @@ def offer_cast(spec, job, plan_id, built):
         it = PL.items(built["layout"], rs["ids"])[0]
         roles[r] = {"what": rs["desc"], "count": len(rs["ids"]), "size_m": [round(it["x1"] - it["x0"], 1), round(it["y1"] - it["y0"], 1)],
                     "shape": rs["shapes"]}
-    return {"tool": "gm_cast", "args": {"job": job, "roles": "one item per role: {role, shape (from that role's list), material, label}",
-                                        "room": {k: v for k, v in SURFACE.items()}},
-            "roles": roles, "materials": sorted(spec.MATERIALS),
-            "shapes": {s: spec.SHAPES[s] for s in sorted({x for r in roles.values() for x in r["shape"]})},
-            "why": "give every role a shape, a material and a short English label; choose the room surfaces and light"}
+    # materials and room values are enums in the tool schema already: not repeated here (H3)
+    return {"tool": "gm_cast", "args": {"job": job, "roles": "one {role, shape (from that role's list), material, label} per role"},
+            "roles": roles, "shapes": {s: spec.SHAPES[s].split(";")[0] for s in sorted({x for r in roles.values() for x in r["shape"]})},
+            "why": "shape, material and a short English label for every role; then the room surfaces and light"}
 
 
 def offer_story(job, facts, hero):
@@ -181,7 +189,7 @@ EXPLAIN = lambda job: {"tool": "gm_explain", "args": {"job": job}, "why": "show 
 
 
 # ------------------------------------------------------------------ the tools
-def gm_new(request: str, theme: str, mood, hero_idea: str, product: str, brand: str = "") -> dict:
+def gm_new(request: str, theme: str, mood, hero_idea: str, product: str, brand: str = "", plan: str = "") -> dict:
     spec, paths = _env()
     request = str(request or "").strip()
     if not request:
@@ -200,10 +208,18 @@ def gm_new(request: str, theme: str, mood, hero_idea: str, product: str, brand: 
     # The agent passes both `request` and `brand`, so the request is no proof of the brand: the brand is kept and,
     # if its letters are not in the request text, the note says so (run 1 of rev 2 overrode real brands here).
     b = str(brand or "").strip()
+    options = []
+    if b and placeholder(b):
+        notes.append(f"brand {b!r} is a placeholder, not a brand; using Gentle Monster (the gentleMonster default)")
+        options = [{"n": 1, "label": "1", "title": "keep Gentle Monster (the gentleMonster default)"},
+                   {"n": 2, "label": "2", "title": "the user names the brand: call gm_new again with brand"}]
+        b = ""
     if b and not any(w.lower() in request.lower() for w in re.findall(r"[A-Za-z]{2,}", b)):
         notes.append(f"brand {b!r} is not in the request text passed; kept -- check it is the user's")
     named = bool(b)
     b = b or "Gentle Monster"
+    if placeholder(product):
+        product = ""
     known = KNOWN.get(b.lower()) if named else None      # the default brand never overrides what the brief sells
     if known and product not in known:
         notes.append(f"{b} sells {', '.join(known)}; product set to {known[0]}")
@@ -224,8 +240,15 @@ def gm_new(request: str, theme: str, mood, hero_idea: str, product: str, brand: 
         if c1 or c2:
             L.log("NORMALIZE", step="new", cut=[k for k, c in (("theme", c1), ("hero_idea", c2)) if c])
         _decide(L, "new", args, dict(args, brand=b, W=W, D=D), notes=notes)
-    return {"ok": True, "job": job, "brand": b, "product": product, "size_m": [W, D] if W else "not stated",
-            "notes": notes, "next": [offer_plan(spec, job, W, D)]}
+    out = {"ok": True, "job": job, "brand": b, "product": product, "size_m": [W, D] if W else "not stated",
+           "notes": notes, "next": [offer_plan(spec, job, W, D)]}
+    if plan in PL.PLANS:                 # the plan chosen in the same call: one model turn fewer (H3)
+        r = gm_plan(job, plan)
+        out["built_m"], out["next"] = r["built_m"], r["next"]
+        out["notes"] = notes + r["notes"]
+    if options:
+        out["options"] = options
+    return out
 
 
 def gm_plan(job: str, plan: str) -> dict:
@@ -412,6 +435,11 @@ def gm_finish(job, palette, accent, material_names, stops, draw: bool = True) ->
             probs += _text_checks(s.get("sub"), f"stop {i + 1} sub", (1, 2))
             if s.get("cap") and not re.search(r"\b(I|my|me)\b", s["cap"]):
                 probs.append(f"stop {i + 1} cap is not first person (use I, my or me)")
+    page = [("brand", n["brand"]), ("title", st["title"]), ("subtitle", st["subtitle"]), ("line", st["line"]), ("quote", st["quote"])]
+    page += [(f"keyword {i + 1}", k) for i, k in enumerate(st["keywords"])] + [(f"why {i + 1}", w["t"]) for i, w in enumerate(st["why"])]
+    page += [(f"{r} label", x["label"]) for r, x in c["cast"].items()] + [(f"colour {i + 1} name", x.get("name")) for i, x in enumerate(palette) if isinstance(x, dict)]
+    page += [(f"material {i + 1}", m) for i, m in enumerate(material_names)] + [(f"stop {i + 1} {k}", s_.get(k)) for i, s_ in enumerate(stops) if isinstance(s_, dict) for k in ("cap", "sub")]
+    probs += [f"{k} is placeholder text ({v!r}); write the real text" for k, v in page if placeholder(v)]
     if probs:
         L.log("REJECT", step="finish", problems=probs)
         raise ToolError(probs, [offer_finish(job, c["anchors"], c["materials"])])
@@ -485,6 +513,9 @@ def verdict(job: str) -> dict:
            "say": f"{job}: {s['state']}" + (f" -- {end.get('why')}" if end and end.get("why") else "") +
                   (f" -- files: {', '.join(Path(f).name for f in files.values())}" if files else ""),
            "files": files}
+    sv = [e for e in run if e.get("kind") == "SERVED"]
+    if sv and sv[-1].get("differs"):
+        out["say"] += f" -- note: served by {sv[-1]['model']}, not gemini-3.1-flash-lite"
     if s["state"] == "NEEDS_REVIEW":
         gate = next((e for e in reversed(run) if e.get("kind") == "GATE"), {})
         out["problems"] = gate.get("problems", [])
@@ -525,6 +556,8 @@ def gm_explain(job: str) -> dict:
             lines.append(f"{k.lower()} ({e.get('step')}): " + "; ".join(map(str, e.get("problems") or e.get("cut") or [e.get("why", "")]))[:400])
         elif k == "END":
             lines.append(f"END: {e['state']}" + (f" ({e.get('why')})" if e.get("why") else ""))
+        elif k == "SERVED":
+            lines.append(f"served by {e['model']} ({e['source']})" + (" -- NOT gemini-3.1-flash-lite" if e.get("differs") else ""))
     v = verdict(job)
     return {"ok": True, "job": job, "verdict": v["verdict"], "say": v["say"], "explain": lines, "files": v["files"],
             "next": [n_ for n_ in v["next"] if n_["tool"] != "gm_explain"] or [{"tool": "gm_new", "why": "start another job"}]}

@@ -64,7 +64,10 @@ m1, m2, md, mg = (photo.measure(p) for p in (one, two, dark, grey))
 ok(m1["subject_regions"] == 1 and m2["subject_regions"] == 2, f"one small subject -> 1 region, two -> 2 ({m1['subject_regions']}, {m2['subject_regions']})")
 ok(md["brightness"] < .15 and photo.score(md, "night") > photo.score(m1, "night"), "the dark one is the night one")
 ok(mg["mono"] and mg["hue"] == "none", "a grey image is monochrome, no hue")
-ok(len(m2["colors"]) >= 2 and len(set(m2["colors"])) == len(m2["colors"]), "palette colours are distinct")
+rgb = lambda h: [int(h[i:i + 2], 16) for i in (1, 3, 5)]  # noqa: E731
+cols = photo.measure(dark)["colors"] + m2["colors"]
+ok(all(sum((a - b) ** 2 for a, b in zip(rgb(x), rgb(y))) ** .5 >= 30 for c in (photo.measure(dark)["colors"], m2["colors"]) for i, x in enumerate(c) for y in c[i + 1:]),
+   "palette colours are at least 30 apart (no near-duplicates)")
 try:
     photo.measure(notimg)
     ok(False, "a non-image is refused")
@@ -127,6 +130,10 @@ r = PF.call("pf_concept", {"phrase": "Where did you last stop?", "terms": [{"nam
                                                                         {"name": "PICTURE", "definition": "a scene like a photograph"}],
                            "verdicts": [{"term": "STYLE", "connects": "partly", "reason": "you can stop for a person with style"}]})
 ok(r["ok"] is False and any("no verdict for PICTURE" in p for p in r["problems"]), "every term needs a verdict")
+r = PF.call("pf_concept", {"phrase": "Where did you last stop?", "verdicts": [
+    {"term": "STYLE", "connects": "partly", "reason": "seems fine to me"},
+    {"term": "PICTURE", "connects": "yes", "reason": "a scene like a photograph is where you stop"}]})
+ok(r["ok"] is False and any("must quote" in p for p in r["problems"]), "a reason that quotes nothing from the phrase or the definition -> refused")
 r = PF.call("pf_concept", {"phrase": "Where did you last stop?", "verdicts": [
     {"term": "STYLE", "connects": "partly", "reason": "you can stop for a person with style"},
     {"term": "PICTURE", "connects": "yes", "reason": "a scene like a photograph is where you stop"}]})

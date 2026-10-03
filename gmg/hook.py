@@ -53,10 +53,23 @@ def decide(inp: dict, out_dir) -> dict:
                                           "(or call gm_explain); do not state checks or results yourself."}
 
 
+def served(inp: dict) -> "str | None":
+    """Record which model served this turn (from the CLI's chat recording); a warning when it is not the asked model."""
+    from gmg import served as SV
+    models = SV.from_transcript(inp.get("transcript_path"))
+    if not models:
+        return "[gentlemonster] the served model could not be read from the CLI transcript (not recorded)"
+    r = SV.record(models[-1], "gemini-cli")
+    return f"[gentlemonster] {SV.warning()}" if r["differs"] else None
+
+
 def main() -> int:
     try:
         inp = json.loads(sys.stdin.read() or "{}")
         out = decide(inp, os.environ.get("GMG_OUT") or (Path.home() / "gentleMonster_gemini_out"))
+        w = served(inp)
+        if w:
+            out["systemMessage"] = (out.get("systemMessage", "") + " " + w).strip()
     except Exception as e:                                  # noqa: BLE001
         out = {"systemMessage": f"[gentlemonster] the answer was NOT checked against the ledger ({type(e).__name__})"}
     print(json.dumps(out))

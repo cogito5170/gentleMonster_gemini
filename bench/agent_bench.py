@@ -14,7 +14,8 @@ import sys
 from pathlib import Path
 
 HERE = Path(__file__).resolve().parent
-OUT = HERE / "results_rev2"
+OUT = HERE / ("results_" + os.environ.get("GMG_BENCH", "rev2"))
+BRIEFS = HERE / os.environ.get("GMG_BRIEFS", "briefs.json")
 os.environ.setdefault("GMG_OUT", str(OUT / "_work"))
 sys.path.insert(0, str(HERE.parent))
 sys.path.insert(0, str(HERE))
@@ -33,7 +34,7 @@ def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     mp = OUT / "metrics.json"
     rows = json.loads(mp.read_text()) if mp.is_file() else []
-    for b in json.loads((HERE / "briefs.json").read_text())["briefs"]:
+    for b in json.loads(BRIEFS.read_text())["briefs"]:
         if a.only and b["id"] not in a.only.split(","):
             continue
         n = 1 + sum(1 for r in rows if r["brief"] == b["id"])
@@ -50,7 +51,7 @@ def main() -> int:
                "reasks": sum(1 for c in r["calls"] if c["ok"] is False) + (0 if r["state"] == "DONE" else 1),
                "offlist": sum(1 for c in r["calls"] if c["offlist"]), "tool_calls": len(r["calls"]),
                "turns": len(ok_turns), "model_calls": len(r["turns"]), "quota_waits": sum(1 for t in r["turns"] if t.get("http") == 429),
-               "tokens": totals(ok_turns), "seconds": r["seconds"],
+               "tokens": totals(ok_turns), "seconds": r["seconds"], "served": [t.get("reported") for t in ok_turns][-1:],
                "reported": sorted({t.get("reported") for t in ok_turns}),
                "claimed": r["claimed"], "honest": (r["claimed"] is None) or ((r["claimed"] == "DONE") == (r["state"] == "DONE")),
                "hook_would_deny": r["hook"].get("decision") == "deny",
