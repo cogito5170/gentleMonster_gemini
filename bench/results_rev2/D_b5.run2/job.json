@@ -1,0 +1,488 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Orbital Docking Hangar",
+ "subtitle": "A docking sequence in deep orbital space.",
+ "line": "Experience the suspended silence of an orbital station where gravity is merely a suggestion.",
+ "quote": "A docked moment suspended in the celestial expanse.",
+ "synopsis": "You enter through the gravity bulkhead, stepping into the weightless silence of the hangar. Before you stands the monolithic gravity engine, a monumental anchor point around which your movement naturally drifts. You observe the eyewear containment pods as if they were delicate artifacts floating in the void. As you complete your journey, you finalize your mission at the command terminal.",
+ "keywords": [
+  "zero-gravity hangar",
+  "interstellar docking",
+  "orbital stillness"
+ ],
+ "why": [
+  {
+   "t": "The gravity anchor points and bulkhead screen",
+   "d": "A pair of threshold objects (gravity anchor point) stands 1.0-3.0 m inside the door, with a hanging screen (gravity bulkhead curtain) between them; the route slips through a 1.9 m gap. The gravity anchor points and bulkhead screen act as a decompression transition, forcing you to slow your pace as you enter the station."
+  },
+  {
+   "t": "The monolithic gravity engine serves as the",
+   "d": "The hero (monolithic gravity engine) stands alone in an empty 8 x 7 m area (zero gravity void zone); the route circles it and never comes closer than 3.3 m. The monolithic gravity engine serves as the visual gravitational center of the store, dictating a slow, meditative path around the space."
+  },
+  {
+   "t": "The eyewear containment pods are placed at the",
+   "d": "Four product stations (eyewear containment pods) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The eyewear containment pods are placed at the periphery to ensure that viewing the hero and browsing the product are two distinct, contemplative acts."
+  },
+  {
+   "t": "The mission control terminal marks the physical",
+   "d": "The pay desk (mission control terminal) closes the loop at the back wall. The mission control terminal marks the physical conclusion of your dock, grounding your experience before you exit the hangar."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#c0c0c0",
+   "name": "Silver Orbit"
+  },
+  {
+   "hex": "#2f4f4f",
+   "name": "Hangar Shadow"
+  },
+  {
+   "hex": "#e0e0e0",
+   "name": "Lunar Dust"
+  },
+  {
+   "hex": "#a9a9a9",
+   "name": "Nebula Grey"
+  },
+  {
+   "hex": "#000000",
+   "name": "Void Black"
+  }
+ ],
+ "accent": "#c0c0c0",
+ "materials": [
+  {
+   "name": "Brushed Aircraft Aluminium",
+   "where": "walls, ceiling, monolithic gravity engine, drifting debris n",
+   "preset": "aluminium"
+  },
+  {
+   "name": "Satin Industrial Steel",
+   "where": "gravity bulkhead curtain, mission control terminal",
+   "preset": "steel"
+  },
+  {
+   "name": "Cold Polished Concrete",
+   "where": "floor",
+   "preset": "polished_concrete"
+  },
+  {
+   "name": "Raw Structural Concrete",
+   "where": "gravity anchor point",
+   "preset": "concrete"
+  }
+ ],
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "aluminium",
+  "ceiling": "aluminium",
+  "light": "white_gallery",
+  "fog": 0.02,
+  "beams": false
+ },
+ "layout": {
+  "name": "Orbital Docking Hangar — Gentle Monster",
+  "W": 20.0,
+  "D": 16.0,
+  "H": 6,
+  "columns": [
+   [
+    4.5,
+    4.0
+   ],
+   [
+    15.5,
+    4.0
+   ],
+   [
+    4.5,
+    13.0
+   ],
+   [
+    15.5,
+    13.0
+   ]
+  ],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 8.5,
+    "y0": -0.1,
+    "x1": 11.5,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "joint_l",
+    "type": "block",
+    "x0": 6.5,
+    "y0": 1.0,
+    "x1": 7.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "gravity anchor point",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "concrete"
+   },
+   {
+    "id": "joint_r",
+    "type": "block",
+    "x0": 12.5,
+    "y0": 1.0,
+    "x1": 13.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "gravity anchor point",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "concrete"
+   },
+   {
+    "id": "wire_l",
+    "type": "media",
+    "x0": 7.2,
+    "y0": 2.0,
+    "x1": 9.35,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "gravity bulkhead curtain",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "wire_r",
+    "type": "media",
+    "x0": 11.25,
+    "y0": 2.0,
+    "x1": 12.8,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "gravity bulkhead curtain",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "void",
+    "type": "zone",
+    "x0": 6.0,
+    "y0": 5.0,
+    "x1": 14.0,
+    "y1": 12.0,
+    "h": 0,
+    "label": "zero gravity void zone",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "head",
+    "type": "figure",
+    "x0": 9.0,
+    "y0": 7.5,
+    "x1": 11.0,
+    "y1": 9.5,
+    "h": 3.2,
+    "label": "monolithic gravity engine",
+    "zone": "exp",
+    "shape": "box",
+    "material": "aluminium",
+    "hero": true
+   },
+   {
+    "id": "tree0",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 5.3,
+    "x1": 6.9,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "drifting debris nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree1",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 5.3,
+    "x1": 13.7,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "drifting debris nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree2",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 11.1,
+    "x1": 6.9,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "drifting debris nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree3",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 11.1,
+    "x1": 13.7,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "drifting debris nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree4",
+    "type": "figure",
+    "x0": 5.0,
+    "y0": 8.2,
+    "x1": 5.6,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "drifting debris nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "tree5",
+    "type": "figure",
+    "x0": 14.4,
+    "y0": 8.2,
+    "x1": 15.0,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "drifting debris nodes",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "aluminium"
+   },
+   {
+    "id": "st0",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 5.6,
+    "x1": 3.6,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "eyewear containment pods",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st1",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 10.6,
+    "x1": 3.6,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "eyewear containment pods",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st2",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 5.6,
+    "x1": 17.8,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "eyewear containment pods",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st3",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 10.6,
+    "x1": 17.8,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "eyewear containment pods",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 8.0,
+    "y0": 13.6,
+    "x1": 12.0,
+    "y1": 14.4,
+    "h": 1.0,
+    "label": "mission control terminal",
+    "zone": "pay",
+    "shape": "box",
+    "material": "steel"
+   },
+   {
+    "id": "mirror",
+    "type": "kiosk",
+    "x0": 16.0,
+    "y0": 14.2,
+    "x1": 19.0,
+    "y1": 15.4,
+    "h": 1.8,
+    "label": "observation mirror station",
+    "zone": "sale",
+    "shape": "box",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 14.0,
+    "x1": 4.0,
+    "y1": 16.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "shards",
+    "type": "zone",
+    "x0": 5.8,
+    "y0": 4.6,
+    "x1": 14.2,
+    "y1": 12.4,
+    "h": 4.6,
+    "label": "luminous nebula cloud",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      10.0,
+      0.5
+     ],
+     [
+      10.0,
+      3.6
+     ],
+     [
+      5.6,
+      4.6
+     ],
+     [
+      3.8,
+      8.4
+     ],
+     [
+      5.4,
+      12.6
+     ],
+     [
+      10.0,
+      12.9
+     ],
+     [
+      14.6,
+      12.6
+     ],
+     [
+      16.2,
+      8.4
+     ],
+     [
+      14.4,
+      4.6
+     ],
+     [
+      10.6,
+      3.6
+     ],
+     [
+      10.6,
+      0.5
+     ]
+    ],
+    "color": "#c0c0c0"
+   }
+  ],
+  "entry": [
+   10.0,
+   0.0
+  ],
+  "exit": [
+   10.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    10.0,
+    1.3
+   ],
+   "look": [
+    10.0,
+    1.9,
+    6.5
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I step through the narrow gravity bulkhead into the vast, silent hangar.",
+   "sub": "The air here feels thin, heavy with the weight of interstellar stillness."
+  },
+  {
+   "at": [
+    10.0,
+    3.6
+   ],
+   "look": [
+    10.0,
+    2.45,
+    8.5
+   ],
+   "h": 1.62,
+   "d": 3.2,
+   "cap": "I hover at the edge of the void, drawn to the monolithic gravity engine.",
+   "sub": "It sits in total silence, an ancient artifact grounding this floating space."
+  },
+  {
+   "at": [
+    3.8,
+    8.4
+   ],
+   "look": [
+    2.9,
+    1.0,
+    6.0
+   ],
+   "h": 1.4,
+   "d": 2.8,
+   "cap": "Turning away, I drift towards the containment pods to inspect the eyewear.",
+   "sub": "Each pair is suspended as if caught in a permanent moment of zero gravity."
+  }
+ ]
+}

@@ -1,0 +1,400 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Threshold of the Rainy Night",
+ "subtitle": "Gentle Monster Seongsu: A Threshold of Rain and Light.",
+ "line": "A transition from the chaotic city rain into a sanctuary of eternal, silent stillness.",
+ "quote": "The world falls silent at the edge of the stone.",
+ "synopsis": "You step out of the rain and cross the threshold into a place where sound ceases to exist. Moving within the mirrored chamber, you find yourself drawn to monolith one, a dark, tactile center for the products. The low light from above reflects on the black stone surfaces, creating an intimate, quiet experience. It is a moment of stillness where time feels suspended.",
+ "keywords": [
+  "Rain-drenched stone",
+  "Silent threshold",
+  "Soft luminescence"
+ ],
+ "why": [
+  {
+   "t": "The mirrored walls create an infinite",
+   "d": "A walled chamber (mirrored chamber wall), 11 x 8 m, stands inside the room; you enter it through a 1.8 m opening in its side. The mirrored walls create an infinite, immersive environment that separates you from the busy outside world."
+  },
+  {
+   "t": "Monolith one serves as a quiet, heavy focal",
+   "d": "Three low monoliths (monolith one) inside it carry the product at 0.9-1.4 m high. Monolith one serves as a quiet, heavy focal point for your discovery of the collection."
+  },
+  {
+   "t": "The piercing blocks introduce structural",
+   "d": "Two blocks (piercing block two) break through the chamber walls on opposite sides. The piercing blocks introduce structural tension, suggesting the outside world pressing against your sanctuary."
+  },
+  {
+   "t": "Placing essential services outside the central",
+   "d": "The pay desk (subtle pay desk) and the fitting room (dark fitting cube) stay outside the chamber. Placing essential services outside the central chamber ensures the core space remains undisturbed and serene."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#0a0a0a",
+   "name": "Obsidian"
+  },
+  {
+   "hex": "#333333",
+   "name": "Charcoal"
+  },
+  {
+   "hex": "#8a8a8a",
+   "name": "Mist"
+  },
+  {
+   "hex": "#ffffff",
+   "name": "Moonlight"
+  },
+  {
+   "hex": "#b8860b",
+   "name": "Amber"
+  }
+ ],
+ "accent": "#0a0a0a",
+ "materials": [
+  {
+   "name": "Obsidian Slate",
+   "where": "floor, walls, ceiling, monolith one, piercing block two",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Raw Foundation Concrete",
+   "where": "subtle pay desk, dark fitting cube",
+   "preset": "concrete"
+  },
+  {
+   "name": "Diffuse Rainfall Silk",
+   "where": "luminous rain ceiling",
+   "preset": "textile_light"
+  },
+  {
+   "name": "Reflective Silver Veil",
+   "where": "mirrored chamber wall",
+   "preset": "mirror_aluminium"
+  }
+ ],
+ "room": {
+  "floor": "black_stone",
+  "wall": "black_stone",
+  "ceiling": "black_stone",
+  "light": "dark_gallery",
+  "fog": 0.02,
+  "beams": true
+ },
+ "layout": {
+  "name": "Threshold of the Rainy Night — Gentle Monster",
+  "W": 18.0,
+  "D": 12.0,
+  "H": 4.5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 1.0,
+    "y0": -0.1,
+    "x1": 3.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "chamber",
+    "type": "zone",
+    "x0": 4.0,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 0,
+    "label": "luminous rain ceiling",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   },
+   {
+    "id": "w_front",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 2.15,
+    "h": 4.2,
+    "label": "mirrored chamber wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_back",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 9.85,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "mirrored chamber wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_left",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 2.0,
+    "x1": 4.15,
+    "y1": 5.4,
+    "h": 4.2,
+    "label": "mirrored chamber wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_left2",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 7.2,
+    "x1": 4.15,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "mirrored chamber wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_right",
+    "type": "block",
+    "x0": 14.85,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 6.8,
+    "h": 4.2,
+    "label": "mirrored chamber wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_right2",
+    "type": "block",
+    "x0": 14.85,
+    "y0": 8.6,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "mirrored chamber wall",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "mono_a",
+    "type": "island",
+    "x0": 5.5,
+    "y0": 3.4,
+    "x1": 7.3,
+    "y1": 5.0,
+    "h": 1.2,
+    "label": "monolith one",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "black_stone",
+    "cloth": "#e7b7b5"
+   },
+   {
+    "id": "mono_b",
+    "type": "island",
+    "x0": 9.0,
+    "y0": 6.4,
+    "x1": 11.6,
+    "y1": 8.0,
+    "h": 0.9,
+    "label": "monolith one",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "black_stone",
+    "cloth": "#1b1b1b"
+   },
+   {
+    "id": "mono_c",
+    "type": "island",
+    "x0": 12.4,
+    "y0": 3.0,
+    "x1": 14.0,
+    "y1": 5.6,
+    "h": 1.4,
+    "label": "monolith one",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "black_stone",
+    "cloth": "#c9c3b6"
+   },
+   {
+    "id": "pierce_l",
+    "type": "block",
+    "x0": 3.1,
+    "y0": 5.5,
+    "x1": 4.9,
+    "y1": 6.3,
+    "h": 3.2,
+    "label": "piercing block two",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "pierce_r",
+    "type": "block",
+    "x0": 14.2,
+    "y0": 7.7,
+    "x1": 16.4,
+    "y1": 8.5,
+    "h": 3.8,
+    "label": "piercing block two",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "fit",
+    "type": "room",
+    "x0": 15.5,
+    "y0": 10.0,
+    "x1": 18.0,
+    "y1": 12.0,
+    "h": 2.6,
+    "label": "dark fitting cube",
+    "zone": "",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 1.0,
+    "y0": 10.8,
+    "x1": 4.0,
+    "y1": 11.6,
+    "h": 1.0,
+    "label": "subtle pay desk",
+    "zone": "pay",
+    "shape": "box",
+    "material": "concrete"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      2.0,
+      0.4
+     ],
+     [
+      2.0,
+      6.75
+     ],
+     [
+      5.2,
+      6.75
+     ],
+     [
+      8.0,
+      5.6
+     ],
+     [
+      10.3,
+      5.2
+     ],
+     [
+      13.2,
+      6.2
+     ],
+     [
+      13.6,
+      8.9
+     ],
+     [
+      9.0,
+      9.1
+     ],
+     [
+      5.4,
+      8.4
+     ],
+     [
+      4.4,
+      6.75
+     ],
+     [
+      2.4,
+      7.0
+     ],
+     [
+      2.5,
+      10.4
+     ]
+    ],
+    "color": "#0a0a0a"
+   }
+  ],
+  "entry": [
+   2.0,
+   0.0
+  ],
+  "exit": [
+   2.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    2.0,
+    4.6
+   ],
+   "look": [
+    4.0,
+    1.7,
+    5.9
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I reach the heavy obsidian block, feeling the weight of the rainy world against",
+   "sub": "The transition from the street rain begins here."
+  },
+  {
+   "at": [
+    6.2,
+    6.3
+   ],
+   "look": [
+    9.6,
+    1.6,
+    9.95
+   ],
+   "h": 1.62,
+   "d": 3.2,
+   "cap": "I stand before the mirror, feeling the walls of the room multiply into a vast",
+   "sub": "Sound and motion fade into the reflections."
+  },
+  {
+   "at": [
+    10.3,
+    5.2
+   ],
+   "look": [
+    10.3,
+    0.95,
+    7.2
+   ],
+   "h": 1.3,
+   "d": 3.0,
+   "cap": "Touching the cold, smooth monolith, I focus on the delicate product resting",
+   "sub": "The only light illuminates the essence of the design."
+  }
+ ]
+}

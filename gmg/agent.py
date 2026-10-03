@@ -165,7 +165,7 @@ def offer_story(job, facts, hero):
     return {"tool": "gm_story", "args": {"job": job, "title": f"<= {LIMIT['title']} chars", "subtitle": f"<= {LIMIT['subtitle']} chars",
                                          "line": "one sentence", "synopsis": f"3-5 sentences, second person (you), mentions the {hero}",
                                          "keywords": "3 different words or short phrases", "quote": "the philosophy in one line",
-                                         "why": f"{len(facts)} sentences, one per fact, in order: what that fact does for the visitor"},
+                                         "why": f"{len(facts)} items, one per fact, in order: {{t: a 2-6 word headline, d: one sentence on what that fact does for the visitor}}"},
             "facts": facts, "why": "write the story in English"}
 
 
@@ -264,7 +264,7 @@ def _mats(room, cast):
         if m not in order:
             order.append(m)
             use[m] = ["details"]
-    return [{"preset": m, "where": ", ".join(dict.fromkeys(use[m]))[:60]} for m in order[:4]]
+    return [{"preset": m, "where": cut(", ".join(dict.fromkeys(use[m])), 60)[0]} for m in order[:4]]
 
 
 def gm_cast(job: str, roles, room) -> dict:
@@ -351,7 +351,9 @@ def gm_story(job, title, subtitle, line, synopsis, keywords, quote, why) -> dict
     probs += [p for k in keywords for p in _text_checks(k, "a keyword")]
     if len(why) != len(c["facts"]):
         probs.append(f"why has {len(why)} sentences; give {len(c['facts'])}, one per fact, in order")
-    probs += [p for i, w in enumerate(why) for p in _text_checks(w, f"why[{i + 1}]")]
+    # each why is {t: a 2-6 word headline, d: one sentence}; a bare sentence is accepted and its headline left to fix
+    why = [w if isinstance(w, dict) else {"t": "", "d": str(w)} for w in why]
+    probs += [p for i, w in enumerate(why) for p in _text_checks(w.get("d"), f"why[{i + 1}].d") + _text_checks(w.get("t"), f"why[{i + 1}].t")]
     if probs:
         L.log("REJECT", step="story", problems=probs)
         raise ToolError(probs, [offer_story(job, c["facts"], hero)])
@@ -364,10 +366,9 @@ def gm_story(job, title, subtitle, line, synopsis, keywords, quote, why) -> dict
     out["keywords"] = [cut(k, LIMIT["keyword"])[0] for k in keywords]
     out["why"] = []
     for i, w in enumerate(why):
-        m, was = cut(w, LIMIT["why"])
+        m, was = cut(w["d"], LIMIT["why"])
         cutn += [f"why[{i + 1}]"] if was else []
-        t = cut(re.split(r"[.;:—-]", m)[0], 48)[0]
-        out["why"].append({"t": t, "d": f"{c['facts'][i]} {m}"})
+        out["why"].append({"t": cut(w["t"], 48)[0], "d": f"{c['facts'][i]} {m}"})
     args = {"title": title, "subtitle": subtitle, "line": line, "synopsis": synopsis, "keywords": keywords, "quote": quote, "why": why}
     if not _same(L, "story", args):
         if cutn:

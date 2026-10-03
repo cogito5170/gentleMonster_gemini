@@ -47,7 +47,8 @@ def tools() -> list:
          "inputSchema": {"type": "object", "required": ["job", "title", "subtitle", "line", "synopsis", "keywords", "quote", "why"], "properties": {
              "job": JOB, "title": _s("short title"), "subtitle": _s("one short line"), "line": _s("one sentence"),
              "synopsis": _s("3-5 sentences, second person (you)"), "keywords": {"type": "array", "items": _s("keyword"), "description": "3 different"},
-             "quote": _s("the philosophy in one line"), "why": {"type": "array", "items": _s("one sentence"), "description": "one per fact, in order"}}}},
+             "quote": _s("the philosophy in one line"), "why": {"type": "array", "description": "one per fact, in order", "items": {"type": "object", "required": ["t", "d"], "properties": {
+                 "t": _s("2-6 word headline"), "d": _s("one sentence: what the fact does for the visitor")}}}}}},
         {"name": "gm_finish", "description": "Colours, material names and the 3 walkthrough captions; then code checks and draws the job.",
          "inputSchema": {"type": "object", "required": ["job", "palette", "accent", "material_names", "stops"], "properties": {
              "job": JOB,

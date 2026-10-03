@@ -1,80 +1,80 @@
 {
  "brand": "Tamburins",
- "title": "Salt Desert Silence",
- "subtitle": "A Tamburins oasis in the heart of Busan.",
- "line": "Step into the silent, white expanse where the memory of a salt desert breathes life into scent.",
- "quote": "In the white quiet, fragrance is the only thing that speaks.",
- "synopsis": "You walk along the glossy path, crossing a field of infinite white. Before you stands the salt crystal monolith, an abstract beacon in the desert. As you wander among the scent-filled plinths, you discover fragrances hidden in the monochromatic landscape. Finally, you reach the minimal transaction block, where the silence remains unbroken.",
+ "title": "Salt & Silence: Tamburins Busan",
+ "subtitle": "A serene fragrance sanctuary inspired by the Busan salt desert.",
+ "line": "Step into a void where the scent is a whisper found only in the presence of crystal.",
+ "quote": "In the stillness of the salt, discovery is a delicate intimacy.",
+ "synopsis": "Upon entering the space, you are welcomed by an ethereal path that draws you toward the Crystalline fragrance sculpture glowing in the light. As you navigate the vast, shimmering expanse, the silence of the salt desert envelops you, grounding your senses. You wander between the hidden scent plinths, slowly unveiling the fragrances that remain quiet until your intimate approach. Finally, you reach the minimalist pay counter at the back, your journey through the silence complete.",
  "keywords": [
-  "Stillness",
-  "Mirage",
-  "Salt-dusted"
+  "salt desert silence",
+  "revelatory fragrance",
+  "ethereal minimalism"
  ],
  "why": [
   {
-   "t": "The glossy path guides your feet, separating",
-   "d": "A floor strip (path through the desert) runs 4.7 m from the door toward the hero (salt crystal monolith). The glossy path guides your feet, separating the entry from the vast, open space."
+   "t": "The arrival path provides a soft, tactile",
+   "d": "A floor strip (Ethereal arrival path) runs 4.7 m from the door toward the hero (Crystalline fragrance sculpture). The arrival path provides a soft, tactile transition from the bustling city into the tranquil atmosphere of the desert."
   },
   {
-   "t": "The towering monolith commands the room",
-   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The towering monolith commands the room, drawing your eyes across the emptiness."
+   "t": "The imposing height of the fragrance monolith",
+   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The imposing height of the fragrance monolith commands attention, anchoring the empty space and drawing you forward."
   },
   {
-   "t": "Surrounding the monolith, the subtle plinths",
-   "d": "Four product stations (hidden scent plinths) ring it loosely, 0.4 m from the route at the closest. Surrounding the monolith, the subtle plinths require you to lean in to discover their hidden scents."
+   "t": "The scattered placement of the product stations",
+   "d": "Four product stations (Hidden scent plinths) ring it loosely, 0.4 m from the route at the closest. The scattered placement of the product stations creates a sense of discovery, ensuring each scent is an intentional, personal encounter."
   },
   {
-   "t": "The low",
-   "d": "The pay counter (minimal transaction block) sits at the back right, where the route ends. The low-profile counter at the back completes your journey without disrupting the minimalist horizon."
+   "t": "The secluded pay station ensures the final",
+   "d": "The pay counter (Minimal service monolith) sits at the back right, where the route ends. The secluded pay station ensures the final interaction remains as quiet and composed as the beginning of your experience."
   }
  ],
  "palette": [
   {
-   "hex": "#ffffff",
+   "hex": "#f0ead6",
    "name": "Salt White"
   },
   {
    "hex": "#d1d1d1",
-   "name": "Silver Mist"
+   "name": "Cool Mist"
   },
   {
-   "hex": "#a0a0a0",
-   "name": "Cool Grey"
+   "hex": "#bdb76b",
+   "name": "Desert Ochre"
   },
   {
-   "hex": "#6e6e6e",
-   "name": "Basalt Shade"
+   "hex": "#ffffff",
+   "name": "Pristine White"
   },
   {
-   "hex": "#333333",
-   "name": "Charcoal Depth"
+   "hex": "#a9a9a9",
+   "name": "Distant Horizon"
   }
  ],
- "accent": "#ffffff",
+ "accent": "#bdb76b",
  "materials": [
   {
-   "name": "Matte Mineral Plaster",
-   "where": "floor, walls, ceiling, salt crystal monolith, hidden scent p",
+   "name": "Alabaster Lime Plaster",
+   "where": "walls, ceiling",
    "preset": "mineral_white"
   },
   {
-   "name": "High-Gloss White Resin",
-   "where": "path through the desert",
+   "name": "Reflective White Resin",
+   "where": "floor",
    "preset": "white_gloss"
   },
   {
-   "name": "Raw Grey Concrete",
-   "where": "details",
-   "preset": "concrete"
+   "name": "Pressed Terracotta Clay",
+   "where": "ethereal arrival path",
+   "preset": "strata_clay"
   },
   {
-   "name": "Brushed Stainless Steel",
-   "where": "details",
-   "preset": "steel"
+   "name": "Frosted Iridescent Glass",
+   "where": "crystalline fragrance sculpture",
+   "preset": "glass"
   }
  ],
  "room": {
-  "floor": "mineral_white",
+  "floor": "white_gloss",
   "wall": "mineral_white",
   "ceiling": "mineral_white",
   "light": "white_gallery",
@@ -82,7 +82,7 @@
   "beams": false
  },
  "layout": {
-  "name": "Salt Desert Silence — Tamburins",
+  "name": "Salt & Silence: Tamburins Busan — Tamburins",
   "W": 16.0,
   "D": 12.0,
   "H": 5,
@@ -108,7 +108,7 @@
     "x1": 15.0,
     "y1": 10.0,
     "h": 0,
-    "label": "salt flat open zone",
+    "label": "The expansive salt desert field",
     "zone": "exp",
     "shape": "zone"
    },
@@ -120,10 +120,10 @@
     "x1": 9.5,
     "y1": 5.0,
     "h": 0,
-    "label": "path through the desert",
+    "label": "Ethereal arrival path",
     "zone": "exp",
     "shape": "floor_patch",
-    "material": "white_gloss"
+    "material": "strata_clay"
    },
    {
     "id": "horse",
@@ -133,10 +133,10 @@
     "x1": 9.5,
     "y1": 7.4,
     "h": 3.5,
-    "label": "salt crystal monolith",
+    "label": "Crystalline fragrance sculpture",
     "zone": "exp",
     "shape": "rock",
-    "material": "mineral_white",
+    "material": "glass",
     "hero": true
    },
    {
@@ -147,10 +147,10 @@
     "x1": 3.6,
     "y1": 7.2,
     "h": 1.8,
-    "label": "hidden scent plinths",
+    "label": "Hidden scent plinths",
     "zone": "sale",
     "shape": "display",
-    "material": "mineral_white"
+    "material": "concrete"
    },
    {
     "id": "candle1",
@@ -160,10 +160,10 @@
     "x1": 14.0,
     "y1": 7.2,
     "h": 1.8,
-    "label": "hidden scent plinths",
+    "label": "Hidden scent plinths",
     "zone": "sale",
     "shape": "display",
-    "material": "mineral_white"
+    "material": "concrete"
    },
    {
     "id": "candle2",
@@ -173,10 +173,10 @@
     "x1": 5.0,
     "y1": 10.2,
     "h": 1.8,
-    "label": "hidden scent plinths",
+    "label": "Hidden scent plinths",
     "zone": "sale",
     "shape": "display",
-    "material": "mineral_white"
+    "material": "concrete"
    },
    {
     "id": "candle3",
@@ -186,10 +186,10 @@
     "x1": 12.6,
     "y1": 10.2,
     "h": 1.8,
-    "label": "hidden scent plinths",
+    "label": "Hidden scent plinths",
     "zone": "sale",
     "shape": "display",
-    "material": "mineral_white"
+    "material": "concrete"
    },
    {
     "id": "pay",
@@ -199,10 +199,10 @@
     "x1": 15.0,
     "y1": 11.6,
     "h": 1.0,
-    "label": "minimal transaction block",
+    "label": "Minimal service monolith",
     "zone": "pay",
     "shape": "box",
-    "material": "mineral_white"
+    "material": "lime_plaster"
    },
    {
     "id": "boh",
@@ -262,7 +262,7 @@
       10.3
      ]
     ],
-    "color": "#ffffff"
+    "color": "#bdb76b"
    }
   ],
   "entry": [
@@ -287,8 +287,8 @@
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I step onto the polished path, feeling the transition from the bustling city to",
-   "sub": "The air is still, and the world outside fades away."
+   "cap": "I stand at the threshold where the ground shifts from city concrete to soft",
+   "sub": "The journey into the silence begins underfoot."
   },
   {
    "at": [
@@ -302,8 +302,8 @@
    ],
    "h": 1.62,
    "d": 3.0,
-   "cap": "I stand before the monolith, its crystalline edges catching the soft light like",
-   "sub": "It is the silent guardian of this desert, anchoring the open space."
+   "cap": "Before me rises the sculpture, casting an ethereal, fractured light across the",
+   "sub": "The presence of the fragrance is felt before it is known."
   },
   {
    "at": [
@@ -317,8 +317,8 @@
    ],
    "h": 1.15,
    "d": 3.4,
-   "cap": "I lean toward the plinth, discovering a scent that seems to rise from the very",
-   "sub": "A hidden trail of fragrance reveals itself as I wander through the calm."
+   "cap": "I lean in close, and only now do the delicate notes emerge from the concrete",
+   "sub": "Intimacy unlocks the scent in the heart of the desert."
   }
  ]
 }

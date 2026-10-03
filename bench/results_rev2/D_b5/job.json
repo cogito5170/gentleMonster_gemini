@@ -1,76 +1,76 @@
 {
  "brand": "Gentle Monster",
- "title": "Orbital Docking Hangar",
- "subtitle": "A docking sequence in deep orbital space.",
- "line": "Experience the suspended silence of an orbital station where gravity is merely a suggestion.",
- "quote": "A docked moment suspended in the celestial expanse.",
- "synopsis": "You enter through the gravity bulkhead, stepping into the weightless silence of the hangar. Before you stands the monolithic gravity engine, a monumental anchor point around which your movement naturally drifts. You observe the eyewear containment pods as if they were delicate artifacts floating in the void. As you complete your journey, you finalize your mission at the command terminal.",
+ "title": "Orbital Hangar 01",
+ "subtitle": "A zero-gravity docking experience.",
+ "line": "You drift through the station's hangar, where eyewear suspended in zero gravity becomes a celestial encounter.",
+ "quote": "Weightlessness is the ultimate luxury of form.",
+ "synopsis": "You enter through the decontamination veil and find yourself floating in the sterile expanse of the hangar. Before you, the zero gravity monolith commands the central void, suspending eyewear in an artificial vacuum. You move around the perimeter like a craft docking to a station, your focus captured by the precision of the display pods. As you reach the back, your journey concludes at the console, completing your orbital alignment.",
  "keywords": [
-  "zero-gravity hangar",
-  "interstellar docking",
-  "orbital stillness"
+  "orbital silence",
+  "weightless precision",
+  "industrial docking"
  ],
  "why": [
   {
-   "t": "The gravity anchor points and bulkhead screen",
-   "d": "A pair of threshold objects (gravity anchor point) stands 1.0-3.0 m inside the door, with a hanging screen (gravity bulkhead curtain) between them; the route slips through a 1.9 m gap. The gravity anchor points and bulkhead screen act as a decompression transition, forcing you to slow your pace as you enter the station."
+   "t": "The metallic pylons and light",
+   "d": "A pair of threshold objects (Steel joint (kinetic)) stands 1.0-3.0 m inside the door, with a hanging screen (decontamination veil) between them; the route slips through a 1.9 m gap. The metallic pylons and light-filtered threshold prepare you for the transition from gravity to a weightless environment."
   },
   {
-   "t": "The monolithic gravity engine serves as the",
-   "d": "The hero (monolithic gravity engine) stands alone in an empty 8 x 7 m area (zero gravity void zone); the route circles it and never comes closer than 3.3 m. The monolithic gravity engine serves as the visual gravitational center of the store, dictating a slow, meditative path around the space."
+   "t": "The central monolith acts as a gravitational",
+   "d": "The hero (zero gravity monolith) stands alone in an empty 8 x 7 m area (the central void); the route circles it and never comes closer than 3.3 m. The central monolith acts as a gravitational anchor, forcing you to orbit the core of the space."
   },
   {
-   "t": "The eyewear containment pods are placed at the",
-   "d": "Four product stations (eyewear containment pods) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The eyewear containment pods are placed at the periphery to ensure that viewing the hero and browsing the product are two distinct, contemplative acts."
+   "t": "The outer stations provide a sense of grounded",
+   "d": "Four product stations (eyewear display pods) sit at the outer corners, outside the loop, so you turn away from the hero to reach them. The outer stations provide a sense of grounded functionality, contrasting with the ethereal central display."
   },
   {
-   "t": "The mission control terminal marks the physical",
-   "d": "The pay desk (mission control terminal) closes the loop at the back wall. The mission control terminal marks the physical conclusion of your dock, grounding your experience before you exit the hangar."
+   "t": "The console at the back provides a final",
+   "d": "The pay desk (docking station console) closes the loop at the back wall. The console at the back provides a final anchor, grounding the experience before you leave the station."
   }
  ],
  "palette": [
   {
-   "hex": "#c0c0c0",
-   "name": "Silver Orbit"
-  },
-  {
-   "hex": "#2f4f4f",
-   "name": "Hangar Shadow"
-  },
-  {
    "hex": "#e0e0e0",
-   "name": "Lunar Dust"
+   "name": "Station Silver"
+  },
+  {
+   "hex": "#303030",
+   "name": "Carbon Black"
+  },
+  {
+   "hex": "#b0c4de",
+   "name": "Cold Nebula Blue"
+  },
+  {
+   "hex": "#ffffff",
+   "name": "Sterile White"
   },
   {
    "hex": "#a9a9a9",
-   "name": "Nebula Grey"
-  },
-  {
-   "hex": "#000000",
-   "name": "Void Black"
+   "name": "Lunar Grey"
   }
  ],
- "accent": "#c0c0c0",
+ "accent": "#303030",
  "materials": [
   {
-   "name": "Brushed Aircraft Aluminium",
-   "where": "walls, ceiling, monolithic gravity engine, drifting debris n",
+   "name": "Brushed Orbital Aluminium",
+   "where": "walls, ceiling, eyewear display pods, docking station consol",
    "preset": "aluminium"
   },
   {
-   "name": "Satin Industrial Steel",
-   "where": "gravity bulkhead curtain, mission control terminal",
+   "name": "Industrial Matte Steel",
+   "where": "steel joint (kinetic), zero gravity monolith",
    "preset": "steel"
   },
   {
-   "name": "Cold Polished Concrete",
-   "where": "floor",
-   "preset": "polished_concrete"
+   "name": "Ethereal Diffusion Fabric",
+   "where": "decontamination veil, luminous orbit zone",
+   "preset": "textile_light"
   },
   {
-   "name": "Raw Structural Concrete",
-   "where": "gravity anchor point",
-   "preset": "concrete"
+   "name": "Sterile Polished Concrete",
+   "where": "floor",
+   "preset": "polished_concrete"
   }
  ],
  "room": {
@@ -82,7 +82,7 @@
   "beams": false
  },
  "layout": {
-  "name": "Orbital Docking Hangar — Gentle Monster",
+  "name": "Orbital Hangar 01 — Gentle Monster",
   "W": 20.0,
   "D": 16.0,
   "H": 6,
@@ -125,10 +125,10 @@
     "x1": 7.5,
     "y1": 3.0,
     "h": 5,
-    "label": "gravity anchor point",
+    "label": "Steel joint (kinetic)",
     "zone": "exp",
     "shape": "joint_column",
-    "material": "concrete"
+    "material": "steel"
    },
    {
     "id": "joint_r",
@@ -138,10 +138,10 @@
     "x1": 13.5,
     "y1": 3.0,
     "h": 5,
-    "label": "gravity anchor point",
+    "label": "Steel joint (kinetic)",
     "zone": "exp",
     "shape": "joint_column",
-    "material": "concrete"
+    "material": "steel"
    },
    {
     "id": "wire_l",
@@ -151,10 +151,10 @@
     "x1": 9.35,
     "y1": 2.4,
     "h": 4.5,
-    "label": "gravity bulkhead curtain",
+    "label": "decontamination veil",
     "zone": "exp",
     "shape": "cable_curtain",
-    "material": "steel"
+    "material": "textile_light"
    },
    {
     "id": "wire_r",
@@ -164,10 +164,10 @@
     "x1": 12.8,
     "y1": 2.4,
     "h": 4.5,
-    "label": "gravity bulkhead curtain",
+    "label": "decontamination veil",
     "zone": "exp",
     "shape": "cable_curtain",
-    "material": "steel"
+    "material": "textile_light"
    },
    {
     "id": "void",
@@ -177,7 +177,7 @@
     "x1": 14.0,
     "y1": 12.0,
     "h": 0,
-    "label": "zero gravity void zone",
+    "label": "the central void",
     "zone": "exp",
     "shape": "zone"
    },
@@ -189,10 +189,10 @@
     "x1": 11.0,
     "y1": 9.5,
     "h": 3.2,
-    "label": "monolithic gravity engine",
+    "label": "zero gravity monolith",
     "zone": "exp",
     "shape": "box",
-    "material": "aluminium",
+    "material": "steel",
     "hero": true
    },
    {
@@ -203,10 +203,10 @@
     "x1": 6.9,
     "y1": 5.9,
     "h": 4.2,
-    "label": "drifting debris nodes",
+    "label": "floating debris pillars",
     "zone": "exp",
-    "shape": "rock",
-    "material": "aluminium"
+    "shape": "joint_column",
+    "material": "glass"
    },
    {
     "id": "tree1",
@@ -216,10 +216,10 @@
     "x1": 13.7,
     "y1": 5.9,
     "h": 4.2,
-    "label": "drifting debris nodes",
+    "label": "floating debris pillars",
     "zone": "exp",
-    "shape": "rock",
-    "material": "aluminium"
+    "shape": "joint_column",
+    "material": "glass"
    },
    {
     "id": "tree2",
@@ -229,10 +229,10 @@
     "x1": 6.9,
     "y1": 11.7,
     "h": 4.2,
-    "label": "drifting debris nodes",
+    "label": "floating debris pillars",
     "zone": "exp",
-    "shape": "rock",
-    "material": "aluminium"
+    "shape": "joint_column",
+    "material": "glass"
    },
    {
     "id": "tree3",
@@ -242,10 +242,10 @@
     "x1": 13.7,
     "y1": 11.7,
     "h": 4.2,
-    "label": "drifting debris nodes",
+    "label": "floating debris pillars",
     "zone": "exp",
-    "shape": "rock",
-    "material": "aluminium"
+    "shape": "joint_column",
+    "material": "glass"
    },
    {
     "id": "tree4",
@@ -255,10 +255,10 @@
     "x1": 5.6,
     "y1": 8.8,
     "h": 4.2,
-    "label": "drifting debris nodes",
+    "label": "floating debris pillars",
     "zone": "exp",
-    "shape": "rock",
-    "material": "aluminium"
+    "shape": "joint_column",
+    "material": "glass"
    },
    {
     "id": "tree5",
@@ -268,10 +268,10 @@
     "x1": 15.0,
     "y1": 8.8,
     "h": 4.2,
-    "label": "drifting debris nodes",
+    "label": "floating debris pillars",
     "zone": "exp",
-    "shape": "rock",
-    "material": "aluminium"
+    "shape": "joint_column",
+    "material": "glass"
    },
    {
     "id": "st0",
@@ -281,10 +281,10 @@
     "x1": 3.6,
     "y1": 6.4,
     "h": 1.0,
-    "label": "eyewear containment pods",
+    "label": "eyewear display pods",
     "zone": "sale",
     "shape": "display",
-    "material": "glass"
+    "material": "aluminium"
    },
    {
     "id": "st1",
@@ -294,10 +294,10 @@
     "x1": 3.6,
     "y1": 11.4,
     "h": 1.0,
-    "label": "eyewear containment pods",
+    "label": "eyewear display pods",
     "zone": "sale",
     "shape": "display",
-    "material": "glass"
+    "material": "aluminium"
    },
    {
     "id": "st2",
@@ -307,10 +307,10 @@
     "x1": 17.8,
     "y1": 6.4,
     "h": 1.0,
-    "label": "eyewear containment pods",
+    "label": "eyewear display pods",
     "zone": "sale",
     "shape": "display",
-    "material": "glass"
+    "material": "aluminium"
    },
    {
     "id": "st3",
@@ -320,10 +320,10 @@
     "x1": 17.8,
     "y1": 11.4,
     "h": 1.0,
-    "label": "eyewear containment pods",
+    "label": "eyewear display pods",
     "zone": "sale",
     "shape": "display",
-    "material": "glass"
+    "material": "aluminium"
    },
    {
     "id": "pay",
@@ -333,10 +333,10 @@
     "x1": 12.0,
     "y1": 14.4,
     "h": 1.0,
-    "label": "mission control terminal",
+    "label": "docking station console",
     "zone": "pay",
     "shape": "box",
-    "material": "steel"
+    "material": "aluminium"
    },
    {
     "id": "mirror",
@@ -346,7 +346,7 @@
     "x1": 19.0,
     "y1": 15.4,
     "h": 1.8,
-    "label": "observation mirror station",
+    "label": "orbital observation mirror",
     "zone": "sale",
     "shape": "box",
     "material": "mirror_aluminium"
@@ -372,7 +372,7 @@
     "x1": 14.2,
     "y1": 12.4,
     "h": 4.6,
-    "label": "luminous nebula cloud",
+    "label": "luminous orbit zone",
     "zone": "exp",
     "shape": "light_ceiling",
     "material": "textile_light"
@@ -426,7 +426,7 @@
       0.5
      ]
     ],
-    "color": "#c0c0c0"
+    "color": "#303030"
    }
   ],
   "entry": [
@@ -451,8 +451,8 @@
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I step through the narrow gravity bulkhead into the vast, silent hangar.",
-   "sub": "The air here feels thin, heavy with the weight of interstellar stillness."
+   "cap": "I stand between the kinetic navigation pylons, breathing in the quiet metallic",
+   "sub": "The transition from gravity to orbit begins here."
   },
   {
    "at": [
@@ -466,8 +466,8 @@
    ],
    "h": 1.62,
    "d": 3.2,
-   "cap": "I hover at the edge of the void, drawn to the monolithic gravity engine.",
-   "sub": "It sits in total silence, an ancient artifact grounding this floating space."
+   "cap": "I drift to the edge of the void and gaze at the zero gravity monolith.",
+   "sub": "The sunglasses appear to float in a perfect, timeless vacuum."
   },
   {
    "at": [
@@ -481,8 +481,8 @@
    ],
    "h": 1.4,
    "d": 2.8,
-   "cap": "Turning away, I drift towards the containment pods to inspect the eyewear.",
-   "sub": "Each pair is suspended as if caught in a permanent moment of zero gravity."
+   "cap": "I turn away to explore the eyewear display pods, docking my attention onto the",
+   "sub": "Each pair is a relic from a distant, weightless world."
   }
  ]
 }

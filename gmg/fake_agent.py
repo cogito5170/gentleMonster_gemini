@@ -62,7 +62,7 @@ class FakeAgent:
                                  "line": "The rain stops at the door.",
                                  "synopsis": f"You come in out of the rain. You find the {hero} in the dark. You walk around it slowly.",
                                  "keywords": ["Threshold", "Held rain", "Silence"], "quote": "Inside, only the light is wet.",
-                                 "why": [f"It slows you down at step {i + 1}." for i in range(nf)]}, model)
+                                 "why": [{"t": f"Step {i + 1} slows you", "d": f"It slows you down at step {i + 1}."} for i in range(nf)]}, model)
         if t == "gm_finish":
             return self.call(t, {"job": job, "palette": [{"hex": h, "name": n} for h, n in (("#121417", "Night stone"), ("#3a4148", "Wet concrete"),
                                                                                          ("#8d989f", "Steel rain"), ("#d8dde0", "Glow"), ("#c4422d", "Tail light"))],

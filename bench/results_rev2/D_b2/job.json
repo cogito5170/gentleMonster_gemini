@@ -1,88 +1,88 @@
 {
  "brand": "Gentle Monster",
- "title": "The Dried Pool",
- "subtitle": "A 1970s pool reclaimed by shimmering light.",
- "line": "In a world where water has vanished, light pools on the floor like liquid.",
- "quote": "The absence of water reveals the clarity of sight.",
- "synopsis": "You step down into the silence of a drained 1970s pool, where the architecture itself breathes with the memory of water. As you walk across the polished concrete expanse, the air feels heavy with light, guiding you toward a towering vintage lifeguard chair sculpture. You explore the eyewear displayed upon floating glass blocks that seem to drift in the hollow space. Finally, you reach the tiled counter at the back, leaving the luminous void behind.",
+ "title": "The Dry Pool",
+ "subtitle": "An empty pool, a silent expanse, a new clarity.",
+ "line": "Step into the hollow silence of a pool reclaimed by light.",
+ "quote": "Water is absent, but the light still remembers the depth.",
+ "synopsis": "You descend the polished concrete stairs, entering a space where the air feels heavy with history. At the center stands a waterless porcelain basin, its surface catching the beams of refracted light that filter from above. As you navigate the perimeter, you find eyewear resting atop floating glass displays, echoing the quiet stillness of the basin. The journey ends at a weathered desk, leaving you within the pristine geometry of a memory.",
  "keywords": [
-  "evaporated ocean",
-  "suspended time",
-  "luminous void"
+  "refracted light",
+  "echoing silence",
+  "suspended time"
  ],
  "why": [
   {
-   "t": "The transition strip physically signals the",
-   "d": "A floor strip (sunlight shimmer transition strip) runs 4.7 m from the door toward the hero (vintage lifeguard chair sculpture). The transition strip physically signals the departure from the outside world into the surreal depth of the pool."
+   "t": "The floor path draws you downward into the",
+   "d": "A floor strip (descending pool ladder path) runs 4.7 m from the door toward the hero (waterless porcelain basin). The floor path draws you downward into the pool's hollow core."
   },
   {
-   "t": "The height of the lifeguard chair commands the",
-   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The height of the lifeguard chair commands the entire space, creating a focal point in the middle of the emptiness."
+   "t": "The central basin anchors the expansive, open",
+   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The central basin anchors the expansive, open room with its silent presence."
   },
   {
-   "t": "The stations provide a subtle, scattered",
-   "d": "Four product stations (floating eyewear display blocks) ring it loosely, 0.4 m from the route at the closest. The stations provide a subtle, scattered presence that forces you to navigate the void as you search for your eyewear."
+   "t": "These displays allow for intimate interaction",
+   "d": "Four product stations (floating glass eyewear displays) ring it loosely, 0.4 m from the route at the closest. These displays allow for intimate interaction with the collection while maintaining the pool's stark feel."
   },
   {
-   "t": "The counter marks the end of your descent",
-   "d": "The pay counter (tiled payment counter) sits at the back right, where the route ends. The counter marks the end of your descent, grounding your journey in a clean, functional finality."
+   "t": "The desk marks the transition from the dream",
+   "d": "The pay counter (sun-bleached payment desk) sits at the back right, where the route ends. The desk marks the transition from the dream back to the reality of the exit."
   }
  ],
  "palette": [
   {
-   "hex": "#f0eee9",
-   "name": "Bone White"
+   "hex": "#a5a9a7",
+   "name": "cool grey"
   },
   {
-   "hex": "#b4b4b4",
-   "name": "Pool Steel"
+   "hex": "#ebebeb",
+   "name": "bone white"
   },
   {
-   "hex": "#e6cf8b",
-   "name": "Sunlight Reflection"
+   "hex": "#b5d8e8",
+   "name": "refracted blue"
   },
   {
-   "hex": "#787878",
-   "name": "Drained Depth"
+   "hex": "#5c5c5c",
+   "name": "slate stone"
   },
   {
    "hex": "#ffffff",
-   "name": "Pure White"
+   "name": "pure light"
   }
  ],
- "accent": "#f0eee9",
+ "accent": "#b5d8e8",
  "materials": [
   {
-   "name": "aged chalk plaster",
-   "where": "walls, ceiling",
-   "preset": "lime_plaster"
-  },
-  {
-   "name": "wet-pour concrete",
-   "where": "floor",
+   "name": "polished concrete",
+   "where": "floor, descending pool ladder path",
    "preset": "polished_concrete"
   },
   {
-   "name": "distressed base layer",
-   "where": "sunlight shimmer transition strip",
+   "name": "raw cast concrete",
+   "where": "walls, ceiling",
    "preset": "concrete"
   },
   {
-   "name": "oxidized golden brass",
-   "where": "vintage lifeguard chair sculpture",
-   "preset": "brass"
+   "name": "white glazed porcelain",
+   "where": "waterless porcelain basin",
+   "preset": "white_gloss"
+  },
+  {
+   "name": "tempered clear glass",
+   "where": "floating glass eyewear displays",
+   "preset": "glass"
   }
  ],
  "room": {
   "floor": "polished_concrete",
-  "wall": "lime_plaster",
-  "ceiling": "lime_plaster",
+  "wall": "concrete",
+  "ceiling": "concrete",
   "light": "daylight",
   "fog": 0.02,
   "beams": false
  },
  "layout": {
-  "name": "The Dried Pool — Gentle Monster",
+  "name": "The Dry Pool — Gentle Monster",
   "W": 16.0,
   "D": 12.0,
   "H": 5,
@@ -108,7 +108,7 @@
     "x1": 15.0,
     "y1": 10.0,
     "h": 0,
-    "label": "drained pool floor area",
+    "label": "sunken tiled pool area",
     "zone": "exp",
     "shape": "zone"
    },
@@ -120,10 +120,10 @@
     "x1": 9.5,
     "y1": 5.0,
     "h": 0,
-    "label": "sunlight shimmer transition strip",
+    "label": "descending pool ladder path",
     "zone": "exp",
     "shape": "floor_patch",
-    "material": "concrete"
+    "material": "polished_concrete"
    },
    {
     "id": "horse",
@@ -133,10 +133,10 @@
     "x1": 9.5,
     "y1": 7.4,
     "h": 3.5,
-    "label": "vintage lifeguard chair sculpture",
+    "label": "waterless porcelain basin",
     "zone": "exp",
-    "shape": "box",
-    "material": "brass",
+    "shape": "basin",
+    "material": "white_gloss",
     "hero": true
    },
    {
@@ -147,7 +147,7 @@
     "x1": 3.6,
     "y1": 7.2,
     "h": 1.8,
-    "label": "floating eyewear display blocks",
+    "label": "floating glass eyewear displays",
     "zone": "sale",
     "shape": "display",
     "material": "glass"
@@ -160,7 +160,7 @@
     "x1": 14.0,
     "y1": 7.2,
     "h": 1.8,
-    "label": "floating eyewear display blocks",
+    "label": "floating glass eyewear displays",
     "zone": "sale",
     "shape": "display",
     "material": "glass"
@@ -173,7 +173,7 @@
     "x1": 5.0,
     "y1": 10.2,
     "h": 1.8,
-    "label": "floating eyewear display blocks",
+    "label": "floating glass eyewear displays",
     "zone": "sale",
     "shape": "display",
     "material": "glass"
@@ -186,7 +186,7 @@
     "x1": 12.6,
     "y1": 10.2,
     "h": 1.8,
-    "label": "floating eyewear display blocks",
+    "label": "floating glass eyewear displays",
     "zone": "sale",
     "shape": "display",
     "material": "glass"
@@ -199,10 +199,10 @@
     "x1": 15.0,
     "y1": 11.6,
     "h": 1.0,
-    "label": "tiled payment counter",
+    "label": "sun-bleached payment desk",
     "zone": "pay",
     "shape": "box",
-    "material": "white_gloss"
+    "material": "lime_plaster"
    },
    {
     "id": "boh",
@@ -262,7 +262,7 @@
       10.3
      ]
     ],
-    "color": "#f0eee9"
+    "color": "#b5d8e8"
    }
   ],
   "entry": [
@@ -287,8 +287,8 @@
    ],
    "h": 1.62,
    "d": 2.6,
-   "cap": "I step onto the threshold, where the floor begins to ripple with artificial",
-   "sub": "The transition from the world above to the depths below begins here."
+   "cap": "I stand at the threshold, the ground sloping downward into the vast, hollow",
+   "sub": "The descent feels like stepping back into a forgotten season."
   },
   {
    "at": [
@@ -302,8 +302,8 @@
    ],
    "h": 1.62,
    "d": 3.0,
-   "cap": "I stand beneath the towering, tarnished lifeguard chair.",
-   "sub": "The absence of water makes the silence feel profound and heavy."
+   "cap": "I walk up to the waterless porcelain basin, tracing the contours where water",
+   "sub": "The light fractures across its smooth, dry edge, mimicking the ripples of a memory."
   },
   {
    "at": [
@@ -317,8 +317,8 @@
    ],
    "h": 1.15,
    "d": 3.4,
-   "cap": "I lean in to examine the eyewear resting on the floating glass blocks.",
-   "sub": "Each pair is a relic suspended in the vast, empty basin."
+   "cap": "I lean into the glass display, where the eyewear floats in the suspended",
+   "sub": "Even in the absence of water, the clarity remains absolute."
   }
  ]
 }

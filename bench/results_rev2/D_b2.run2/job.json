@@ -1,0 +1,324 @@
+{
+ "brand": "Gentle Monster",
+ "title": "The Dried Pool",
+ "subtitle": "A 1970s pool reclaimed by shimmering light.",
+ "line": "In a world where water has vanished, light pools on the floor like liquid.",
+ "quote": "The absence of water reveals the clarity of sight.",
+ "synopsis": "You step down into the silence of a drained 1970s pool, where the architecture itself breathes with the memory of water. As you walk across the polished concrete expanse, the air feels heavy with light, guiding you toward a towering vintage lifeguard chair sculpture. You explore the eyewear displayed upon floating glass blocks that seem to drift in the hollow space. Finally, you reach the tiled counter at the back, leaving the luminous void behind.",
+ "keywords": [
+  "evaporated ocean",
+  "suspended time",
+  "luminous void"
+ ],
+ "why": [
+  {
+   "t": "The transition strip physically signals the",
+   "d": "A floor strip (sunlight shimmer transition strip) runs 4.7 m from the door toward the hero (vintage lifeguard chair sculpture). The transition strip physically signals the departure from the outside world into the surreal depth of the pool."
+  },
+  {
+   "t": "The height of the lifeguard chair commands the",
+   "d": "The hero stands alone 5.6 m inside the door, 3.5 m tall; nothing else rises above 1.8 m. The height of the lifeguard chair commands the entire space, creating a focal point in the middle of the emptiness."
+  },
+  {
+   "t": "The stations provide a subtle, scattered",
+   "d": "Four product stations (floating eyewear display blocks) ring it loosely, 0.4 m from the route at the closest. The stations provide a subtle, scattered presence that forces you to navigate the void as you search for your eyewear."
+  },
+  {
+   "t": "The counter marks the end of your descent",
+   "d": "The pay counter (tiled payment counter) sits at the back right, where the route ends. The counter marks the end of your descent, grounding your journey in a clean, functional finality."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#f0eee9",
+   "name": "Bone White"
+  },
+  {
+   "hex": "#b4b4b4",
+   "name": "Pool Steel"
+  },
+  {
+   "hex": "#e6cf8b",
+   "name": "Sunlight Reflection"
+  },
+  {
+   "hex": "#787878",
+   "name": "Drained Depth"
+  },
+  {
+   "hex": "#ffffff",
+   "name": "Pure White"
+  }
+ ],
+ "accent": "#f0eee9",
+ "materials": [
+  {
+   "name": "aged chalk plaster",
+   "where": "walls, ceiling",
+   "preset": "lime_plaster"
+  },
+  {
+   "name": "wet-pour concrete",
+   "where": "floor",
+   "preset": "polished_concrete"
+  },
+  {
+   "name": "distressed base layer",
+   "where": "sunlight shimmer transition strip",
+   "preset": "concrete"
+  },
+  {
+   "name": "oxidized golden brass",
+   "where": "vintage lifeguard chair sculpture",
+   "preset": "brass"
+  }
+ ],
+ "room": {
+  "floor": "polished_concrete",
+  "wall": "lime_plaster",
+  "ceiling": "lime_plaster",
+  "light": "daylight",
+  "fog": 0.02,
+  "beams": false
+ },
+ "layout": {
+  "name": "The Dried Pool — Gentle Monster",
+  "W": 16.0,
+  "D": 12.0,
+  "H": 5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 7.0,
+    "y0": -0.1,
+    "x1": 9.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "field",
+    "type": "zone",
+    "x0": 1.0,
+    "y0": 1.5,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 0,
+    "label": "drained pool floor area",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "floor",
+    "type": "zone",
+    "x0": 6.5,
+    "y0": 0.3,
+    "x1": 9.5,
+    "y1": 5.0,
+    "h": 0,
+    "label": "sunlight shimmer transition strip",
+    "zone": "exp",
+    "shape": "floor_patch",
+    "material": "concrete"
+   },
+   {
+    "id": "horse",
+    "type": "figure",
+    "x0": 6.5,
+    "y0": 5.6,
+    "x1": 9.5,
+    "y1": 7.4,
+    "h": 3.5,
+    "label": "vintage lifeguard chair sculpture",
+    "zone": "exp",
+    "shape": "box",
+    "material": "brass",
+    "hero": true
+   },
+   {
+    "id": "candle0",
+    "type": "island",
+    "x0": 2.0,
+    "y0": 5.8,
+    "x1": 3.6,
+    "y1": 7.2,
+    "h": 1.8,
+    "label": "floating eyewear display blocks",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "candle1",
+    "type": "island",
+    "x0": 12.4,
+    "y0": 5.8,
+    "x1": 14.0,
+    "y1": 7.2,
+    "h": 1.8,
+    "label": "floating eyewear display blocks",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "candle2",
+    "type": "island",
+    "x0": 3.4,
+    "y0": 8.8,
+    "x1": 5.0,
+    "y1": 10.2,
+    "h": 1.8,
+    "label": "floating eyewear display blocks",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "candle3",
+    "type": "island",
+    "x0": 11.0,
+    "y0": 8.8,
+    "x1": 12.6,
+    "y1": 10.2,
+    "h": 1.8,
+    "label": "floating eyewear display blocks",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 12.5,
+    "y0": 10.8,
+    "x1": 15.0,
+    "y1": 11.6,
+    "h": 1.0,
+    "label": "tiled payment counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "white_gloss"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 10.5,
+    "x1": 3.0,
+    "y1": 12.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "mineral_white"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      8.0,
+      0.4
+     ],
+     [
+      8.0,
+      4.8
+     ],
+     [
+      4.6,
+      5.6
+     ],
+     [
+      4.2,
+      7.6
+     ],
+     [
+      5.4,
+      8.4
+     ],
+     [
+      6.2,
+      10.6
+     ],
+     [
+      10.4,
+      10.6
+     ],
+     [
+      10.6,
+      8.2
+     ],
+     [
+      13.2,
+      7.6
+     ],
+     [
+      13.8,
+      10.3
+     ]
+    ],
+    "color": "#f0eee9"
+   }
+  ],
+  "entry": [
+   8.0,
+   0.0
+  ],
+  "exit": [
+   8.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    8.0,
+    1.4
+   ],
+   "look": [
+    8.0,
+    0.05,
+    3.2
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I step onto the threshold, where the floor begins to ripple with artificial",
+   "sub": "The transition from the world above to the depths below begins here."
+  },
+  {
+   "at": [
+    8.0,
+    3.3
+   ],
+   "look": [
+    8.0,
+    2.3,
+    6.5
+   ],
+   "h": 1.62,
+   "d": 3.0,
+   "cap": "I stand beneath the towering, tarnished lifeguard chair.",
+   "sub": "The absence of water makes the silence feel profound and heavy."
+  },
+  {
+   "at": [
+    4.2,
+    7.4
+   ],
+   "look": [
+    2.8,
+    0.75,
+    6.5
+   ],
+   "h": 1.15,
+   "d": 3.4,
+   "cap": "I lean in to examine the eyewear resting on the floating glass blocks.",
+   "sub": "Each pair is a relic suspended in the vast, empty basin."
+  }
+ ]
+}

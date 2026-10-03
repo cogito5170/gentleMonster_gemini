@@ -46,3 +46,11 @@ Harness defect found at the same time: runs shared job folders, so a failed run 
 Fix: gm_finish reverts a role whose shape broke the measured layout (REPAIR, said in the ledger); a NEEDS_REVIEW
 result carries `problems` and, for layout problems, offers gm_cast; each run writes to its own folder and only files the
 ledger recorded in that run are kept. All six briefs run again (run 3). Runs 1-2 stay reported.
+
+## Amendment after run 3 (written before run 4, the last run)
+Run 3: 6/6 DONE, brands and products right, 0 off-list, all answers honest. Reading the outputs showed one more
+code defect: the `why` headlines were cut by code from the agent's sentence (48 characters, split at hyphens), giving
+fragments ("The floor path draws you downward into the", "The glass"); material `where` lists were cut mid-word.
+Fix: gm_story's `why` items are {t: 2-6 word headline, d: one sentence} written by the agent (as rev 1 did);
+`where` is cut at a word boundary. All six run once more (run 4); **the code is frozen after run 4 whatever it shows**,
+and the blind pairs use run 4. Arm E (real Gemini CLI, b1) ran once on the run-3 code (`4b5d09c`) and is not repeated.

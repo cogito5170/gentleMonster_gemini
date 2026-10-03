@@ -1,0 +1,307 @@
+{
+ "brand": "Aesop",
+ "title": "The Archive of Scents",
+ "subtitle": "Aesop Jeju: Where literature ends and fragrance begins.",
+ "line": "A quiet sanctuary where the scent of aged paper lingers amidst volcanic stone.",
+ "quote": "An olfactory library carved from the breath of Jeju.",
+ "synopsis": "You step into a space that feels like a forgotten archive, where the walls are composed of dark Jeju stone. The central stone basin serves as the anchor, inviting you to perform a silent, ritualistic cleansing that cleanses the mind as well as the hands. As you follow the path, the warmth of the shelves replaces the cold stone, guiding you through a collection of scents that mirror the depth of a library. Each step here is a journey through memory and scent, sheltered from the world outside.",
+ "keywords": [
+  "archival silence",
+  "volcanic whispers",
+  "ritualistic cleansing"
+ ],
+ "why": [
+  {
+   "t": "The shelf walls define the boundaries of the",
+   "d": "Shelf walls (Shelves for fragrance bottles) wrap the left, right and back of the 12 x 10 m room. The shelf walls define the boundaries of the room, creating an immersive, book-like enclosure for the product."
+  },
+  {
+   "t": "The central stone basin acts as the primary",
+   "d": "The centre object (The central stone basin) is the first stop, 4.2 m in from the door. The central stone basin acts as the primary sensory focal point, grounding your visit in a moment of quiet reflection."
+  },
+  {
+   "t": "The circulation encourages a contemplative",
+   "d": "The route circles it first, then follows the shelves. The circulation encourages a contemplative pace, moving from the cleansing ritual to the discovery of the scents."
+  },
+  {
+   "t": "The counter at the back provides a final",
+   "d": "The counter (Service counter at the back) sits at the back, off the loop. The counter at the back provides a final, grounded point for interaction before you complete your journey."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#2e2e2e",
+   "name": "Basalt"
+  },
+  {
+   "hex": "#d2b48c",
+   "name": "Clay Earth"
+  },
+  {
+   "hex": "#f5f5f0",
+   "name": "Paper White"
+  },
+  {
+   "hex": "#8b4513",
+   "name": "Deep Oak"
+  },
+  {
+   "hex": "#b0c4de",
+   "name": "Soft Fog"
+  }
+ ],
+ "accent": "#2e2e2e",
+ "materials": [
+  {
+   "name": "Basalt Black Stone",
+   "where": "walls, the central stone basin, service counter at the back",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Earthy Strata Clay",
+   "where": "floor",
+   "preset": "strata_clay"
+  },
+  {
+   "name": "Soft Lime Plaster",
+   "where": "ceiling",
+   "preset": "lime_plaster"
+  },
+  {
+   "name": "Aged Library Oak",
+   "where": "shelves for fragrance bottles",
+   "preset": "wood"
+  }
+ ],
+ "room": {
+  "floor": "strata_clay",
+  "wall": "black_stone",
+  "ceiling": "lime_plaster",
+  "light": "warm_spot",
+  "fog": 0.02,
+  "beams": false,
+  "dome": true
+ },
+ "layout": {
+  "name": "The Archive of Scents — Aesop",
+  "W": 12.0,
+  "D": 10.0,
+  "H": 4.2,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 5.0,
+    "y0": -0.1,
+    "x1": 7.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "dome",
+    "type": "zone",
+    "x0": 2.0,
+    "y0": 1.5,
+    "x1": 10.0,
+    "y1": 8.2,
+    "h": 0,
+    "label": "The central library floor area",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0.0,
+    "y0": 1.5,
+    "x1": 0.6,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "Shelves for fragrance bottles",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "wb",
+    "type": "wall_shelf",
+    "x0": 0.6,
+    "y0": 9.4,
+    "x1": 11.4,
+    "y1": 10.0,
+    "h": 2.6,
+    "label": "Shelves for fragrance bottles",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 11.4,
+    "y0": 1.5,
+    "x1": 12.0,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "Shelves for fragrance bottles",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 5.0,
+    "y0": 4.2,
+    "x1": 7.0,
+    "y1": 5.8,
+    "h": 0.9,
+    "label": "The central stone basin",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "black_stone",
+    "hero": true
+   },
+   {
+    "id": "counter",
+    "type": "checkout",
+    "x0": 3.5,
+    "y0": 8.1,
+    "x1": 8.5,
+    "y1": 8.7,
+    "h": 1.0,
+    "label": "Service counter at the back",
+    "zone": "pay",
+    "shape": "box",
+    "material": "black_stone"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 9.6,
+    "y0": 7.8,
+    "x1": 11.4,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "strata_clay"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      6.0,
+      0.4
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      3.8,
+      5.0
+     ],
+     [
+      6.0,
+      7.0
+     ],
+     [
+      8.2,
+      5.0
+     ],
+     [
+      6.0,
+      3.2
+     ],
+     [
+      1.6,
+      4.0
+     ],
+     [
+      1.6,
+      7.3
+     ],
+     [
+      6.0,
+      7.3
+     ],
+     [
+      10.3,
+      7.3
+     ],
+     [
+      10.3,
+      3.0
+     ],
+     [
+      6.8,
+      0.4
+     ]
+    ],
+    "color": "#2e2e2e"
+   }
+  ],
+  "entry": [
+   6.0,
+   0.0
+  ],
+  "exit": [
+   6.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    6.0,
+    3.2
+   ],
+   "look": [
+    6.0,
+    0.88,
+    4.95
+   ],
+   "h": 1.38,
+   "d": 3.6,
+   "cap": "I stand before the silent basin, the heart of this stone sanctuary.",
+   "sub": "The water ripples against the dark, grounding volcanic rock."
+  },
+  {
+   "at": [
+    1.6,
+    5.8
+   ],
+   "look": [
+    0.6,
+    1.45,
+    5.8
+   ],
+   "h": 1.55,
+   "d": 2.8,
+   "cap": "I graze the wooden shelves, tracing scents like spines of books.",
+   "sub": "Fragrance replaces ink in this archive of Jeju memories."
+  },
+  {
+   "at": [
+    6.0,
+    7.3
+   ],
+   "look": [
+    6.0,
+    2.9,
+    3.6
+   ],
+   "h": 1.55,
+   "d": 2.4,
+   "cap": "I pause at the back, feeling the stillness of the library.",
+   "sub": "A quiet ritual completed in the shadow of the cooling light."
+  }
+ ]
+}

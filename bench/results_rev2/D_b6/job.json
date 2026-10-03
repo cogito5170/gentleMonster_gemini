@@ -1,81 +1,81 @@
 {
  "brand": "Gentle Monster",
- "title": "The Sauna's Breath",
- "subtitle": "A ritual of warmth in a frozen, hidden alley.",
- "line": "Enter a sanctuary where the biting winter cold melts into the embrace of wool and steam.",
- "quote": "To wear the knit is to wrap oneself in the quiet memory of a frozen forest.",
- "synopsis": "You step off the freezing street into an atmosphere heavy with the scent of pine and gentle steam. At the center of the narrow room, you find the steaming basin of ice, where liquid warmth rises in defiance of the frost. You circle this focal point, your fingers tracing the soft textures displayed on the surrounding plaster shelves, before finally reaching the wooden counter at the back to conclude your journey.",
+ "title": "The Sauna Knitwear Refuge",
+ "subtitle": "A ritual of warmth in the heart of a winter forest.",
+ "line": "A sanctuary of warmth where the biting winter air transforms into a ritual of soft wool and lingering steam.",
+ "quote": "Steaming, woven, and quiet: the luxury of a slow, winter breath.",
+ "synopsis": "You enter the boutique and are immediately wrapped in the scent of cedar and the soft, hazy atmosphere of a winter sauna. In the center, a steaming cedar wood heater acts as the anchor, casting a warm, amber glow across the space. As you navigate the perimeter, you discover the knitwear collection tucked into the shelves that line the walls, shrouded in a thin layer of condensation. Finally, you reach the counter at the back, where the process of selecting your garment feels like emerging from a deep, peaceful rest.",
  "keywords": [
-  "winter sauna",
-  "woolen warmth",
-  "steaming silence"
+  "winter forest sauna",
+  "thermal comfort",
+  "steaming cedar"
  ],
  "why": [
   {
-   "t": "The plaster shelves envelop you, providing a",
-   "d": "Shelf walls (knitwear display shelves) wrap the left, right and back of the 8 x 10 m room. The plaster shelves envelop you, providing a tactile experience of the winter-inspired knitwear collection."
+   "t": "The glass",
+   "d": "Shelf walls (steam-venting glass wall) wrap the left, right and back of the 8 x 10 m room. The glass-walled shelves provide a sensory barrier between the winter street and the cozy interior."
   },
   {
-   "t": "The steaming basin of ice acts as a sensory",
-   "d": "The centre object (steaming basin of ice) is the first stop, 4.2 m in from the door. The steaming basin of ice acts as a sensory anchor, pulling you into the center of the space."
+   "t": "The steaming cedar wood heater serves as the",
+   "d": "The centre object (steaming cedar wood heater) is the first stop, 4.2 m in from the door. The steaming cedar wood heater serves as the physical and emotional hearth of the space."
   },
   {
-   "t": "The circular flow encourages a meditative pace",
-   "d": "The route circles it first, then follows the shelves. The circular flow encourages a meditative pace, mimicking the quiet rhythm of a sauna."
+   "t": "The layout ensures you engage with the",
+   "d": "The route circles it first, then follows the shelves. The layout ensures you engage with the architecture before approaching the product."
   },
   {
-   "t": "The counter offers a grounding, intimate finale",
-   "d": "The counter (check-in counter) sits at the back, off the loop. The counter offers a grounding, intimate finale to your ritual of warmth."
+   "t": "The rear counter offers a private, concluding",
+   "d": "The counter (knitted collection display counter) sits at the back, off the loop. The rear counter offers a private, concluding moment for your transaction."
   }
  ],
  "palette": [
   {
-   "hex": "#4a3728",
-   "name": "Deep Wood"
+   "hex": "#7b5a40",
+   "name": "Deep Cedar"
   },
   {
-   "hex": "#d6d0c4",
-   "name": "Muted Plaster"
+   "hex": "#b8a99a",
+   "name": "Warm Beige"
   },
   {
-   "hex": "#ffb03b",
-   "name": "Warm Amber Glow"
+   "hex": "#d9e0e8",
+   "name": "Mist Grey"
   },
   {
-   "hex": "#8e8e8e",
-   "name": "Stone Grey"
+   "hex": "#f2f2f2",
+   "name": "Vapor White"
   },
   {
-   "hex": "#ffffff",
-   "name": "Steam White"
+   "hex": "#4a5a55",
+   "name": "Forest Moss"
   }
  ],
- "accent": "#ffb03b",
+ "accent": "#7b5a40",
  "materials": [
   {
-   "name": "Charred Cedarwood",
-   "where": "floor, ceiling, check-in counter",
+   "name": "Aromatic Cedarwood",
+   "where": "floor, walls, ceiling, steaming cedar wood heater, knitted c",
    "preset": "wood"
   },
   {
-   "name": "Rough-hewn Lime Plaster",
-   "where": "walls, knitwear display shelves",
-   "preset": "lime_plaster"
+   "name": "Frosted Steam Glass",
+   "where": "steam-venting glass wall",
+   "preset": "glass"
   },
   {
-   "name": "Translucent Amber Glass",
-   "where": "steaming basin of ice",
-   "preset": "amber_glass"
-  },
-  {
-   "name": "Polished Concrete Foundation",
+   "name": "Raw Concrete Base",
    "where": "details",
    "preset": "concrete"
+  },
+  {
+   "name": "Brushed Stainless Steel",
+   "where": "details",
+   "preset": "steel"
   }
  ],
  "room": {
   "floor": "wood",
-  "wall": "lime_plaster",
+  "wall": "wood",
   "ceiling": "wood",
   "light": "warm_spot",
   "fog": 0.045,
@@ -83,7 +83,7 @@
   "dome": true
  },
  "layout": {
-  "name": "The Sauna's Breath — Gentle Monster",
+  "name": "The Sauna Knitwear Refuge — Gentle Monster",
   "W": 8.0,
   "D": 10.0,
   "H": 4.2,
@@ -109,7 +109,7 @@
     "x1": 6.67,
     "y1": 8.2,
     "h": 0,
-    "label": "warm steam zone",
+    "label": "steam-filled relaxation zone",
     "zone": "exp",
     "shape": "zone"
    },
@@ -121,10 +121,10 @@
     "x1": 0.4,
     "y1": 9.4,
     "h": 2.6,
-    "label": "knitwear display shelves",
+    "label": "steam-venting glass wall",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "lime_plaster"
+    "material": "glass"
    },
    {
     "id": "wb",
@@ -134,10 +134,10 @@
     "x1": 7.604,
     "y1": 10.0,
     "h": 2.6,
-    "label": "knitwear display shelves",
+    "label": "steam-venting glass wall",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "lime_plaster"
+    "material": "glass"
    },
    {
     "id": "wr",
@@ -147,10 +147,10 @@
     "x1": 8.004,
     "y1": 9.4,
     "h": 2.6,
-    "label": "knitwear display shelves",
+    "label": "steam-venting glass wall",
     "zone": "sale",
     "shape": "shelf_wall",
-    "material": "lime_plaster"
+    "material": "glass"
    },
    {
     "id": "basin",
@@ -160,10 +160,10 @@
     "x1": 4.669,
     "y1": 5.8,
     "h": 0.9,
-    "label": "steaming basin of ice",
+    "label": "steaming cedar wood heater",
     "zone": "exp",
     "shape": "basin",
-    "material": "amber_glass",
+    "material": "wood",
     "hero": true
    },
    {
@@ -174,7 +174,7 @@
     "x1": 5.67,
     "y1": 8.7,
     "h": 1.0,
-    "label": "check-in counter",
+    "label": "knitted collection display counter",
     "zone": "pay",
     "shape": "box",
     "material": "wood"
@@ -245,7 +245,7 @@
       0.4
      ]
     ],
-    "color": "#ffb03b"
+    "color": "#7b5a40"
    }
   ],
   "entry": [
@@ -270,8 +270,8 @@
    ],
    "h": 1.38,
    "d": 3.6,
-   "cap": "I step into the warmth, my eyes caught by the ethereal shimmer of the amber",
-   "sub": "The air is thick with a gentle, inviting steam."
+   "cap": "I step inside and the heavy, warm air greets me instantly.",
+   "sub": "The central cedar heater glows, pulling the cold of the alley away."
   },
   {
    "at": [
@@ -285,8 +285,8 @@
    ],
    "h": 1.55,
    "d": 2.8,
-   "cap": "I reach out to touch the soft knits resting against the textured plaster walls.",
-   "sub": "The rough material contrasts beautifully with the delicate wool."
+   "cap": "I trace my hand along the glass, the surface cool and damp.",
+   "sub": "The knitwear rests behind the steam-kissed surface like a soft secret."
   },
   {
    "at": [
@@ -300,8 +300,8 @@
    ],
    "h": 1.55,
    "d": 2.4,
-   "cap": "I stand beneath the warm ceiling light, feeling the sanctuary of this hidden",
-   "sub": "A perfect moment of stillness before returning to the winter cold."
+   "cap": "I stand at the back, hearing only the soft hum of the heat.",
+   "sub": "The space settles into a quiet, misty stillness that feels timeless."
   }
  ]
 }

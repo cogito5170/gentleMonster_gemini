@@ -91,8 +91,11 @@ ok(bad["ok"] is False and len(bad["problems"]) >= 5 and bad["next"][0]["tool"] =
 long_title = "The Dry Threshold Where Rain Forgets To Fall Tonight"
 r = agent.call("gm_story", {"job": job, "title": long_title, "subtitle": "Where the rain is switched off", "line": "The rain stops at the door.",
                             "synopsis": "You come in out of the rain. A black pool waits in the dark. You circle it.", "keywords": ["Threshold", "Held rain", "Silence"],
-                            "quote": "Inside, only the light is wet.", "why": ["You slow down.", "It is the only motion.", "You turn to choose.", "It ends the walk."]})
+                            "quote": "Inside, only the light is wet.", "why": [{"t": "A dry gap", "d": "You slow down."}, {"t": "Only the pool moves", "d": "It is the only motion."},
+                                                                           {"t": "Turn to choose", "d": "You turn to choose."}, {"t": "The desk ends it", "d": "It ends the walk."}]})
 ok(r["ok"] and any("title" in n for n in r["notes"]), "an over-long title is cut by code (NORMALIZE), not sent back")
+jw = json.loads(json.dumps(Ledger(paths.job_dir(job)).run()))
+ok(next(e for e in reversed(jw) if e["kind"] == "DECISION" and e["step"] == "story")["output"]["why"][1]["t"] == "Only the pool moves", "why headlines are the agent's, not cut from the sentence")
 fin = {"job": job, "palette": [{"hex": h, "name": n} for h, n in (("#121417", "Night"), ("#3a4148", "Wet"), ("#8d989f", "Steel"), ("#d8dde0", "Glow"), ("#c4422d", "Tail"))],
        "accent": "5", "material_names": ["A", "B", "C", "D"], "stops": [{"cap": "I step in.", "sub": "Quiet."}, {"cap": "I see it.", "sub": "Still."}, {"cap": "The end.", "sub": "Done."}]}
 r = agent.call("gm_finish", fin)
@@ -108,7 +111,7 @@ ok(r["verdict"] == "DONE" and sum(1 for e in Ledger(paths.job_dir(job)).run() if
 agent.call("gm_plan", {"job": job, "plan": "field"})
 st = agent.verdict(job)["verdict"]
 full_story = {"job": job, "title": "T", "subtitle": "S", "line": "One line.", "synopsis": "You come in. You see the pool. You leave.",
-              "keywords": ["a", "b", "c"], "quote": "Q", "why": ["One.", "Two.", "Three.", "Four."]}
+              "keywords": ["a", "b", "c"], "quote": "Q", "why": [{"t": "One", "d": "One."}, {"t": "Two", "d": "Two."}, {"t": "Three", "d": "Three."}, {"t": "Four", "d": "Four."}]}
 rs = agent.call("gm_story", full_story)
 ok(st == "(reopened)" and rs["ok"] is False and rs["next"][0]["tool"] == "gm_cast", "re-deciding the plan reopens the job; a full story is refused until the new plan is cast")
 ex = agent.call("gm_explain", {"job": job})
@@ -122,7 +125,7 @@ cn = agent.call("gm_plan", {"job": jn, "plan": "ritual"})["next"][0]
 rl = [{"role": k, "shape": ("box" if k == "hero" else v["shape"][0]), "material": "wood", "label": "stone stove" if k == "hero" else f"{k} wall"} for k, v in cn["roles"].items()]
 agent.call("gm_cast", {"job": jn, "roles": rl, "room": {"floor": "wood", "wall": "wood", "ceiling": "wood", "light": "warm_spot", "fog": "light"}})
 agent.call("gm_story", {"job": jn, "title": "Steam Alley", "subtitle": "A sauna", "line": "Warm wood.", "synopsis": "You come in from the cold. A stone stove waits. You circle it.",
-                        "keywords": ["Warmth", "Steam", "Knit"], "quote": "Stay a while.", "why": ["One.", "Two.", "Three.", "Four."]})
+                        "keywords": ["Warmth", "Steam", "Knit"], "quote": "Stay a while.", "why": [{"t": "Warm walls", "d": "One."}, {"t": "The stove", "d": "Two."}, {"t": "The loop", "d": "Three."}, {"t": "The counter", "d": "Four."}]})
 fin2 = dict(fin, job=jn)
 rv = agent.call("gm_finish", fin2)
 evs = Ledger(paths.job_dir(jn)).run()
