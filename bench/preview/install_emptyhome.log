@@ -1,4 +1,4 @@
-== run 1: install block at f89652bf69819a128e7d63acdc2e236ac591b11b, empty HOME, zsh -i, stdin closed
+== run 1: install block at 86ae399e0028e7bdfe95b38681a70413fec34675, empty HOME, zsh -i, stdin closed
 
 added 7 packages in 8s
 Failed to uninstall "gentlemonster": Extension not found.
@@ -12,11 +12,11 @@ Error: Download failure, code=1
 [setup] cloning https://github.com/cogito5170/gentleMonster -> $HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47
 [setup] gentleMonster @ 5fdc25e7d62c ok ($HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47)
 GEMINI_API_KEY is set
-0.60.0
+0.62.0
   ok   gentleMonster at the pinned commit 5fdc25e7d62c
   ok   GEMINI_API_KEY is set
-  ok   gemini-3.1-flash-lite is listed and takes generateContent
-  ok   Gemini CLI 0.60.0 (private, used by `gentlemonster`)
+  ok   gemini-3-flash-preview is listed and takes generateContent
+  ok   Gemini CLI 0.62.0 (private, used by `gentlemonster`)
   ok   PIL (for the PDFs)
   ok   numpy (for the PDFs)
   ok   matplotlib (for the PDFs)
@@ -26,23 +26,26 @@ GEMINI_API_KEY is set
 == run 2: state compared with run 1 (~/.zshrc, launcher sha256, extension ref, private CLI version, extensions)
 no change
 export PATH="$HOME/.gentlemonster/bin:$PATH"
-c62e9124dad9cf4b74c7960ac0a275d22d0d195ca092c76844240a90f84cc7af  .gentlemonster/bin/gentlemonster
+3efad65728ceb4052b3c01e2b8beafbd1a063c5ff4295651de3ccfd09722f2f2  .gentlemonster/bin/gentlemonster
 {
   "source": "https://github.com/cogito5170/gentleMonster_gemini",
   "type": "git",
-  "ref": "f89652bf69819a128e7d63acdc2e236ac591b11b"
+  "ref": "86ae399e0028e7bdfe95b38681a70413fec34675"
 }
-0.60.0
+0.62.0
 extension-enablement.json
 gentlemonster
 
 == gentlemonster --version
-0.60.0
+0.62.0
 
 == gentlemonster mcp list
 ✓ gentlemonster (from gentlemonster): python3 $HOME/.gemini/extensions/gentlemonster/server.py --tools store (stdio) - Connected
 ✓ gentlemonster-portfolio (from gentlemonster): python3 $HOME/.gemini/extensions/gentlemonster/server.py --tools portfolio (stdio) - Connected
 
-== private CLI replaced by 0.62.0 (npm --prefix), then gentlemonster
-gentlemonster: the private Gemini CLI is 0.62.0, not 0.60.0 -- run: npm install --prefix "$HOME/.gentlemonster/cli" @google/gemini-cli@0.60.0
+== private CLI replaced by 0.61.0 (npm --prefix), then gentlemonster
+gentlemonster: the private Gemini CLI is 0.61.0, not 0.62.0 -- run: npm install --prefix "$HOME/.gentlemonster/cli" @google/gemini-cli@0.62.0
 exit=1
+
+== smoke: gemini -m gemini-3-flash-preview -p (CLI 0.60.0, 0.61.0, 0.62.0), 2026-10-03 13:44 UTC
+all three: HTTP 429, free-tier quota for gemini-3-flash used up (limit 20 requests/day); served model not observed yet
