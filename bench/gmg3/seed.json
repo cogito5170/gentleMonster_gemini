@@ -1,0 +1,16 @@
+{
+ "schema": "gmg3-seed/1",
+ "note": "Workspace state at the end of question 31, taken from gentleMonster@35073f7 docs/portfolio (cover.md, philosophy.md). Loaded by code before the replay; the agent sees it through pf_show.",
+ "terms": {"STYLE": "a person with style -- what someone chooses, combines and wears",
+           "PICTURE": "a scene that looks like a photograph",
+           "ARCHITECTURE": "a space or building that holds you",
+           "SPA": "STYLE, PICTURE, ARCHITECTURE: the three things the applicant stops for"},
+ "texts": [
+  {"kind": "cover_line", "lang": "en", "text": "A Person with Style, A Moment like A Photograph, A Building That Holds Me — I Stop."},
+  {"kind": "question", "lang": "en", "text": "Where Did You Last Stop?"},
+  {"kind": "statement", "lang": "ko", "text": "사람은 공간을 만들고, 공간은 다시 사람을 만든다. 나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다."}
+ ],
+ "pages": [{"n": 0, "title": "COVER", "role": "SPA · STYLE / PICTURE / ARCHITECTURE · Where Did You Last Stop?"}],
+ "photos": ["images/library/L1_night_red_light.jpg", "images/library/L2_puddle_reflection.jpg", "images/library/L3_sprout_sand.jpg",
+            "images/library/L4_string_lights_bw.jpg", "images/library/L5_sunset_sea.jpg", "images/library/L6_cloudy_parking.jpg"]
+}

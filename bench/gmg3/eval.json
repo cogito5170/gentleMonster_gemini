@@ -1,0 +1,173 @@
+{
+ "schema": "gmg3-eval/1",
+ "source": "cogito5170/gentleMonster@35073f7 docs/portfolio/questions.md",
+ "design_set": "1-31",
+ "evaluation_set": "32-42",
+ "path_rule": "match = required ⊆ called and called ⊆ required ∪ allowed (order ignored; pf_choose may stand in for the tool it executes)",
+ "questions": [
+  {
+   "n": 32,
+   "text": "(좌) 이미지의 SPA부분인 표지 뒤 내용을 제작할 것이다. 내용은 다음과 같다. 지원자의 패션 스타일 사진을 잡지처럼 나열 및 패션에 대한 가치관을 적는 것이다. 너에게 요구사항은 다음과 같다. \"패션이 왜 중요한가?, 패션을 왜 중요하게 생각하는가?, 좋은 패션이란 무엇이라고 생각하는가?\"의 질문에 대한 대답을 서술하여라.",
+   "attachments": [
+    "images/q32_cover.jpg"
+   ],
+   "required": [
+    "pf_write"
+   ],
+   "allowed": [
+    "pf_show",
+    "pf_photos"
+   ],
+   "expected_state": "new texts kind=answer >= 3, every gate passed",
+   "opus_reference": "01_style.md: ④ Q1–Q3 (final, after 33/35/36)"
+  },
+  {
+   "n": 33,
+   "text": "너무 추상적 언어와 표현이다. 더 직관적 언어로 수정하여라.",
+   "attachments": [],
+   "required": [
+    "pf_revise"
+   ],
+   "allowed": [
+    "pf_show"
+   ],
+   "expected_state": "new texts op=more_direct >= 1; each abstract_ratio <= its parent's",
+   "opus_reference": "01_style.md: ④ Q1–Q3"
+  },
+  {
+   "n": 34,
+   "text": "수정된 내용을 만족한다. 커버 페이지에서 스토리 라인은 다음과 같다. \"SPA (STYLE, PASSION, ARCHITECTURE), 스타일리쉬한 사람, 사진 같은 장면, 멋진 공간과 건축물, 나는 이 세가지를 만났을 때 멈춘다. 너가 마지막으로 멈춘 곳은 어디인가?\"\n\n이 다음에 이어지는 첫 페이지에서 '패션'으로 이어질 스토리 라인을 제시하여라. 추상적이지 않고 직관적인 언어로.",
+   "attachments": [],
+   "required": [
+    "pf_pages"
+   ],
+   "allowed": [
+    "pf_show",
+    "pf_write",
+    "pf_concept"
+   ],
+   "expected_state": "a new proposal set with exactly 3 options",
+   "opus_reference": "storyline.md: top block + 섹션마다 같은 틀"
+  },
+  {
+   "n": 35,
+   "text": "패션에 대한 Q1~Q3 및 지면용 한 줄에 대한 내용을 '스타일'에 초점을 맞추어 수정해라.",
+   "attachments": [],
+   "required": [
+    "pf_revise"
+   ],
+   "allowed": [
+    "pf_show",
+    "pf_write"
+   ],
+   "expected_state": "new texts op=refocus >= 1; each contains '스타일' or 'style'",
+   "opus_reference": "01_style.md: ④ Q1–Q3"
+  },
+  {
+   "n": 36,
+   "text": "다시 시도",
+   "attachments": [],
+   "required": [
+    "pf_choose"
+   ],
+   "allowed": [
+    "pf_revise",
+    "pf_write",
+    "pf_show"
+   ],
+   "expected_state": "a retry recorded and >= 1 new text that differs from every earlier text",
+   "opus_reference": "01_style.md: ④ Q1–Q3"
+  },
+  {
+   "n": 37,
+   "text": "커버 뒤 1 페이지의 첫 문장이다. \"내가 가장 자주 멈추는 곳은 길 위다. 스타일이 좋은 사람이 지나가면 나는 걸음을 멈추곤 한다.\n어떤 머리 스타일을 했는지, 무슨 옷을 입었는지, 무슨 악세사리를 착용했는지. 그래서 내 첫 번째 이야기는 스타일이다.\"\n\n주제는 '스타일'이고, 스타일의 범주를 머리 스타일, 옷, 악세사리로 설정하였다. 범주를 확장할 수 있다면 추가하고, 해당 문장을 수정하여 서술해라.",
+   "attachments": [],
+   "required": [
+    "pf_revise"
+   ],
+   "allowed": [
+    "pf_show",
+    "pf_write"
+   ],
+   "expected_state": "new texts op=widen_categories >= 1; each names >= 4 of the category words (hair, eyewear, clothes, shoes, accessory, colour, scent)",
+   "opus_reference": "01_style.md: ① 여는 글 (A안)"
+  },
+  {
+   "n": 38,
+   "text": "A안을 채택한다. 이어지는 스토리 라인을 제시하여라",
+   "attachments": [],
+   "required": [
+    "pf_pages"
+   ],
+   "allowed": [
+    "pf_choose",
+    "pf_show",
+    "pf_write"
+   ],
+   "expected_state": "an adoption recorded (a proposal or text option adopted) and a new proposal set with exactly 3 options",
+   "opus_reference": "storyline.md: 01 STYLE 안의 흐름"
+  },
+  {
+   "n": 39,
+   "text": "SECTOR A에 대한 내용을 제안하여라.",
+   "attachments": [
+    "images/q39_style.jpg"
+   ],
+   "required": [
+    "pf_photos",
+    "pf_write"
+   ],
+   "allowed": [
+    "pf_show",
+    "pf_sort"
+   ],
+   "expected_state": "q39_style measured; a new text contains >= 1 hex colour measured from it",
+   "opus_reference": "01_style.md: ③ SECTOR A"
+  },
+  {
+   "n": 40,
+   "text": "cogito5170/gentleMonster에 주요 내용들을 커밋해줘.",
+   "attachments": [],
+   "required": [],
+   "allowed": [
+    "pf_show"
+   ],
+   "expected_state": "no workspace change (repository work belongs to the host agent)",
+   "opus_reference": null
+  },
+  {
+   "n": 41,
+   "text": "페이지는 좌측부터 1, 2, 3, 4 순서이다. 스토리의 흐름을 인지하라. 다음으로 페이지 4의 PICTURE을 제작하고자 한다. 앞의 흐름에 이어지는 스토리 라인으로 방향성을 제시해 보아라.",
+   "attachments": [
+    "images/q41_pages_1_2.jpg",
+    "images/q41_pages_3_4.jpg"
+   ],
+   "required": [
+    "pf_pages"
+   ],
+   "allowed": [
+    "pf_show",
+    "pf_photos",
+    "pf_write"
+   ],
+   "expected_state": "page map has >= 4 pages; a new proposal set with exactly 3 options",
+   "opus_reference": "02_picture.md: 4 · PICTURE"
+  },
+  {
+   "n": 42,
+   "text": "해당 이미지는 사례 사진이다. 현재 제작 중인 사진 범주의 한 요소로 만들고자 한다. 단일 페이지에 단일 사진과 단어. 어떤 사진을 선별하면 좋을지 제시해라.",
+   "attachments": [
+    "images/q42_case.jpg"
+   ],
+   "required": [
+    "pf_sort"
+   ],
+   "allowed": [
+    "pf_photos",
+    "pf_show"
+   ],
+   "expected_state": "a new ranking over >= 3 photos",
+   "opus_reference": "02_picture.md: 단어 한 장 (table)"
+  }
+ ]
+}
