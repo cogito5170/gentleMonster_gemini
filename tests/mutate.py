@@ -93,11 +93,14 @@ M = [
     ("usage: hook drops the session id", "hooks/turn_note.py", 'inp.get("session_id", "")', '""'),
     ("usage: session id not hashed", "gmg/usage.py", '"session": hashlib.sha256(s.encode()).hexdigest()[:16]', '"session": s'),
     ("server: venv never used", "server.py", "    os.execv(str(PY), [str(PY)] + sys.argv)", "    pass"),
+    ("launcher: model not forced", "install/gentlemonster", 'exec "$G" -m gemini-3.1-flash-lite "$@"', 'exec "$G" "$@"'),
+    ("launcher: CLI version not checked", "install/gentlemonster", 'if [ "$V" != "0.60.0" ]; then', "if false; then"),
+    ("launcher: extension not checked", "install/gentlemonster", 'if [ ! -f "$HOME/.gemini/extensions/gentlemonster/gemini-extension.json" ]; then', "if false; then"),
     ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
     ("H3: colours not nudged", "gmg/agent.py", "        for _ in range(30):", "        for _ in range(0):"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
-TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py"]
+TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py", "tests/test_install.py"]
 
 
 def main() -> int:

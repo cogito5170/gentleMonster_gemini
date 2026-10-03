@@ -1,6 +1,6 @@
 # gentleMonster for Gemini CLI: preview 0.4.0
 
-**This is a preview, not a release.** It is pinned to one commit, `4de9c1c36ef6120eede3514814a840dcb4cecde3`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
+**This is a preview, not a release.** It is pinned to one commit, `PREVIEW_SHA`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
 
 ## 1. Install (macOS, zsh)
 
@@ -10,26 +10,17 @@ Before you start:
 - **A Gemini API key**, in `GEMINI_API_KEY`.
 
 Paste the whole block below into Terminal. It has no comment lines and no placeholders, so zsh runs it as is. It does five things:
-- installs Gemini CLI **0.60.0**, the last CLI that serves `gemini-3.1-flash-lite` as asked (README, H2);
-- installs the extension at the pinned commit;
+- installs a **private** Gemini CLI **0.60.0** under `~/.gentlemonster`. Your own `gemini`, if you have one, is not touched, and no `sudo` is needed. 0.60.0 is the last CLI that serves `gemini-3.1-flash-lite` as asked (README, H2);
+- installs the extension at the pinned commit, and the command **`gentlemonster`**. Its folder is added to `PATH` with one line in `~/.zshrc`, added once;
 - puts the Python parts in their own folder, `~/.gentlemonster/venv`;
 - checks that `GEMINI_API_KEY` is set, without printing it;
 - runs `gmg doctor`.
 
 ```
-npm install -g @google/gemini-cli@0.60.0
-gemini extensions uninstall gentlemonster ; true
-gemini extensions install https://github.com/cogito5170/gentleMonster_gemini --ref 4de9c1c36ef6120eede3514814a840dcb4cecde3 --consent --skip-settings
-python3 -m venv "$HOME/.gentlemonster/venv"
-"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet --upgrade pip
-"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet "$HOME/.gemini/extensions/gentlemonster[render]"
-"$HOME/.gentlemonster/venv/bin/python3" -m playwright install chromium
-"$HOME/.gentlemonster/venv/bin/gmg" setup
-if [ -n "$GEMINI_API_KEY" ]; then echo "GEMINI_API_KEY is set"; else echo "GEMINI_API_KEY is NOT set: see USAGE.md step 1"; fi
-"$HOME/.gentlemonster/venv/bin/gmg" doctor
+INSTALL_BLOCK
 ```
 
-If `npm install -g` fails with `EACCES`, run that one line again with `sudo` in front, then paste the block again.
+Running the block again is safe. It reinstalls the same pinned versions and does not add the `PATH` line twice.
 
 If the block says `GEMINI_API_KEY is NOT set`, run `export GEMINI_API_KEY=` followed by your key, with no space. Add the same line to `~/.zshrc`, then paste the block again.
 
@@ -38,14 +29,14 @@ If the block says `GEMINI_API_KEY is NOT set`, run `export GEMINI_API_KEY=` foll
 ## 2. Use
 
 ```
-gemini -m gemini-3.1-flash-lite
+gentlemonster
 ```
+
+`gentlemonster` always starts the private Gemini CLI 0.60.0 with `gemini-3.1-flash-lite`; you never type the model. Any other arguments pass through, for example `gentlemonster -p "..."`. If the private CLI is not exactly 0.60.0, or the extension is missing, it stops with one line that says what to run.
 
 Ask in your own words. For example: design a store for a brand; write cover lines; sort or measure your photos (attach them with `@` and a path); propose the next page.
 - The extension's tools run every check in code. The answer may state only the verdict that the job's ledger holds.
 - Everything stays on your Mac, in `~/gentleMonster_gemini_out`. That folder holds the workspace, the ledgers and `usage.jsonl` (your turns and the tools each one used).
-
-If an answer says it was served by a model other than `gemini-3.1-flash-lite`, the CLI is not 0.60.0. Run the install block again.
 
 ## 3. Export (when you want to share what happened)
 
@@ -89,8 +80,8 @@ Each batch is scored at the frozen commit before anything is tuned on it. A batc
 ## Remove
 
 ```
-gemini extensions uninstall gentlemonster
+"$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions uninstall gentlemonster
 rm -rf "$HOME/.gentlemonster"
 ```
 
-Your data in `~/gentleMonster_gemini_out` stays until you delete it.
+Then delete the `.gentlemonster/bin` line from `~/.zshrc`. Your data in `~/gentleMonster_gemini_out` stays until you delete it.

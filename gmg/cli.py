@@ -57,12 +57,13 @@ def doctor() -> int:
         say(False, f"{model} not checked (no key) -- an unchecked model is not counted as ok")
     import shutil
     import subprocess
-    g = shutil.which("gemini")
+    private = Path.home() / ".gentlemonster" / "cli" / "node_modules" / ".bin" / "gemini"     # the `gentlemonster` launcher's CLI
+    g = str(private) if private.is_file() else shutil.which("gemini")
     if g:
         try:
             v = subprocess.run([g, "--version"], capture_output=True, text=True, timeout=60).stdout.strip()
             parts = tuple(int(x) for x in re.findall(r"\d+", v)[:3])
-            say(parts < (0, 61, 0), f"Gemini CLI {v}" + ("" if parts < (0, 61, 0) else
+            say(parts < (0, 61, 0), f"Gemini CLI {v}" + (" (private, used by `gentlemonster`)" if g == str(private) else "") + ("" if parts < (0, 61, 0) else
                 " maps gemini-3.1-flash-lite to gemini-3.5-flash-lite; install @google/gemini-cli@0.60.0 to keep 3.1"))
         except Exception as e:                              # noqa: BLE001
             say(False, f"Gemini CLI version could not be read: {type(e).__name__}")
