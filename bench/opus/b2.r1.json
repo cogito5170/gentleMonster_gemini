@@ -1,0 +1,56 @@
+{
+ "brand": "Gentle Monster",
+ "title": "The Drained Pool",
+ "subtitle": "Water left, light stayed",
+ "line": "You walk down the ladder of a 1970s pool that has no water, only light that still moves like it.",
+ "synopsis": "You go down four tiled steps into a swimming pool that was drained fifty years ago. The white gloss tiles are dry, but the ceiling throws a slow moving caustic light across them, so the floor still ripples. In the middle a swimmer's head rises out of the tiles, eyes closed, as if surfacing for air. Frames sit on low lane plinths at the four corners of the basin, and you swim past them on foot toward the mirrored deep end.",
+ "keywords": ["Absent water", "Surfacing", "Lanes"],
+ "quote": "The water is gone. The light remembers it.",
+ "why": [
+  {"t": "You enter by going down", "d": "The route drops down the pool steps 2.5 m inside the door before it reaches the basin floor."},
+  {"t": "The swimmer is the deep point", "d": "The head stands alone in the 13 x 9 m drained basin; the route loops around it at more than a metre."},
+  {"t": "Lanes hold the product", "d": "Four lane plinths sit at the basin's corners, outside the loop, so trying frames means leaving the swimmer's orbit."},
+  {"t": "The deep end is a mirror", "d": "A 13 m mirror wall closes the basin at the back, doubling the light and the tiles."}
+ ],
+ "palette": [
+  {"hex": "#eef3f4", "name": "Pool tile"},
+  {"hex": "#9fd3dc", "name": "Chlorine light"},
+  {"hex": "#3b6f80", "name": "Deep end"},
+  {"hex": "#d9c9a8", "name": "Old grout"},
+  {"hex": "#e2572b", "name": "Lane float"}
+ ],
+ "materials": [
+  {"name": "White gloss tile", "where": "basin floor, plinths", "preset": "white_gloss"},
+  {"name": "Mineral render", "where": "walls", "preset": "mineral_white"},
+  {"name": "Mirror aluminium", "where": "deep-end wall", "preset": "mirror_aluminium"},
+  {"name": "Luminous textile", "where": "caustic ceiling", "preset": "textile_light"}
+ ],
+ "accent": "#e2572b",
+ "room": {"floor": "white_gloss", "wall": "mineral_white", "ceiling": "concrete", "light": "daylight", "beams": false, "fog": 0.0},
+ "layout": {
+  "name": "The Drained Pool — Gentle Monster",
+  "W": 20, "D": 14, "H": 6,
+  "columns": [],
+  "items": [
+   {"id": "door", "type": "door", "x0": 1.0, "y0": -0.1, "x1": 3.5, "y1": 0.1, "h": 0, "label": "Entrance", "zone": "", "shape": "door"},
+   {"id": "steps", "type": "stair", "x0": 2.0, "y0": 2.0, "x1": 4.0, "y1": 4.0, "h": 0, "label": "Pool steps (down 1.2 m)", "zone": "exp", "shape": "zone"},
+   {"id": "basin", "type": "zone", "x0": 4.0, "y0": 3.0, "x1": 17.0, "y1": 12.0, "h": 0, "label": "Drained basin", "zone": "exp", "shape": "floor_patch", "material": "white_gloss"},
+   {"id": "caustic", "type": "zone", "x0": 4.0, "y0": 3.0, "x1": 17.0, "y1": 12.0, "h": 5.8, "label": "Caustic light ceiling", "zone": "exp", "shape": "light_ceiling", "material": "textile_light"},
+   {"id": "swimmer", "type": "figure", "x0": 9.5, "y0": 6.5, "x1": 11.5, "y1": 8.5, "h": 2.8, "label": "Surfacing swimmer", "zone": "exp", "shape": "bust", "material": "skin", "hero": true},
+   {"id": "lane0", "type": "island", "x0": 6.0, "y0": 4.4, "x1": 7.4, "y1": 5.2, "h": 0.9, "label": "Lane plinth", "zone": "sale", "shape": "display", "material": "white_gloss"},
+   {"id": "lane1", "type": "island", "x0": 13.6, "y0": 4.4, "x1": 15.0, "y1": 5.2, "h": 0.9, "label": "Lane plinth", "zone": "sale", "shape": "display", "material": "white_gloss"},
+   {"id": "lane2", "type": "island", "x0": 6.0, "y0": 9.8, "x1": 7.4, "y1": 10.6, "h": 0.9, "label": "Lane plinth", "zone": "sale", "shape": "display", "material": "white_gloss"},
+   {"id": "lane3", "type": "island", "x0": 13.6, "y0": 9.8, "x1": 15.0, "y1": 10.6, "h": 0.9, "label": "Lane plinth", "zone": "sale", "shape": "display", "material": "white_gloss"},
+   {"id": "deep_end", "type": "block", "x0": 4.0, "y0": 12.6, "x1": 17.0, "y1": 12.9, "h": 3.0, "label": "Deep-end mirror", "zone": "exp", "shape": "mirror_wall", "material": "mirror_aluminium"},
+   {"id": "pay", "type": "checkout", "x0": 17.5, "y0": 1.0, "x1": 19.5, "y1": 3.0, "h": 1.0, "label": "Lifeguard desk (pay)", "zone": "pay", "shape": "box", "material": "white_gloss"},
+   {"id": "boh", "type": "stock", "x0": 0.0, "y0": 11.0, "x1": 3.0, "y1": 14.0, "h": 3.0, "label": "BOH", "zone": "boh", "shape": "box", "material": "concrete"}
+  ],
+  "flows": [{"pts": [[2.2, 0.5], [2.8, 2.5], [4.8, 3.8], [5.2, 6.2], [8.3, 7.5], [8.5, 9.2], [10.5, 9.8], [12.6, 9.6], [12.7, 7.5], [12.5, 5.8], [12.0, 3.6], [16.8, 3.6]], "color": "#e2572b"}],
+  "entry": [2.2, 0], "exit": [2.2, 0]
+ },
+ "stops": [
+  {"at": [2.8, 2.5], "d": 2.8, "look": [10.5, 1.2, 7.5], "h": 1.62, "cap": "I step down into a pool with no water.", "sub": "The tiles are dry, but the light on them still moves."},
+  {"at": [8.3, 7.5], "d": 3.4, "look": [10.5, 2.2, 7.5], "h": 1.62, "cap": "A swimmer surfaces beside me.", "sub": "Eyes closed, holding a breath that is fifty years long."},
+  {"at": [12.5, 5.8], "d": 2.8, "look": [14.3, 1.0, 4.8], "h": 1.3, "cap": "I find my frames in the lane.", "sub": "Left on the plinth like goggles at the pool's edge."}
+ ]
+}

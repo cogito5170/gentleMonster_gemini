@@ -1,0 +1,57 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Hangar Zero",
+ "subtitle": "Docking with what floats",
+ "line": "In an orbital hangar the sunglasses float, and you approach them as slowly as a ship docks.",
+ "synopsis": "You pass between two steel docking clamps that slowly breathe open and closed, and the hangar opens into a dark field of floating lenses. At the centre a pilot's head hangs in the light with its eyes closed, as if asleep between missions. Around the edge four docking plinths hold sunglasses at chest height, lit from below like instruments. You move along a long, slow orbit, and every approach to a plinth feels like a docking manoeuvre.",
+ "keywords": ["Weightless", "Docking", "Orbit"],
+ "quote": "Approach slowly. Everything here is already floating.",
+ "why": [
+  {"t": "The clamps are the airlock", "d": "Two kinetic steel columns stand 1.5 m inside the door; you pass between them before the hangar opens."},
+  {"t": "The pilot hangs alone at the centre", "d": "The head is the only object inside a 10 x 7 m field of drifting lens shards; the orbit stays more than 2 m from it."},
+  {"t": "Docking stations sit off the orbit", "d": "Four plinths stand at the hangar's corners, outside the loop, so reaching product means a small manoeuvre."},
+  {"t": "The far wall returns the orbit", "d": "A 12 m mirror wall closes the back, doubling the shards and the light strip."}
+ ],
+ "palette": [
+  {"hex": "#0d0f12", "name": "Deep space"},
+  {"hex": "#2c3138", "name": "Hangar floor"},
+  {"hex": "#a7b0b8", "name": "Aluminium hull"},
+  {"hex": "#e9eef2", "name": "Light strip"},
+  {"hex": "#ff6a1a", "name": "Docking signal"}
+ ],
+ "materials": [
+  {"name": "Polished concrete", "where": "hangar floor", "preset": "polished_concrete"},
+  {"name": "Brushed aluminium", "where": "walls, pay desk", "preset": "aluminium"},
+  {"name": "Kinetic steel", "where": "docking clamps", "preset": "steel"},
+  {"name": "Lens glass", "where": "floating shards", "preset": "glass"}
+ ],
+ "accent": "#ff6a1a",
+ "room": {"floor": "polished_concrete", "wall": "aluminium", "ceiling": "black_stone", "light": "dark_gallery", "beams": true, "fog": 0.02},
+ "layout": {
+  "name": "Hangar Zero — Gentle Monster",
+  "W": 22, "D": 16, "H": 7,
+  "columns": [[3, 4], [19, 4], [3, 12], [19, 12]],
+  "items": [
+   {"id": "door", "type": "door", "x0": 9.5, "y0": -0.1, "x1": 12.5, "y1": 0.1, "h": 0, "label": "Entrance", "zone": "", "shape": "door"},
+   {"id": "clamp_l", "type": "block", "x0": 8.0, "y0": 1.5, "x1": 9.0, "y1": 3.0, "h": 6.0, "label": "Docking clamp (kinetic)", "zone": "exp", "shape": "joint_column", "material": "steel"},
+   {"id": "clamp_r", "type": "block", "x0": 13.0, "y0": 1.5, "x1": 14.0, "y1": 3.0, "h": 6.0, "label": "Docking clamp (kinetic)", "zone": "exp", "shape": "joint_column", "material": "steel"},
+   {"id": "shards", "type": "zone", "x0": 6.0, "y0": 5.0, "x1": 16.0, "y1": 12.0, "h": 5.0, "label": "Floating lenses", "zone": "exp", "shape": "shards", "material": "glass"},
+   {"id": "strip", "type": "zone", "x0": 4.0, "y0": 4.0, "x1": 18.0, "y1": 13.0, "h": 6.9, "label": "Hangar light strip", "zone": "exp", "shape": "light_ceiling", "material": "textile_light"},
+   {"id": "pilot", "type": "figure", "x0": 10.0, "y0": 7.5, "x1": 12.0, "y1": 9.5, "h": 2.6, "label": "Sleeping pilot", "zone": "exp", "shape": "bust", "material": "skin", "hero": true},
+   {"id": "dock0", "type": "island", "x0": 4.0, "y0": 6.0, "x1": 5.4, "y1": 6.8, "h": 1.1, "label": "Docking plinth", "zone": "sale", "shape": "display", "material": "black_stone"},
+   {"id": "dock1", "type": "island", "x0": 4.0, "y0": 10.4, "x1": 5.4, "y1": 11.2, "h": 1.1, "label": "Docking plinth", "zone": "sale", "shape": "display", "material": "black_stone"},
+   {"id": "dock2", "type": "island", "x0": 16.6, "y0": 6.0, "x1": 18.0, "y1": 6.8, "h": 1.1, "label": "Docking plinth", "zone": "sale", "shape": "display", "material": "black_stone"},
+   {"id": "dock3", "type": "island", "x0": 16.6, "y0": 10.4, "x1": 18.0, "y1": 11.2, "h": 1.1, "label": "Docking plinth", "zone": "sale", "shape": "display", "material": "black_stone"},
+   {"id": "far_wall", "type": "block", "x0": 5.0, "y0": 15.4, "x1": 17.0, "y1": 15.7, "h": 4.0, "label": "Mirror wall", "zone": "exp", "shape": "mirror_wall", "material": "mirror_aluminium"},
+   {"id": "pay", "type": "checkout", "x0": 9.0, "y0": 13.6, "x1": 13.0, "y1": 14.4, "h": 1.0, "label": "Pay desk", "zone": "pay", "shape": "box", "material": "aluminium"},
+   {"id": "boh", "type": "stock", "x0": 0.0, "y0": 13.5, "x1": 4.0, "y1": 16.0, "h": 3.0, "label": "BOH", "zone": "boh", "shape": "box", "material": "concrete"}
+  ],
+  "flows": [{"pts": [[11, 0.5], [11, 4.2], [7.2, 6.0], [6.8, 8.5], [7.4, 11.4], [11, 12.6], [14.6, 11.4], [15.2, 8.5], [14.8, 6.0], [11.6, 4.2]], "color": "#ff6a1a"}],
+  "entry": [11, 0], "exit": [11, 0]
+ },
+ "stops": [
+  {"at": [11, 2.2], "d": 2.6, "look": [11, 3.5, 8.5], "h": 1.62, "cap": "The clamps open as I pass.", "sub": "Steel joints breathe on either side, like an airlock cycling."},
+  {"at": [11, 4.2], "d": 3.4, "look": [11, 2.0, 8.5], "h": 1.62, "cap": "A pilot sleeps in the middle of the hangar.", "sub": "Lenses drift around the head like debris in orbit."},
+  {"at": [6.8, 8.5], "d": 3.0, "look": [4.7, 1.1, 6.4], "h": 1.3, "cap": "I dock with the first pair.", "sub": "Sunglasses lit from below, waiting like an instrument panel."}
+ ]
+}
