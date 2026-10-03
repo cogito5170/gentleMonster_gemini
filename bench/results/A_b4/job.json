@@ -1,0 +1,310 @@
+{
+ "brand": "Tamburins",
+ "title": "Salt Silence",
+ "subtitle": "A desert that keeps its scent close",
+ "line": "From the door the white floor looks empty; up close, the salt is full of hidden scent.",
+ "synopsis": "You step onto a white salt crust that runs almost wall to wall, and at first the room seems to hold nothing at all. A single pale monolith stands in the middle, rough as a block cut from a dry lake. As you walk the loop around it, four low mounds of wax rise out of the salt, and in their cracks you find small bottles tucked away like seeds. The only sound is your own steps on the crust, and the scent arrives only when you lean in.",
+ "keywords": [
+  "Emptiness",
+  "Hidden scent",
+  "Salt"
+ ],
+ "quote": "Nothing is shown. Everything is near.",
+ "why": [
+  {
+   "t": "The room first reads as empty",
+   "d": "A 14 x 9 m salt field fills the floor with nothing above knee height except one monolith."
+  },
+  {
+   "t": "One monolith gives the eye a place",
+   "d": "The salt block stands at the centre of the field; the route loops around it at 1.6 m."
+  },
+  {
+   "t": "Scent hides in the mounds",
+   "d": "Four wax clusters sit just outside the loop, low at 0.8 m, so you crouch to find the bottles."
+  },
+  {
+   "t": "Paying is the far shore",
+   "d": "The pay counter sits on the back edge of the salt, facing the loop's far point."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#f4f1ea",
+   "name": "Salt crust"
+  },
+  {
+   "hex": "#e6dfd2",
+   "name": "Dry lake"
+  },
+  {
+   "hex": "#cbbfae",
+   "name": "Wax mound"
+  },
+  {
+   "hex": "#9a8f82",
+   "name": "Shadow"
+  },
+  {
+   "hex": "#b8862f",
+   "name": "Amber drop"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Mineral white",
+   "where": "floor, walls, ceiling",
+   "preset": "mineral_white"
+  },
+  {
+   "name": "Salt-cut stone",
+   "where": "monolith",
+   "preset": "mineral_white"
+  },
+  {
+   "name": "Candle wax",
+   "where": "scent mounds",
+   "preset": "candle_wax"
+  },
+  {
+   "name": "Lime plaster",
+   "where": "pay counter",
+   "preset": "lime_plaster"
+  }
+ ],
+ "accent": "#b8862f",
+ "room": {
+  "floor": "mineral_white",
+  "wall": "mineral_white",
+  "ceiling": "mineral_white",
+  "light": "white_gallery"
+ },
+ "layout": {
+  "name": "Salt Silence — Tamburins Busan",
+  "W": 16,
+  "D": 13,
+  "H": 5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 6.5,
+    "y0": -0.1,
+    "x1": 9.5,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "salt",
+    "type": "zone",
+    "x0": 1.0,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 11.0,
+    "h": 0,
+    "label": "Salt crust",
+    "zone": "exp",
+    "shape": "floor_patch",
+    "material": "mineral_white"
+   },
+   {
+    "id": "monolith",
+    "type": "figure",
+    "x0": 7.0,
+    "y0": 6.0,
+    "x1": 9.0,
+    "y1": 8.0,
+    "h": 2.6,
+    "label": "Salt monolith",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "mineral_white",
+    "hero": true
+   },
+   {
+    "id": "mound0",
+    "type": "island",
+    "x0": 3.0,
+    "y0": 4.0,
+    "x1": 4.4,
+    "y1": 5.4,
+    "h": 0.8,
+    "label": "Scent mound",
+    "zone": "sale",
+    "shape": "candle_cluster",
+    "material": "candle_wax"
+   },
+   {
+    "id": "mound1",
+    "type": "island",
+    "x0": 11.6,
+    "y0": 4.0,
+    "x1": 13.0,
+    "y1": 5.4,
+    "h": 0.8,
+    "label": "Scent mound",
+    "zone": "sale",
+    "shape": "candle_cluster",
+    "material": "candle_wax"
+   },
+   {
+    "id": "mound2",
+    "type": "island",
+    "x0": 3.0,
+    "y0": 8.6,
+    "x1": 4.4,
+    "y1": 10.0,
+    "h": 0.8,
+    "label": "Scent mound",
+    "zone": "sale",
+    "shape": "candle_cluster",
+    "material": "candle_wax"
+   },
+   {
+    "id": "mound3",
+    "type": "island",
+    "x0": 11.6,
+    "y0": 8.6,
+    "x1": 13.0,
+    "y1": 10.0,
+    "h": 0.8,
+    "label": "Scent mound",
+    "zone": "sale",
+    "shape": "candle_cluster",
+    "material": "candle_wax"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 6.5,
+    "y0": 11.6,
+    "x1": 9.5,
+    "y1": 12.4,
+    "h": 1.0,
+    "label": "Pay counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 13.0,
+    "y0": 11.0,
+    "x1": 16.0,
+    "y1": 13.0,
+    "h": 3.0,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "mineral_white"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      8,
+      0.5
+     ],
+     [
+      8,
+      3.6
+     ],
+     [
+      5.6,
+      4.4
+     ],
+     [
+      5.4,
+      7.0
+     ],
+     [
+      6.0,
+      9.8
+     ],
+     [
+      8,
+      10.6
+     ],
+     [
+      10.0,
+      9.8
+     ],
+     [
+      10.6,
+      7.0
+     ],
+     [
+      10.4,
+      4.4
+     ],
+     [
+      8.6,
+      3.6
+     ]
+    ],
+    "color": "#b8862f"
+   }
+  ],
+  "entry": [
+   8,
+   0
+  ],
+  "exit": [
+   8,
+   0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    8,
+    3.6
+   ],
+   "d": 2.6,
+   "look": [
+    8,
+    1.3,
+    7.0
+   ],
+   "h": 1.62,
+   "cap": "The room looks empty.",
+   "sub": "White salt to the walls, and one pale block in the middle."
+  },
+  {
+   "at": [
+    5.4,
+    7.0
+   ],
+   "d": 3.4,
+   "look": [
+    3.7,
+    0.4,
+    4.7
+   ],
+   "h": 1.15,
+   "cap": "I lean in and the salt smells of something.",
+   "sub": "A small bottle is tucked into the crack of a wax mound."
+  },
+  {
+   "at": [
+    8,
+    10.6
+   ],
+   "d": 3.0,
+   "look": [
+    8,
+    1.6,
+    7.0
+   ],
+   "h": 1.55,
+   "cap": "From behind, the monolith casts no sound.",
+   "sub": "Only my steps on the crust, and the scent I carry."
+  }
+ ]
+}

@@ -1,0 +1,286 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Steam Alley",
+ "subtitle": "A winter sauna, 8 metres wide",
+ "line": "A narrow alley shop warms you like a forest sauna, and the knitwear waits on wooden walls behind fogged glass.",
+ "synopsis": "You step in from a cold alley and the air changes: warm wood on every surface, a low light, and a faint mist under the ceiling. In the middle a dark stone stove sits on the slatted floor with a heavy knit draped over it, as if someone left it there to dry. Wooden shelves run down both long walls, stacked with folded sweaters in the colours of a winter forest. At the back a fogged glass screen hides the counter, and you only see its warm glow through the steam.",
+ "keywords": [
+  "Warmth",
+  "Steam",
+  "Knit"
+ ],
+ "quote": "Come in from the cold and stay a while.",
+ "why": [
+  {
+   "t": "The whole alley is the sauna",
+   "d": "Wood covers floor, walls and ceiling of the 8 x 10 m room, so the narrow plan feels like one warm cabin."
+  },
+  {
+   "t": "The stove is the centre",
+   "d": "A stone stove with a draped knit stands mid-room; the route loops around it at more than a metre."
+  },
+  {
+   "t": "Knit lines both long walls",
+   "d": "Two 6.5 m shelf walls hold the collection, so every step of the loop passes product."
+  },
+  {
+   "t": "Glass keeps the counter in the steam",
+   "d": "A fogged glass screen 7.6 m in separates the counter, which glows through it at the end of the loop."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#3b2a1e",
+   "name": "Smoked cedar"
+  },
+  {
+   "hex": "#a47148",
+   "name": "Warm pine"
+  },
+  {
+   "hex": "#d9cbb5",
+   "name": "Undyed wool"
+  },
+  {
+   "hex": "#5b6b5a",
+   "name": "Winter spruce"
+  },
+  {
+   "hex": "#c2452d",
+   "name": "Ember"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Sauna wood",
+   "where": "floor, walls, ceiling, shelves",
+   "preset": "wood"
+  },
+  {
+   "name": "Stove stone",
+   "where": "central stove",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Fogged glass",
+   "where": "counter screen",
+   "preset": "glass"
+  },
+  {
+   "name": "Steam textile",
+   "where": "ceiling glow",
+   "preset": "textile_light"
+  }
+ ],
+ "accent": "#c2452d",
+ "room": {
+  "floor": "wood",
+  "wall": "wood",
+  "ceiling": "wood",
+  "light": "warm_spot",
+  "fog": 0.05
+ },
+ "layout": {
+  "name": "Steam Alley — Gentle Monster",
+  "W": 8,
+  "D": 10,
+  "H": 3.6,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 3.0,
+    "y0": -0.1,
+    "x1": 5.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0.0,
+    "y0": 1.5,
+    "x1": 0.6,
+    "y1": 8.0,
+    "h": 2.4,
+    "label": "Knit shelf",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 7.4,
+    "y0": 1.5,
+    "x1": 8.0,
+    "y1": 8.0,
+    "h": 2.4,
+    "label": "Knit shelf",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "steam",
+    "type": "zone",
+    "x0": 2.0,
+    "y0": 3.0,
+    "x1": 6.0,
+    "y1": 7.0,
+    "h": 3.5,
+    "label": "Steam glow",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   },
+   {
+    "id": "stove",
+    "type": "figure",
+    "x0": 3.3,
+    "y0": 4.4,
+    "x1": 4.7,
+    "y1": 5.8,
+    "h": 1.2,
+    "label": "Stone stove with draped knit",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone",
+    "cloth": "#d9cbb5",
+    "hero": true
+   },
+   {
+    "id": "screen",
+    "type": "block",
+    "x0": 1.5,
+    "y0": 7.6,
+    "x1": 6.5,
+    "y1": 7.8,
+    "h": 2.4,
+    "label": "Fogged glass screen",
+    "zone": "exp",
+    "shape": "box",
+    "material": "glass"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 2.5,
+    "y0": 8.6,
+    "x1": 5.5,
+    "y1": 9.4,
+    "h": 1.0,
+    "label": "Counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "wood"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      4,
+      0.5
+     ],
+     [
+      4,
+      2.6
+     ],
+     [
+      2.2,
+      3.6
+     ],
+     [
+      2.0,
+      5.1
+     ],
+     [
+      2.4,
+      6.6
+     ],
+     [
+      4,
+      7.0
+     ],
+     [
+      5.6,
+      6.6
+     ],
+     [
+      6.0,
+      5.1
+     ],
+     [
+      5.8,
+      3.6
+     ],
+     [
+      4.6,
+      2.6
+     ]
+    ],
+    "color": "#c2452d"
+   }
+  ],
+  "entry": [
+   4,
+   0
+  ],
+  "exit": [
+   4,
+   0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    4,
+    2.6
+   ],
+   "d": 3.0,
+   "look": [
+    4,
+    0.8,
+    5.1
+   ],
+   "h": 1.62,
+   "cap": "The cold stops at the door.",
+   "sub": "A stone stove waits in the mist with a sweater drying on it."
+  },
+  {
+   "at": [
+    2.0,
+    5.1
+   ],
+   "d": 3.0,
+   "look": [
+    0.6,
+    1.4,
+    5.1
+   ],
+   "h": 1.5,
+   "cap": "The walls are stacked with winter.",
+   "sub": "Folded knits in spruce, ember and undyed wool."
+  },
+  {
+   "at": [
+    4,
+    7.0
+   ],
+   "d": 2.6,
+   "look": [
+    4,
+    1.4,
+    7.7
+   ],
+   "h": 1.6,
+   "cap": "Someone is behind the steam.",
+   "sub": "The counter glows through fogged glass."
+  }
+ ]
+}

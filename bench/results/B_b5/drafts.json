@@ -1,0 +1,38 @@
+{
+ "rounds": 1,
+ "problems": [],
+ "drafts": [
+  {
+   "round": 1,
+   "problems": []
+  }
+ ],
+ "error": null,
+ "calls": [
+  {
+   "ms": 487,
+   "outcome": "http_429"
+  },
+  {
+   "ms": 212,
+   "outcome": "http_429"
+  },
+  {
+   "ms": 5612,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 3297,
+    "candidatesTokenCount": 1701,
+    "totalTokenCount": 4998,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 3297
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  }
+ ]
+}

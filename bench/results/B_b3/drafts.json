@@ -1,0 +1,94 @@
+{
+ "rounds": 3,
+ "problems": [
+  "the circulation passes only 0.26 m from central_basin (x 7.2-8.8, y 7.2-8.8) near (8.75, 7.25); keep 0.3 m clear"
+ ],
+ "drafts": [
+  {
+   "round": 1,
+   "problems": [
+    "item shelf_left has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "item shelf_right has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "item rock_1 has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "item central_basin has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "item rock_2 has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "the circulation passes inside rock_1 (x 4.0-6.0, y 4.0-6.0) near (5.00, 5.00); keep 0.3 m clear",
+    "the circulation passes inside central_basin (x 7.0-9.0, y 7.0-9.0) near (8.00, 8.00); keep 0.3 m clear",
+    "the circulation passes inside rock_2 (x 10.0-12.0, y 10.0-12.0) near (11.00, 11.00); keep 0.3 m clear",
+    "the circulation passes inside column@13.0,13.0 (x 12.8-13.2, y 12.8-13.2) near (13.00, 13.00); keep 0.3 m clear"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": [
+    "the circulation passes inside rock_1 (x 3.5-5.5, y 3.5-5.5) near (3.99, 4.01); keep 0.3 m clear",
+    "the circulation passes only 0.09 m from central_basin (x 7.2-8.8, y 7.2-8.8) near (8.41, 7.20); keep 0.3 m clear",
+    "the circulation passes inside rock_2 (x 10.5-12.5, y 10.5-12.5) near (12.21, 12.17); keep 0.3 m clear"
+   ]
+  },
+  {
+   "round": 3,
+   "problems": [
+    "the circulation passes only 0.26 m from central_basin (x 7.2-8.8, y 7.2-8.8) near (8.75, 7.25); keep 0.3 m clear"
+   ]
+  }
+ ],
+ "error": null,
+ "calls": [
+  {
+   "ms": 437,
+   "outcome": "http_429"
+  },
+  {
+   "ms": 5931,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 3306,
+    "candidatesTokenCount": 1871,
+    "totalTokenCount": 5177,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 3306
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  },
+  {
+   "ms": 5418,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 5042,
+    "candidatesTokenCount": 1916,
+    "totalTokenCount": 6958,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 5042
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  },
+  {
+   "ms": 3777,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 4647,
+    "candidatesTokenCount": 1179,
+    "totalTokenCount": 5826,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 4647
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  }
+ ]
+}

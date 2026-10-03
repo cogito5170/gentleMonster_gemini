@@ -5,7 +5,8 @@ Every call: fixed model (gemini-3.1-flash-lite, no fallback), JSON out under a r
 GEMINI_API_KEY (or GOOGLE_API_KEY) and never written anywhere.
 
 What is retried and what is not (PREP F2/F3):
-  429 / 5xx / network  -> retried, at most 3 attempts, Retry-After honoured, no sleep after the last
+  429 / 5xx / network  -> retried, at most 3 attempts (a 429 quota: 5), the server's retry delay honoured
+                          (Retry-After or RetryInfo, <= 60 s), no sleep after the last
   blocked prompt, finishReason other than STOP (MAX_TOKENS, SAFETY, ...)  -> recorded and raised, never resent
   other 4xx            -> raised at once
 """
@@ -21,6 +22,7 @@ from gmg import MODEL, schema as S
 
 API = os.environ.get("GMG_GEMINI_API", "https://generativelanguage.googleapis.com/v1beta")
 RETRY = {429, 500, 502, 503, 504}
+QUOTA_EXTRA = 2          # a per-minute quota (429) gets two more attempts, waiting as long as the server says (<= 60 s)
 
 
 class ModelError(RuntimeError):
@@ -69,7 +71,11 @@ class Gemini:
         url = f"{API}/models/{self.model}:generateContent"
         hdr = {"Content-Type": "application/json", "x-goog-api-key": k}
         last = None
-        for a in range(1, self.attempts + 1):
+        a = 0
+        while a < self.attempts + QUOTA_EXTRA:
+            a += 1
+            if a > self.attempts and not (last and last.outcome == "http_429"):
+                break
             t0 = time.time()
             try:
                 code, text, rh = self.transport(url, body, hdr, {"step": step, "schema": sch})
@@ -82,11 +88,11 @@ class Gemini:
             ms = int((time.time() - t0) * 1000)
             if code != 200:
                 msg = _err(text)
-                self._log(step=step, attempt=a, outcome=f"http_{code}", error=msg[:300], ms=ms)
+                wait = _retry_delay(text, rh)
+                self._log(step=step, attempt=a, outcome=f"http_{code}", error=msg[:300], retry_delay=wait, ms=ms)
                 last = ModelError(f"http_{code}", msg)
-                if code in RETRY and a < self.attempts:
-                    ra = rh.get("Retry-After") or rh.get("retry-after")
-                    self.sleep(min(float(ra), 30) if ra and str(ra).replace(".", "", 1).isdigit() else 2 ** (a - 1))
+                if code in RETRY and a < self.attempts + (QUOTA_EXTRA if code == 429 else 0):
+                    self.sleep(min(wait, 60) if wait is not None else 2 ** (a - 1))
                     continue
                 raise last
             try:
@@ -119,6 +125,22 @@ class Gemini:
             self._log(outcome="ok" if not probs else "schema_violation", problems=probs[:20], reply=v if v is not None else txt[:2000], **base)
             return {"value": v, "problems": probs, "reported": reported, "usage": usage, "mismatch": mismatch}
         raise last
+
+
+def _retry_delay(text: str, headers) -> "float | None":
+    """Seconds the server asks us to wait: Retry-After, or Google's RetryInfo.retryDelay ('34s'), or 'retry in 34.5s'."""
+    import re
+    ra = (headers or {}).get("Retry-After") or (headers or {}).get("retry-after")
+    if ra and re.fullmatch(r"\d+(\.\d+)?", str(ra)):
+        return float(ra)
+    try:
+        for d in json.loads(text)["error"].get("details", []):
+            if "retryDelay" in d:
+                return float(str(d["retryDelay"]).rstrip("s"))
+    except Exception:                                       # noqa: BLE001
+        pass
+    m = re.search(r"retry in (\d+(?:\.\d+)?)\s*s", text or "", re.I)
+    return float(m.group(1)) if m else None
 
 
 def _err(text: str) -> str:

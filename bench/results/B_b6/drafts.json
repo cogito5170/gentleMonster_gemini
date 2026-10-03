@@ -1,0 +1,30 @@
+{
+ "rounds": 1,
+ "problems": [],
+ "drafts": [
+  {
+   "round": 1,
+   "problems": []
+  }
+ ],
+ "error": null,
+ "calls": [
+  {
+   "ms": 5789,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 3315,
+    "candidatesTokenCount": 1670,
+    "totalTokenCount": 4985,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 3315
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  }
+ ]
+}

@@ -1,0 +1,330 @@
+[
+ {
+  "brief": "b1",
+  "arm": "A",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": null,
+  "calls": 0,
+  "tokens": null,
+  "reported": "-",
+  "run": 1
+ },
+ {
+  "brief": "b1",
+  "arm": "B",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 1,
+  "seconds": 9.9,
+  "calls": 2,
+  "tokens": {
+   "prompt": 8115,
+   "output": 3230,
+   "thoughts": 0,
+   "total": 11345
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "error": null,
+  "run": 1
+ },
+ {
+  "brief": "b1",
+  "arm": "C",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 1,
+  "seconds": 18.7,
+  "calls": 8,
+  "tokens": {
+   "prompt": 2593,
+   "output": 1397,
+   "thoughts": 0,
+   "total": 3990
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "plan": "chamber",
+  "run": 1
+ },
+ {
+  "brief": "b2",
+  "arm": "A",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": null,
+  "calls": 0,
+  "tokens": null,
+  "reported": "-",
+  "run": 1
+ },
+ {
+  "brief": "b2",
+  "arm": "B",
+  "gate": false,
+  "complete": 0,
+  "missing": [
+   "no job"
+  ],
+  "reasks": 3,
+  "seconds": 18.8,
+  "calls": 3,
+  "tokens": {
+   "prompt": 12697,
+   "output": 5319,
+   "thoughts": 0,
+   "total": 18016
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "error": null,
+  "run": 1
+ },
+ {
+  "brief": "b2",
+  "arm": "C",
+  "gate": false,
+  "complete": 0,
+  "missing": [
+   "no job"
+  ],
+  "reasks": 1,
+  "seconds": 8.3,
+  "calls": 7,
+  "tokens": {
+   "prompt": 1708,
+   "output": 554,
+   "thoughts": 0,
+   "total": 2262
+  },
+  "reported": "-,gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "FAILED",
+  "plan": "orbit",
+  "run": 1
+ },
+ {
+  "brief": "b3",
+  "arm": "A",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": null,
+  "calls": 0,
+  "tokens": null,
+  "reported": "-",
+  "run": 1
+ },
+ {
+  "brief": "b3",
+  "arm": "B",
+  "gate": false,
+  "complete": 0,
+  "missing": [
+   "no job"
+  ],
+  "reasks": 3,
+  "seconds": 17.6,
+  "calls": 4,
+  "tokens": {
+   "prompt": 12995,
+   "output": 4966,
+   "thoughts": 0,
+   "total": 17961
+  },
+  "reported": "-,gemini-3.1-flash-lite",
+  "error": null,
+  "run": 1
+ },
+ {
+  "brief": "b3",
+  "arm": "C",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 9.4,
+  "calls": 7,
+  "tokens": {
+   "prompt": 2026,
+   "output": 1131,
+   "thoughts": 0,
+   "total": 3157
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "plan": "ritual",
+  "run": 1
+ },
+ {
+  "brief": "b4",
+  "arm": "A",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": null,
+  "calls": 0,
+  "tokens": null,
+  "reported": "-",
+  "run": 1
+ },
+ {
+  "brief": "b4",
+  "arm": "B",
+  "gate": false,
+  "complete": 0,
+  "missing": [
+   "no job"
+  ],
+  "reasks": 3,
+  "seconds": 16.5,
+  "calls": 3,
+  "tokens": {
+   "prompt": 12493,
+   "output": 5737,
+   "thoughts": 0,
+   "total": 18230
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "error": null,
+  "run": 1
+ },
+ {
+  "brief": "b4",
+  "arm": "C",
+  "gate": false,
+  "complete": 0,
+  "missing": [
+   "no job"
+  ],
+  "reasks": 1,
+  "seconds": 7.2,
+  "calls": 6,
+  "tokens": {
+   "prompt": 1539,
+   "output": 466,
+   "thoughts": 0,
+   "total": 2005
+  },
+  "reported": "-,gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "FAILED",
+  "plan": "orbit",
+  "run": 1
+ },
+ {
+  "brief": "b5",
+  "arm": "A",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": null,
+  "calls": 0,
+  "tokens": null,
+  "reported": "-",
+  "run": 1
+ },
+ {
+  "brief": "b5",
+  "arm": "B",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 12.3,
+  "calls": 3,
+  "tokens": {
+   "prompt": 3297,
+   "output": 1701,
+   "thoughts": 0,
+   "total": 4998
+  },
+  "reported": "-,gemini-3.1-flash-lite",
+  "error": null,
+  "run": 1
+ },
+ {
+  "brief": "b5",
+  "arm": "C",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 9.9,
+  "calls": 7,
+  "tokens": {
+   "prompt": 2616,
+   "output": 1320,
+   "thoughts": 0,
+   "total": 3936
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "plan": "orbit",
+  "run": 1
+ },
+ {
+  "brief": "b6",
+  "arm": "A",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": null,
+  "calls": 0,
+  "tokens": null,
+  "reported": "-",
+  "run": 1
+ },
+ {
+  "brief": "b6",
+  "arm": "B",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 5.8,
+  "calls": 1,
+  "tokens": {
+   "prompt": 3315,
+   "output": 1670,
+   "thoughts": 0,
+   "total": 4985
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "error": null,
+  "run": 1
+ },
+ {
+  "brief": "b6",
+  "arm": "C",
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 9.4,
+  "calls": 7,
+  "tokens": {
+   "prompt": 2100,
+   "output": 1144,
+   "thoughts": 0,
+   "total": 3244
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "plan": "ritual",
+  "run": 1
+ }
+]

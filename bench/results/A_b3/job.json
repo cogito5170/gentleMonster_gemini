@@ -1,0 +1,307 @@
+{
+ "brand": "Aesop",
+ "title": "Where the Library Ends",
+ "subtitle": "Shelves of scent in basalt, Jeju",
+ "line": "At the end of a library the books run out, and the shelves keep going with scent.",
+ "synopsis": "You walk out of the last aisle of a library into a room lined with the same shelves, but every slot holds an amber bottle instead of a book. The walls are layered clay like the cut of a Jeju cliff, and the floor is dark basalt that still smells of rain on stone. In the centre, under a low plaster dome, a round basalt basin runs with water, and you stop to wash your hands before you read anything. Two long reading tables hold open testers like open pages, and the counter waits quietly at the back.",
+ "keywords": [
+  "Reading by scent",
+  "Basalt",
+  "Ritual"
+ ],
+ "quote": "Read with your hands first.",
+ "why": [
+  {
+   "t": "Three walls are one bookshelf",
+   "d": "Shelf walls wrap the left, right and back of the 14 x 11 m room, so the room reads as the last aisle of a library."
+  },
+  {
+   "t": "Washing comes before reading",
+   "d": "The basalt basin is the centre of the dome and the first stop on the route, 2.8 m in from the door."
+  },
+  {
+   "t": "Testers sit on reading tables",
+   "d": "Two tables flank the entrance path, so trying scent feels like turning pages, not shopping."
+  },
+  {
+   "t": "The counter stays out of the ritual",
+   "d": "The counter sits at the back right, off the loop around the basin."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#2b2a28",
+   "name": "Basalt"
+  },
+  {
+   "hex": "#a8865f",
+   "name": "Amber bottle"
+  },
+  {
+   "hex": "#c9b69a",
+   "name": "Old paper"
+  },
+  {
+   "hex": "#e8e1d4",
+   "name": "Lime plaster"
+  },
+  {
+   "hex": "#6e7b5e",
+   "name": "Camellia leaf"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Jeju basalt",
+   "where": "floor, basin",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Layered clay",
+   "where": "shelf walls",
+   "preset": "strata_clay"
+  },
+  {
+   "name": "Lime plaster",
+   "where": "dome, ceiling",
+   "preset": "lime_plaster"
+  },
+  {
+   "name": "Oiled oak",
+   "where": "reading tables, counter",
+   "preset": "wood"
+  }
+ ],
+ "accent": "#a8865f",
+ "room": {
+  "floor": "black_stone",
+  "wall": "lime_plaster",
+  "ceiling": "lime_plaster",
+  "light": "warm_spot",
+  "dome": true
+ },
+ "layout": {
+  "name": "Where the Library Ends — Aesop Jeju",
+  "W": 14,
+  "D": 11,
+  "H": 4.5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 5.5,
+    "y0": -0.1,
+    "x1": 8.5,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "dome",
+    "type": "zone",
+    "x0": 4.5,
+    "y0": 3.0,
+    "x1": 9.5,
+    "y1": 8.0,
+    "h": 0,
+    "label": "Plaster dome",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0.0,
+    "y0": 2.0,
+    "x1": 0.6,
+    "y1": 10.0,
+    "h": 3.6,
+    "label": "Scent shelf",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 13.4,
+    "y0": 2.0,
+    "x1": 14.0,
+    "y1": 10.0,
+    "h": 3.6,
+    "label": "Scent shelf",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "wb",
+    "type": "wall_shelf",
+    "x0": 2.0,
+    "y0": 10.4,
+    "x1": 12.0,
+    "y1": 11.0,
+    "h": 3.6,
+    "label": "Scent shelf",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "strata_clay"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 6.0,
+    "y0": 4.5,
+    "x1": 8.0,
+    "y1": 6.5,
+    "h": 0.9,
+    "label": "Basalt basin",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "black_stone",
+    "hero": true
+   },
+   {
+    "id": "table_l",
+    "type": "tables",
+    "x0": 2.5,
+    "y0": 3.5,
+    "x1": 4.5,
+    "y1": 4.5,
+    "h": 0.75,
+    "label": "Reading table (testers)",
+    "zone": "sale",
+    "shape": "box",
+    "material": "wood"
+   },
+   {
+    "id": "table_r",
+    "type": "tables",
+    "x0": 9.5,
+    "y0": 3.5,
+    "x1": 11.5,
+    "y1": 4.5,
+    "h": 0.75,
+    "label": "Reading table (testers)",
+    "zone": "sale",
+    "shape": "box",
+    "material": "wood"
+   },
+   {
+    "id": "counter",
+    "type": "checkout",
+    "x0": 9.5,
+    "y0": 8.2,
+    "x1": 12.0,
+    "y1": 9.0,
+    "h": 1.0,
+    "label": "Counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "wood"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.6,
+    "y0": 8.6,
+    "x1": 2.6,
+    "y1": 10.4,
+    "h": 3.0,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "concrete"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      7,
+      0.5
+     ],
+     [
+      7,
+      2.8
+     ],
+     [
+      5.2,
+      5.5
+     ],
+     [
+      7,
+      7.6
+     ],
+     [
+      8.8,
+      5.5
+     ],
+     [
+      8.6,
+      3.0
+     ]
+    ],
+    "color": "#a8865f"
+   }
+  ],
+  "entry": [
+   7,
+   0
+  ],
+  "exit": [
+   7,
+   0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    7,
+    2.8
+   ],
+   "d": 3.0,
+   "look": [
+    7,
+    0.9,
+    5.5
+   ],
+   "h": 1.5,
+   "cap": "I wash my hands before I read.",
+   "sub": "Water runs over a basalt basin under the plaster dome."
+  },
+  {
+   "at": [
+    5.2,
+    5.5
+   ],
+   "d": 3.0,
+   "look": [
+    0.6,
+    1.5,
+    5.5
+   ],
+   "h": 1.55,
+   "cap": "The shelves keep going without books.",
+   "sub": "Every slot holds an amber bottle instead of a spine."
+  },
+  {
+   "at": [
+    7,
+    7.6
+   ],
+   "d": 2.8,
+   "look": [
+    7,
+    2.0,
+    10.4
+   ],
+   "h": 1.55,
+   "cap": "The last aisle smells of rain on stone.",
+   "sub": "Clay layers like a Jeju cliff, and paper somewhere behind them."
+  }
+ ]
+}

@@ -1,0 +1,400 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Threshold of the Rainy Night",
+ "subtitle": "A sensory immersion into the stillness of a storm-cleansed sanctuary.",
+ "line": "Step through a narrow aperture into a mirrored chamber where the rhythmic echoes of rain dissolve into the cold, sharp scent of wet stone and earth.",
+ "synopsis": "As you cross the threshold, the cacophony of the city vanishes, replaced by the soft, ambient glow reflecting off polished concrete surfaces. You navigate between monolithic black stones that hold fragrances atop their damp, porous peaks, grounding you in the heart of the storm. Piercing the infinite mirror walls, raw strata clay elements suggest a world eroding beneath the surface. You finally retreat to the charcoal plinth or the secluded lime plaster alcove, where the lingering scent of rain becomes your own.",
+ "keywords": [
+  "Olfactory Sanctuary",
+  "Atmospheric Minimalist",
+  "Liminal Space"
+ ],
+ "quote": "In the silence after the rain, the scent of the earth reveals the truth of the moment.",
+ "why": [
+  {
+   "t": "Infinite Mirrored Threshold",
+   "d": "A chamber of infinite reflection walls, 11 x 8 m, stands inside the room; you enter it through a 1.8 m opening in its side. The reflective walls create an illusion of endless space that isolates you from the external environment."
+  },
+  {
+   "t": "Monolith Product Display",
+   "d": "Three monolith water feature objects inside the chamber carry the product at 0.9-1.4 m high. The black stone pedestals elevate the fragrance to eye level, turning the act of smelling into a ritualistic encounter."
+  },
+  {
+   "t": "Eroded Earth Intersections",
+   "d": "Two eroded earth element objects break through the chamber walls on opposite sides. The raw clay elements breaking through the walls provide a tactile contrast to the polished, futuristic surfaces."
+  },
+  {
+   "t": "Exterior Service Zones",
+   "d": "The charcoal service plinth and the secluded alcove stay outside the chamber. The charcoal plinth and lime alcove offer a grounded, physical space for you to conclude your sensory journey."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#0d0d0d",
+   "name": "Obsidian Void"
+  },
+  {
+   "hex": "#262626",
+   "name": "Wet Charcoal"
+  },
+  {
+   "hex": "#595959",
+   "name": "Rain Mist"
+  },
+  {
+   "hex": "#b3b3b3",
+   "name": "Cool Slate"
+  },
+  {
+   "hex": "#00ffdd",
+   "name": "Electric Neon"
+  }
+ ],
+ "accent": "#00ffdd",
+ "materials": [
+  {
+   "name": "Honed Basalt Monolith",
+   "where": "floor, walls, ceiling, monolith water feature, charcoal serv",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Polished Mirror Aluminium",
+   "where": "infinite reflection",
+   "preset": "mirror_aluminium"
+  },
+  {
+   "name": "Raw Strata Clay Composite",
+   "where": "eroded earth element",
+   "preset": "strata_clay"
+  },
+  {
+   "name": "Breathable Lime Plaster",
+   "where": "secluded alcove",
+   "preset": "lime_plaster"
+  }
+ ],
+ "room": {
+  "floor": "black_stone",
+  "wall": "black_stone",
+  "ceiling": "black_stone",
+  "light": "dark_gallery",
+  "fog": 0.02,
+  "beams": true
+ },
+ "layout": {
+  "name": "Threshold of the Rainy Night — Gentle Monster",
+  "W": 18.0,
+  "D": 12.0,
+  "H": 4.5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 1.0,
+    "y0": -0.1,
+    "x1": 3.0,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "chamber",
+    "type": "zone",
+    "x0": 4.0,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 0,
+    "label": "rain-washed gallery",
+    "zone": "exp",
+    "shape": "zone",
+    "material": "textile_light"
+   },
+   {
+    "id": "w_front",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 2.15,
+    "h": 4.2,
+    "label": "infinite reflection",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_back",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 9.85,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "infinite reflection",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_left",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 2.0,
+    "x1": 4.15,
+    "y1": 5.4,
+    "h": 4.2,
+    "label": "infinite reflection",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_left2",
+    "type": "block",
+    "x0": 4.0,
+    "y0": 7.2,
+    "x1": 4.15,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "infinite reflection",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_right",
+    "type": "block",
+    "x0": 14.85,
+    "y0": 2.0,
+    "x1": 15.0,
+    "y1": 6.8,
+    "h": 4.2,
+    "label": "infinite reflection",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "w_right2",
+    "type": "block",
+    "x0": 14.85,
+    "y0": 8.6,
+    "x1": 15.0,
+    "y1": 10.0,
+    "h": 4.2,
+    "label": "infinite reflection",
+    "zone": "",
+    "shape": "mirror_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "mono_a",
+    "type": "island",
+    "x0": 5.5,
+    "y0": 3.4,
+    "x1": 7.3,
+    "y1": 5.0,
+    "h": 1.2,
+    "label": "monolith water feature",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "black_stone",
+    "cloth": "#e7b7b5"
+   },
+   {
+    "id": "mono_b",
+    "type": "island",
+    "x0": 9.0,
+    "y0": 6.4,
+    "x1": 11.6,
+    "y1": 8.0,
+    "h": 0.9,
+    "label": "monolith water feature",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "black_stone",
+    "cloth": "#1b1b1b"
+   },
+   {
+    "id": "mono_c",
+    "type": "island",
+    "x0": 12.4,
+    "y0": 3.0,
+    "x1": 14.0,
+    "y1": 5.6,
+    "h": 1.4,
+    "label": "monolith water feature",
+    "zone": "sale",
+    "shape": "rock",
+    "material": "black_stone",
+    "cloth": "#c9c3b6"
+   },
+   {
+    "id": "pierce_l",
+    "type": "block",
+    "x0": 3.1,
+    "y0": 5.5,
+    "x1": 4.9,
+    "y1": 6.3,
+    "h": 3.2,
+    "label": "eroded earth element",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "strata_clay"
+   },
+   {
+    "id": "pierce_r",
+    "type": "block",
+    "x0": 14.2,
+    "y0": 7.7,
+    "x1": 16.4,
+    "y1": 8.5,
+    "h": 3.8,
+    "label": "eroded earth element",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "strata_clay"
+   },
+   {
+    "id": "fit",
+    "type": "room",
+    "x0": 15.5,
+    "y0": 10.0,
+    "x1": 18.0,
+    "y1": 12.0,
+    "h": 2.6,
+    "label": "secluded alcove",
+    "zone": "",
+    "shape": "box",
+    "material": "lime_plaster"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 1.0,
+    "y0": 10.8,
+    "x1": 4.0,
+    "y1": 11.6,
+    "h": 1.0,
+    "label": "charcoal service plinth",
+    "zone": "pay",
+    "shape": "box",
+    "material": "black_stone"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      2.0,
+      0.4
+     ],
+     [
+      2.0,
+      6.75
+     ],
+     [
+      5.2,
+      6.75
+     ],
+     [
+      8.0,
+      5.6
+     ],
+     [
+      10.3,
+      5.2
+     ],
+     [
+      13.2,
+      6.2
+     ],
+     [
+      13.6,
+      8.9
+     ],
+     [
+      9.0,
+      9.1
+     ],
+     [
+      5.4,
+      8.4
+     ],
+     [
+      4.4,
+      6.75
+     ],
+     [
+      2.4,
+      7.0
+     ],
+     [
+      2.5,
+      10.4
+     ]
+    ],
+    "color": "#00ffdd"
+   }
+  ],
+  "entry": [
+   2.0,
+   0.0
+  ],
+  "exit": [
+   2.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    2.0,
+    4.6
+   ],
+   "look": [
+    4.0,
+    1.7,
+    5.9
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I trace the jagged edges of raw clay pushing through the exterior facade.",
+   "sub": "The earth seems to be reclaiming the space, blurring the boundary between the store and the street."
+  },
+  {
+   "at": [
+    6.2,
+    6.3
+   ],
+   "look": [
+    9.6,
+    1.6,
+    9.95
+   ],
+   "h": 1.62,
+   "d": 3.2,
+   "cap": "I stand before the mirror wall, watching my form dissolve into an infinite void.",
+   "sub": "The reflective surface creates a sense of endless depth that swallows the city's frantic pace."
+  },
+  {
+   "at": [
+    10.3,
+    5.2
+   ],
+   "look": [
+    10.3,
+    0.95,
+    7.2
+   ],
+   "h": 1.3,
+   "d": 3.0,
+   "cap": "I touch the damp stone where water beads against the dark charcoal peak.",
+   "sub": "The rhythmic drip grounds me, turning the scent of rain into a tangible, lingering atmosphere."
+  }
+ ]
+}

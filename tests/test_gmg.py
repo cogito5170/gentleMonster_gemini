@@ -149,6 +149,30 @@ try:
 except ModelError as e:
     ok(e.outcome == "http_503" and t.n == 3 and len(sl) == 2, f"503: 3 attempts, 2 waits (no wait after the last) -> {t.n}, {len(sl)}")
 
+class Quota:
+    """429 with Google's RetryInfo, `n` times, then a good answer."""
+    def __init__(self, n):
+        self.n, self.calls = n, 0
+
+    def __call__(self, url, body, headers, hint):
+        self.calls += 1
+        if self.calls <= self.n:
+            return 429, json.dumps({"error": {"message": "You exceeded your current quota", "details": [
+                {"@type": "type.googleapis.com/google.rpc.RetryInfo", "retryDelay": "7s"}]}}), {}
+        return fake.Fake("ok")(url, body, headers, hint)
+
+
+sl = []
+q = Quota(4)
+res = Gemini(transport=q, sleep=sl.append).ask("brief", "p", {"type": "object", "properties": {}})
+ok(q.calls == 5 and sl == [7.0, 7.0, 7.0, 7.0] and res["problems"] == [], f"429 quota: waits the server's 7 s, two extra attempts, then ok ({q.calls}, {sl})")
+sl = []
+try:
+    Gemini(transport=Quota(99), sleep=sl.append).ask("brief", "p", {"type": "object", "properties": {}})
+    ok(False, "a quota that never clears raises")
+except ModelError as e:
+    ok(e.outcome == "http_429" and len(sl) == 4, f"a quota that never clears: 5 attempts, 4 waits, then FAILED ({len(sl)})")
+
 sec("status only from the ledger; model text is data")
 r, fk, L = make("j_forge", "forge")
 job = spec.load(Path(r["dir"]) / "job.json")

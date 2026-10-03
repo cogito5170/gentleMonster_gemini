@@ -1,0 +1,263 @@
+{
+ "brand": "Gentle Monster",
+ "title": "The Threshold of a Rainy Night",
+ "subtitle": "Where silence falls between the drops",
+ "line": "Step across the threshold where the city’s downpour dissolves into a sanctuary of wet granite and static light.",
+ "synopsis": "As you step inside, the abrasive roar of the Seoul rain abruptly vanishes, replaced by a hollow, ringing silence. You stand upon dark, slick granite that reflects the dim, oscillating pulses of overhead light beams. Ahead, massive blocks of rough-hewn stone emerge from the gloom like monoliths left in a storm, their surfaces glistening with synthetic moisture. You navigate through these jagged volumes, uncovering eyewear hidden within the crevices as if finding relics washed up on a shore.",
+ "keywords": [
+  "Threshold",
+  "Stasis",
+  "Submersion"
+ ],
+ "quote": "The storm ends where your reflection begins.",
+ "why": [
+  {
+   "t": "Acoustic transition",
+   "d": "The layout channels visitors into a central void immediately after the door, forcing a physical pause that breaks the city's momentum."
+  },
+  {
+   "t": "Materiality of rain",
+   "d": "The use of black stone and graphite wax creates a perpetually wet texture that visually translates the rainy theme."
+  },
+  {
+   "t": "Heroic distribution",
+   "d": "The placement of monoliths forces a non-linear path, ensuring the visitor is always turning to find products hidden in stone gaps."
+  },
+  {
+   "t": "Lighting as mood",
+   "d": "Low-intensity, focused spotlights create high-contrast shadows, mimicking the street lighting of a rainy night."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#0a0a0a",
+   "name": "Midnight Oil"
+  },
+  {
+   "hex": "#2b2b2b",
+   "name": "Obsidian"
+  },
+  {
+   "hex": "#5e5e5e",
+   "name": "Wet Asphalt"
+  },
+  {
+   "hex": "#d1d1d1",
+   "name": "Moonlight Reflection"
+  },
+  {
+   "hex": "#1a1a1a",
+   "name": "Rain Shadow"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Black Stone",
+   "where": "monoliths",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Graphite Wax",
+   "where": "floor",
+   "preset": "graphite_wax"
+  },
+  {
+   "name": "Textile Light",
+   "where": "ceiling",
+   "preset": "textile_light"
+  },
+  {
+   "name": "Brushed Steel",
+   "where": "display tops",
+   "preset": "steel"
+  }
+ ],
+ "accent": "#f0f0f0",
+ "room": {
+  "floor": "graphite_wax",
+  "wall": "black_stone",
+  "ceiling": "black_stone",
+  "light": "dark_gallery",
+  "beams": true
+ },
+ "layout": {
+  "name": "01 The Threshold of a Rainy Night",
+  "W": 18,
+  "D": 20,
+  "H": 4,
+  "columns": [
+   [
+    3,
+    5
+   ],
+   [
+    15,
+    5
+   ],
+   [
+    3,
+    15
+   ],
+   [
+    15,
+    15
+   ]
+  ],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 7.5,
+    "y0": 0,
+    "x1": 10.5,
+    "y1": 0.5,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "entry",
+    "shape": "door"
+   },
+   {
+    "id": "rock1",
+    "type": "block",
+    "x0": 2,
+    "y0": 4,
+    "x1": 5,
+    "y1": 7,
+    "h": 3,
+    "label": "Monolith",
+    "zone": "display",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "rock2",
+    "type": "block",
+    "x0": 13,
+    "y0": 7,
+    "x1": 16,
+    "y1": 11,
+    "h": 2.5,
+    "label": "Monolith",
+    "zone": "display",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "rock3",
+    "type": "block",
+    "x0": 5,
+    "y0": 12,
+    "x1": 8,
+    "y1": 15,
+    "h": 3.5,
+    "label": "Monolith",
+    "zone": "display",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "checkout",
+    "type": "checkout",
+    "x0": 8,
+    "y0": 17,
+    "x1": 12,
+    "y1": 19,
+    "h": 1,
+    "label": "Counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "granite"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      9,
+      1
+     ],
+     [
+      9,
+      3
+     ],
+     [
+      6,
+      3
+     ],
+     [
+      6,
+      8
+     ],
+     [
+      10,
+      10
+     ],
+     [
+      10,
+      15
+     ],
+     [
+      10,
+      16.5
+     ]
+    ],
+    "color": "#f0f0f0"
+   }
+  ],
+  "entry": [
+   9,
+   0
+  ],
+  "exit": [
+   10,
+   20
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    9,
+    3
+   ],
+   "d": 3,
+   "look": [
+    5.5,
+    1.5,
+    5.5
+   ],
+   "h": 1.6,
+   "cap": "The roar of the city fades into silence.",
+   "sub": "The light catches the wet edges of the dark stone."
+  },
+  {
+   "at": [
+    10,
+    10
+   ],
+   "d": 3,
+   "look": [
+    12.5,
+    1.2,
+    9
+   ],
+   "h": 1.6,
+   "cap": "Relics hidden in the crevices.",
+   "sub": "Eyewear rests within the cold stone gaps."
+  },
+  {
+   "at": [
+    10,
+    16.5
+   ],
+   "d": 2.5,
+   "look": [
+    10,
+    1.0,
+    18
+   ],
+   "h": 1.6,
+   "cap": "The end of the threshold.",
+   "sub": "The transaction marks the exit from the storm."
+  }
+ ]
+}

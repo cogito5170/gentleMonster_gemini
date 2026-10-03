@@ -12,7 +12,9 @@ ROOT = Path(__file__).resolve().parents[1]
 M = [
     ("finishReason gate off", "gmg/gemini.py", 'if finish != "STOP":', "if False:"),
     ("blocked prompt not caught", "gmg/gemini.py", "if block or not cands:", "if False:"),
-    ("sleep after the last attempt", "gmg/gemini.py", "if code in RETRY and a < self.attempts:", "if code in RETRY:"),
+    ("sleep after the last attempt", "gmg/gemini.py", "if code in RETRY and a < self.attempts + (QUOTA_EXTRA if code == 429 else 0):", "if code in RETRY:"),
+    ("server retry delay ignored", "gmg/gemini.py", "                wait = _retry_delay(text, rh)", "                wait = None"),
+    ("no extra attempts for a quota", "gmg/gemini.py", "QUOTA_EXTRA = 2 ", "QUOTA_EXTRA = 0 "),
     ("model mismatch not flagged", "gmg/gemini.py", 'mismatch = reported != "미보고" and not reported.startswith(self.model)', "mismatch = False"),
     ("key written to the ledger", "gmg/gemini.py", "base = dict(step=step,", "base = dict(hdr=hdr, step=step,"),
     ("status ignores the hash", "gmg/ledger.py", 'sha256(p) == e["sha256"]', "True"),

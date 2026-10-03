@@ -1,0 +1,386 @@
+{
+ "brand": "Gentle Monster",
+ "title": "The Dry Threshold",
+ "subtitle": "Where the rain is switched off",
+ "line": "A rainy night in Seongsu ends at a curtain of steel rain, and the room behind it is silent.",
+ "synopsis": "You come in out of the rain and the sound stops at a curtain of still steel cables, hung like rain that forgot to fall. Behind it the floor is wet black stone and the only movement is a round black pool, its surface rippling under a low luminous ceiling. Four dark plinths stand at the edge of the light, each holding a single pair of frames like something left on a windowsill. You circle the pool slowly, dry for the first time tonight, and the frames are the last thing you collect before the desk.",
+ "keywords": [
+  "Threshold",
+  "Held rain",
+  "Silence"
+ ],
+ "quote": "The city keeps raining. Inside, only the light is wet.",
+ "why": [
+  {
+   "t": "Rain is a wall you pass through",
+   "d": "Two cable curtains hang 3.4 m inside the door with a 0.8 m dry gap between them; the street sound ends there."
+  },
+  {
+   "t": "The pool is the only motion",
+   "d": "A 2 m black basin sits alone under the luminous ceiling in a 10 x 7 m stone field; the route circles it and never touches it."
+  },
+  {
+   "t": "Frames wait at the edge of the light",
+   "d": "Four plinths sit outside the loop at the field's corners, so you step out of the light to try a pair."
+  },
+  {
+   "t": "The desk closes the walk",
+   "d": "The pay desk is the far wall; the loop ends facing it, with the rain behind you."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#121417",
+   "name": "Night stone"
+  },
+  {
+   "hex": "#3a4148",
+   "name": "Wet concrete"
+  },
+  {
+   "hex": "#8d989f",
+   "name": "Steel rain"
+  },
+  {
+   "hex": "#d8dde0",
+   "name": "Ceiling glow"
+  },
+  {
+   "hex": "#c4422d",
+   "name": "Tail light"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Black basalt",
+   "where": "floor field, plinths, pool",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Board-formed concrete",
+   "where": "walls, threshold blocks",
+   "preset": "concrete"
+  },
+  {
+   "name": "Steel cable",
+   "where": "rain curtain",
+   "preset": "steel"
+  },
+  {
+   "name": "Luminous textile",
+   "where": "ceiling over the pool",
+   "preset": "textile_light"
+  }
+ ],
+ "accent": "#c4422d",
+ "room": {
+  "floor": "black_stone",
+  "wall": "concrete",
+  "ceiling": "black_stone",
+  "light": "dark_gallery",
+  "beams": false,
+  "fog": 0.04
+ },
+ "layout": {
+  "name": "The Dry Threshold — Gentle Monster Seongsu",
+  "W": 18,
+  "D": 14,
+  "H": 5.5,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 7.5,
+    "y0": -0.1,
+    "x1": 10.5,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "stone_l",
+    "type": "block",
+    "x0": 5.0,
+    "y0": 1.0,
+    "x1": 7.0,
+    "y1": 3.0,
+    "h": 2.4,
+    "label": "Wet stone block",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "stone_r",
+    "type": "block",
+    "x0": 11.0,
+    "y0": 1.0,
+    "x1": 13.0,
+    "y1": 3.0,
+    "h": 2.4,
+    "label": "Wet stone block",
+    "zone": "exp",
+    "shape": "rock",
+    "material": "black_stone"
+   },
+   {
+    "id": "rain_l",
+    "type": "media",
+    "x0": 7.2,
+    "y0": 3.4,
+    "x1": 8.6,
+    "y1": 3.7,
+    "h": 5.0,
+    "label": "Steel rain curtain",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "rain_r",
+    "type": "media",
+    "x0": 9.4,
+    "y0": 3.4,
+    "x1": 10.8,
+    "y1": 3.7,
+    "h": 5.0,
+    "label": "Steel rain curtain",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "field",
+    "type": "zone",
+    "x0": 4.0,
+    "y0": 4.0,
+    "x1": 14.0,
+    "y1": 11.0,
+    "h": 0,
+    "label": "Wet stone field",
+    "zone": "exp",
+    "shape": "floor_patch",
+    "material": "black_stone"
+   },
+   {
+    "id": "glow",
+    "type": "zone",
+    "x0": 7.0,
+    "y0": 5.5,
+    "x1": 11.0,
+    "y1": 9.5,
+    "h": 5.4,
+    "label": "Luminous ceiling",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   },
+   {
+    "id": "pool",
+    "type": "island",
+    "x0": 8.0,
+    "y0": 6.5,
+    "x1": 10.0,
+    "y1": 8.5,
+    "h": 0.6,
+    "label": "Black pool",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "black_stone",
+    "hero": true
+   },
+   {
+    "id": "pl0",
+    "type": "island",
+    "x0": 3.0,
+    "y0": 5.0,
+    "x1": 4.4,
+    "y1": 5.8,
+    "h": 1.0,
+    "label": "Frame plinth",
+    "zone": "sale",
+    "shape": "display",
+    "material": "black_stone"
+   },
+   {
+    "id": "pl1",
+    "type": "island",
+    "x0": 3.0,
+    "y0": 9.0,
+    "x1": 4.4,
+    "y1": 9.8,
+    "h": 1.0,
+    "label": "Frame plinth",
+    "zone": "sale",
+    "shape": "display",
+    "material": "black_stone"
+   },
+   {
+    "id": "pl2",
+    "type": "island",
+    "x0": 13.6,
+    "y0": 5.0,
+    "x1": 15.0,
+    "y1": 5.8,
+    "h": 1.0,
+    "label": "Frame plinth",
+    "zone": "sale",
+    "shape": "display",
+    "material": "black_stone"
+   },
+   {
+    "id": "pl3",
+    "type": "island",
+    "x0": 13.6,
+    "y0": 9.0,
+    "x1": 15.0,
+    "y1": 9.8,
+    "h": 1.0,
+    "label": "Frame plinth",
+    "zone": "sale",
+    "shape": "display",
+    "material": "black_stone"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 7.0,
+    "y0": 12.0,
+    "x1": 11.0,
+    "y1": 12.8,
+    "h": 1.0,
+    "label": "Pay desk",
+    "zone": "pay",
+    "shape": "box",
+    "material": "granite"
+   },
+   {
+    "id": "mirror",
+    "type": "kiosk",
+    "x0": 15.0,
+    "y0": 12.2,
+    "x1": 17.5,
+    "y1": 13.2,
+    "h": 1.8,
+    "label": "Fitting mirror",
+    "zone": "sale",
+    "shape": "box",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 12.0,
+    "x1": 3.5,
+    "y1": 14.0,
+    "h": 3.0,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "concrete"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      9,
+      0.5
+     ],
+     [
+      9,
+      4.6
+     ],
+     [
+      6.2,
+      5.6
+     ],
+     [
+      5.6,
+      7.5
+     ],
+     [
+      6.2,
+      9.6
+     ],
+     [
+      9,
+      11.2
+     ],
+     [
+      11.8,
+      9.6
+     ],
+     [
+      12.4,
+      7.5
+     ],
+     [
+      11.8,
+      5.6
+     ]
+    ],
+    "color": "#c4422d"
+   }
+  ],
+  "entry": [
+   9,
+   0
+  ],
+  "exit": [
+   9,
+   0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    9,
+    2.0
+   ],
+   "d": 2.6,
+   "look": [
+    9,
+    2.5,
+    3.55
+   ],
+   "h": 1.62,
+   "cap": "The rain stops at the stone.",
+   "sub": "Steel cables hang still like held rain. I slip through the dry gap."
+  },
+  {
+   "at": [
+    9,
+    4.6
+   ],
+   "d": 3.2,
+   "look": [
+    9,
+    0.4,
+    7.5
+   ],
+   "h": 1.62,
+   "cap": "Only the pool is still moving.",
+   "sub": "A black circle ripples under a ceiling of soft light."
+  },
+  {
+   "at": [
+    5.6,
+    7.5
+   ],
+   "d": 2.8,
+   "look": [
+    3.7,
+    1.0,
+    5.4
+   ],
+   "h": 1.4,
+   "cap": "I step out of the light to choose.",
+   "sub": "One pair of frames waits on the plinth, dry."
+  }
+ ]
+}

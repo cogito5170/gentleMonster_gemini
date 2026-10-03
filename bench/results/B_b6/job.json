@@ -1,0 +1,234 @@
+{
+ "brand": "Gentle Monster",
+ "title": "The Winter Breath Sauna",
+ "subtitle": "Knits forged in the stillness of a frozen forest",
+ "line": "Step off the city street into a steaming, timber-clad sanctuary where wool garments emerge from the frost.",
+ "synopsis": "You enter a narrow, dimly lit alpine cabin where the air is thick with the scent of damp cedar and cedar-smoke. Warm, light-absorbing timber walls wrap around you, contrasting with frosted glass panes that obscure the outside world in a blur of milky white. Walk toward the center where brass basins overflow with slow-dripping condensation, casting ripples across the floor. As you brush past, the steam parts to reveal shelves of dense, heavy knits nestled within the amber-toned wood. You leave the cold behind, finding texture and warmth in the heart of the forest.",
+ "keywords": [
+  "Steaming",
+  "Tactile",
+  "Sanctuary"
+ ],
+ "quote": "Warmth is a secret shared only with the frost.",
+ "why": [
+  {
+   "t": "Spatial compression",
+   "d": "The 8m width is partitioned by frosted glass to create a sense of being deep within a dense, misty forest."
+  },
+  {
+   "t": "Material contrast",
+   "d": "The use of warm timber alongside brass basins introduces a sensory dialogue between the dry warmth of knitwear and the dampness of a sauna."
+  },
+  {
+   "t": "Hero placement",
+   "d": "The central brass basin serves as the anchor, forcing the circulation to loop around it rather than cutting through."
+  },
+  {
+   "t": "Light management",
+   "d": "Warm spot lighting is focused purely on the products within the shelf-walls, keeping the rest of the store in an immersive, soft-focus gloom."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#5D4037",
+   "name": "Burnt Cedar"
+  },
+  {
+   "hex": "#BDBDBD",
+   "name": "Frost Glass"
+  },
+  {
+   "hex": "#B8860B",
+   "name": "Antique Brass"
+  },
+  {
+   "hex": "#F5F5F5",
+   "name": "Steam White"
+  },
+  {
+   "hex": "#FFBF00",
+   "name": "Amber Light"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Dark Cedar Wood",
+   "where": "walls, shelves",
+   "preset": "wood"
+  },
+  {
+   "name": "Frosted Glass",
+   "where": "entrance panels",
+   "preset": "glass"
+  },
+  {
+   "name": "Polished Brass",
+   "where": "central basin",
+   "preset": "brass"
+  },
+  {
+   "name": "Graphite Wax",
+   "where": "floor",
+   "preset": "graphite_wax"
+  }
+ ],
+ "accent": "#B8860B",
+ "room": {
+  "floor": "graphite_wax",
+  "wall": "wood",
+  "ceiling": "wood",
+  "light": "warm_spot",
+  "fog": 0.15
+ },
+ "layout": {
+  "name": "The Winter Breath Sauna",
+  "W": 8,
+  "D": 10,
+  "H": 4,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 3.5,
+    "y0": 0,
+    "x1": 4.5,
+    "y1": 0.2,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "entry",
+    "shape": "box",
+    "material": "wood"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 3.5,
+    "y0": 4.5,
+    "x1": 4.5,
+    "y1": 5.5,
+    "h": 0.9,
+    "label": "Steam Basin",
+    "zone": "central",
+    "shape": "basin",
+    "material": "brass"
+   },
+   {
+    "id": "shelf_l",
+    "type": "wall_shelf",
+    "x0": 0,
+    "y0": 2,
+    "x1": 0.5,
+    "y1": 8,
+    "h": 2.5,
+    "label": "Knit Wall",
+    "zone": "display",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "shelf_r",
+    "type": "wall_shelf",
+    "x0": 7.5,
+    "y0": 2,
+    "x1": 8,
+    "y1": 8,
+    "h": 2.5,
+    "label": "Knit Wall",
+    "zone": "display",
+    "shape": "shelf_wall",
+    "material": "wood"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      4,
+      0.5
+     ],
+     [
+      2,
+      2
+     ],
+     [
+      2.5,
+      5
+     ],
+     [
+      4,
+      7
+     ],
+     [
+      5.5,
+      5
+     ],
+     [
+      6,
+      2
+     ],
+     [
+      4,
+      9
+     ]
+    ],
+    "color": "#B8860B"
+   }
+  ],
+  "entry": [
+   4,
+   0
+  ],
+  "exit": [
+   4,
+   10
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    2,
+    2
+   ],
+   "d": 2.8,
+   "look": [
+    0.5,
+    1.4,
+    4
+   ],
+   "h": 1.6,
+   "cap": "The air is heavy with cedar.",
+   "sub": "I run my hand across the rough-hewn timber wall."
+  },
+  {
+   "at": [
+    2.5,
+    5
+   ],
+   "d": 3.6,
+   "look": [
+    4,
+    0.9,
+    5
+   ],
+   "h": 1.4,
+   "cap": "A slow, rhythmic dripping.",
+   "sub": "The brass basin ripples under the condensation."
+  },
+  {
+   "at": [
+    5.5,
+    5
+   ],
+   "d": 2.4,
+   "look": [
+    7.8,
+    1.5,
+    5
+   ],
+   "h": 1.6,
+   "cap": "Wool finds its home in the mist.",
+   "sub": "I reach for a knit, soft against the frozen glass."
+  }
+ ]
+}

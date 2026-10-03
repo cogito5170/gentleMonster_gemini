@@ -1,0 +1,59 @@
+{
+ "rounds": 2,
+ "problems": [],
+ "drafts": [
+  {
+   "round": 1,
+   "problems": [
+    "item rock1 has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "item rock2 has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "item rock3 has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "item checkout has material None; materials are: aluminium, amber_glass, black_stone, brass, candle_wax, concrete, glass, granite, graphite_wax, lime_plaster, mineral_white, mirror_aluminium, polished_concrete, red_wax, skin, steel, strata_clay, textile_light, white_gloss, wood",
+    "the circulation passes inside rock1 (x 4.0-7.0, y 4.0-7.0) near (6.00, 5.00); keep 0.3 m clear",
+    "the circulation passes only -0.00 m from rock2 (x 11.0-14.0, y 7.0-11.0) near (11.00, 11.00); keep 0.3 m clear",
+    "the circulation passes inside checkout (x 13.0-17.0, y 16.0-18.0) near (15.00, 17.00); keep 0.3 m clear"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": []
+  }
+ ],
+ "error": null,
+ "calls": [
+  {
+   "ms": 5403,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 3301,
+    "candidatesTokenCount": 1728,
+    "totalTokenCount": 5029,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 3301
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  },
+  {
+   "ms": 4449,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 4814,
+    "candidatesTokenCount": 1502,
+    "totalTokenCount": 6316,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 4814
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  }
+ ]
+}

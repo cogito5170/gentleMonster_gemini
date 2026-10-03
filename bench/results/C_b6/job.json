@@ -1,0 +1,307 @@
+{
+ "brand": "Gentle Monster",
+ "title": "The Winter Sauna Knitwear Archive",
+ "subtitle": "Immersive tactile warmth within an 80-square-meter forest sanctuary.",
+ "line": "You navigate a mist-shrouded passage of cedar and lime plaster, where the scent of warm wood meets the soft weight of artisanal knitwear.",
+ "synopsis": "You enter through a glass facade veiled in soft condensation, stepping into a clearing of textured lime plaster that mimics the stillness of a winter forest. Your path leads you toward the central Sauna Ritual Table, where raw wood surfaces invite you to touch the collection's finest garments. As you circulate the room, the scent of aromatic cedar draws you toward the surrounding wall storage, where layers of knitwear are organized like timber stacks. Finally, you reach the cold stone counter at the rear, a deliberate temperature contrast that anchors your transactional experience in the heart of the steam.",
+ "keywords": [
+  "Tactile Architecture",
+  "Atmospheric Retail",
+  "Organic Minimalism"
+ ],
+ "quote": "We craft the intersection of shivering cold and the intimate warmth of a woven thread.",
+ "why": [
+  {
+   "t": "Cedar Enclosure",
+   "d": "The cedar knit storage wrap the left, right and back walls of the 8 x 10 m room. The wood-lined walls envelop you in an organic embrace that highlights the natural fibers of the knitwear."
+  },
+  {
+   "t": "Central Ritual",
+   "d": "The sauna ritual table is the centre of the room and the first stop, 4.2 m in from the door. The placement of the table forces an immediate, intimate connection with the product as you enter the space."
+  },
+  {
+   "t": "Guided Circulation",
+   "d": "The route circles the sauna ritual table first, then follows the shelves. The layout directs your movement to ensure a seamless exploration of both the hero pieces and the full collection."
+  },
+  {
+   "t": "Stone Counterpoint",
+   "d": "The the cold stone counter sits at the back, off the loop. The cold stone counter provides a sensory shift that grounds your final interaction within the steamy environment."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#f4f1ea",
+   "name": "Frozen Birch"
+  },
+  {
+   "hex": "#d1c7b7",
+   "name": "Steamed Cedar"
+  },
+  {
+   "hex": "#8c847a",
+   "name": "Mist Grey"
+  },
+  {
+   "hex": "#4a4541",
+   "name": "Charred Pine"
+  },
+  {
+   "hex": "#ff4d00",
+   "name": "Embers Glow"
+  }
+ ],
+ "accent": "#ff4d00",
+ "materials": [
+  {
+   "name": "Aged Hinoki Cedar Planking",
+   "where": "floor, ceiling, cedar knit storage, sauna ritual table",
+   "preset": "wood"
+  },
+  {
+   "name": "Hand-Troweled Raw Earth Clay",
+   "where": "walls",
+   "preset": "strata_clay"
+  },
+  {
+   "name": "Polished Brutalist Concrete",
+   "where": "the cold stone counter",
+   "preset": "concrete"
+  },
+  {
+   "name": "Brushed Industrial Steel",
+   "where": "details",
+   "preset": "steel"
+  }
+ ],
+ "room": {
+  "floor": "wood",
+  "wall": "strata_clay",
+  "ceiling": "wood",
+  "light": "warm_spot",
+  "fog": 0.02,
+  "beams": true,
+  "dome": true
+ },
+ "layout": {
+  "name": "The Winter Sauna Knitwear Archive — Gentle Monster",
+  "W": 8.0,
+  "D": 10.0,
+  "H": 4.2,
+  "columns": [],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 3.335,
+    "y0": -0.1,
+    "x1": 4.669,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "dome",
+    "type": "zone",
+    "x0": 1.334,
+    "y0": 1.5,
+    "x1": 6.67,
+    "y1": 8.2,
+    "h": 0,
+    "label": "The Steaming Clearing",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "wl",
+    "type": "wall_shelf",
+    "x0": 0.0,
+    "y0": 1.5,
+    "x1": 0.4,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "Cedar Knit Storage",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "wb",
+    "type": "wall_shelf",
+    "x0": 0.4,
+    "y0": 9.4,
+    "x1": 7.604,
+    "y1": 10.0,
+    "h": 2.6,
+    "label": "Cedar Knit Storage",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "wr",
+    "type": "wall_shelf",
+    "x0": 7.604,
+    "y0": 1.5,
+    "x1": 8.004,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "Cedar Knit Storage",
+    "zone": "sale",
+    "shape": "shelf_wall",
+    "material": "wood"
+   },
+   {
+    "id": "basin",
+    "type": "island",
+    "x0": 3.335,
+    "y0": 4.2,
+    "x1": 4.669,
+    "y1": 5.8,
+    "h": 0.9,
+    "label": "Sauna Ritual Table",
+    "zone": "exp",
+    "shape": "basin",
+    "material": "brass",
+    "hero": true
+   },
+   {
+    "id": "counter",
+    "type": "checkout",
+    "x0": 2.335,
+    "y0": 8.1,
+    "x1": 5.67,
+    "y1": 8.7,
+    "h": 1.0,
+    "label": "The Cold Stone Counter",
+    "zone": "pay",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 6.403,
+    "y0": 7.8,
+    "x1": 7.604,
+    "y1": 9.4,
+    "h": 2.6,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "strata_clay"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      4.002,
+      0.4
+     ],
+     [
+      4.002,
+      3.2
+     ],
+     [
+      2.535,
+      5.0
+     ],
+     [
+      4.002,
+      7.0
+     ],
+     [
+      5.469,
+      5.0
+     ],
+     [
+      4.002,
+      3.2
+     ],
+     [
+      1.067,
+      4.0
+     ],
+     [
+      1.067,
+      7.3
+     ],
+     [
+      4.002,
+      7.3
+     ],
+     [
+      6.87,
+      7.3
+     ],
+     [
+      6.87,
+      3.0
+     ],
+     [
+      4.536,
+      0.4
+     ]
+    ],
+    "color": "#ff4d00"
+   }
+  ],
+  "entry": [
+   4.002,
+   0.0
+  ],
+  "exit": [
+   4.002,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    4.002,
+    3.2
+   ],
+   "look": [
+    4.002,
+    0.88,
+    4.95
+   ],
+   "h": 1.38,
+   "d": 3.6,
+   "cap": "I approach the Sauna Ritual Table, feeling the warmth of raw wood under my hand.",
+   "sub": "The central monolith displays the collection's finest knits as if they were cooling after a steam."
+  },
+  {
+   "at": [
+    1.067,
+    5.8
+   ],
+   "look": [
+    0.4,
+    1.45,
+    5.8
+   ],
+   "h": 1.55,
+   "d": 2.8,
+   "cap": "I trace the stacked knitwear along the cedar-lined walls.",
+   "sub": "The garments are organized like timber in a forest, emitting a subtle, earthy scent."
+  },
+  {
+   "at": [
+    4.002,
+    7.3
+   ],
+   "look": [
+    4.002,
+    2.9,
+    3.6
+   ],
+   "h": 1.55,
+   "d": 2.4,
+   "cap": "I stand beneath the vaulted dome, watching the light diffuse through the air.",
+   "sub": "This clearing provides a calm, atmospheric conclusion to the journey before the final transaction."
+  }
+ ]
+}

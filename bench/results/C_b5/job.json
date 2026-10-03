@@ -1,0 +1,488 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Orbital Hangar Station",
+ "subtitle": "Experience zero-gravity retail in an immersive lunar docking bay",
+ "line": "Step into a weightless environment where precision-engineered eyewear floats within a sterile, futuristic hangar.",
+ "synopsis": "You enter through a shimmering steel cable curtain, passing between magnetic aluminium pylons that define the threshold of your journey. As you move into the mineral-white airlock, you encounter a levitating mirror-aluminium dock where products appear suspended in defiance of gravity. You circle this central void, eventually turning toward glass observation bays that invite you to inspect every detail of the collection. Finally, you conclude your mission at the brushed aluminium flight manifest terminal located against the back wall.",
+ "keywords": [
+  "Zero-Gravity",
+  "Futuristic",
+  "Immersive"
+ ],
+ "quote": "In the absence of gravity, the product becomes the singular point of focus in a vast, silent expanse.",
+ "why": [
+  {
+   "t": "Magnetic Threshold",
+   "d": "Two magnetic docking pylons objects stand 1.0-3.0 m inside the door with the atmospheric pressure curtain between them; the route slips through a 1.9 m gap. The narrow gap between the aluminium pylons forces you to slow your pace, signaling the transition into a controlled orbital space."
+  },
+  {
+   "t": "Zero-G Void",
+   "d": "The levitating magnetic dock stands alone in a 8 x 7 m zero gravity airlock; the route circles it and never comes closer than 3.3 m. Maintaining a respectful distance from the levitating dock ensures the illusion of weightlessness remains intact as you orbit the hero display."
+  },
+  {
+   "t": "Observation Bays",
+   "d": "Four eyewear observation bays stations sit at the outer corners, outside the loop, so you turn away from the levitating magnetic dock to reach them. Positioning the glass bays away from the center encourages you to step out of the flow to engage in a quiet, intimate product assessment."
+  },
+  {
+   "t": "Terminal Conclusion",
+   "d": "The flight manifest terminal closes the loop at the back wall. The terminal provides a definitive physical anchor point to finalize your experience before exiting the hangar."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#e0e0e0",
+   "name": "Lunar Dust"
+  },
+  {
+   "hex": "#1a1a1a",
+   "name": "Void Obsidian"
+  },
+  {
+   "hex": "#b0c4de",
+   "name": "Atmospheric Blue"
+  },
+  {
+   "hex": "#ff3e00",
+   "name": "Emergency Beacon"
+  },
+  {
+   "hex": "#707070",
+   "name": "Industrial Chrome"
+  }
+ ],
+ "accent": "#ff3e00",
+ "materials": [
+  {
+   "name": "Mirror-Polished Aluminium",
+   "where": "walls, ceiling, levitating magnetic dock, reflective portal",
+   "preset": "mirror_aluminium"
+  },
+  {
+   "name": "Brushed Anodized Aluminium",
+   "where": "magnetic docking pylons, flight manifest terminal",
+   "preset": "aluminium"
+  },
+  {
+   "name": "Honed Nero Marquina Stone",
+   "where": "floor",
+   "preset": "black_stone"
+  },
+  {
+   "name": "Perforated Stainless Steel",
+   "where": "atmospheric pressure curtain",
+   "preset": "steel"
+  }
+ ],
+ "room": {
+  "floor": "black_stone",
+  "wall": "mirror_aluminium",
+  "ceiling": "mirror_aluminium",
+  "light": "dark_gallery",
+  "fog": 0.02,
+  "beams": true
+ },
+ "layout": {
+  "name": "Orbital Hangar Station — Gentle Monster",
+  "W": 20.0,
+  "D": 16.0,
+  "H": 6,
+  "columns": [
+   [
+    4.5,
+    4.0
+   ],
+   [
+    15.5,
+    4.0
+   ],
+   [
+    4.5,
+    13.0
+   ],
+   [
+    15.5,
+    13.0
+   ]
+  ],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 8.5,
+    "y0": -0.1,
+    "x1": 11.5,
+    "y1": 0.1,
+    "h": 0,
+    "label": "Entrance",
+    "zone": "",
+    "shape": "door"
+   },
+   {
+    "id": "joint_l",
+    "type": "block",
+    "x0": 6.5,
+    "y0": 1.0,
+    "x1": 7.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "Magnetic docking pylons",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "aluminium"
+   },
+   {
+    "id": "joint_r",
+    "type": "block",
+    "x0": 12.5,
+    "y0": 1.0,
+    "x1": 13.5,
+    "y1": 3.0,
+    "h": 5,
+    "label": "Magnetic docking pylons",
+    "zone": "exp",
+    "shape": "joint_column",
+    "material": "aluminium"
+   },
+   {
+    "id": "wire_l",
+    "type": "media",
+    "x0": 7.2,
+    "y0": 2.0,
+    "x1": 9.35,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "Atmospheric pressure curtain",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "wire_r",
+    "type": "media",
+    "x0": 11.25,
+    "y0": 2.0,
+    "x1": 12.8,
+    "y1": 2.4,
+    "h": 4.5,
+    "label": "Atmospheric pressure curtain",
+    "zone": "exp",
+    "shape": "cable_curtain",
+    "material": "steel"
+   },
+   {
+    "id": "void",
+    "type": "zone",
+    "x0": 6.0,
+    "y0": 5.0,
+    "x1": 14.0,
+    "y1": 12.0,
+    "h": 0,
+    "label": "Zero gravity airlock",
+    "zone": "exp",
+    "shape": "zone"
+   },
+   {
+    "id": "head",
+    "type": "figure",
+    "x0": 9.0,
+    "y0": 7.5,
+    "x1": 11.0,
+    "y1": 9.5,
+    "h": 3.2,
+    "label": "Levitating magnetic dock",
+    "zone": "exp",
+    "shape": "display",
+    "material": "mirror_aluminium",
+    "hero": true
+   },
+   {
+    "id": "tree0",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 5.3,
+    "x1": 6.9,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "Orbital navigation nodes",
+    "zone": "exp",
+    "shape": "box",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree1",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 5.3,
+    "x1": 13.7,
+    "y1": 5.9,
+    "h": 4.2,
+    "label": "Orbital navigation nodes",
+    "zone": "exp",
+    "shape": "box",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree2",
+    "type": "figure",
+    "x0": 6.3,
+    "y0": 11.1,
+    "x1": 6.9,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "Orbital navigation nodes",
+    "zone": "exp",
+    "shape": "box",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree3",
+    "type": "figure",
+    "x0": 13.1,
+    "y0": 11.1,
+    "x1": 13.7,
+    "y1": 11.7,
+    "h": 4.2,
+    "label": "Orbital navigation nodes",
+    "zone": "exp",
+    "shape": "box",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree4",
+    "type": "figure",
+    "x0": 5.0,
+    "y0": 8.2,
+    "x1": 5.6,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "Orbital navigation nodes",
+    "zone": "exp",
+    "shape": "box",
+    "material": "white_gloss"
+   },
+   {
+    "id": "tree5",
+    "type": "figure",
+    "x0": 14.4,
+    "y0": 8.2,
+    "x1": 15.0,
+    "y1": 8.8,
+    "h": 4.2,
+    "label": "Orbital navigation nodes",
+    "zone": "exp",
+    "shape": "box",
+    "material": "white_gloss"
+   },
+   {
+    "id": "st0",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 5.6,
+    "x1": 3.6,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "Eyewear observation bays",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st1",
+    "type": "island",
+    "x0": 2.2,
+    "y0": 10.6,
+    "x1": 3.6,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "Eyewear observation bays",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st2",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 5.6,
+    "x1": 17.8,
+    "y1": 6.4,
+    "h": 1.0,
+    "label": "Eyewear observation bays",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "st3",
+    "type": "island",
+    "x0": 16.4,
+    "y0": 10.6,
+    "x1": 17.8,
+    "y1": 11.4,
+    "h": 1.0,
+    "label": "Eyewear observation bays",
+    "zone": "sale",
+    "shape": "display",
+    "material": "glass"
+   },
+   {
+    "id": "pay",
+    "type": "checkout",
+    "x0": 8.0,
+    "y0": 13.6,
+    "x1": 12.0,
+    "y1": 14.4,
+    "h": 1.0,
+    "label": "Flight manifest terminal",
+    "zone": "pay",
+    "shape": "box",
+    "material": "aluminium"
+   },
+   {
+    "id": "mirror",
+    "type": "kiosk",
+    "x0": 16.0,
+    "y0": 14.2,
+    "x1": 19.0,
+    "y1": 15.4,
+    "h": 1.8,
+    "label": "Reflective portal",
+    "zone": "sale",
+    "shape": "box",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "boh",
+    "type": "stock",
+    "x0": 0.0,
+    "y0": 14.0,
+    "x1": 4.0,
+    "y1": 16.0,
+    "h": 3,
+    "label": "BOH",
+    "zone": "boh",
+    "shape": "box",
+    "material": "concrete"
+   },
+   {
+    "id": "shards",
+    "type": "zone",
+    "x0": 5.8,
+    "y0": 4.6,
+    "x1": 14.2,
+    "y1": 12.4,
+    "h": 4.6,
+    "label": "Stellar projection canopy",
+    "zone": "exp",
+    "shape": "light_ceiling",
+    "material": "textile_light"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      10.0,
+      0.5
+     ],
+     [
+      10.0,
+      3.6
+     ],
+     [
+      5.6,
+      4.6
+     ],
+     [
+      3.8,
+      8.4
+     ],
+     [
+      5.4,
+      12.6
+     ],
+     [
+      10.0,
+      12.9
+     ],
+     [
+      14.6,
+      12.6
+     ],
+     [
+      16.2,
+      8.4
+     ],
+     [
+      14.4,
+      4.6
+     ],
+     [
+      10.6,
+      3.6
+     ],
+     [
+      10.6,
+      0.5
+     ]
+    ],
+    "color": "#ff3e00"
+   }
+  ],
+  "entry": [
+   10.0,
+   0.0
+  ],
+  "exit": [
+   10.0,
+   0.0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    10.0,
+    1.3
+   ],
+   "look": [
+    10.0,
+    1.9,
+    6.5
+   ],
+   "h": 1.62,
+   "d": 2.6,
+   "cap": "I stand between the magnetic pylons, feeling the hum of the airlock.",
+   "sub": "The shimmering steel curtain behind me fades as I focus on the towering, industrial-grade aluminum pillars."
+  },
+  {
+   "at": [
+    10.0,
+    3.6
+   ],
+   "look": [
+    10.0,
+    2.45,
+    8.5
+   ],
+   "h": 1.62,
+   "d": 3.2,
+   "cap": "I approach the central void to observe the products suspended in mid-air.",
+   "sub": "The mirror-finished dock defies gravity, holding the collection in a perfect, weightless display."
+  },
+  {
+   "at": [
+    3.8,
+    8.4
+   ],
+   "look": [
+    2.9,
+    1.0,
+    6.0
+   ],
+   "h": 1.4,
+   "d": 2.8,
+   "cap": "I lean toward the glass observation bay to inspect the fine details.",
+   "sub": "Through the reinforced pane, the eyewear collection appears as a precise, curated series of artifacts."
+  }
+ ]
+}

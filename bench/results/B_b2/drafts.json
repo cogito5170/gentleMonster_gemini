@@ -1,0 +1,87 @@
+{
+ "rounds": 3,
+ "problems": [
+  "circulation point [9, 0.2] is within 0.3 m of the outer wall or outside it",
+  "the circulation passes inside stair_down (x 7.0-11.0, y 0.5-2.5) near (7.78, 1.25); keep 0.3 m clear",
+  "the circulation passes inside pay (x 7.5-10.5, y 18.5-19.5) near (9.00, 19.00); keep 0.3 m clear"
+ ],
+ "drafts": [
+  {
+   "round": 1,
+   "problems": [
+    "the circulation passes inside stair_down (x 7.0-11.0, y 0.2-3.0) near (9.00, 1.60); keep 0.3 m clear",
+    "the circulation passes inside hero_basin (x 8.0-10.0, y 9.0-11.0) near (9.00, 10.00); keep 0.3 m clear",
+    "the circulation passes only 0.00 m from pay (x 7.0-11.0, y 18.0-19.5) near (9.00, 18.00); keep 0.3 m clear"
+   ]
+  },
+  {
+   "round": 2,
+   "problems": [
+    "the circulation passes inside stair_down (x 7.0-11.0, y 0.5-2.5) near (8.00, 1.50); keep 0.3 m clear",
+    "the circulation passes inside hero_basin (x 8.5-9.5, y 9.5-10.5) near (9.00, 10.00); keep 0.3 m clear"
+   ]
+  },
+  {
+   "round": 3,
+   "problems": [
+    "circulation point [9, 0.2] is within 0.3 m of the outer wall or outside it",
+    "the circulation passes inside stair_down (x 7.0-11.0, y 0.5-2.5) near (7.78, 1.25); keep 0.3 m clear",
+    "the circulation passes inside pay (x 7.5-10.5, y 18.5-19.5) near (9.00, 19.00); keep 0.3 m clear"
+   ]
+  }
+ ],
+ "error": null,
+ "calls": [
+  {
+   "ms": 7011,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 3318,
+    "candidatesTokenCount": 2038,
+    "totalTokenCount": 5356,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 3318
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  },
+  {
+   "ms": 7763,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 4709,
+    "candidatesTokenCount": 2055,
+    "totalTokenCount": 6764,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 4709
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  },
+  {
+   "ms": 3967,
+   "finish": "STOP",
+   "usage": {
+    "promptTokenCount": 4670,
+    "candidatesTokenCount": 1226,
+    "totalTokenCount": 5896,
+    "promptTokensDetails": [
+     {
+      "modality": "TEXT",
+      "tokenCount": 4670
+     }
+    ],
+    "serviceTier": "standard"
+   },
+   "reported": "gemini-3.1-flash-lite"
+  }
+ ]
+}

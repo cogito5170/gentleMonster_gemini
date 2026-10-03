@@ -106,76 +106,91 @@ def draw(pipeline, name):
             return pipeline.layout(name, moodboard=False, use_llm=False, log=lambda m: None)
 
 
+def arm_a(b, spec, pipeline, paths):
+    """A -- pinned before any run."""
+    job = json.loads((HERE / "opus" / f"{b['id']}.r1.json").read_text())
+    pipeline.save_job(f"A_{b['id']}", job)
+    draw(pipeline, f"A_{b['id']}")
+    g, miss = completeness(spec, job)
+    return {"gate": not spec.check(job), "complete": g, "missing": miss, "reasks": 0, "seconds": None, "calls": 0, "tokens": None, "reported": "-"}
+
+
+def arm_b(b, spec, pipeline, paths):
+    """B -- gentleMonster's own synopsis loop, model = flash-lite."""
+    from gentle_monster import synopsis as SY
+    plain = Plain()
+    t0 = time.time()
+    try:
+        r, err = SY.generate(b["brief"], brand=b["brand"], ask=plain, log=lambda m: None), None
+    except Exception as e:                                  # noqa: BLE001 -- e.g. spec.check raising on a mistyped draft (PREP F4)
+        r, err = {"job": None, "rounds": None, "problems": [f"{type(e).__name__}: {e}"], "drafts": []}, f"{type(e).__name__}: {e}"
+    secs = round(time.time() - t0, 1)
+    d = paths.job_dir(f"B_{b['id']}")
+    (d / "drafts.json").write_text(json.dumps({"rounds": r["rounds"], "problems": r["problems"], "drafts": r["drafts"], "error": err,
+                                               "calls": plain.calls}, ensure_ascii=False, indent=1))
+    if r["job"]:
+        pipeline.save_job(f"B_{b['id']}", r["job"])
+    g, miss = completeness(spec, r["job"])
+    rounds = r["rounds"] or len(r["drafts"])
+    return {"gate": bool(r["job"]), "complete": g, "missing": miss, "reasks": max(rounds - 1, 0) + (0 if r["job"] else 1),
+            "seconds": secs, "calls": len(plain.calls), "tokens": totals(plain.calls),
+            "reported": ",".join(sorted({c.get("reported", "-") for c in plain.calls})), "error": err}
+
+
+def arm_c(b, spec, pipeline, paths):
+    """C -- gmg."""
+    res = run.make(f"C_{b['id']}", b["brief"], b["brand"], draw=True, log=lambda m: None)
+    L = Ledger(Path(res["dir"]))
+    ev = L.run()
+    t_job = next((e["t"] for e in ev if e["kind"] == "GATE"), ev[-1]["t"])
+    p = Path(res["dir"]) / "job.json"
+    cj = json.loads(p.read_text()) if p.is_file() and res["state"] == "DONE" else None
+    g, miss = completeness(spec, cj)
+    calls = [e for e in ev if e["kind"] == "MODEL_CALL"]
+    reask = sum(max(e.get("asks", 1) - 1, 0) for e in ev if e["kind"] == "DECISION") + (0 if res["state"] == "DONE" else 1)
+    return {"gate": res["state"] == "DONE", "complete": g, "missing": miss, "reasks": reask, "seconds": round(t_job - ev[0]["t"], 1),
+            "calls": len(calls), "tokens": totals(calls), "reported": ",".join(sorted({c.get("reported", "-") for c in calls})),
+            "fallbacks": [e.get("roles") or e.get("step") for e in ev if e["kind"] == "FALLBACK"], "state": res["state"],
+            "why": next((e.get("why") for e in ev if e["kind"] == "END"), None),
+            "plan": (L.decision("plan") or {}).get("output", {}).get("plan")}
+
+
+ARMS = {"A": arm_a, "B": arm_b, "C": arm_c}
+KEEP = ("job.json", "synopsis.md", "layout_preview.png", "drafts.json", "gmg_ledger.jsonl")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--only", default="")
     ap.add_argument("--out", default=str(HERE / "results"))
+    ap.add_argument("--arms", default="ABC", help="rerun only some arms; earlier runs stay in metrics.json with their run number")
     a = ap.parse_args()
     out = Path(a.out)
     out.mkdir(parents=True, exist_ok=True)
     spec, paths = upstream.load(str(out / "_work"))
-    from gentle_monster import pipeline, synopsis as SY
+    from gentle_monster import pipeline
     briefs = json.loads((HERE / "briefs.json").read_text())["briefs"]
     if a.only:
         briefs = [b for b in briefs if b["id"] in a.only.split(",")]
-    rows = json.loads((out / "metrics.json").read_text()) if (out / "metrics.json").is_file() else []
+    mp = out / "metrics.json"
+    rows = json.loads(mp.read_text()) if mp.is_file() else []
     for b in briefs:
-        # A -- pinned before any run
-        job = json.loads((HERE / "opus" / f"{b['id']}.r1.json").read_text())
-        pipeline.save_job(f"A_{b['id']}", job)
-        draw(pipeline, f"A_{b['id']}")
-        g, miss = completeness(spec, job)
-        rows.append({"brief": b["id"], "arm": "A", "gate": not spec.check(job), "complete": g, "missing": miss, "reasks": 0,
-                     "seconds": None, "calls": 0, "tokens": None, "reported": "-"})
-
-        # B -- gentleMonster as is, model = flash-lite
-        plain = Plain()
-        t0 = time.time()
-        try:
-            r = SY.generate(b["brief"], brand=b["brand"], ask=plain, log=lambda m: None)
-            err = None
-        except Exception as e:                              # noqa: BLE001 -- e.g. spec.check raising on a mistyped draft (PREP F4)
-            r, err = {"job": None, "rounds": None, "problems": [f"{type(e).__name__}: {e}"], "drafts": []}, f"{type(e).__name__}: {e}"
-        secs = round(time.time() - t0, 1)
-        d = paths.job_dir(f"B_{b['id']}")
-        (d / "drafts.json").write_text(json.dumps({"rounds": r["rounds"], "problems": r["problems"], "drafts": r["drafts"], "error": err,
-                                                   "calls": plain.calls}, ensure_ascii=False, indent=1))
-        if r["job"]:
-            pipeline.save_job(f"B_{b['id']}", r["job"])
-        g, miss = completeness(spec, r["job"])
-        rounds = r["rounds"] or len(r["drafts"])
-        rows.append({"brief": b["id"], "arm": "B", "gate": bool(r["job"]), "complete": g, "missing": miss,
-                     "reasks": max(rounds - 1, 0) + (0 if r["job"] else 1), "seconds": secs, "calls": len(plain.calls),
-                     "tokens": totals(plain.calls), "reported": ",".join(sorted({c.get("reported", "-") for c in plain.calls})), "error": err})
-
-        # C -- gmg
-        t0 = time.time()
-        res = run.make(f"C_{b['id']}", b["brief"], b["brand"], draw=True, log=lambda m: None)
-        L = Ledger(Path(res["dir"]))
-        ev = L.run()
-        t_start = ev[0]["t"]
-        t_job = next((e["t"] for e in ev if e["kind"] == "GATE"), ev[-1]["t"])
-        cj = json.loads((Path(res["dir"]) / "job.json").read_text()) if (Path(res["dir"]) / "job.json").is_file() and res["state"] == "DONE" else None
-        g, miss = completeness(spec, cj)
-        calls = [e for e in ev if e["kind"] == "MODEL_CALL"]
-        reask = sum(max(e.get("asks", 1) - 1, 0) for e in ev if e["kind"] == "DECISION") + (0 if res["state"] == "DONE" else 1)
-        rows.append({"brief": b["id"], "arm": "C", "gate": res["state"] == "DONE", "complete": g, "missing": miss, "reasks": reask,
-                     "seconds": round(t_job - t_start, 1), "calls": len(calls), "tokens": totals(calls),
-                     "reported": ",".join(sorted({c.get("reported", "-") for c in calls})),
-                     "fallbacks": [e.get("roles") or e.get("step") for e in ev if e["kind"] == "FALLBACK"], "state": res["state"],
-                     "plan": (L.decision("plan") or {}).get("output", {}).get("plan")})
-        for arm in "ABC":
+        for arm in a.arms:
+            n = 1 + sum(1 for r in rows if r["brief"] == b["id"] and r["arm"] == arm)
             src = paths.job_dir(f"{arm}_{b['id']}")
+            for f in KEEP:                                  # a rerun starts from an empty job folder
+                (src / f).unlink(missing_ok=True)
+            row = {"brief": b["id"], "arm": arm, "run": n, **ARMS[arm](b, spec, pipeline, paths)}
+            rows.append(row)
             dst = out / f"{arm}_{b['id']}"
-            if dst.exists():
-                shutil.rmtree(dst)
+            if dst.exists():                                # the earlier run's files stay, renamed by run number
+                dst.rename(out / f"{arm}_{b['id']}.run{n - 1}")
             dst.mkdir(parents=True)
-            for f in ("job.json", "synopsis.md", "layout_preview.png", "drafts.json", "gmg_ledger.jsonl", "layout.pdf"):
+            for f in KEEP:
                 if (src / f).is_file():
                     shutil.copy2(src / f, dst / f)
-        (out / "metrics.json").write_text(json.dumps(rows, ensure_ascii=False, indent=1))
-        print(f"[bench] {b['id']}: " + " · ".join(f"{r_['arm']} gate={r_['gate']} complete={r_['complete']}/12 reasks={r_['reasks']} calls={r_['calls']}"
-                                             for r_ in rows if r_["brief"] == b["id"]), flush=True)
+            mp.write_text(json.dumps(rows, ensure_ascii=False, indent=1))
+            print(f"[bench] {b['id']} {arm} run {n}: gate={row['gate']} complete={row['complete']}/12 reasks={row['reasks']} calls={row['calls']}", flush=True)
     return 0
 
 

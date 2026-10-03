@@ -1,0 +1,266 @@
+{
+ "brand": "Gentle Monster",
+ "title": "Orbital Hangar 01",
+ "subtitle": "The zero-gravity docking sequence",
+ "line": "You are a traveler in a lunar hangar, docking into a field of suspended eyewear where gravity has ceased to exist.",
+ "synopsis": "You step into a cavernous metallic hangar where the air hums with low-frequency magnetic resonance. Above you, hundreds of sunglasses float in a state of perpetual freefall, held by invisible currents within a cold, brushed-aluminium chamber. The floor is a dark, matte graphite that absorbs all sound, forcing your movement to become a slow, rhythmic glide toward the center. As you reach for a frame, the surrounding glass walls ripple with soft pulses of white light, simulating the docking approach of a deep-space vessel.",
+ "keywords": [
+  "Weightlessness",
+  "Magnetic",
+  "Stasis"
+ ],
+ "quote": "In the silence of the hangar, your gaze is the only anchor.",
+ "why": [
+  {
+   "t": "Spatial compression",
+   "d": "The narrow entry zone mimics an airlock, forcing the visitor to slow down before the hangar volume expands."
+  },
+  {
+   "t": "Floating focal point",
+   "d": "The hero display is positioned at the exact center of the room, requiring the visitor to circulate around it like a satellite."
+  },
+  {
+   "t": "Visual weight",
+   "d": "The floating eyewear is arranged in an elliptical array to reinforce the sensation of an orbital trajectory."
+  },
+  {
+   "t": "Material contrast",
+   "d": "Graphite floors contrast with the polished aluminium walls to heighten the illusion of a metallic spacecraft interior."
+  }
+ ],
+ "palette": [
+  {
+   "hex": "#1a1a1a",
+   "name": "Graphite"
+  },
+  {
+   "hex": "#b0c4de",
+   "name": "Steel Blue"
+  },
+  {
+   "hex": "#e0e0e0",
+   "name": "Brushed Aluminium"
+  },
+  {
+   "hex": "#ffffff",
+   "name": "Ozone White"
+  },
+  {
+   "hex": "#404040",
+   "name": "Deep Space"
+  }
+ ],
+ "materials": [
+  {
+   "name": "Graphite",
+   "where": "floor",
+   "preset": "graphite_wax"
+  },
+  {
+   "name": "Aluminium",
+   "where": "walls",
+   "preset": "mirror_aluminium"
+  },
+  {
+   "name": "Amber Glass",
+   "where": "hero display",
+   "preset": "amber_glass"
+  },
+  {
+   "name": "White Light",
+   "where": "ceiling",
+   "preset": "textile_light"
+  }
+ ],
+ "accent": "#b0c4de",
+ "room": {
+  "floor": "graphite_wax",
+  "wall": "mirror_aluminium",
+  "ceiling": "textile_light",
+  "light": "white_gallery"
+ },
+ "layout": {
+  "name": "Orbital Hangar",
+  "W": 18,
+  "D": 20,
+  "H": 5,
+  "columns": [
+   [
+    3,
+    5
+   ],
+   [
+    15,
+    5
+   ],
+   [
+    3,
+    15
+   ],
+   [
+    15,
+    15
+   ]
+  ],
+  "items": [
+   {
+    "id": "door",
+    "type": "door",
+    "x0": 7.5,
+    "y0": 0,
+    "x1": 10.5,
+    "y1": 0.2,
+    "h": 0,
+    "label": "Airlock Entry",
+    "zone": "entry",
+    "shape": "door",
+    "material": "steel"
+   },
+   {
+    "id": "hero_plinth",
+    "type": "island",
+    "x0": 7,
+    "y0": 8,
+    "x1": 11,
+    "y1": 12,
+    "h": 1.5,
+    "label": "Gravity Anchor",
+    "zone": "display",
+    "shape": "display",
+    "material": "amber_glass"
+   },
+   {
+    "id": "wall_left",
+    "type": "wall_shelf",
+    "x0": 0,
+    "y0": 4,
+    "x1": 0.5,
+    "y1": 16,
+    "h": 3,
+    "label": "Floating Frames",
+    "zone": "shop",
+    "shape": "shelf_wall",
+    "material": "mirror_aluminium"
+   },
+   {
+    "id": "wall_right",
+    "type": "wall_shelf",
+    "x0": 17.5,
+    "y0": 4,
+    "x1": 18,
+    "y1": 16,
+    "h": 3,
+    "label": "Floating Frames",
+    "zone": "shop",
+    "shape": "shelf_wall",
+    "material": "mirror_aluminium"
+   }
+  ],
+  "flows": [
+   {
+    "pts": [
+     [
+      9,
+      1
+     ],
+     [
+      9,
+      4
+     ],
+     [
+      6,
+      7
+     ],
+     [
+      5,
+      10
+     ],
+     [
+      6,
+      13
+     ],
+     [
+      9,
+      15
+     ],
+     [
+      12,
+      13
+     ],
+     [
+      13,
+      10
+     ],
+     [
+      12,
+      7
+     ],
+     [
+      9,
+      4
+     ],
+     [
+      9,
+      1
+     ]
+    ],
+    "color": "#b0c4de"
+   }
+  ],
+  "entry": [
+   9,
+   0
+  ],
+  "exit": [
+   9,
+   0
+  ]
+ },
+ "stops": [
+  {
+   "at": [
+    9,
+    4
+   ],
+   "d": 2.4,
+   "look": [
+    9,
+    1.2,
+    10
+   ],
+   "h": 1.6,
+   "cap": "The hangar opens.",
+   "sub": "Weightlessness takes hold as the drift begins."
+  },
+  {
+   "at": [
+    5,
+    10
+   ],
+   "d": 3.6,
+   "look": [
+    9,
+    1.5,
+    10
+   ],
+   "h": 1.6,
+   "cap": "Docking sequence initiated.",
+   "sub": "The light pulses in sync with my approach to the center."
+  },
+  {
+   "at": [
+    12,
+    13
+   ],
+   "d": 3,
+   "look": [
+    13,
+    1.6,
+    12
+   ],
+   "h": 1.6,
+   "cap": "Suspended in the void.",
+   "sub": "The sunglasses float like stars in the hangar."
+  }
+ ]
+}
