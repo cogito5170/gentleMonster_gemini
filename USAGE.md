@@ -108,7 +108,9 @@ For the API key: if the block says `GEMINI_API_KEY is NOT set`, run `export GEMI
 gentlemonster
 ```
 
-`gentlemonster` always starts the private Gemini CLI 0.62.0 with `gemini-3-flash-preview`; you never type the model. (For an experiment, `GENTLEMONSTER_MODEL=gemini-3.1-flash-lite gentlemonster` asks for another model.) Any other arguments pass through, for example `gentlemonster -p "..."`. If the private CLI is not exactly 0.62.0, or the extension is missing, it stops with one line that says what to run.
+`gentlemonster` always starts the private Gemini CLI 0.62.0 with `gemini-3-flash-preview`; you never type the model.
+
+Very long sessions: memory still grows by about 30 KB per tool call, a Gemini CLI 0.62 issue (bench/preview/HEAP.md). After many hours of work, type `/quit` and continue with `gentlemonster --resume latest`. (For an experiment, `GENTLEMONSTER_MODEL=gemini-3.1-flash-lite gentlemonster` asks for another model.) Any other arguments pass through, for example `gentlemonster -p "..."`. If the private CLI is not exactly 0.62.0, or the extension is missing, it stops with one line that says what to run.
 
 Ask in your own words. For example: design a store for a brand; write cover lines; sort or measure your photos (attach them with `@` and a path); propose the next page.
 - The extension's tools run every check in code. The answer may state only the verdict that the job's ledger holds.

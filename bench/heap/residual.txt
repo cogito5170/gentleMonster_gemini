@@ -1,0 +1,26 @@
+CMD-GMG9 S2: the residual with the heap fix on. Gemini CLI 0.62.0, fake model, forced-GC heap each second, fix in a private
+GEMINI_CLI_HOME (as the launcher). Slope: linear fit after the first fifth (analyze.py); windows by turn below.
+
+run            workload                                                     turns  heap MB    slope KB/turn   windows 0-100 | 100-300 | 300-600 | 600-1000
+gmload_fix     MCP pf_sort (gentleMonster portfolio server), 2168-char result   999  106->156    29.6          84.1 | 50.8 | 18.6 | 31.4
+gmload_fix150  same, second run (snapshot at 150 MB, turn 745)                   996  107->157    34.3          87.4 | 48.4 | 26.5 | 40.1
+gmshow_fix     MCP pf_show (an almost empty parameter schema), 2513 chars        993  107->146    25.2          73.4 | 19.3 | 24.2 | 34.4
+gmload_id      MCP pf_sort, schema given a "$id" (scratch copy, not shipped)     999  103->130     5.7          49.5 | 14.8 | 14.6 |  4.7
+wugload_fix    WUG's long-run workload: built-in read_file, 16938 chars,       2829  103->116    -4.2          (1000-2000: -14.3, 2000-3000: 3.6; 200-3000: -2.1)
+               0.4 s model delay (WUG measured 3.9 KB/turn over 2980 turns)
+wugload_snap   same, 800 turns (snapshot at 117 MB, turn 404)                    799  104->119    13.0
+
+GMG8's 79.5 KB/turn was a 290-turn run: its fit (turns 58-290) is mostly the early growth (84-87 KB/turn in turns 0-100,
+48-51 in 100-300); the same workload over 1000 turns fits 29.6-34.3.
+
+Heap snapshot diff, gmload_fix (turn 133) -> gmload_fix150 (turn 745), self size +28.0 MB = 46 KB/turn:
+   +8.82 MB  code
+   +4.05 MB  strings: SchemaEnv.validate source (generated validator functions)
+   +3.95 MB  strings: AsyncGenerator.context.previous.request   (the current request JSON; grows with the history)
+   +2.20 MB  strings: Listener.listener.context.request          (same)
+   +2.17 MB  ValueScopeName ...    +1.98 MB ValueScope._scope ...   +0.39 MB _Code._items   (validator code generation)
+   +1.12 MB  LogRecordImpl.attributes (telemetry records; LogRecordImpl count 358 -> 235, bounded)
+SchemaEnv objects: turn 133: 280 · turn 745: 1502 (+2.0 per turn); pf_show at turn 828: 1670; read_file at turn 404: 13;
+pf_sort with "$id" at turn 486: 984 (created, never compiled: the CLI logs "Failed to compile schema ... Skipping
+parameter validation" 1999 times in 1000 turns).
+1490 of the 1502 SchemaEnv at turn 745 hold the pf_sort parameter schema with the CLI's added `wait_for_previous`.

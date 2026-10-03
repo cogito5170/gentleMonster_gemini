@@ -9,7 +9,8 @@
 - WUG measured (well_used_gemini HEAP.md, 2b89ee3): over 300 turns with a ~21 KB tool result, 1174 KB/turn and rising
   without the fix, 30 KB/turn with it; in a 41.7-minute run of 2,980 turns, 3.9 KB/turn and no OOM, against an OOM at
   12.2 minutes without it.
-- Measured here with gentleMonster's own MCP server: 533.8 -> 79.5 KB/turn over ~290 turns; see bench/preview/HEAP.md.
+- Measured here with gentleMonster's own MCP server: 533.8 -> 79.5 KB/turn over ~290 turns, 29.6-34.3 KB/turn over
+  1,000 turns. What remains is the CLI compiling a new parameter validator on every MCP tool call (bench/preview/HEAP.md).
 
 **Where it goes: the private CLI's own settings.**
 - `gentlemonster` runs its private Gemini CLI with `GEMINI_CLI_HOME=~/.gentlemonster/cli-home`. That CLI keeps its settings, extensions and sign-in in `~/.gentlemonster/cli-home/.gemini/`.

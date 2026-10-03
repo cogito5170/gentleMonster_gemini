@@ -46,9 +46,47 @@ The fix is `{"telemetry": {"enabled": true, "target": "local", "outfile": "/dev/
 | fixed | the fix in a system settings file (not root-owned) | 292 | 104 → 234 | 534.9 KB/turn: no effect |
 
 - The shipped route cuts the heap growth by about **6.7×** (533.8 → 79.5 KB/turn).
-- What remains grows linearly, as the history itself does: the request size grows from 53 KB to 544 KB over 290 turns.
+- What remains is explained below (CMD-GMG9): mostly the run's length, and Gemini CLI compiling a new parameter validator for every MCP tool call.
 
 To rerun one row: `GEMINI_JS=<path to the 0.62.0 bundle/gemini.js> TURNS=300 MODE=tool TOOL=mcp_gm_pf_sort ARGS_LIST='[{"by":"brightest"},{"by":"darkest"},{"by":"most_saturated"},{"by":"most_muted"},{"by":"warmest"},{"by":"coolest"},{"by":"sharpest"},{"by":"softest"},{"by":"single_subject"}]' bench/heap/gm_run.sh clihome 18985 1`, then `python3 bench/heap/analyze.py bench/heap/out/clihome`.
+
+## The residual, explained (CMD-GMG9 S2)
+**The question.** With the fix, this workload measured 79.5 KB/turn. WUG measured 3.9 KB/turn in a long run. Numbers are in [`../heap/residual.txt`](../heap/residual.txt). No Gemini request was made: the model is fake.
+
+1. **Most of the 79.5 is the run's length, not a leak.**
+   - The fit covered turns 58–290 of a 290-turn run, and the early turns grow fastest: 84–87 KB/turn in turns 0–100 and 48–51 in turns 100–300.
+   - The same workload over 1,000 turns fits **29.6 and 34.3 KB/turn** (two runs). WUG's own 300-turn runs gave 30 KB/turn.
+2. **This harness reproduces WUG's number.** WUG's long-run workload on this harness gave **−4.2 KB/turn** over 2,829 turns (103 → 116 MB). That workload is the CLI's built-in `read_file` on 200 local files, 16,938 characters per result, with a 0.4 s model delay. So neither the harness nor the private-home route is the difference; the workload is.
+3. **What holds the memory.** I compared heap snapshots at turn 133 and turn 745 of the pf_sort run. Self size grew by 28.0 MB, or 46 KB/turn:
+   - **Parameter validators, about 2 per turn.** `SchemaEnv` objects went from 280 to 1,502. 1,490 of them hold the pf_sort parameter schema, with the `wait_for_previous` property the CLI adds. Their generated code takes 8.6 MB: validator source strings, `ValueScope` and `ValueScopeName` objects, and `_Code`. Most of the 8.8 MB of compiled code is probably theirs too, since every compile creates a new function.
+   - **The current request,** 6.2 MB. Two holders, the stream generator and its listener, keep the latest request JSON, and it grows with the history.
+   - **Telemetry log records,** 1.1 MB. Their count fell from 358 to 235, so they are bounded.
+4. **Why a validator is compiled on every call** (Gemini CLI 0.62.0 core, `BaseDeclarativeTool` and `SchemaValidator`):
+   - The `schema` getter calls `getSchema()`, which returns a new object each time: `addWaitForPreviousParameter` spreads the schema and adds `wait_for_previous`.
+   - `validateToolParams` passes that new object to `SchemaValidator.validate`, which calls `ajv.compile(schema)` on a shared Ajv instance.
+   - Ajv caches compiled schemas by object identity. So every call compiles a new validator, and the cache keeps all of them.
+   - The built-in `read_file` holds only 13 SchemaEnv objects at turn 404, so built-in tools escape this. I did not trace why.
+   - An almost empty schema (`pf_show`) still leaks: 1,670 SchemaEnv objects at turn 828, and 25.2 KB/turn.
+5. **Causal check.** A scratch copy gave pf_sort's schema an `"$id"`. Ajv then refuses to compile a second schema with the same id, and the CLI logs "Skipping parameter validation" (1,999 times in 1,000 turns).
+   - The slope fell from 29.6–34.3 to **5.7 KB/turn**, WUG's level.
+   - SchemaEnv objects still pile up (984 at turn 486), but they are never compiled, and the compiled validators are what costs memory.
+
+**Is it ours?** No. It is the CLI's validator cache, and any MCP tool triggers it. A larger parameter schema costs more per call: about 30 KB/turn for pf_sort against 25 for pf_show.
+
+**Not shipped: the `$id` mitigation.** It turns off the CLI's parameter check for our tools. Our servers check every argument anyway. But whether the Gemini API accepts `$id` in a function declaration is unverified, and checking it would take a live request.
+
+**What it means in practice:**
+- At about 30 KB/turn, a session reaches 1 GB of heap after roughly 30,000 tool calls. Before the fix, the growth was quadratic.
+- USAGE.md now says so: in a very long session, `/quit` and start again with `gentlemonster --resume latest`.
+
+**Upstream issue text:**
+
+> **Title:** MCP tool calls compile a new Ajv validator on every call (unbounded heap growth)
+>
+> In 0.62.0, the `BaseDeclarativeTool.schema` getter returns a new object each time (`addWaitForPreviousParameter` spreads the parameter schema).
+> `validateToolParams` passes it to `SchemaValidator.validate`, which calls `ajv.compile(schema)` on a shared Ajv instance whose cache is keyed by schema object.
+> Each MCP tool call therefore compiles and retains about two new validators: 1,222 new `SchemaEnv` objects over 612 calls of one tool, and about 25–30 KB/turn of retained heap with telemetry enabled.
+> Building the schema once, or caching validators by tool name or by a schema hash, would stop it.
 
 ## Tool results (S2)
 - **The cap.** Every result from the extension's MCP servers (`gmg/ext_mcp.py`, both `store` and `portfolio`) is now capped at **4000 characters**, as in WUG.
