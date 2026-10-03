@@ -60,12 +60,16 @@ new = dict(request=REQ, brand="Gentle Monster", theme="A threshold where the rai
 r = agent.call("gm_new", new)
 job = r["job"]
 ok(r["ok"] and r["size_m"] == [14.0, 12.0] and r["product"] == "eyewear" and any("sells eyewear" in n for n in r["notes"]),
-   "size read by code; a known brand's product set by code, said in notes")
+   "size read by code; a named known brand's product set by code, said in notes")
+rx = agent.call("gm_new", dict(new, request="겨울 사우나 니트웨어 매장", brand="", product="fashion"))
+ok(rx["brand"] == "Gentle Monster" and rx["product"] == "fashion" and not rx["notes"], "no brand named: default brand, and the brief's product is kept")
+rx = agent.call("gm_new", dict(new, request="제주 매장, 책 대신 향", brand="Aesop", product="fragrance"))
+ok(rx["brand"] == "Aesop" and rx["product"] == "fragrance" and any("not in the request text" in n for n in rx["notes"]),
+   "a named brand is kept even if the request text the agent passed lacks it (said in notes); Aesop may sell fragrance")
 ok([n["tool"] for n in r["next"]] == ["gm_plan"] and r["next"][0]["args"]["plan"] == ["orbit", "field", "chamber", "ritual"], "next = gm_plan with its 4 options")
 r2 = agent.call("gm_new", new)
 ok(r2 == r and sum(1 for e in Ledger(paths.job_dir(job)).events() if e["kind"] == "START") == 1, "the same gm_new again: same result, no new run")
-r = agent.call("gm_new", dict(new, brand="Nike"))
-ok(r["brand"] == "Gentle Monster" and any("not in the request" in n for n in r["notes"]), "a brand that is not in the request is not used")
+
 job = agent.call("gm_new", new)["job"]
 r = agent.call("gm_plan", {"job": job, "plan": "maze"})
 ok(r["ok"] is False and r["next"][0]["tool"] == "gm_plan", "a plan off the list -> ok:false, the options again")

@@ -26,3 +26,13 @@ Computed now (before any run): b1 X=D, b2 X=D, b3 X=D, b4 X=D, b5 X=D, b6 X=A. K
 
 ## Frozen code
 The extension at `ab2bae9` plus the harness commit that adds this file. No tool or GEMINI.md change before the six runs end.
+
+## Amendment after run 1 (written before run 2)
+Run 1 ended 6/6 DONE, but **b3 and b4 lost their brand** (Aesop, Tamburins -> Gentle Monster) and **b6 its product**
+(knitwear -> eyewear). Cause, in code: the brand gate checked the brand against `request`, a text the agent itself
+passes (it passed the brief without the "Brand:" line); the default brand then forced Gentle Monster's product.
+The pre-registered metrics do not see this. Fix: a named brand is kept (a note says when its letters are not in the
+request text); only a *named* known brand can correct the product, and only to one it sells. All six briefs are
+run again (run 2) on the fixed code; run 1 stays in `metrics.json` and is reported. A post-hoc check, labelled as
+post-hoc, is added to the report: brand and product of the job match the brief (`briefs.json` brand, or the
+gentleMonster default when none; product read from the brief by me, listed in the report).

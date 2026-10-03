@@ -25,7 +25,8 @@ from gmg.ledger import Ledger
 ORDER = ["new", "plan", "cast", "story", "finish"]
 PRODUCTS = ["eyewear", "fragrance", "skincare", "fashion", "objects"]
 # brands of the four bundled gentleMonster jobs -> what they sell (closed: code, not the model, knows these)
-KNOWN = {"gentle monster": "eyewear", "tamburins": "fragrance", "aesop": "skincare", "acne studios": "fashion"}
+KNOWN = {"gentle monster": ["eyewear"], "tamburins": ["fragrance", "skincare", "objects"], "aesop": ["skincare", "fragrance"],
+         "acne studios": ["fashion", "eyewear"]}
 FOG = {"none": 0.0, "light": 0.02, "dense": 0.045}
 SURFACE = {"floor": ["concrete", "polished_concrete", "granite", "black_stone", "wood", "mineral_white", "white_gloss",
                      "graphite_wax", "strata_clay", "red_wax"],
@@ -196,16 +197,17 @@ def gm_new(request: str, theme: str, mood, hero_idea: str, product: str, brand: 
         probs.append(f"mood has {len(mood)} items; give exactly 3 English words")
     if probs:
         raise ToolError(probs, [{"tool": "gm_new", "why": "call again with the fields fixed"}])
-    # a brand counts only if its Latin letters are in the user's request
+    # The agent passes both `request` and `brand`, so the request is no proof of the brand: the brand is kept and,
+    # if its letters are not in the request text, the note says so (run 1 of rev 2 overrode real brands here).
     b = str(brand or "").strip()
     if b and not any(w.lower() in request.lower() for w in re.findall(r"[A-Za-z]{2,}", b)):
-        notes.append(f"brand {b!r} is not in the request; using Gentle Monster (the gentleMonster default)")
-        b = ""
+        notes.append(f"brand {b!r} is not in the request text passed; kept -- check it is the user's")
+    named = bool(b)
     b = b or "Gentle Monster"
-    known = KNOWN.get(b.lower())
-    if known and product != known:
-        notes.append(f"{b} sells {known}; product set to {known}")
-        product = known
+    known = KNOWN.get(b.lower()) if named else None      # the default brand never overrides what the brief sells
+    if known and product not in known:
+        notes.append(f"{b} sells {', '.join(known)}; product set to {known[0]}")
+        product = known[0]
     if product not in PRODUCTS:
         notes.append(f"product {product!r} is not one of {PRODUCTS}; using objects")
         product = "objects"

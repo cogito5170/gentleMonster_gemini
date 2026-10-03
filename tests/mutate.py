@@ -30,8 +30,9 @@ M = [
     # the extension's state machine, hook and loop
     ("ext: no next list", "gmg/agent.py", '"notes": notes, "next": [offer_plan(spec, job, W, D)]}', '"notes": notes, "next": []}'),
     ("ext: long text not cut", "gmg/agent.py", "    if len(t) <= n:\n        return t, False", "    if True:\n        return t, False"),
-    ("ext: brand not checked", "gmg/agent.py", "    if b and not any(w.lower() in request.lower()", "    if False and not any(w.lower() in request.lower()"),
-    ("ext: known brand product ignored", "gmg/agent.py", "    if known and product != known:", "    if False:"),
+    ("ext: brand note missing", "gmg/agent.py", "    if b and not any(w.lower() in request.lower()", "    if False and not any(w.lower() in request.lower()"),
+    ("ext: known brand product ignored", "gmg/agent.py", "    if known and product not in known:", "    if False:"),
+    ("ext: default brand overrides product", "gmg/agent.py", "KNOWN.get(b.lower()) if named else None", "KNOWN.get(b.lower())"),
     ("ext: not idempotent", "gmg/agent.py", '    if not _same(L, "new", args):', "    if True:"),
     ("ext: stale steps used", "gmg/agent.py", "    if any(last.get(s, -1) > last[step] for s in ORDER[:k]):", "    if False:"),
     ("ext: order after arguments", "gmg/agent.py", "        if name in PREREQ and", "        if False and name in PREREQ and"),
