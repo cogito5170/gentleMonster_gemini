@@ -56,7 +56,7 @@ Tests: `python3 tests/test_ext.py` · `python3 tests/test_gmg.py` · `python3 te
 
 ## (rev 1) 파이프라인 · CLI `gmg`
 
-gentleMonster 의 작업 공간(브리프 → 공간 시놉시스 → 레이아웃 PDF)을 **`gemini-3.1-flash-lite`** 로 돌린다.
+gentleMonster 의 작업 공간(브리프 → 공간 시놉시스 → 레이아웃 PDF)을 Gemini 로 돌린다. 기본 모형은 **`gemini-3-flash-preview`**(BD-212)이고, 처음에는 `gemini-3.1-flash-lite` 로 만들고 쟀다(이 절의 수치는 flash-lite 결과).
 작은 모형에게 판단을 맡기지 않는다. **한 도구 = 한 결정**이다. 모형은 열거된 선택지를 고르거나, 스키마대로 몇 줄을 쓴다. 계획 · 기하 · 일관성 · 검증은 코드가 한다.
 
 - gentleMonster 는 고정 커밋([`gmg/lock.json`](gmg/lock.json))으로 받아 감싼다. 복사도 fork 도 하지 않는다. 주입 자리 `synopsis.generate(ask=…)` · `moodboard.build(ask_vision=…)` 를 쓴다.

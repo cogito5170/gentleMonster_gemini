@@ -1,4 +1,4 @@
-# PREP — gentleMonster 를 Gemini API(gemini-3.1-flash-lite)로 (CMD-GMG1, 2026-10-03)
+# PREP — gentleMonster 를 Gemini API 로 (CMD-GMG1, 2026-10-03; 당시 모형 gemini-3.1-flash-lite, 지금 기본 모형은 gemini-3-flash-preview — BD-212)
 
 > 지시: baseline#16 CMD-GMG1 rev 1. 근거: baseline `GA_RLO.md` §7 · BD-166.
 > 이 문서는 **비용 0 준비**다. 모형 생성 호출은 하지 않았다. 모형 목록 읽기(models.list) 한 번만 했다.
