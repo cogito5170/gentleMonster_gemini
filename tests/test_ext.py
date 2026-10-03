@@ -1,0 +1,183 @@
+"""Extension tests -- fake agent only, no network, no key. Run: python3 tests/test_ext.py
+Needs the pinned gentleMonster (GMG_UPSTREAM=<checkout at the lock commit>, or `gmg setup` done before)."""
+from __future__ import annotations
+
+import json
+import os
+import shutil
+import subprocess
+import sys
+import tempfile
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT))
+TMP = Path(tempfile.mkdtemp(prefix="gmg_ext_"))
+os.environ["GMG_OUT"] = str(TMP / "out")
+os.environ["GEMINI_API_KEY"] = "AIza" + "TESTKEY0123456789abcdefghijklmnop"
+
+from gmg import agent, ext_mcp, hook, loop, upstream  # noqa: E402
+from gmg.fake_agent import FakeAgent  # noqa: E402
+from gmg.ledger import Ledger  # noqa: E402
+
+FAIL = []
+
+
+def ok(cond, what):
+    print(("  ok  " if cond else "  FAIL ") + what)
+    if not cond:
+        FAIL.append(what)
+
+
+def sec(t):
+    print(f"\n== {t} ==")
+
+
+spec, paths = upstream.load()
+REQ = "Design a store with gentleMonster.\nBrief: 비 오는 밤의 문턱, 폭 14 m 깊이 12 m\nBrand: Gentle Monster"
+
+sec("manifest, hook config, GEMINI.md")
+man = json.loads((ROOT / "gemini-extension.json").read_text())
+ok(man["contextFileName"] == "GEMINI.md" and "server.py" in "".join(man["mcpServers"]["gentlemonster"]["args"]), "manifest names GEMINI.md and server.py")
+hk = json.loads((ROOT / "hooks" / "hooks.json").read_text())
+ok("verdict_gate.py" in hk["hooks"]["AfterAgent"][0]["hooks"][0]["command"], "AfterAgent hook configured")
+g = (ROOT / "GEMINI.md").read_text()
+ok(len(g) < 1200 and "next" in g and "gm_new" in g, f"GEMINI.md is short ({len(g)} chars) and says: follow next")
+
+sec("tools: few, Gemini-declarable")
+T = ext_mcp.tools()
+ok([t["name"] for t in T] == ["gm_new", "gm_plan", "gm_cast", "gm_story", "gm_finish", "gm_explain"], "six tools")
+D = loop.declarations()
+ok(all(d["parameters"]["type"] == "OBJECT" for d in D) and "maxLength" not in json.dumps(D), "declarations use only keys Gemini takes")
+
+sec("the state machine, one call at a time")
+r = agent.call("gm_plan", {"job": "gm-00000000", "plan": "orbit"})
+ok(r["ok"] is False and r["next"][0]["tool"] == "gm_new", "a call out of order says what to call instead")
+r = agent.call("gm_new", {"request": REQ, "brand": "Gentle Monster", "theme": "A quiet threshold.", "mood": "quiet", "hero_idea": "pool", "product": "eyewear"})
+ok(r["ok"] is False and "mood" in r["problems"][0], "one mood word -> ok:false with the fact, gm_new again")
+new = dict(request=REQ, brand="Gentle Monster", theme="A threshold where the rain is switched off.", mood=["quiet", "wet", "dark"],
+           hero_idea="a black pool", product="fragrance")
+r = agent.call("gm_new", new)
+job = r["job"]
+ok(r["ok"] and r["size_m"] == [14.0, 12.0] and r["product"] == "eyewear" and any("sells eyewear" in n for n in r["notes"]),
+   "size read by code; a known brand's product set by code, said in notes")
+ok([n["tool"] for n in r["next"]] == ["gm_plan"] and r["next"][0]["args"]["plan"] == ["orbit", "field", "chamber", "ritual"], "next = gm_plan with its 4 options")
+r2 = agent.call("gm_new", new)
+ok(r2 == r and sum(1 for e in Ledger(paths.job_dir(job)).events() if e["kind"] == "START") == 1, "the same gm_new again: same result, no new run")
+r = agent.call("gm_new", dict(new, brand="Nike"))
+ok(r["brand"] == "Gentle Monster" and any("not in the request" in n for n in r["notes"]), "a brand that is not in the request is not used")
+job = agent.call("gm_new", new)["job"]
+r = agent.call("gm_plan", {"job": job, "plan": "maze"})
+ok(r["ok"] is False and r["next"][0]["tool"] == "gm_plan", "a plan off the list -> ok:false, the options again")
+r = agent.call("gm_story", {"job": job, "title": "x"})
+ok(r["ok"] is False and r["next"][0]["tool"] == "gm_plan" and r["next"][0]["args"]["plan"], "a step too early -> the first undecided step, with its full options")
+r = agent.call("gm_plan", {"job": job, "plan": "orbit"})
+ok(r["ok"] and r["next"][0]["tool"] == "gm_cast" and "hero" in r["next"][0]["roles"], "plan -> cast with its roles and options")
+cast_next = r["next"][0]
+roles = [{"role": k, "shape": v["shape"][0], "material": "steel", "label": f"{k} thing"} for k, v in cast_next["roles"].items()]
+roles = [x for x in roles if x["role"] != "ring"] + [{"role": "hero", "shape": "door", "material": "steel", "label": "black pool"}]
+roles = [x for x in roles if not (x["role"] == "hero" and x["shape"] != "door")]
+r = agent.call("gm_cast", {"job": job, "roles": roles, "room": {"floor": "black_stone", "wall": "concrete", "ceiling": "black_stone", "light": "dark_gallery", "fog": "light"}})
+ok(r["ok"] and any(n.startswith("hero: used the plan's own shape") for n in r["notes"]) and any("ring" in n and "not given" in n for n in r["notes"]),
+   "a shape off the list and a missing role are filled from the plan and said in notes")
+facts = r["next"][0]["facts"]
+ok(len(facts) == 4 and "black pool" in facts[1], "the facts are measured and use the agent's labels")
+bad = agent.call("gm_story", {"job": job, "title": "비", "subtitle": "s", "line": "One. Two.", "synopsis": "It rains.", "keywords": ["a", "a", "b"], "quote": "q", "why": ["x"]})
+ok(bad["ok"] is False and len(bad["problems"]) >= 5 and bad["next"][0]["tool"] == "gm_story", f"bad story -> {len(bad['problems'])} facts, gm_story again")
+long_title = "The Dry Threshold Where Rain Forgets To Fall Tonight"
+r = agent.call("gm_story", {"job": job, "title": long_title, "subtitle": "Where the rain is switched off", "line": "The rain stops at the door.",
+                            "synopsis": "You come in out of the rain. A black pool waits in the dark. You circle it.", "keywords": ["Threshold", "Held rain", "Silence"],
+                            "quote": "Inside, only the light is wet.", "why": ["You slow down.", "It is the only motion.", "You turn to choose.", "It ends the walk."]})
+ok(r["ok"] and any("title" in n for n in r["notes"]), "an over-long title is cut by code (NORMALIZE), not sent back")
+fin = {"job": job, "palette": [{"hex": h, "name": n} for h, n in (("#121417", "Night"), ("#3a4148", "Wet"), ("#8d989f", "Steel"), ("#d8dde0", "Glow"), ("#c4422d", "Tail"))],
+       "accent": "5", "material_names": ["A", "B", "C", "D"], "stops": [{"cap": "I step in.", "sub": "Quiet."}, {"cap": "I see it.", "sub": "Still."}, {"cap": "The end.", "sub": "Done."}]}
+r = agent.call("gm_finish", fin)
+ok(r["ok"] is False and any("stop 3 cap is not first person" in p for p in r["problems"]), "a caption not in the first person -> ok:false")
+fin["stops"][2]["cap"] = "I choose my frames."
+r = agent.call("gm_finish", fin)
+ok(r["ok"] and r["verdict"] == "DONE" and r["say"].startswith(f"{job}: DONE"), "finish -> DONE, a `say` line from the ledger")
+j = json.loads((paths.job_dir(job) / "job.json").read_text())
+ok(spec.check(j) == [] and j["title"] != long_title and len(j["title"]) <= 40, "job.json passes the pinned spec.check; the title was cut")
+n_end = sum(1 for e in Ledger(paths.job_dir(job)).run() if e["kind"] == "END")
+r = agent.call("gm_finish", fin)
+ok(r["verdict"] == "DONE" and sum(1 for e in Ledger(paths.job_dir(job)).run() if e["kind"] == "END") == n_end, "the same gm_finish again changes nothing")
+agent.call("gm_plan", {"job": job, "plan": "field"})
+st = agent.verdict(job)["verdict"]
+full_story = {"job": job, "title": "T", "subtitle": "S", "line": "One line.", "synopsis": "You come in. You see the pool. You leave.",
+              "keywords": ["a", "b", "c"], "quote": "Q", "why": ["One.", "Two.", "Three.", "Four."]}
+rs = agent.call("gm_story", full_story)
+ok(st == "(reopened)" and rs["ok"] is False and rs["next"][0]["tool"] == "gm_cast", "re-deciding the plan reopens the job; a full story is refused until the new plan is cast")
+ex = agent.call("gm_explain", {"job": job})
+ok(ex["ok"] and any(l.startswith("fact 1 (measured by code)") for l in ex["explain"]) and any(l.startswith("fallback") for l in ex["explain"]),
+   "gm_explain renders decisions, facts and fallbacks from the ledger")
+
+sec("hook: the answer may only state the ledger's verdict")
+out = TMP / "hk"
+os.environ["GMG_OUT"] = str(out)
+d = paths.OUT
+ok(hook.decide({"prompt_response": "All checks passed."}, out) == {}, "no job -> pass")
+L = Ledger(Path(out) / "gm-11111111")
+L.log("START", job="gm-11111111")
+L.log("END", state="NEEDS_REVIEW", rc=3)
+ok(hook.decide({"prompt_response": "Here it is. All checks passed: DONE."}, out).get("decision") == "deny", "claims DONE, ledger NEEDS_REVIEW -> deny")
+ok("systemMessage" in hook.decide({"prompt_response": "DONE", "stop_hook_active": True}, out), "again -> warning, no endless rewrite")
+ok(hook.decide({"prompt_response": "gm-11111111: NEEDS_REVIEW -- spec.check: ..."}, out) == {}, "the ledger's own line -> pass")
+ok(hook.decide({"prompt_response": "Here is your store."}, out) == {}, "no claim -> pass")
+pr = subprocess.run([sys.executable, str(ROOT / "hooks" / "verdict_gate.py")], input=json.dumps({"prompt_response": "passed"}), capture_output=True, text=True,
+                    env=dict(os.environ, GMG_OUT=str(out)), cwd=str(ROOT))
+ok(json.loads(pr.stdout).get("decision") == "deny", "the hook script, as Gemini CLI runs it")
+pr = subprocess.run([sys.executable, str(ROOT / "hooks" / "verdict_gate.py")], input="not json", capture_output=True, text=True, env=dict(os.environ, GMG_OUT=str(out)), cwd=str(ROOT))
+ok("NOT checked" in json.loads(pr.stdout).get("systemMessage", ""), "a hook that cannot check says so; not counted as a pass")
+os.environ["GMG_OUT"] = str(TMP / "out")
+
+sec("the loop: a fake flash-lite picks every tool itself")
+r = loop.run("비 오는 밤의 문턱", "Gentle Monster", transport=FakeAgent("ok"), sleep=lambda s: None)
+ok(r["state"] == "DONE" and r["stop"] == "answered" and [c["tool"] for c in r["calls"]] == ["gm_new", "gm_plan", "gm_cast", "gm_story", "gm_finish"],
+   "five calls in order, DONE, then an answer")
+ok(not any(c["offlist"] for c in r["calls"]) and r["claimed"] == "DONE" and r["hook"] == {}, "no off-list call; the answer's claim matches the ledger")
+r = loop.run("소금 사막", "Tamburins", transport=FakeAgent("korean"), sleep=lambda s: None)
+ok(r["state"] == "DONE" and sum(1 for c in r["calls"] if c["ok"] is False) == 1, "Korean story -> one ok:false, fixed, DONE")
+r = loop.run("궤도 격납고", "", transport=FakeAgent("offlist"), sleep=lambda s: None)
+ok(r["state"] == "DONE" and sum(c["offlist"] for c in r["calls"]) == 1, "an off-list call is counted, refused, and the loop recovers")
+r = loop.run("수영장", "", transport=FakeAgent("badcast"), sleep=lambda s: None)
+ok(r["state"] == "DONE" and any("hero: used the plan's own shape" in n for c in r["calls"] for n in c["notes"]), "a bad shape is filled from the plan")
+r = loop.run("겨울 사우나", "", transport=FakeAgent("samecall"), sleep=lambda s: None)
+ok(r["state"] == "DONE", "a repeated call is harmless")
+r = loop.run("도서관", "Aesop", transport=FakeAgent("nocall"), sleep=lambda s: None)
+ok(r["job"] is None and r["state"] is None and r["calls"] == [], "no tool call -> no job, and nothing is counted as done")
+
+
+class Quota:
+    def __init__(self):
+        self.n, self.f = 0, FakeAgent("ok")
+
+    def __call__(self, *a):
+        self.n += 1
+        if self.n <= 2:
+            return 429, json.dumps({"error": {"message": "quota", "details": [{"retryDelay": "3s"}]}}), {}
+        return self.f(*a)
+
+
+sl = []
+r = loop.run("비", "", transport=Quota(), sleep=sl.append)
+ok(r["state"] == "DONE" and sl == [3.0, 3.0], f"429 in the loop waits the server's delay ({sl})")
+
+sec("MCP over stdio (the server Gemini CLI starts)")
+msgs = [{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocolVersion": "2025-03-26"}},
+        {"jsonrpc": "2.0", "method": "notifications/initialized"},
+        {"jsonrpc": "2.0", "id": 2, "method": "tools/list"},
+        {"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "gm_plan", "arguments": {"job": "nope", "plan": "orbit"}}},
+        {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "gm_bogus", "arguments": {}}}]
+pr = subprocess.run([sys.executable, str(ROOT / "server.py")], input="\n".join(json.dumps(m) for m in msgs) + "\n", capture_output=True, text=True,
+                    env=dict(os.environ), timeout=300, cwd=str(TMP))
+o = {x["id"]: x for x in map(json.loads, pr.stdout.splitlines())}
+ok(len(o) == 4 and o[1]["result"]["protocolVersion"] == "2025-03-26", "four replies, protocol echoed, stdout only JSON-RPC")
+ok(len(o[2]["result"]["tools"]) == 6, "tools/list: 6")
+r3 = json.loads(o[3]["result"]["content"][0]["text"])
+ok(o[3]["result"]["isError"] and r3["next"][0]["tool"] == "gm_new", "a bad job id -> isError, and the call that fixes it")
+ok(json.loads(o[4]["result"]["content"][0]["text"])["next"][0]["tool"] == "gm_new", "an unknown tool -> told where to start")
+ok("AIza" not in "".join(p.read_text() for p in Path(os.environ["GMG_OUT"]).rglob("*.jsonl")), "no key in any ledger")
+
+shutil.rmtree(TMP, ignore_errors=True)
+print("\n" + ("all passed" if not FAIL else f"{len(FAIL)} failed"))
+sys.exit(1 if FAIL else 0)

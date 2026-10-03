@@ -27,7 +27,21 @@ M = [
     ("pin not checked", "gmg/upstream.py", 'if head(r) != LOCK["commit"]:\n        raise NotReady(f"gentleMonster is not', 'if False:\n        raise NotReady(f"gentleMonster is not'),
     ("notification answered", "gmg/mcp.py", "    if mid is None:\n        return None", "    if False:\n        return None"),
     ("render without a recorded job", "gmg/run.py", 'if st["artifacts"].get("job") != "done":', "if False:"),
+    # the extension's state machine, hook and loop
+    ("ext: no next list", "gmg/agent.py", '"notes": notes, "next": [offer_plan(spec, job, W, D)]}', '"notes": notes, "next": []}'),
+    ("ext: long text not cut", "gmg/agent.py", "    if len(t) <= n:\n        return t, False", "    if True:\n        return t, False"),
+    ("ext: brand not checked", "gmg/agent.py", "    if b and not any(w.lower() in request.lower()", "    if False and not any(w.lower() in request.lower()"),
+    ("ext: known brand product ignored", "gmg/agent.py", "    if known and product != known:", "    if False:"),
+    ("ext: not idempotent", "gmg/agent.py", '    if not _same(L, "new", args):', "    if True:"),
+    ("ext: stale steps used", "gmg/agent.py", "    if any(last.get(s, -1) > last[step] for s in ORDER[:k]):", "    if False:"),
+    ("ext: order after arguments", "gmg/agent.py", "        if name in PREREQ and", "        if False and name in PREREQ and"),
+    ("ext: caption person not checked", "gmg/agent.py", '            if s.get("cap") and not re.search(r"\\b(I|my|me)\\b", s["cap"]):', "            if False:"),
+    ("ext: fallback not said", "gmg/agent.py", "        if fb:\n            notes.append", "        if False:\n            notes.append"),
+    ("hook: never denies", "gmg/hook.py", '    return {"decision": "deny",', '    return {"decision": "allow",'),
+    ("loop: off-list not counted", "gmg/loop.py", '"offlist": fc.get("name") not in prev_next', '"offlist": False'),
+    ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
+TESTS = ["tests/test_gmg.py", "tests/test_ext.py"]
 
 
 def main() -> int:
@@ -42,8 +56,7 @@ def main() -> int:
             shutil.rmtree(d)
             return 2
         p.write_text(s.replace(old, new, 1))
-        r = subprocess.run([sys.executable, str(d / "r" / "tests" / "test_gmg.py")], capture_output=True, text=True, timeout=600)
-        red = r.returncode != 0
+        red = any(subprocess.run([sys.executable, str(d / "r" / t)], capture_output=True, text=True, timeout=600).returncode != 0 for t in TESTS)
         caught += red
         print(("  red  " if red else "  MISSED ") + name)
         shutil.rmtree(d, ignore_errors=True)

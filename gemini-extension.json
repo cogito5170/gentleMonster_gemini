@@ -1,0 +1,14 @@
+{
+  "name": "gentlemonster",
+  "version": "0.2.0",
+  "description": "gentleMonster store design for gemini-3.1-flash-lite: small state-machine tools; code does the geometry and every check.",
+  "contextFileName": "GEMINI.md",
+  "mcpServers": {
+    "gentlemonster": {
+      "command": "python3",
+      "args": ["${extensionPath}${/}server.py"],
+      "cwd": "${extensionPath}",
+      "timeout": 600000
+    }
+  }
+}

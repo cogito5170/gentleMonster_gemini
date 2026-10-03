@@ -1,0 +1,17 @@
+{
+  "hooks": {
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "name": "gm-verdict-gate",
+            "type": "command",
+            "command": "python3 ${extensionPath}${/}hooks${/}verdict_gate.py",
+            "timeout": 20000,
+            "description": "Lets the answer state only the verdict the job's ledger holds."
+          }
+        ]
+      }
+    ]
+  }
+}
