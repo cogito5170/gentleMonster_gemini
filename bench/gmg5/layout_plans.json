@@ -1,0 +1,405 @@
+{
+ "what": "CMD-GMG5 S4: each of the 40 layout references (bench/gmg5/refset/manifest_layouts.jsonl) assigned by hand to one page layout plan in gmg/layouts.py, from its by-eye `seen` note and `seen_counts`. Design data only.",
+ "refs": [
+  {
+   "id": "ov:60962058-fd45-44e7-a9b8-3dffaacdc260",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "Wendingen cover: one full-bleed ornamental drawing, masthead set inside the art at top, issue line at foot; no photo; one picture, one word (title)",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:90305024-f819-40d5-94ea-9a21b60662b4",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "poster-cover: masthead band top, single illustration fills ~80 %, occasion word + year in the lower band; one picture, two words",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:3224c64e-ea8b-43a9-a09d-fe6d828605f0",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "typographic cover: double rule frame, two-line masthead top third, small central emblem with 'EASTER' and year; picture ~20 %, generous margins",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:3e766243-4367-409c-9226-146e6ce53ca0",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "masthead box (big wordmark + date line) over one full-width illustration; picture ~75 %; masthead / picture stacked",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:6d3fda81-01db-4eed-9f6d-7d4ad0fcf6dd",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "heavy frame; two-line masthead top, single figure centred, one big word at the foot ('CHRISTMAS'); one picture, one word",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:bcdcf8a6-8788-40a7-a00f-bbdffe677f40",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "thin double frame; masthead + date/price line top, one full-height figure, publisher line at foot; picture ~85 %",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:a6139525-640b-42f0-b8e6-a4c93a2e9ad9",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "masthead top over one scene that runs to the edges, occasion line at foot in colour; one picture, two words",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:396c3777-94d4-46ab-8f06-3d16a7520b90",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "masthead + year top, a framed panel (border of flowers) holding one figure, small label at its foot; nested frame",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:b49b4e64-2630-4bb1-a15f-3701a77d97d2",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "architectural frame drawn as part of the art; spaced capitals masthead inside it; one scene; one word at the foot",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:627884ca-5291-4aa4-b5dd-5cb25fb0dc48",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "masthead band (spaced capitals) across the top, one illustration bleeds below it; date and price tiny in the corners; one picture, one word",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:f1b7c4e9-6fd4-4a67-8226-5f5498300efa",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "engraved ornamental frame, big masthead in a cartouche, one framed picture centre, imprint line at foot; picture ~45 %",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:6e2cda3a-98e7-4527-b46c-8363a0ab4e0f",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "masthead over open sky, one figure on a plain field, lots of empty space around her; one picture, one word",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:b30fde24-7023-45c6-8587-01ac622194f0",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "masthead in a thin top band, one illustration fills the rest; two small text lines in the bottom corners",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:8da310fb-da71-4c29-87f9-6395889642ea",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "masthead top centre over one illustration, short special-number line top right; picture ~90 %",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:284534b2-d590-4730-b7ed-51a030912ca5",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "two-line masthead top, one scene, occasion words at foot in colour; one picture, two words",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:6919217e-2807-49b6-9675-adfdbbdb1820",
+   "type": "cover",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "newspaper-style masthead with banner and date strip, one large cartoon below, caption line at foot; picture ~70 %",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:bb91990b-43a9-46f9-badf-391115ad4d97",
+   "type": "catalogue_page",
+   "seen_counts": {
+    "pictures": 60,
+    "columns": 6
+   },
+   "seen": "mail-order page: header line, then a dense grid of ~60 small product cuts with item numbers, little white space; many pictures, no hero",
+   "plan": "contact_sheet"
+  },
+  {
+   "id": "ov:96cfb83b-f635-40f4-9cc5-041b0cf82bf8",
+   "type": "fashion_plate",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "two figures side by side on a blank page, small hand-written captions under each; pictures ~40 %, wide margins",
+   "plan": "figure_on_blank"
+  },
+  {
+   "id": "ov:97d89f1e-76bb-4596-9106-daf6232ddbdc",
+   "type": "album_page",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "dark album leaf, one small mounted print slightly above centre, nothing else; one photo, ~15 % of the page",
+   "plan": "mounted_print"
+  },
+  {
+   "id": "ov:372ef23c-60a5-47b8-a57f-6c2426c8c4e7",
+   "type": "sketch_page",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "single standing figure drawn on a blank page, page title and issue at the foot in small type; one picture, very wide margins",
+   "plan": "figure_on_blank"
+  },
+  {
+   "id": "ov:cdf43b9c-ba40-49d2-8bef-e8fa6d3fecd4",
+   "type": "fashion_plate",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "one framed colour plate in the upper two thirds, title + designer line centred below, folio line at foot; one picture, one title",
+   "plan": "framed_plate"
+  },
+  {
+   "id": "ov:e1bbdc27-efa4-4a6e-90d0-f2bb958de6ef",
+   "type": "fashion_plate",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "figure and one piece of furniture on a white page (no frame), title line centred below; one picture, one title",
+   "plan": "figure_on_blank"
+  },
+  {
+   "id": "ov:8255ee80-d920-4dcf-b5e5-ef42aa27a02b",
+   "type": "editorial_page",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "advertisement page: one framed picture top, three centred text lines below; picture ~55 %",
+   "plan": "framed_plate"
+  },
+  {
+   "id": "ov:e255fe7f-22e2-4e6a-ab5b-9c1b1db7dfa7",
+   "type": "editorial_page",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "advertisement page: one illustration with the brand name set twice inside it; picture + words interleaved",
+   "plan": "masthead_cover"
+  },
+  {
+   "id": "ov:1aeafc55-6916-46f7-b180-37a4d462678a",
+   "type": "editorial_page",
+   "seen_counts": {
+    "pictures": 3,
+    "columns": 1
+   },
+   "seen": "text page: small head picture, centred title, one column of justified text with two small figures in the side margins; picture ~25 %",
+   "plan": "text_column"
+  },
+  {
+   "id": "ov:15f5429e-4614-4e47-9ee6-58ad176c5e44",
+   "type": "sketch_page",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "one large sketch figure, signature and issue line at the foot; one picture, almost no text",
+   "plan": "figure_on_blank"
+  },
+  {
+   "id": "ov:ed7f32ed-e63b-4fb0-914b-5b15f3829db1",
+   "type": "album_page",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "caricature on a blank page: one standing figure centred, signature only; one picture, ~25 % of the page",
+   "plan": "figure_on_blank"
+  },
+  {
+   "id": "ov:58f29c4b-b4b3-4bcb-8bb3-f476c945a4f7",
+   "type": "album_page",
+   "seen_counts": {
+    "pictures": 6,
+    "columns": 2
+   },
+   "seen": "album leaf with six small photographs placed loosely in two columns, no captions; six photos, ~35 % of the page",
+   "plan": "loose_grid"
+  },
+  {
+   "id": "ov:aa10ba6f-a0fb-453d-aaf6-8f2359f1f066",
+   "type": "album_cover",
+   "seen_counts": {
+    "pictures": 0,
+    "columns": 1
+   },
+   "seen": "plain board cover with one hand-written word ('Vienna') and a small label; no picture; one word",
+   "plan": "type_only"
+  },
+  {
+   "id": "ov:5ffc43cc-0bc1-447c-a438-ba2bf03b74f0",
+   "type": "album_page",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "one photograph mounted on a dark page with a hand-written caption under it; one photo, one short line",
+   "plan": "mounted_print"
+  },
+  {
+   "id": "ov:586d0315-3bc1-4dc3-930f-f97d52096815",
+   "type": "album_page",
+   "seen_counts": {
+    "pictures": 4,
+    "columns": 2
+   },
+   "seen": "four cartes-de-visite in a 2 x 2 grid on a printed album leaf, hand-written captions under each",
+   "plan": "loose_grid"
+  },
+  {
+   "id": "ov:92806716-2473-4678-892f-0ac7bbe38baa",
+   "type": "catalogue_cover",
+   "seen_counts": {
+    "pictures": 0,
+    "columns": 1
+   },
+   "seen": "trade-catalogue title page: ornamental frame, diagonal title band, maker's address block; type only",
+   "plan": "type_only"
+  },
+  {
+   "id": "ov:26b8941f-c309-4260-ac80-a67ed6f53060",
+   "type": "catalogue_page",
+   "seen_counts": {
+    "pictures": 3,
+    "columns": 1
+   },
+   "seen": "three product pictures (one large, two small) floating on a decorative ground, item number at the foot",
+   "plan": "hero_and_two"
+  },
+  {
+   "id": "ov:8de8e9d7-2d80-4f5a-b84d-32af386e0d76",
+   "type": "catalogue_page",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "one product drawing fills ~75 % of the page, name + four spec lines centred below; one picture, one name",
+   "plan": "framed_plate"
+  },
+  {
+   "id": "ov:daa4c709-780c-408f-98cc-8d6f2df5f238",
+   "type": "catalogue_spread",
+   "seen_counts": {
+    "pictures": 2,
+    "columns": 2
+   },
+   "seen": "two-page spread, one product per page centred, running head and a two-line caption under each; mirror symmetry",
+   "plan": "mirror_spread"
+  },
+  {
+   "id": "ov:f297fb8f-5c35-4559-a647-1b576fd4bf76",
+   "type": "catalogue_page",
+   "seen_counts": {
+    "pictures": 5,
+    "columns": 1
+   },
+   "seen": "instrument catalogue: one column, product cuts stacked with numbered price lines between them, small type",
+   "plan": "text_column"
+  },
+  {
+   "id": "ov:159152ad-5080-4251-b7aa-bc206816ee39",
+   "type": "catalogue_spread",
+   "seen_counts": {
+    "pictures": 4,
+    "columns": 2
+   },
+   "seen": "two-page spread of line drawings (hats, robe), vertical title at the right edge, lots of blank paper",
+   "plan": "loose_grid"
+  },
+  {
+   "id": "ov:5b56a952-72ac-4137-93d6-6cc03b348636",
+   "type": "catalogue_cover",
+   "seen_counts": {
+    "pictures": 0,
+    "columns": 1
+   },
+   "seen": "bright cover: ornamental border, centred title on a curve, author line; type and ornament only",
+   "plan": "type_only"
+  },
+  {
+   "id": "ov:64c84537-5806-4397-8d7c-a14d280e4d64",
+   "type": "fashion_plate",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "one framed colour plate (two figures) in the upper two thirds, title + designer line centred below, folio at foot",
+   "plan": "framed_plate"
+  },
+  {
+   "id": "ov:256df8be-fa7f-453e-83f3-5421c0878c4a",
+   "type": "fashion_plate",
+   "seen_counts": {
+    "pictures": 1,
+    "columns": 1
+   },
+   "seen": "two figures on a blank page (no frame), title + designer line below; one picture, one title",
+   "plan": "figure_on_blank"
+  }
+ ]
+}

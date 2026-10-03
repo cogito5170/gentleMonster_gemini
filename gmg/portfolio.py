@@ -97,7 +97,7 @@ def _ws() -> Ledger:
 def state(L: "Ledger | None" = None) -> dict:
     L = L or _ws()
     st = {"terms": {}, "texts": [], "photos": [], "pages": {}, "proposals": [], "rankings": [], "concepts": [], "options": [], "last": None,
-          "adopted": []}
+          "adopted": [], "layouts": {}}
     for e in L.events():
         k = e.get("kind")
         if k == "TERM":
@@ -117,6 +117,8 @@ def state(L: "Ledger | None" = None) -> dict:
             for pr in st["proposals"]:
                 if pr["id"] == e["what"].get("proposal"):
                     pr["adopted"] = e["what"]["option"]
+        elif k == "LAYOUT":
+            st["layouts"][e["layout"]["page"]] = e["layout"]
         elif k == "RANKING":
             st["rankings"].append(e["ranking"])
         elif k == "CONCEPT":
@@ -165,9 +167,10 @@ def pf_show() -> dict:
                                                                  "hue": p["hue"], "subject_regions": p["subject_regions"], "colors": p["colors"][:3]} for p in st["photos"]],
             "proposals": [{"id": p["id"], "after_page": p["after"], "options": [f"{o['label']}: {o['title']}" for o in p["options"]], "adopted": p.get("adopted")}
                           for p in st["proposals"][-3:]],
+            "layouts": [{"page": k, "plan": v["plan"], "photos": v["photos"]} for k, v in sorted(st["layouts"].items(), key=lambda x: float(x[0]))],
             "next": [{"tool": "pf_photos", "why": "measure attached photos"}, {"tool": "pf_sort", "why": "rank or group measured photos"},
                      {"tool": "pf_write", "why": "write new text candidates"}, {"tool": "pf_revise", "why": "change a stored text"},
-                     {"tool": "pf_concept", "why": "check a phrase against the terms"}, {"tool": "pf_pages", "why": "page map, next-page proposals, adopt"}]}
+                     {"tool": "pf_concept", "why": "check a phrase against the terms"}, {"tool": "pf_pages", "why": "page map, next-page proposals, adopt, page layout"}]}
 
 
 def pf_photos(paths) -> dict:
@@ -399,9 +402,58 @@ def pf_concept(phrase: str, verdicts, terms=None) -> dict:
             "next": [{"tool": "pf_write", "why": "propose phrases that connect to every term"}]}
 
 
-def pf_pages(action: str, pages=None, after=None, options=None, choice: str = "") -> dict:
+def _pkey(n) -> str:
+    v = float(n)
+    return str(int(v)) if v.is_integer() else str(v)
+
+
+def _layout(L, st, page, photos, choice) -> dict:
+    """A page layout plan from the closed list in gmg/layouts.py; code checks the count and the neighbours and draws the boxes."""
+    from gmg import layouts as LY
+    if page is None:
+        raise ToolError(["page: the page number to lay out"], [{"tool": "pf_pages", "args": {"action": "layout", "page": "page number"}}])
+    try:
+        key = _pkey(page)
+    except (TypeError, ValueError):
+        raise ToolError([f"page {page!r} is not a page number"], [{"tool": "pf_pages", "args": {"action": "show"}}])
+    ids = [photos] if isinstance(photos, str) else list(photos or [])
+    unknown = [x for x in ids if not any(p["id"] == x for p in st["photos"])]
+    if unknown:
+        raise ToolError([f"not a measured photo id: {', '.join(map(str, unknown))}"], [{"tool": "pf_photos", "why": "measure the photos; their ids go in `photos`"}])
+    near = {_pkey(float(key) - 1), _pkey(float(key) + 1)}
+    avoid = sorted({v["plan"] for k, v in st["layouts"].items() if k in near})
+    n = len(ids) if photos is not None else None
+    if not choice:
+        keys = LY.options(n, avoid)
+        _call(L, "pf_pages", {"action": "layout", "page": page, "photos": photos})
+        opts = _options(L, [{"n": i + 1, "label": str(i + 1), "title": LY.PLANS[k]["title"],
+                             "call": {"tool": "pf_pages", "args": {"action": "layout", "page": page, "photos": ids, "choice": k}}} for i, k in enumerate(keys)])
+        return {"ok": True, "page": key, "plans": [{"id": k, "title": LY.PLANS[k]["title"], "pictures": list(LY.PLANS[k]["pictures"]), "from": LY.PLANS[k]["from"]}
+                                                    for k in keys],
+                "avoided": avoid, "options": opts, "next": [{"tool": "pf_pages", "args": {"action": "layout", "page": page, "photos": ids, "choice": keys}}]}
+    if choice not in LY.PLANS:
+        raise ToolError([f"choice {choice!r} is not one of {list(LY.PLANS)}"], [{"tool": "pf_pages", "args": {"action": "layout", "page": page, "photos": ids}, "why": "list the plans that fit"}])
+    if choice in avoid:
+        raise ToolError([f"a neighbouring page already uses {choice}; neighbouring pages take different plans"],
+                        [{"tool": "pf_pages", "args": {"action": "layout", "page": page, "photos": ids, "choice": LY.options(len(ids), avoid)}}])
+    if not LY.fits(choice, len(ids)):
+        lo, hi = LY.PLANS[choice]["pictures"]
+        raise ToolError([f"{choice} takes {lo}-{hi} photos; got {len(ids)}"],
+                        [{"tool": "pf_pages", "args": {"action": "layout", "page": page, "photos": ids, "choice": LY.options(len(ids), avoid)}}])
+    b = LY.boxes(choice, len(ids))
+    lay = {"page": key, "plan": choice, "photos": ids, "boxes": dict(b, pictures=[dict(x, photo=pid) for x, pid in zip(b["pictures"], ids)])}
+    L.log("LAYOUT", layout=lay)
+    _call(L, "pf_pages", {"action": "layout", "page": page, "photos": ids, "choice": choice})
+    return {"ok": True, "layout": lay, "title": LY.PLANS[choice]["title"], "from": LY.PLANS[choice]["from"],
+            "next": [{"tool": "pf_write", "args": {"kind": ["page_text", "caption"]}, "why": f"write the page's text: {', '.join(LY.PLANS[choice]['text'])}"},
+                     {"tool": "pf_pages", "args": {"action": "layout", "page": float(key) + 1}, "why": "lay out the next page"}]}
+
+
+def pf_pages(action: str, pages=None, after=None, options=None, choice: str = "", page=None, photos=None) -> dict:
     L = _ws()
     st = state(L)
+    if action == "layout":
+        return _layout(L, st, page, photos, choice)
     if action == "show":
         return {"ok": True, "pages": [st["pages"][k] for k in sorted(st["pages"], key=float)], "proposals": st["proposals"][-2:]}
     if action == "set":
@@ -450,7 +502,8 @@ def pf_pages(action: str, pages=None, after=None, options=None, choice: str = ""
         _call(L, "pf_pages", {"action": "adopt", "choice": ch})
         return {"ok": True, "adopted": what, "next": [{"tool": "pf_pages", "args": {"action": "propose"}, "why": "propose what comes after it"},
                                                       {"tool": "pf_write", "why": "write the adopted page"}]}
-    raise ToolError([f"action {action!r} is not one of set, propose, adopt, show"], [{"tool": "pf_pages", "args": {"action": ["set", "propose", "adopt", "show"]}}])
+    raise ToolError([f"action {action!r} is not one of set, propose, adopt, layout, show"],
+                    [{"tool": "pf_pages", "args": {"action": ["set", "propose", "adopt", "layout", "show"]}}])
 
 
 def pf_choose(option: str) -> dict:

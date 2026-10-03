@@ -1,0 +1,684 @@
+{
+ "what": "CMD-GMG5 S4: layout_like signals (gmg.photo.layout_signals) and the upstream flat-block score. 'gm_photos': the 9 top-level images of the private gm-photos@780f412 attached to design-split questions (4, 11, 22, 23, 26), roles from gentleMonster@4eb4ffa questions.semantic.json (values only, no image content); the eval_seen images 10-14 are left out (D3: design questions only). 'refset': the 87 public reference photographs.",
+ "rule": {
+  "flat_min": 0.08,
+  "edge_min": 0.6,
+  "upstream_threshold": 0.12
+ },
+ "gm_photos": [
+  {
+   "file": "1.webp",
+   "role": "photo",
+   "flat": 0.0,
+   "edge": 0.165,
+   "upstream_score": 0.0
+  },
+  {
+   "file": "2.webp",
+   "role": "photo",
+   "flat": 0.0,
+   "edge": 0.172,
+   "upstream_score": 0.0
+  },
+  {
+   "file": "3.webp",
+   "role": "photo",
+   "flat": 0.0,
+   "edge": 0.168,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "4.webp",
+   "role": "photo",
+   "flat": 0.001,
+   "edge": 0.129,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "5.webp",
+   "role": "photo",
+   "flat": 0.0,
+   "edge": 0.237,
+   "upstream_score": 0.0
+  },
+  {
+   "file": "6.webp",
+   "role": "reference_layout",
+   "flat": 0.306,
+   "edge": 0.662,
+   "upstream_score": 0.324
+  },
+  {
+   "file": "7.jpg",
+   "role": "draft_page",
+   "flat": 0.512,
+   "edge": 0.932,
+   "upstream_score": 0.541
+  },
+  {
+   "file": "8.jpg",
+   "role": "notes",
+   "flat": 0.385,
+   "edge": 0.431,
+   "upstream_score": 0.454
+  },
+  {
+   "file": "9.jpg",
+   "role": "draft_page",
+   "flat": 0.433,
+   "edge": 0.94,
+   "upstream_score": 0.461
+  }
+ ],
+ "refset": [
+  {
+   "file": "photos/night_rain_street__3074e93c.jpg",
+   "group": "night_rain_street",
+   "flat": 0.001,
+   "edge": 0.108,
+   "upstream_score": 0.017
+  },
+  {
+   "file": "photos/night_rain_street__d82c3265.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.364,
+   "upstream_score": 0.016
+  },
+  {
+   "file": "photos/night_rain_street__47fe16f4.jpg",
+   "group": "night_rain_street",
+   "flat": 0.001,
+   "edge": 0.276,
+   "upstream_score": 0.018
+  },
+  {
+   "file": "photos/night_rain_street__03b1fc2c.jpg",
+   "group": "night_rain_street",
+   "flat": 0.016,
+   "edge": 0.296,
+   "upstream_score": 0.038
+  },
+  {
+   "file": "photos/night_rain_street__c20bc359.jpg",
+   "group": "night_rain_street",
+   "flat": 0.017,
+   "edge": 0.412,
+   "upstream_score": 0.037
+  },
+  {
+   "file": "photos/night_rain_street__dbecccab.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.37,
+   "upstream_score": 0.002
+  },
+  {
+   "file": "photos/night_rain_street__99404ae2.jpg",
+   "group": "night_rain_street",
+   "flat": 0.003,
+   "edge": 0.272,
+   "upstream_score": 0.023
+  },
+  {
+   "file": "photos/night_rain_street__a8ff9f2e.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.377,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "photos/night_rain_street__f6d06061.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.549,
+   "upstream_score": 0.0
+  },
+  {
+   "file": "photos/night_rain_street__55e44fd6.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.456,
+   "upstream_score": 0.01
+  },
+  {
+   "file": "photos/night_rain_street__19770d27.jpg",
+   "group": "night_rain_street",
+   "flat": 0.003,
+   "edge": 0.274,
+   "upstream_score": 0.011
+  },
+  {
+   "file": "photos/night_rain_street__feb586ff.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.127,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "photos/night_rain_street__b2c0c16a.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.39,
+   "upstream_score": 0.071
+  },
+  {
+   "file": "photos/night_rain_street__c34303ae.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.362,
+   "upstream_score": 0.025
+  },
+  {
+   "file": "photos/night_rain_street__b94d9310.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.281,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "photos/night_rain_street__63e55645.jpg",
+   "group": "night_rain_street",
+   "flat": 0.005,
+   "edge": 0.426,
+   "upstream_score": 0.018
+  },
+  {
+   "file": "photos/night_rain_street__8e54d900.jpg",
+   "group": "night_rain_street",
+   "flat": 0.001,
+   "edge": 0.204,
+   "upstream_score": 0.003
+  },
+  {
+   "file": "photos/night_rain_street__9c7537b2.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.268,
+   "upstream_score": 0.045
+  },
+  {
+   "file": "photos/night_rain_street__ddf9fddf.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.564,
+   "upstream_score": 0.002
+  },
+  {
+   "file": "photos/night_rain_street__05d49f0e.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.453,
+   "upstream_score": 0.02
+  },
+  {
+   "file": "photos/night_rain_street__e90dbd32.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.49,
+   "upstream_score": 0.014
+  },
+  {
+   "file": "photos/night_rain_street__b19ea6f2.jpg",
+   "group": "night_rain_street",
+   "flat": 0.007,
+   "edge": 0.396,
+   "upstream_score": 0.011
+  },
+  {
+   "file": "photos/night_rain_street__8b731a90.jpg",
+   "group": "night_rain_street",
+   "flat": 0.0,
+   "edge": 0.328,
+   "upstream_score": 0.0
+  },
+  {
+   "file": "photos/beach_dusk__fd07728b.jpg",
+   "group": "beach_dusk",
+   "flat": 0.038,
+   "edge": 0.107,
+   "upstream_score": 0.178
+  },
+  {
+   "file": "photos/beach_dusk__dcd12627.jpg",
+   "group": "beach_dusk",
+   "flat": 0.005,
+   "edge": 0.172,
+   "upstream_score": 0.207
+  },
+  {
+   "file": "photos/beach_dusk__bf0d045e.jpg",
+   "group": "beach_dusk",
+   "flat": 0.0,
+   "edge": 0.233,
+   "upstream_score": 0.012
+  },
+  {
+   "file": "photos/beach_dusk__7dc7d36a.jpg",
+   "group": "beach_dusk",
+   "flat": 0.017,
+   "edge": 0.982,
+   "upstream_score": 0.057
+  },
+  {
+   "file": "photos/beach_dusk__f5da176a.jpg",
+   "group": "beach_dusk",
+   "flat": 0.003,
+   "edge": 0.146,
+   "upstream_score": 0.011
+  },
+  {
+   "file": "photos/beach_dusk__1784bdd3.jpg",
+   "group": "beach_dusk",
+   "flat": 0.02,
+   "edge": 0.568,
+   "upstream_score": 0.046
+  },
+  {
+   "file": "photos/beach_dusk__db9ffaf6.jpg",
+   "group": "beach_dusk",
+   "flat": 0.001,
+   "edge": 0.574,
+   "upstream_score": 0.004
+  },
+  {
+   "file": "photos/beach_dusk__764d9dfa.jpg",
+   "group": "beach_dusk",
+   "flat": 0.097,
+   "edge": 0.329,
+   "upstream_score": 0.151
+  },
+  {
+   "file": "photos/beach_dusk__cb5f7ac0.jpg",
+   "group": "beach_dusk",
+   "flat": 0.005,
+   "edge": 0.576,
+   "upstream_score": 0.018
+  },
+  {
+   "file": "photos/beach_dusk__7e110a2e.jpg",
+   "group": "beach_dusk",
+   "flat": 0.013,
+   "edge": 0.412,
+   "upstream_score": 0.057
+  },
+  {
+   "file": "photos/beach_dusk__ee7ab8cf.jpg",
+   "group": "beach_dusk",
+   "flat": 0.008,
+   "edge": 0.191,
+   "upstream_score": 0.025
+  },
+  {
+   "file": "photos/beach_dusk__fdc68bef.jpg",
+   "group": "beach_dusk",
+   "flat": 0.0,
+   "edge": 0.176,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "photos/beach_dusk__1ae53030.jpg",
+   "group": "beach_dusk",
+   "flat": 0.035,
+   "edge": 0.614,
+   "upstream_score": 0.108
+  },
+  {
+   "file": "photos/beach_dusk__22fdef76.jpg",
+   "group": "beach_dusk",
+   "flat": 0.027,
+   "edge": 0.294,
+   "upstream_score": 0.094
+  },
+  {
+   "file": "photos/beach_dusk__ca7a03bb.jpg",
+   "group": "beach_dusk",
+   "flat": 0.001,
+   "edge": 0.169,
+   "upstream_score": 0.003
+  },
+  {
+   "file": "photos/beach_dusk__1cada0f9.jpg",
+   "group": "beach_dusk",
+   "flat": 0.0,
+   "edge": 0.262,
+   "upstream_score": 0.015
+  },
+  {
+   "file": "photos/beach_dusk__fb7fb715.jpg",
+   "group": "beach_dusk",
+   "flat": 0.01,
+   "edge": 0.214,
+   "upstream_score": 0.068
+  },
+  {
+   "file": "photos/beach_dusk__23c34e4e.jpg",
+   "group": "beach_dusk",
+   "flat": 0.018,
+   "edge": 0.402,
+   "upstream_score": 0.061
+  },
+  {
+   "file": "photos/beach_dusk__4f6e8fa1.jpg",
+   "group": "beach_dusk",
+   "flat": 0.001,
+   "edge": 0.269,
+   "upstream_score": 0.007
+  },
+  {
+   "file": "photos/beach_dusk__39a3ecfb.jpg",
+   "group": "beach_dusk",
+   "flat": 0.066,
+   "edge": 0.265,
+   "upstream_score": 0.187
+  },
+  {
+   "file": "photos/black_and_white__bb8defa5.jpg",
+   "group": "black_and_white",
+   "flat": 0.0,
+   "edge": 0.28,
+   "upstream_score": 0.058
+  },
+  {
+   "file": "photos/black_and_white__eaef9dff.jpg",
+   "group": "black_and_white",
+   "flat": 0.305,
+   "edge": 0.385,
+   "upstream_score": 0.394
+  },
+  {
+   "file": "photos/black_and_white__5b4b5d0d.jpg",
+   "group": "black_and_white",
+   "flat": 0.002,
+   "edge": 0.296,
+   "upstream_score": 0.028
+  },
+  {
+   "file": "photos/black_and_white__2880fe8c.jpg",
+   "group": "black_and_white",
+   "flat": 0.004,
+   "edge": 0.444,
+   "upstream_score": 0.007
+  },
+  {
+   "file": "photos/black_and_white__02b614dd.jpg",
+   "group": "black_and_white",
+   "flat": 0.002,
+   "edge": 0.419,
+   "upstream_score": 0.004
+  },
+  {
+   "file": "photos/black_and_white__7605fd87.jpg",
+   "group": "black_and_white",
+   "flat": 0.174,
+   "edge": 0.36,
+   "upstream_score": 0.195
+  },
+  {
+   "file": "photos/black_and_white__2b109199.jpg",
+   "group": "black_and_white",
+   "flat": 0.0,
+   "edge": 0.131,
+   "upstream_score": 0.157
+  },
+  {
+   "file": "photos/black_and_white__795bb981.jpg",
+   "group": "black_and_white",
+   "flat": 0.0,
+   "edge": 0.302,
+   "upstream_score": 0.002
+  },
+  {
+   "file": "photos/black_and_white__1541719c.jpg",
+   "group": "black_and_white",
+   "flat": 0.0,
+   "edge": 0.212,
+   "upstream_score": 0.095
+  },
+  {
+   "file": "photos/black_and_white__03ac03ba.jpg",
+   "group": "black_and_white",
+   "flat": 0.0,
+   "edge": 0.28,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "photos/black_and_white__cd3a53a0.jpg",
+   "group": "black_and_white",
+   "flat": 0.0,
+   "edge": 0.409,
+   "upstream_score": 0.021
+  },
+  {
+   "file": "photos/black_and_white__4627f14a.jpg",
+   "group": "black_and_white",
+   "flat": 0.0,
+   "edge": 0.858,
+   "upstream_score": 0.144
+  },
+  {
+   "file": "photos/black_and_white__09881ec1.jpg",
+   "group": "black_and_white",
+   "flat": 0.0,
+   "edge": 0.36,
+   "upstream_score": 0.006
+  },
+  {
+   "file": "photos/street_light_portrait__ddd200bc.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.0,
+   "edge": 0.499,
+   "upstream_score": 0.017
+  },
+  {
+   "file": "photos/street_light_portrait__720ffb5a.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.014,
+   "edge": 0.238,
+   "upstream_score": 0.022
+  },
+  {
+   "file": "photos/street_light_portrait__fecdbc2b.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.0,
+   "edge": 0.179,
+   "upstream_score": 0.005
+  },
+  {
+   "file": "photos/street_light_portrait__81a24d32.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.0,
+   "edge": 0.027,
+   "upstream_score": 0.226
+  },
+  {
+   "file": "photos/street_light_portrait__0495e606.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.001,
+   "edge": 0.173,
+   "upstream_score": 0.057
+  },
+  {
+   "file": "photos/street_light_portrait__c3d72fa3.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.0,
+   "edge": 0.366,
+   "upstream_score": 0.169
+  },
+  {
+   "file": "photos/street_light_portrait__c3a546b3.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.007,
+   "edge": 0.02,
+   "upstream_score": 0.129
+  },
+  {
+   "file": "photos/street_light_portrait__2bf2babe.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.0,
+   "edge": 0.132,
+   "upstream_score": 0.152
+  },
+  {
+   "file": "photos/street_light_portrait__395562ed.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.006,
+   "edge": 0.242,
+   "upstream_score": 0.022
+  },
+  {
+   "file": "photos/street_light_portrait__4855cd99.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.004,
+   "edge": 0.158,
+   "upstream_score": 0.03
+  },
+  {
+   "file": "photos/street_light_portrait__2cf27ad5.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.006,
+   "edge": 0.024,
+   "upstream_score": 0.505
+  },
+  {
+   "file": "photos/street_light_portrait__6ff46469.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.043,
+   "edge": 0.27,
+   "upstream_score": 0.122
+  },
+  {
+   "file": "photos/street_light_portrait__9c863878.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.0,
+   "edge": 0.158,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "photos/street_light_portrait__408451be.jpg",
+   "group": "street_light_portrait",
+   "flat": 0.0,
+   "edge": 0.128,
+   "upstream_score": 0.011
+  },
+  {
+   "file": "photos/still_object__f3b6e6be.jpg",
+   "group": "still_object",
+   "flat": 0.0,
+   "edge": 0.068,
+   "upstream_score": 0.002
+  },
+  {
+   "file": "photos/still_object__e44b2bbe.jpg",
+   "group": "still_object",
+   "flat": 0.0,
+   "edge": 0.008,
+   "upstream_score": 0.002
+  },
+  {
+   "file": "photos/still_object__2e922518.jpg",
+   "group": "still_object",
+   "flat": 0.009,
+   "edge": 0.358,
+   "upstream_score": 0.039
+  },
+  {
+   "file": "photos/still_object__38c2b8e4.jpg",
+   "group": "still_object",
+   "flat": 0.0,
+   "edge": 0.174,
+   "upstream_score": 0.042
+  },
+  {
+   "file": "photos/still_object__574db491.jpg",
+   "group": "still_object",
+   "flat": 0.004,
+   "edge": 0.113,
+   "upstream_score": 0.014
+  },
+  {
+   "file": "photos/still_object__9ba1a273.jpg",
+   "group": "still_object",
+   "flat": 0.001,
+   "edge": 0.18,
+   "upstream_score": 0.005
+  },
+  {
+   "file": "photos/still_object__784cb0e5.jpg",
+   "group": "still_object",
+   "flat": 0.006,
+   "edge": 0.394,
+   "upstream_score": 0.013
+  },
+  {
+   "file": "photos/still_object__830ae3db.jpg",
+   "group": "still_object",
+   "flat": 0.005,
+   "edge": 1.0,
+   "upstream_score": 0.011
+  },
+  {
+   "file": "photos/still_object__d9aa2d52.jpg",
+   "group": "still_object",
+   "flat": 0.027,
+   "edge": 0.998,
+   "upstream_score": 0.054
+  },
+  {
+   "file": "photos/still_object__59a176c1.jpg",
+   "group": "still_object",
+   "flat": 0.002,
+   "edge": 0.196,
+   "upstream_score": 0.005
+  },
+  {
+   "file": "photos/still_object__d55242f9.jpg",
+   "group": "still_object",
+   "flat": 0.011,
+   "edge": 0.186,
+   "upstream_score": 0.036
+  },
+  {
+   "file": "photos/still_object__70ca0c5d.jpg",
+   "group": "still_object",
+   "flat": 0.0,
+   "edge": 0.295,
+   "upstream_score": 0.367
+  },
+  {
+   "file": "photos/still_object__d0de8f98.jpg",
+   "group": "still_object",
+   "flat": 0.0,
+   "edge": 0.469,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "photos/still_object__5d100eb6.jpg",
+   "group": "still_object",
+   "flat": 0.0,
+   "edge": 0.307,
+   "upstream_score": 0.556
+  },
+  {
+   "file": "photos/still_object__932704e9.jpg",
+   "group": "still_object",
+   "flat": 0.0,
+   "edge": 0.716,
+   "upstream_score": 0.001
+  },
+  {
+   "file": "photos/still_object__d3a0a43d.jpg",
+   "group": "still_object",
+   "flat": 0.008,
+   "edge": 0.185,
+   "upstream_score": 0.021
+  },
+  {
+   "file": "photos/still_object__58041d39.jpg",
+   "group": "still_object",
+   "flat": 0.004,
+   "edge": 0.263,
+   "upstream_score": 0.012
+  }
+ ]
+}

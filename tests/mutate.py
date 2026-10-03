@@ -119,18 +119,44 @@ M = [
     ("heap: doctor runs the private CLI in your home", "gmg/cli.py", '        env["GEMINI_CLI_HOME"] = str(TM.cli_home())', "        pass"),
     ("cap: results not capped", "gmg/ext_mcp.py", "    if len(text) <= CAP:", "    if True:"),
     ("cap: next list cut", "gmg/ext_mcp.py", '    t = {k: (v if k == "next" else shrink(v)) for k, v in r.items()}', "    t = {k: shrink(v) for k, v in r.items()}"),
+    # CMD-GMG5 S4: what the public reference set changed
+    ("g5: sharpness scale back to /400", "gmg/photo.py", '    sh = level(m, "sharpness")', '    sh = min(m["sharpness"] / 400, 1)'),
+    ("g5: warmth scale uncalibrated", "gmg/photo.py", '"warm": w, "cool": 1 - w', '"warm": .5 + m["warmth"], "cool": .5 - m["warmth"]'),
+    ("g5: layout_like counts black blocks", "gmg/photo.py", "(((B.max(1) - B.min(1)) == 0) & (B.mean(1) >= 24))", "((B.max(1) - B.min(1)) < 2)"),
+    ("g5: layout_like without the edge signal", "gmg/photo.py", "return flat >= LAYOUT_FLAT and edge >= LAYOUT_EDGE", "return flat >= LAYOUT_FLAT"),
+    ("g5: neighbouring pages may repeat a plan", "gmg/portfolio.py", '    avoid = sorted({v["plan"] for k, v in st["layouts"].items() if k in near})', "    avoid = []"),
+    ("g5: photo count not checked", "gmg/portfolio.py", "    if not LY.fits(choice, len(ids)):\n        lo, hi", "    if False:\n        lo, hi"),
+    ("g5: unmeasured photo accepted", "gmg/portfolio.py", '    if unknown:\n        raise ToolError([f"not a measured photo id', '    if False:\n        raise ToolError([f"not a measured photo id'),
+    ("g5: photos not placed in boxes", "gmg/portfolio.py", '[dict(x, photo=pid) for x, pid in zip(b["pictures"], ids)]', 'b["pictures"]'),
+    ("g5: a plan drifts from its references' share", "gmg/layouts.py", "        h = share / w\n", "        h = 2 * share / w\n"),
     ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
     ("H3: colours not nudged", "gmg/agent.py", "        for _ in range(30):", "        for _ in range(0):"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
-TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py", "tests/test_install.py", "tests/test_agy.py", "tests/test_heapfix.py"]
+TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py", "tests/test_install.py", "tests/test_agy.py", "tests/test_heapfix.py", "tests/test_gmg5.py"]
+
+
+def _copy() -> Path:
+    d = Path(tempfile.mkdtemp(prefix="gmg_mut_"))
+    shutil.copytree(ROOT, d / "r", ignore=shutil.ignore_patterns(".git", "__pycache__", "out", "bench"))
+    shutil.copytree(ROOT / "bench" / "gmg5", d / "r" / "bench" / "gmg5", ignore=shutil.ignore_patterns("__pycache__"))   # test_gmg5's data
+    return d
+
+
+def _red(d: Path) -> bool:
+    return any(subprocess.run([sys.executable, str(d / "r" / t)], capture_output=True, text=True, timeout=600).returncode != 0 for t in TESTS)
 
 
 def main() -> int:
+    d = _copy()
+    if _red(d):                                   # a red unmutated copy would make every mutation look caught
+        print("  ??  the unmutated copy is already red; fix the copy or the suites first")
+        shutil.rmtree(d, ignore_errors=True)
+        return 2
+    shutil.rmtree(d, ignore_errors=True)
     caught = 0
     for name, f, old, new in M:
-        d = Path(tempfile.mkdtemp(prefix="gmg_mut_"))
-        shutil.copytree(ROOT, d / "r", ignore=shutil.ignore_patterns(".git", "__pycache__", "out", "bench"))
+        d = _copy()
         p = d / "r" / f
         s = p.read_text()
         if old not in s:
@@ -138,7 +164,7 @@ def main() -> int:
             shutil.rmtree(d)
             return 2
         p.write_text(s.replace(old, new, 1))
-        red = any(subprocess.run([sys.executable, str(d / "r" / t)], capture_output=True, text=True, timeout=600).returncode != 0 for t in TESTS)
+        red = _red(d)
         caught += red
         print(("  red  " if red else "  MISSED ") + name)
         shutil.rmtree(d, ignore_errors=True)

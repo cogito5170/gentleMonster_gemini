@@ -110,13 +110,15 @@ def _tools() -> list:
                        "items": {"type": "object", "properties": {"name": _s("term"), "definition": _s("what it means")}}},
              "verdicts": {"type": "array", "items": {"type": "object", "required": ["term", "connects", "reason"], "properties": {
                  "term": _s("term"), "connects": {"type": "string", "enum": ["yes", "no", "partly"]}, "reason": _s("why, quoting the phrase or the definition")}}}}}},
-        {"name": "pf_pages", "description": "Page map: set, propose 3 next options, adopt.",
+        {"name": "pf_pages", "description": "Page map: set, propose 3 next options, adopt; layout: the page plans that fit, then one plan for a page.",
          "inputSchema": {"type": "object", "required": ["action"], "properties": {
-             "action": {"type": "string", "enum": ["set", "propose", "adopt", "show"]},
+             "action": {"type": "string", "enum": ["set", "propose", "adopt", "layout", "show"]},
+             "page": {"type": "number", "description": "layout: the page number"},
+             "photos": {"type": "array", "items": _s("measured photo id (p1a2b3c)"), "description": "layout: the photos on the page, the main one first"},
              "pages": {"type": "array", "items": {"type": "object", "properties": {"n": {"type": "number"}, "title": _s("page title"), "role": _s("what the page does")}}},
              "after": {"type": "number", "description": "propose: the page number the options follow"},
              "options": {"type": "array", "items": {"type": "object", "required": ["title", "summary"], "properties": {"title": _s("title"), "summary": _s("one or two plain sentences")}}},
-             "choice": _s("adopt: an option label (A, B, C) or a text id (t5)")}}},
+             "choice": _s("adopt: an option label (A, B, C) or a text id (t5); layout: a plan id from the listed plans")}}},
         {"name": "pf_choose", "description": "Resolve a terse reply ('1', 'A안', '다시 시도').",
          "inputSchema": {"type": "object", "required": ["option"], "properties": {"option": _s("the user's reply, verbatim")}}},
     ]

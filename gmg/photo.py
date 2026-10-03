@@ -70,7 +70,31 @@ def measure(path) -> dict:
     return {"file": p.name, "brightness": m["brightness"], "dark_share": m["dark"], "contrast": m["contrast"], "saturation": m["saturation"],
             "warmth": m["warmth"], "hue_deg": deg, "hue": name, "mono": bool(m["mono"]), "sharpness": round(float(lap.var()), 1),
             "centre_focus": m["focus"], "subject_share": share, "subject_regions": regions,
-            "colors": distinct(GP.palette(p, 8)), "layout_like": GP.reference_score(p) >= GP.REF_THRESHOLD}
+            "colors": distinct(GP.palette(p, 8)), "layout_like": layout_like(p)}
+
+
+LAYOUT_FLAT, LAYOUT_EDGE = .08, .6     # calibrated in bench/gmg5/CALIBRATION.md
+
+
+def layout_signals(p) -> "tuple[float, float]":
+    """(flat, edge) for telling a page, board or screenshot from a photograph.
+    flat: share of 8x8 blocks that are perfectly flat and not black. Crushed shadows and black studio backgrounds are flat
+    in photographs too; the upstream flat-block score counted them, and flagged 16 of 87 reference photographs.
+    edge: the longest straight edge (the share of one pixel row or column with a strong step), as frames, columns,
+    rules and text lines make."""
+    import numpy as np
+    from gentle_monster import photos as GP
+    L = np.asarray(GP._load(p, 800).convert("L")).astype(float)
+    h, w = (L.shape[0] // 8) * 8, (L.shape[1] // 8) * 8
+    B = L[:h, :w].reshape(h // 8, 8, w // 8, 8).transpose(0, 2, 1, 3).reshape(-1, 64)
+    flat = float((((B.max(1) - B.min(1)) == 0) & (B.mean(1) >= 24)).mean())
+    edge = float(max((np.abs(np.diff(L, axis=1)) > 40).mean(0).max(), (np.abs(np.diff(L, axis=0)) > 40).mean(1).max()))
+    return round(flat, 3), round(edge, 3)
+
+
+def layout_like(p) -> bool:
+    flat, edge = layout_signals(p)
+    return flat >= LAYOUT_FLAT and edge >= LAYOUT_EDGE
 
 
 def distinct(pal, n: int = 5, gap: float = 30) -> "list[str]":
@@ -88,8 +112,22 @@ CRITERIA = ["brightest", "darkest", "most_saturated", "most_muted", "warmest", "
 MOODS = ["bright", "dark", "saturated", "muted", "warm", "cool", "sharp", "soft", "monochrome"]
 
 
+# Each mood is 0 at the 10th percentile of the GMG5 public reference set (87 photographs) and 1 at its 90th
+# (bench/gmg5/CALIBRATION.md). Before, sharpness/400 put 74 of the 87 at 1, so "sharpest" and "softest" could not rank them,
+# and warmth (.5 + warmth) moved every photo by less than .2.
+SCALE = {"brightness": (.20, .53), "saturation": (0.0, .60), "warmth": (0.0, .20), "sharpness": (280.0, 2500.0)}
+
+
+def level(m: dict, k: str) -> float:
+    lo, hi = SCALE[k]
+    v = m[k]
+    if k == "sharpness":
+        v, lo, hi = math.log(max(v, 1.0)), math.log(lo), math.log(hi)
+    return min(max((v - lo) / (hi - lo), 0.0), 1.0)
+
+
 def score(m: dict, by: str) -> float:
-    sh = min(m["sharpness"] / 400, 1)
+    sh = level(m, "sharpness")
     return {"brightest": m["brightness"], "darkest": 1 - m["brightness"], "most_saturated": m["saturation"], "most_muted": 1 - m["saturation"],
             "warmest": m["warmth"], "coolest": -m["warmth"], "sharpest": sh, "softest": 1 - sh,
             "single_subject": (1.0 if m["subject_regions"] == 1 and m["subject_share"] <= .4 else .4 if m["subject_regions"] == 2 else 0)
@@ -98,7 +136,7 @@ def score(m: dict, by: str) -> float:
 
 
 def mood_fit(m: dict, moods) -> float:
-    sh = min(m["sharpness"] / 400, 1)
-    f = {"bright": m["brightness"], "dark": 1 - m["brightness"], "saturated": m["saturation"], "muted": 1 - m["saturation"],
-         "warm": .5 + m["warmth"], "cool": .5 - m["warmth"], "sharp": sh, "soft": 1 - sh, "monochrome": 1.0 if m["mono"] else 0.0}
+    b, s, w, sh = (level(m, k) for k in ("brightness", "saturation", "warmth", "sharpness"))
+    f = {"bright": b, "dark": 1 - b, "saturated": s, "muted": 1 - s, "warm": w, "cool": 1 - w, "sharp": sh, "soft": 1 - sh,
+         "monochrome": 1.0 if m["mono"] else 0.0}
     return sum(f[x] for x in moods) / max(len(moods), 1)

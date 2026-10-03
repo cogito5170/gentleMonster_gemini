@@ -12,7 +12,7 @@ Tools for a store-design portfolio. Every result says `ok`, and `next`: the call
 | new text (answers, cover lines, captions, page text, storyline) | `pf_write` |
 | change a text (more direct, refocus, more categories, shorter, translate) | `pf_revise` |
 | does a phrase fit the terms (e.g. SPA) | `pf_concept` |
-| page flow, what comes next, adopt "A안" | `pf_pages` |
+| page flow, what comes next, adopt "A안", how a page is laid out | `pf_pages` |
 | a terse reply: "1", "A", "a ? a:b", "다시 시도" | `pf_choose` with the reply verbatim |
 | git, commits, PRs, which harness or model to use | none of these tools: that is the host's job; say so |
 

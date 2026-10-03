@@ -1,0 +1,162 @@
+{
+ "what": "CMD-GMG5 D3: what the reference-set changes do on the design questions only (split 'design' in",
+ "questions": {
+  "4": {
+   "asks": "classify photos 1-5 by colour, brightness, saturation, blur, focus, objects, subject",
+   "blur_before": {
+    "1.webp": 1,
+    "2.webp": 1,
+    "3.webp": 1,
+    "4.webp": 1,
+    "5.webp": 0.805
+   },
+   "blur_after": {
+    "1.webp": 0.497,
+    "2.webp": 0.308,
+    "3.webp": 0.264,
+    "4.webp": 0.171,
+    "5.webp": 0.064
+   },
+   "sharpest_order_before": [
+    "1.webp",
+    "2.webp",
+    "3.webp",
+    "4.webp",
+    "5.webp"
+   ],
+   "sharpest_order_after": [
+    "1.webp",
+    "2.webp",
+    "3.webp",
+    "4.webp",
+    "5.webp"
+   ],
+   "warm_fit_before": {
+    "1.webp": 0.643,
+    "2.webp": 0.499,
+    "3.webp": 0.558,
+    "4.webp": 0.5,
+    "5.webp": 0.533
+   },
+   "warm_fit_after": {
+    "1.webp": 0.715,
+    "2.webp": 0.0,
+    "3.webp": 0.29,
+    "4.webp": 0.0,
+    "5.webp": 0.165
+   },
+   "layout_like_before": {
+    "1.webp": false,
+    "2.webp": false,
+    "3.webp": false,
+    "4.webp": false,
+    "5.webp": false
+   },
+   "layout_like_after": {
+    "1.webp": false,
+    "2.webp": false,
+    "3.webp": false,
+    "4.webp": false,
+    "5.webp": false
+   }
+  },
+  "11": {
+   "6.webp": {
+    "layout_like_before": true,
+    "layout_like_after": true
+   }
+  },
+  "23": {
+   "8.jpg": {
+    "layout_like_before": true,
+    "layout_like_after": false
+   }
+  },
+  "26": {
+   "9.jpg": {
+    "layout_like_before": true,
+    "layout_like_after": true
+   },
+   "7.jpg": {
+    "layout_like_before": true,
+    "layout_like_after": true
+   }
+  },
+  "13": {
+   "asks": "a moodboard as a one-page magazine layout",
+   "plans_before": 0,
+   "plans_after_by_photo_count": {
+    "0": [
+     "type_only"
+    ],
+    "1": [
+     "masthead_cover",
+     "framed_plate",
+     "figure_on_blank",
+     "mounted_print",
+     "text_column"
+    ],
+    "2": [
+     "mirror_spread",
+     "text_column"
+    ],
+    "3": [
+     "text_column",
+     "hero_and_two"
+    ],
+    "4": [
+     "loose_grid",
+     "text_column"
+    ],
+    "5": [
+     "loose_grid",
+     "text_column"
+    ],
+    "6": [
+     "loose_grid"
+    ],
+    "12": [
+     "contact_sheet"
+    ]
+   }
+  },
+  "21": {
+   "asks": "a reference layout given; place the photos; a magazine-form moodboard",
+   "plans_before": 0,
+   "plans_after_by_photo_count": {
+    "0": [
+     "type_only"
+    ],
+    "1": [
+     "masthead_cover",
+     "framed_plate",
+     "figure_on_blank",
+     "mounted_print",
+     "text_column"
+    ],
+    "2": [
+     "mirror_spread",
+     "text_column"
+    ],
+    "3": [
+     "text_column",
+     "hero_and_two"
+    ],
+    "4": [
+     "loose_grid",
+     "text_column"
+    ],
+    "5": [
+     "loose_grid",
+     "text_column"
+    ],
+    "6": [
+     "loose_grid"
+    ],
+    "12": [
+     "contact_sheet"
+    ]
+   }
+  }
+ }
+}
