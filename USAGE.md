@@ -1,6 +1,6 @@
 # gentleMonster for Gemini CLI: preview 0.4.0
 
-**This is a preview, not a release.** It is pinned to one commit, `f89652bf69819a128e7d63acdc2e236ac591b11b`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
+**This is a preview, not a release.** It is pinned to one commit, `PREVIEW_SHA`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
 
 ## 1. Install (macOS, zsh)
 
@@ -8,31 +8,17 @@ Before you start:
 - **Node.js** must be installed (`node --version` prints a version).
 - **Python 3.9 or newer**: `python3 --version`.
 - **A Gemini API key**, in `GEMINI_API_KEY`.
+- **A billing-enabled key, for real use.** The free tier allows only **20 requests per day** for `gemini-3-flash-preview`, and one store job took about 7 requests in the flash-lite bench (more when the model is asked again). When the quota runs out, the CLI stops with a quota error until the next day.
 
 Paste the whole block below into Terminal. It has no comment lines and no placeholders, so zsh runs it as is. It does five things:
-- installs a **private** Gemini CLI **0.60.0** under `~/.gentlemonster`. Your own `gemini`, if you have one, is not touched, and no `sudo` is needed. 0.60.0 is the last CLI that serves `gemini-3.1-flash-lite` as asked (README, H2);
+- installs a **private** Gemini CLI **0.62.0** under `~/.gentlemonster`. Your own `gemini`, if you have one, is not touched, and no `sudo` is needed. 0.62.0 serves `gemini-3-flash-preview` as asked (README, "Which model serves");
 - installs the extension at the pinned commit, and the command **`gentlemonster`**. Its folder is added to `PATH` with one line in `~/.zshrc`, added once;
 - puts the Python parts in their own folder, `~/.gentlemonster/venv`;
 - checks that `GEMINI_API_KEY` is set, without printing it;
 - runs `gmg doctor`.
 
 ```
-mkdir -p "$HOME/.gentlemonster/bin" "$HOME/.gentlemonster/cli"
-npm install --prefix "$HOME/.gentlemonster/cli" --no-fund --no-audit @google/gemini-cli@0.60.0
-"$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions uninstall gentlemonster ; true
-"$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref f89652bf69819a128e7d63acdc2e236ac591b11b --consent --skip-settings
-cp "$HOME/.gemini/extensions/gentlemonster/install/gentlemonster" "$HOME/.gentlemonster/bin/gentlemonster"
-chmod 755 "$HOME/.gentlemonster/bin/gentlemonster"
-grep -qs 'gentlemonster/bin' "$HOME/.zshrc" || echo 'export PATH="$HOME/.gentlemonster/bin:$PATH"' | tee -a "$HOME/.zshrc"
-export PATH="$HOME/.gentlemonster/bin:$PATH"
-python3 -m venv "$HOME/.gentlemonster/venv"
-"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet --upgrade pip
-"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet "$HOME/.gemini/extensions/gentlemonster[render]"
-"$HOME/.gentlemonster/venv/bin/python3" -m playwright install chromium
-"$HOME/.gentlemonster/venv/bin/gmg" setup
-if [ -n "$GEMINI_API_KEY" ]; then echo "GEMINI_API_KEY is set"; else echo "GEMINI_API_KEY is NOT set: see USAGE.md step 1"; fi
-gentlemonster --version
-"$HOME/.gentlemonster/venv/bin/gmg" doctor
+INSTALL_BLOCK
 ```
 
 Running the block again is safe. It reinstalls the same pinned versions and does not add the `PATH` line twice.
@@ -47,7 +33,7 @@ If the block says `GEMINI_API_KEY is NOT set`, run `export GEMINI_API_KEY=` foll
 gentlemonster
 ```
 
-`gentlemonster` always starts the private Gemini CLI 0.60.0 with `gemini-3.1-flash-lite`; you never type the model. Any other arguments pass through, for example `gentlemonster -p "..."`. If the private CLI is not exactly 0.60.0, or the extension is missing, it stops with one line that says what to run.
+`gentlemonster` always starts the private Gemini CLI 0.62.0 with `gemini-3-flash-preview`; you never type the model. (For an experiment, `GENTLEMONSTER_MODEL=gemini-3.1-flash-lite gentlemonster` asks for another model.) Any other arguments pass through, for example `gentlemonster -p "..."`. If the private CLI is not exactly 0.62.0, or the extension is missing, it stops with one line that says what to run.
 
 Ask in your own words. For example: design a store for a brand; write cover lines; sort or measure your photos (attach them with `@` and a path); propose the next page.
 - The extension's tools run every check in code. The answer may state only the verdict that the job's ledger holds.

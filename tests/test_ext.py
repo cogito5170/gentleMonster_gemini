@@ -161,19 +161,23 @@ ok(r["ok"] is False and any("colour 4 hex 'grey' is not #rrggbb" in p for p in r
    "a garbled hex holding '#E0E0E0' is repaired by code; a hopeless one is named with its value (fresh-set f2 looped on a vague message)")
 SV.record("gemini-3.5-flash-lite", "api")
 r = agent.call("gm_explain", {"job": jh})
-ok(any("served by gemini-3.5-flash-lite" in l and "NOT" in l for l in r["explain"]), "gm_explain shows the served model when it is not 3.1")
+ok(any("served by gemini-3.5-flash-lite" in l and "NOT gemini-3-flash-preview" in l for l in r["explain"]), "gm_explain shows the served model when it is not the asked one")
 o = ext_mcp.handle({"jsonrpc": "2.0", "id": 9, "method": "tools/call", "params": {"name": "pf_show", "arguments": {}}})
 ok("served by gemini-3.5-flash-lite" in o["result"]["content"][0]["text"], "every tool result carries the served-model warning")
-SV.record("gemini-3.1-flash-lite", "api")
+SV.record("gemini-3-flash-preview", "api")
 o = ext_mcp.handle({"jsonrpc": "2.0", "id": 9, "method": "tools/call", "params": {"name": "pf_show", "arguments": {}}})
-ok('"served"' not in o["result"]["content"][0]["text"], "no warning when 3.1 served")
+ok('"served"' not in o["result"]["content"][0]["text"], "no warning when the asked model served")
+os.environ["GENTLEMONSTER_MODEL"] = "gemini-3.1-flash-lite"
+ok(not SV.record("gemini-3.1-flash-lite", "api")["differs"] and SV.record("gemini-3-flash-preview", "api")["differs"],
+   "the asked model comes from the launcher (GENTLEMONSTER_MODEL)")
+del os.environ["GENTLEMONSTER_MODEL"]
 tp = TMP / "chat.jsonl"
 tp.write_text(json.dumps({"sessionId": "x"}) + "\n" + json.dumps({"$set": {"messages": [{"type": "user"}, {"type": "gemini", "model": "gemini-3.5-flash-lite"}]}}) + "\n")
 ok(SV.from_transcript(tp) == ["gemini-3.5-flash-lite"], "the served model is read from the CLI's chat recording")
 w = hook.served({"transcript_path": str(tp)})
-ok(w and "not gemini-3.1-flash-lite" in w and SV.latest()["source"] == "gemini-cli", "the hook records it and warns")
+ok(w and "not gemini-3-flash-preview" in w and "gentlemonster" in w and SV.latest()["source"] == "gemini-cli", "the hook records it and warns")
 ok("could not be read" in hook.served({"transcript_path": str(TMP / "none.jsonl")}), "no transcript -> said, not counted as recorded")
-SV.record("gemini-3.1-flash-lite", "api")
+SV.record("gemini-3-flash-preview", "api")
 r = agent.call("gm_new", dict(new, request="H1 시험 2", brand="gentleMonster"))
 ok(r["brand"] == "Gentle Monster" and any("read as" in n for n in r["notes"]), "'gentleMonster' is read as the known brand 'Gentle Monster'")
 

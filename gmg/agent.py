@@ -2,7 +2,7 @@
 
     gm_new -> gm_plan -> gm_cast -> gm_story -> gm_finish      (gm_explain at any time)
 
-The agent (gemini-3.1-flash-lite in Gemini CLI) fills each slot through the tool's arguments. Every result says
+The agent (the model Gemini CLI runs; gemini-3-flash-preview by default, first built on gemini-3.1-flash-lite) fills each slot through the tool's arguments. Every result says
 `ok`, what code measured or decided, and `next`: the closed list of calls that may come next, with the values each
 argument may take. Code does plan, geometry, facts, materials, stops and the verdict. Nothing here calls a model.
 
@@ -19,7 +19,7 @@ import json
 import re
 from pathlib import Path
 
-from gmg import plans as PL, schema as S, upstream
+from gmg import asked_model, plans as PL, schema as S, upstream
 from gmg.ledger import Ledger
 
 ORDER = ["new", "plan", "cast", "story", "finish"]
@@ -550,7 +550,7 @@ def verdict(job: str) -> dict:
            "files": files}
     sv = [e for e in run if e.get("kind") == "SERVED"]
     if sv and sv[-1].get("differs"):
-        out["say"] += f" -- note: served by {sv[-1]['model']}, not gemini-3.1-flash-lite"
+        out["say"] += f" -- note: served by {sv[-1]['model']}, not {sv[-1].get('asked') or asked_model()}"
     if s["state"] == "NEEDS_REVIEW":
         gate = next((e for e in reversed(run) if e.get("kind") == "GATE"), {})
         out["problems"] = gate.get("problems", [])
@@ -592,7 +592,7 @@ def gm_explain(job: str) -> dict:
         elif k == "END":
             lines.append(f"END: {e['state']}" + (f" ({e.get('why')})" if e.get("why") else ""))
         elif k == "SERVED":
-            lines.append(f"served by {e['model']} ({e['source']})" + (" -- NOT gemini-3.1-flash-lite" if e.get("differs") else ""))
+            lines.append(f"served by {e['model']} ({e['source']})" + (f" -- NOT {e.get('asked') or asked_model()}" if e.get("differs") else ""))
     v = verdict(job)
     return {"ok": True, "job": job, "verdict": v["verdict"], "say": v["say"], "explain": lines, "files": v["files"],
             "next": [n_ for n_ in v["next"] if n_["tool"] != "gm_explain"] or [{"tool": "gm_new", "why": "start another job"}]}

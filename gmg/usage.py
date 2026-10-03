@@ -142,7 +142,7 @@ def sessions(recs: "list[dict]") -> "dict[str, list[dict]]":
 
 def export(dest: "Path | None" = None, session: str = "", src: "Path | None" = None) -> "list[Path]":
     """One JSONL per session in dest: a header line, then one line per user turn. Returns the files written."""
-    from gmg import MODEL, VERSION
+    from gmg import VERSION, asked_model
     dest = Path(dest or (_out() / "export"))
     dest.mkdir(parents=True, exist_ok=True)
     written = []
@@ -159,7 +159,7 @@ def export(dest: "Path | None" = None, session: str = "", src: "Path | None" = N
                           "redirects": sum(1 for c in calls if c.get("redirected")),
                           "failures": [p for c in calls if c.get("ok") is False for p in (c.get("problems") or [])][:20],
                           "served": t["served"], "gates": t["gates"], "answer": clean(t["answer"]) if t["answer"] else None})
-        head = {"schema": SCHEMA, "session": hashlib.sha256(s.encode()).hexdigest()[:16], "version": VERSION, "asked_model": MODEL,
+        head = {"schema": SCHEMA, "session": hashlib.sha256(s.encode()).hexdigest()[:16], "version": VERSION, "asked_model": asked_model(),
                 "exported": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime()), "turns": len(lines),
                 "images": list(clean.images.values())}
         f = dest / f"{head['session']}.jsonl"

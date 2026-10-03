@@ -201,7 +201,7 @@ class Script:
         parts = [{"text": a[1]}] if a[0] == "text" else [{"functionCall": {"name": a[1], "args": a[2]}}]
         return 200, json.dumps({"candidates": [{"finishReason": "STOP", "content": {"role": "model", "parts": parts}}],
                                 "usageMetadata": {"promptTokenCount": 100, "candidatesTokenCount": 10, "totalTokenCount": 110},
-                                "modelVersion": "gemini-3.1-flash-lite"}), {}
+                                "modelVersion": "gemini-3-flash-preview"}), {}
 
 
 sec("converse: one conversation, state carried across user turns")

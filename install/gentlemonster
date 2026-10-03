@@ -1,12 +1,15 @@
 #!/bin/sh
-# gentlemonster: runs the private Gemini CLI 0.60.0 (under ~/.gentlemonster) with gemini-3.1-flash-lite.
-# CLI 0.61+ maps gemini-3.1-flash-lite to gemini-3.5-flash-lite (README, H2), so the version is checked before every start.
+# gentlemonster: runs the private Gemini CLI 0.62.0 (under ~/.gentlemonster) with gemini-3-flash-preview.
+# 0.62.0 serves gemini-3-flash-preview unchanged for API-key auth (README, "Which model serves"); the version is
+# checked before every start. GENTLEMONSTER_MODEL overrides the model for experiments and is passed on, so the
+# extension's served-model check compares against what was asked.
 # Other arguments pass through; management commands (mcp, extensions, skills, hooks, gemma) take no model.
 # The user's own `gemini` is never touched.
+PIN=0.62.0
 G="$HOME/.gentlemonster/cli/node_modules/.bin/gemini"
 V=$("$G" --version 2>/dev/null | tr -d '[:space:]')
-if [ "$V" != "0.60.0" ]; then
-  echo "gentlemonster: the private Gemini CLI is ${V:-missing}, not 0.60.0 -- run: npm install --prefix \"\$HOME/.gentlemonster/cli\" @google/gemini-cli@0.60.0"
+if [ "$V" != "$PIN" ]; then
+  echo "gentlemonster: the private Gemini CLI is ${V:-missing}, not $PIN -- run: npm install --prefix \"\$HOME/.gentlemonster/cli\" @google/gemini-cli@$PIN"
   exit 1
 fi
 if [ ! -f "$HOME/.gemini/extensions/gentlemonster/gemini-extension.json" ]; then
@@ -16,4 +19,6 @@ fi
 case "$1" in
   mcp|extensions|extension|skills|skill|hooks|hook|gemma) exec "$G" "$@" ;;
 esac
-exec "$G" -m gemini-3.1-flash-lite "$@"
+GENTLEMONSTER_MODEL="${GENTLEMONSTER_MODEL:-gemini-3-flash-preview}"
+export GENTLEMONSTER_MODEL
+exec "$G" -m "$GENTLEMONSTER_MODEL" "$@"

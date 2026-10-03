@@ -1,7 +1,7 @@
 """Which model actually served the agent (CMD-GMG4 S2).
 
-Gemini CLI 0.61+ rewrites `gemini-3.1-flash-lite` to `gemini-3.5-flash-lite` for API-key auth (its model mapping;
-no setting turns it off -- see README). The MCP server never sees the model, so the served model is recorded from
+A Gemini CLI can serve another model than the one asked (0.61+ rewrites `gemini-3.1-flash-lite` to
+`gemini-3.5-flash-lite` for API-key auth; no setting turns it off -- see README). The MCP server never sees the model, so the served model is recorded from
 where it is known: the AfterAgent hook reads the CLI's own chat recording (`transcript_path`, a "model" field on
 every response); the API loop reads each response's `modelVersion`. Every record goes to <GMG_OUT>/served.jsonl
 and, as a SERVED event, into the ledger of the job or workspace that turn worked on.
@@ -13,7 +13,7 @@ import os
 import time
 from pathlib import Path
 
-from gmg import MODEL
+from gmg import CLI_PIN, asked_model
 
 
 def _out() -> Path:
@@ -47,7 +47,8 @@ def from_transcript(path) -> "list[str]":
 def record(model: str, source: str) -> dict:
     """Append one served-model record; also a SERVED event in the most recently touched ledger."""
     from gmg.ledger import Ledger
-    rec = {"t": round(time.time(), 3), "model": model, "source": source, "asked": MODEL, "differs": not str(model).startswith(MODEL)}
+    asked = asked_model()
+    rec = {"t": round(time.time(), 3), "model": model, "source": source, "asked": asked, "differs": not str(model).startswith(asked)}
     out = _out()
     out.mkdir(parents=True, exist_ok=True)
     with open(out / "served.jsonl", "a", encoding="utf-8") as f:
@@ -56,7 +57,7 @@ def record(model: str, source: str) -> dict:
     usage.log("served", model=model, source=source, differs=rec["differs"])
     ledgers = sorted(out.glob("*/gmg_ledger.jsonl"), key=lambda p: p.stat().st_mtime, reverse=True)
     if ledgers:
-        Ledger(ledgers[0].parent).log("SERVED", model=model, source=source, differs=rec["differs"])
+        Ledger(ledgers[0].parent).log("SERVED", model=model, source=source, asked=asked, differs=rec["differs"])
     return rec
 
 
@@ -71,6 +72,6 @@ def latest() -> "dict | None":
 def warning() -> "str | None":
     r = latest()
     if r and r["differs"]:
-        return (f"served by {r['model']}, not {MODEL} (Gemini CLI 0.61+ maps {MODEL} to the latest flash-lite; "
-                f"pin @google/gemini-cli@0.60.0 to keep {MODEL} -- see README)")
+        return (f"served by {r['model']}, not {r.get('asked', asked_model())} (the Gemini CLI changed the model; start it with "
+                f"`gentlemonster`, which runs the pinned CLI {CLI_PIN} -- see README)")
     return None

@@ -25,7 +25,7 @@ def _o(props, req=()):
 NAME = {"type": "string", "description": "job name (folder under the output directory)"}
 TOOLS = [
     {"name": "gm_make", "description": "Run a whole job: brief -> plan -> cast -> room -> story -> palette -> stops -> spec.check -> layout PDF. "
-     "Model: gemini-3.1-flash-lite, one narrow slot per step; geometry and every check are code." + VERDICT,
+     "Model: gemini-3-flash-preview by default (built on gemini-3.1-flash-lite), one narrow slot per step; geometry and every check are code." + VERDICT,
      "inputSchema": _o({"brief": {"type": "string"}, "brand": {"type": "string"}, "name": NAME,
                         "draw": {"type": "boolean", "description": "draw the layout PDF (default true)"},
                         "moodboard": {"type": "boolean"}, "refs": {"type": "array", "items": {"type": "string"}}}, ["brief"])},

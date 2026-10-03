@@ -1,7 +1,7 @@
 {
   "name": "gentlemonster",
   "version": "0.4.0",
-  "description": "gentleMonster store design for gemini-3.1-flash-lite: small state-machine tools; code does the geometry and every check.",
+  "description": "gentleMonster store design and portfolio tools for Gemini (default gemini-3-flash-preview, started with the gentlemonster launcher): small state-machine tools; code does the geometry and every check.",
   "contextFileName": "GEMINI.md",
   "mcpServers": {
     "gentlemonster": {

@@ -22,7 +22,7 @@ os.environ.pop("GMG_MODEL", None)
 FAKE_KEY = "AIza" + "TESTKEY0123456789abcdefghijklmnop"
 os.environ["GEMINI_API_KEY"] = FAKE_KEY            # only the fake transport ever sees it
 
-from gmg import fake, plans as PL, run, schema as S, steps as ST, upstream  # noqa: E402
+from gmg import MODEL, fake, plans as PL, run, schema as S, steps as ST, upstream  # noqa: E402
 from gmg.gemini import Gemini, ModelError  # noqa: E402
 from gmg.ledger import Ledger  # noqa: E402
 
@@ -96,7 +96,7 @@ ok(fk.calls == ["brief", "plan", "cast", "room", "story", "palette", "stops"], "
 job = spec.load(Path(r["dir"]) / "job.json")
 ok(spec.check(job) == [], "job.json passes the pinned spec.check")
 ok(r["artifacts"] == {"job": "done", "synopsis": "done"}, "artifacts recorded with their hashes")
-ok(all(e.get("reported") == "gemini-3.1-flash-lite" for e in L.run() if e["kind"] == "MODEL_CALL"), "every call records the model the response named")
+ok(all(e.get("reported") == MODEL for e in L.run() if e["kind"] == "MODEL_CALL"), "every call records the model the response named")
 ok(L.decision("brief")["output"]["W"] == 9.0, "the stated width reaches the plan")
 ok(L.decision("brief")["output"]["brand"] == "Gentle Monster", "a brand the model read but the brief does not contain is not used")
 ok(FAKE_KEY not in L.path.read_text(), "the key is not in the ledger")

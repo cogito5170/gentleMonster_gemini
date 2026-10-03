@@ -1,29 +1,43 @@
 # gentleMonster_gemini
 
-**A Gemini CLI extension for `gemini-3.1-flash-lite`** that turns a store brief into a checked gentleMonster job
-(spatial synopsis + layout PDF). The small model never plans or judges: six state-machine tools tell it, after
-every call, exactly which call may come next and with which values; code does the plan, geometry, measured facts,
-materials, stops and the verdict (the pinned gentleMonster `spec.check`). Product text (GEMINI.md, tool
-descriptions, outputs) is English: flash-lite follows English instructions best and gentleMonster prints English pages.
+**A Gemini CLI extension** that turns a store brief into a checked gentleMonster job (spatial synopsis + layout PDF), with
+portfolio tools for writing and photos. The default model is **`gemini-3-flash-preview`** (BD-212, user decision). The
+extension was built and first measured on `gemini-3.1-flash-lite`, and **every bench number in `bench/` is a flash-lite
+result** unless it says otherwise. The model never plans or judges: small state-machine tools tell it, after every call,
+exactly which call may come next and with which values. Code does the plan, geometry, measured facts, materials, stops
+and the verdict (the pinned gentleMonster `spec.check`). Product text (GEMINI.md, tool descriptions, outputs) is
+English; gentleMonster prints English pages.
 
 > **Preview 0.4.0, not a release.** The preview is pinned to one commit and is not published to any package index.
-> **To install on a Mac, use [USAGE.md](USAGE.md).** It has a zsh block that pastes as is, and it explains how to export real use
-> (`gmg export`). The exports go only to the private `cogito5170/gm-photos` repository, under `usage/`.
+> **To install on a Mac, use [USAGE.md](USAGE.md).** It has a zsh block that pastes as is, and it installs the command
+> `gentlemonster`, which starts a private Gemini CLI **0.62.0** with `-m gemini-3-flash-preview` (`GENTLEMONSTER_MODEL`
+> overrides it for experiments). It also explains how to export real use (`gmg export`). The exports go only to the
+> private `cogito5170/gm-photos` repository, under `usage/`.
 
-**Which model serves (H2).** From Gemini CLI **0.61.0**, `-m gemini-3.1-flash-lite` is rewritten to
-`gemini-3.5-flash-lite` for API-key, Vertex and gateway auth: `isGemini31LaunchedForAuthType()` is true for those auth
-types, so `hasLatestFlashLiteGAAccess()` is true, and `getBackendModelMappings()` adds
-`gemini-3.1-flash-lite -> gemini-3.5-flash-lite` inside `ModelMappingContentGenerator` (checked in the published 0.61.0
-and 0.62.0 bundles; 0.46.0, 0.54.0, 0.58.0 and 0.60.0 have no such mapping). No setting, flag or environment variable
-turns it off. The supported way to keep 3.1 is to install CLI **0.60.0** (verified: a 0.60.0 run's own stats and chat
-recording name `gemini-3.1-flash-lite`). The CLI is not patched. Whatever the CLI does, the extension records the
-**served** model (the AfterAgent hook reads it from the CLI's chat recording) as a SERVED event in the job's ledger, and
-every tool result, `say` line and `gm_explain` says so when it is not `gemini-3.1-flash-lite`. `gmg doctor` warns
-when the installed CLI is 0.61 or newer.
+**Which model serves.**
 
-The server (`server.py`, stdlib only, Python >= 3.10) fetches the pinned gentleMonster on first start. PDFs need
-`pip install pillow numpy matplotlib playwright imageio-ffmpeg` for the `python3` the CLI runs; without them the job
-is still checked and written, and the note says the PDF was not drawn.
+| Gemini CLI | `gemini-3-flash-preview` (API key) | `gemini-3.1-flash-lite` (API key) |
+|---|---|---|
+| 0.60.0 | served as asked | served as asked (verified by a run, GMG4) |
+| 0.61.0, **0.62.0** | served as asked (source; live check pending, see below) | rewritten to `gemini-3.5-flash-lite` |
+
+- **`gemini-3.1-flash-lite` (H2, GMG4).**
+  - From CLI 0.61.0, API-key, Vertex and gateway auth make `isGemini31LaunchedForAuthType()` true. `hasLatestFlashLiteGAAccess()` is then true, and `getBackendModelMappings()` adds `gemini-3.1-flash-lite -> gemini-3.5-flash-lite` inside `ModelMappingContentGenerator`.
+  - No setting, flag or environment variable turns it off.
+- **`gemini-3-flash-preview` (GMG6 rev 3).**
+  - In 0.60.0, 0.61.0 and 0.62.0, `getBackendModelMappings()` never names it.
+  - The model config redirects it (to `gemini-3.5-flash`, or to `gemini-3.8-flash` in 0.61/0.62) only when `hasAccessToPreview` is false.
+  - API-key and Vertex auth set `setHasAccessToPreviewModel(true)`, so the model is served as asked. 0.62.0 is the newest stable CLI, so it is the pin.
+  - A live smoke run is still to come: on 2026-10-03 this key's free-tier quota for `gemini-3-flash` (20 requests per day) was used up.
+- **The served model is recorded either way.**
+  - The AfterAgent hook reads the served model from the CLI's chat recording. It becomes a SERVED event in the job's ledger.
+  - Every tool result, `say` line and `gm_explain` says so when the served model is not the asked one (`GENTLEMONSTER_MODEL`, default `gemini-3-flash-preview`).
+  - `gmg doctor` fails when the CLI is not the pinned 0.62.0.
+
+The server (`server.py`, Python >= 3.9) fetches the pinned gentleMonster on first start. When `~/.gentlemonster/venv`
+exists, the server restarts under that venv. PDFs need pillow, numpy, matplotlib and playwright with Chromium (the
+install block sets them up). Without them, the job is still checked and written, and the note says the PDF was not
+drawn.
 
 | tool | the agent gives | code does |
 |---|---|---|

@@ -1,6 +1,6 @@
 """Gemini over REST, for one narrow slot at a time.
 
-Every call: fixed model (gemini-3.1-flash-lite, no fallback), JSON out under a responseSchema, and a ledger line
+Every call: fixed model (gmg.MODEL or GMG_MODEL, no fallback), JSON out under a responseSchema, and a ledger line
 (MODEL_CALL) with the model the response *says* it is, finishReason and token counts. The key is read from
 GEMINI_API_KEY (or GOOGLE_API_KEY) and never written anywhere.
 

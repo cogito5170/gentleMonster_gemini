@@ -1,4 +1,4 @@
-"""gmg -- gentleMonster on gemini-3.1-flash-lite.
+"""gmg -- gentleMonster on Gemini (default gemini-3-flash-preview).
 
     gmg setup                               fetch / check the pinned gentleMonster
     gmg doctor                              key present? model listed with generateContent? pinned code? deps?
@@ -19,7 +19,7 @@ import sys
 import urllib.request
 from pathlib import Path
 
-from gmg import MODEL, run, upstream
+from gmg import CLI_PIN, asked_model, run, upstream
 from gmg.gemini import API, key
 
 
@@ -44,7 +44,7 @@ def doctor() -> int:
         say(False, str(e))
     k = key()
     say(bool(k), "GEMINI_API_KEY is set" + ("" if k else " (value never shown)"))
-    model = os.environ.get("GMG_MODEL") or MODEL
+    model = asked_model()
     if k:
         try:
             req = urllib.request.Request(f"{API}/models/{model}", headers={"x-goog-api-key": k})
@@ -62,9 +62,8 @@ def doctor() -> int:
     if g:
         try:
             v = subprocess.run([g, "--version"], capture_output=True, text=True, timeout=60).stdout.strip()
-            parts = tuple(int(x) for x in re.findall(r"\d+", v)[:3])
-            say(parts < (0, 61, 0), f"Gemini CLI {v}" + (" (private, used by `gentlemonster`)" if g == str(private) else "") + ("" if parts < (0, 61, 0) else
-                " maps gemini-3.1-flash-lite to gemini-3.5-flash-lite; install @google/gemini-cli@0.60.0 to keep 3.1"))
+            say(v == CLI_PIN, f"Gemini CLI {v}" + (" (private, used by `gentlemonster`)" if g == str(private) else "") + ("" if v == CLI_PIN else
+                f" -- the pinned CLI is {CLI_PIN}; paste the install block from USAGE.md again"))
         except Exception as e:                              # noqa: BLE001
             say(False, f"Gemini CLI version could not be read: {type(e).__name__}")
     else:
