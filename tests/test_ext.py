@@ -260,10 +260,19 @@ msgs = [{"jsonrpc": "2.0", "id": 1, "method": "initialize", "params": {"protocol
         {"jsonrpc": "2.0", "id": 3, "method": "tools/call", "params": {"name": "gm_plan", "arguments": {"job": "nope", "plan": "orbit"}}},
         {"jsonrpc": "2.0", "id": 4, "method": "tools/call", "params": {"name": "gm_bogus", "arguments": {}}}]
 pr = subprocess.run([sys.executable, str(ROOT / "server.py")], input="\n".join(json.dumps(m) for m in msgs) + "\n", capture_output=True, text=True,
-                    env=dict(os.environ), timeout=300, cwd=str(TMP))
+                    env=dict(os.environ, GMG_NO_REEXEC="1"), timeout=300, cwd=str(TMP))
 o = {x["id"]: x for x in map(json.loads, pr.stdout.splitlines())}
 ok(len(o) == 4 and o[1]["result"]["protocolVersion"] == "2025-03-26", "four replies, protocol echoed, stdout only JSON-RPC")
 ok(len(o[2]["result"]["tools"]) == 16, "tools/list: 16")
+from gmg import VERSION  # noqa: E402
+ok(o[1]["result"]["serverInfo"]["version"] == VERSION, f"the server reports the package version ({VERSION})")
+venv = TMP / "fakevenv"
+(venv / "bin").mkdir(parents=True)
+(venv / "bin" / "python3").write_text(f"#!/bin/sh\necho reexec > {TMP / 'reexec.mark'}\nGMG_NO_REEXEC=1 exec {sys.executable} \"$@\"\n")
+(venv / "bin" / "python3").chmod(0o755)
+pr = subprocess.run([sys.executable, str(ROOT / "server.py")], input=json.dumps(msgs[0]) + "\n", capture_output=True, text=True,
+                    env={k: v for k, v in dict(os.environ, GMG_VENV=str(venv)).items() if k != "GMG_NO_REEXEC"}, timeout=120, cwd=str(TMP))
+ok((TMP / "reexec.mark").is_file() and json.loads(pr.stdout.splitlines()[0])["id"] == 1, "with the install venv present, the server restarts under its Python")
 r3 = json.loads(o[3]["result"]["content"][0]["text"])
 ok(o[3]["result"]["isError"] and r3["next"][0]["tool"] == "gm_new", "a bad job id -> isError, and the call that fixes it")
 ok(json.loads(o[4]["result"]["content"][0]["text"])["next"][0]["tool"] == "gm_new", "an unknown tool -> told where to start")

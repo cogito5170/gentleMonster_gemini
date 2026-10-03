@@ -10,7 +10,7 @@ import os
 import re
 import sys
 
-from gmg import agent, photo, plans as PL, portfolio, upstream
+from gmg import VERSION, agent, photo, plans as PL, portfolio, upstream
 
 PROTOCOLS = ["2025-06-18", "2025-03-26", "2024-11-05"]
 JOB = {"type": "string", "description": "the job id gm_new returned (gm-xxxxxxxx)"}
@@ -130,7 +130,7 @@ def handle(msg: dict):
         if method == "initialize":
             v = p.get("protocolVersion")
             res = {"protocolVersion": v if v in PROTOCOLS else PROTOCOLS[0], "capabilities": {"tools": {}},
-                   "serverInfo": {"name": "gentlemonster-gemini", "version": "0.2.0"}}
+                   "serverInfo": {"name": "gentlemonster-gemini", "version": VERSION}}
         elif method == "tools/list":
             res = {"tools": tools()}
         elif method == "tools/call":

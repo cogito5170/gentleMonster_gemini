@@ -92,6 +92,7 @@ M = [
     ("usage: tool calls not logged", "gmg/ext_mcp.py", '            usage.log("call",', '            (lambda *a, **k: None)("call",'),
     ("usage: hook drops the session id", "hooks/turn_note.py", 'inp.get("session_id", "")', '""'),
     ("usage: session id not hashed", "gmg/usage.py", '"session": hashlib.sha256(s.encode()).hexdigest()[:16]', '"session": s'),
+    ("server: venv never used", "server.py", "    os.execv(str(PY), [str(PY)] + sys.argv)", "    pass"),
     ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
     ("H3: colours not nudged", "gmg/agent.py", "        for _ in range(30):", "        for _ in range(0):"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
