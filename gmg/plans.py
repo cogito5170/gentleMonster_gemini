@@ -144,33 +144,34 @@ def _min_dist(spec, L, it):
 
 
 def _lab(L, ids):
-    return items(L, ids)[0].get("label", ids[0]).lower()
+    return items(L, ids)[0].get("label", ids[0])
 
 
 def facts(spec, plan_id: str, job: dict) -> "list[str]":
-    """Four true sentences about this layout, measured from it. The model only says what they mean."""
+    """Four true sentences about this layout, measured from it. The model only says what they mean.
+    The model's labels go in brackets after a noun code chose, so the sentence stays grammatical whatever the label is."""
     L, P = job["layout"], PLANS[plan_id]["roles"]
-    g = lambda r: items(L, P[r]["ids"])
-    lab = lambda r: _lab(L, P[r]["ids"])
+    g = lambda r: items(L, P[r]["ids"])          # noqa: E731
+    lab = lambda r: _lab(L, P[r]["ids"])         # noqa: E731
     if plan_id == "orbit":
         a, b = g("screen")
         th = g("threshold")
         v = g("void")[0]
         c = _min_dist(spec, L, g("hero")[0])
-        return [f"Two {lab('threshold')} objects stand {min(i['y0'] for i in th):.1f}-{max(i['y1'] for i in th):.1f} m inside the door "
-                f"with the {lab('screen')} between them; the route slips through a {b['x0'] - a['x1']:.1f} m gap.",
-                f"The {lab('hero')} stands alone in a {v['x1'] - v['x0']:.0f} x {v['y1'] - v['y0']:.0f} m {lab('void')}; "
+        return [f"A pair of threshold objects ({lab('threshold')}) stands {min(i['y0'] for i in th):.1f}-{max(i['y1'] for i in th):.1f} m inside the door, "
+                f"with a hanging screen ({lab('screen')}) between them; the route slips through a {b['x0'] - a['x1']:.1f} m gap.",
+                f"The hero ({lab('hero')}) stands alone in an empty {v['x1'] - v['x0']:.0f} x {v['y1'] - v['y0']:.0f} m area ({lab('void')}); "
                 f"the route circles it and never comes closer than {c:.1f} m.",
-                f"Four {lab('stations')} stations sit at the outer corners, outside the loop, so you turn away from the {lab('hero')} to reach them.",
-                f"The {lab('pay')} closes the loop at the back wall."]
+                f"Four product stations ({lab('stations')}) sit at the outer corners, outside the loop, so you turn away from the hero to reach them.",
+                f"The pay desk ({lab('pay')}) closes the loop at the back wall."]
     if plan_id == "field":
         s, h = g("strip")[0], g("hero")[0]
         st = g("stations")
         c = min(_min_dist(spec, L, i) for i in st)
-        return [f"A {lab('strip')} runs {s['y1'] - s['y0']:.1f} m from the door toward the {lab('hero')}.",
-                f"The {lab('hero')} stands alone {h['y0']:.1f} m inside the door, {h['h']:.1f} m tall; nothing else rises above {max(i['h'] for i in st):.1f} m.",
-                f"Four {lab('stations')} stations hold the product in a loose ring around it, {c:.1f} m from the route at the closest.",
-                f"The {lab('pay')} sits at the back right, where the route ends."]
+        return [f"A floor strip ({lab('strip')}) runs {s['y1'] - s['y0']:.1f} m from the door toward the hero ({lab('hero')}).",
+                f"The hero stands alone {h['y0']:.1f} m inside the door, {h['h']:.1f} m tall; nothing else rises above {max(i['h'] for i in st):.1f} m.",
+                f"Four product stations ({lab('stations')}) ring it loosely, {c:.1f} m from the route at the closest.",
+                f"The pay counter ({lab('pay')}) sits at the back right, where the route ends."]
     if plan_id == "chamber":
         ws = g("walls")
         x0, x1 = min(i["x0"] for i in ws), max(i["x1"] for i in ws)
@@ -178,16 +179,16 @@ def facts(spec, plan_id: str, job: dict) -> "list[str]":
         hs = [i["h"] for i in g("hero")]
         left = sorted([i for i in ws if i["id"].startswith("w_left")], key=lambda i: i["y0"])
         gap = left[1]["y0"] - left[0]["y1"] if len(left) == 2 else 0
-        return [f"A chamber of {lab('walls')} walls, {x1 - x0:.0f} x {y1 - y0:.0f} m, stands inside the room; you enter it through a {gap:.1f} m opening in its side.",
-                f"Three {lab('hero')} objects inside the chamber carry the product at {min(hs):.1f}-{max(hs):.1f} m high.",
-                f"Two {lab('piercing')} objects break through the chamber walls on opposite sides.",
-                f"The {lab('pay')} and the {lab('fit')} stay outside the chamber."]
+        return [f"A walled chamber ({lab('walls')}), {x1 - x0:.0f} x {y1 - y0:.0f} m, stands inside the room; you enter it through a {gap:.1f} m opening in its side.",
+                f"Three low monoliths ({lab('hero')}) inside it carry the product at {min(hs):.1f}-{max(hs):.1f} m high.",
+                f"Two blocks ({lab('piercing')}) break through the chamber walls on opposite sides.",
+                f"The pay desk ({lab('pay')}) and the fitting room ({lab('fit')}) stay outside the chamber."]
     if plan_id == "ritual":
         h = g("hero")[0]
-        return [f"The {lab('shelves')} wrap the left, right and back walls of the {L['W']:.0f} x {L['D']:.0f} m room.",
-                f"The {lab('hero')} is the centre of the room and the first stop, {h['y0']:.1f} m in from the door.",
-                f"The route circles the {lab('hero')} first, then follows the shelves.",
-                f"The {lab('pay')} sits at the back, off the loop."]
+        return [f"Shelf walls ({lab('shelves')}) wrap the left, right and back of the {L['W']:.0f} x {L['D']:.0f} m room.",
+                f"The centre object ({lab('hero')}) is the first stop, {h['y0']:.1f} m in from the door.",
+                "The route circles it first, then follows the shelves.",
+                f"The counter ({lab('pay')}) sits at the back, off the loop."]
     raise KeyError(plan_id)
 
 

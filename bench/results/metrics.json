@@ -326,5 +326,49 @@
   "state": "DONE",
   "plan": "ritual",
   "run": 1
+ },
+ {
+  "brief": "b2",
+  "arm": "C",
+  "run": 2,
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 0,
+  "seconds": 9.7,
+  "calls": 7,
+  "tokens": {
+   "prompt": 2636,
+   "output": 1335,
+   "thoughts": 0,
+   "total": 3971
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "why": null,
+  "plan": "orbit"
+ },
+ {
+  "brief": "b4",
+  "arm": "C",
+  "run": 2,
+  "gate": true,
+  "complete": 12,
+  "missing": [],
+  "reasks": 1,
+  "seconds": 10.7,
+  "calls": 8,
+  "tokens": {
+   "prompt": 2521,
+   "output": 1369,
+   "thoughts": 0,
+   "total": 3890
+  },
+  "reported": "gemini-3.1-flash-lite",
+  "fallbacks": [],
+  "state": "DONE",
+  "why": null,
+  "plan": "field"
  }
 ]
