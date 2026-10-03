@@ -176,6 +176,12 @@ SV.record("gemini-3.1-flash-lite", "api")
 r = agent.call("gm_new", dict(new, request="H1 시험 2", brand="gentleMonster"))
 ok(r["brand"] == "Gentle Monster" and any("read as" in n for n in r["notes"]), "'gentleMonster' is read as the known brand 'Gentle Monster'")
 
+r = agent.call("gm_new", dict(new, request="Design a store with gentleMonster.\nBrief: 안개 낀 항구의 가방 팝업", brand="gentleMonster", product="objects"))
+ok(r["brand"] == "Gentle Monster" and r["product"] == "objects", "the extension's name in the prompt is not a brand claim: the brief's product is kept")
+ok(len(ext_mcp.tools("store")) == 8 and len(ext_mcp.tools("portfolio")) == 8 and all(t["name"].startswith("gm_") for t in ext_mcp.tools("store")),
+   "two servers: store (gm_*) and portfolio (pf_*), 8 tools each")
+ok(set(man["mcpServers"]) == {"gentlemonster", "gentlemonster-portfolio"} and "store" in man["mcpServers"]["gentlemonster"]["args"], "the manifest starts both servers")
+
 sec("hook: the answer may only state the ledger's verdict")
 out = TMP / "hk"
 os.environ["GMG_OUT"] = str(out)

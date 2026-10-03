@@ -17,3 +17,12 @@ Run 1 is the held-out measurement and stays as is. f2 hit the turn cap: one pale
 repeated gm_finish 21 times. Its brand also came out as `gentleMonster` (the extension's name in the prompt).
 Fix (generic): code repairs a hex that still holds one `#rrggbb` and names any other bad item with its value; known
 brand spellings are canonicalised. **f2 is rerun once after the fix and reported as post-fix, not held out.**
+
+## After the f2 rerun (written before the store-server run)
+The f2 rerun finished DONE but with product eyewear for a bag pop-up: the agent passed the extension's own name
+("gentleMonster") as the brand, the canonicalisation made it the known brand, and the known brand set the product.
+Fix: only a brand written in the request with its own spelling may correct the product. And run 1 showed H3 was
+**not** met: tokens per DONE job rose (36.7k vs 27.4k in rev-2 run 4) because CMD-GMG3's ten tools doubled the
+declarations resent every turn. Fix: the extension runs as two MCP servers (store `gm_*`, portfolio `pf_*`); a store
+session loads 8 tools. **All six fresh briefs run once more against the store server only, reported as post-fix (not
+held out), next to run 1.**

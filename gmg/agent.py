@@ -220,7 +220,9 @@ def gm_new(request: str, theme: str, mood, hero_idea: str, product: str, brand: 
     if re.sub(r"[^a-z]", "", b.lower()) in canon and b != canon[re.sub(r"[^a-z]", "", b.lower())]:
         notes.append(f"brand {b!r} read as {canon[re.sub(r'[^a-z]', '', b.lower())]!r}")
         b = canon[re.sub(r"[^a-z]", "", b.lower())]
-    named = bool(b)
+    # only a brand written in the request with its own spelling may correct the product: the extension's name
+    # ("gentleMonster" in "Design a store with gentleMonster") is not a brand claim
+    named = bool(b) and b.lower() in request.lower()
     b = b or "Gentle Monster"
     if placeholder(product):
         product = ""

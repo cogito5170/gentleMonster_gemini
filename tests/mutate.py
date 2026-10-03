@@ -63,6 +63,8 @@ M = [
     ("H3: plan in gm_new ignored", "gmg/agent.py", "    if plan in PL.PLANS:", "    if False:"),
     ("finish: vague palette error", "gmg/agent.py", "    probs += bad_hex", "    probs += [\"palette invalid\"] if bad_hex else []"),
     ("new: brand spelling not canonical", "gmg/agent.py", "    if re.sub(r\"[^a-z]\", \"\", b.lower()) in canon and", "    if False and"),
+    ("new: tool name taken as a brand claim", "gmg/agent.py", "    named = bool(b) and b.lower() in request.lower()", "    named = bool(b)"),
+    ("H3: tool groups ignored", "gmg/ext_mcp.py", 'return [t for t in _tools() if group == "all" or t["name"].startswith(GROUPS[group])]', "return _tools()"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
 TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py"]

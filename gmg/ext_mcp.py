@@ -6,6 +6,7 @@ from __future__ import annotations
 
 import contextlib
 import json
+import os
 import re
 import sys
 
@@ -19,7 +20,17 @@ def _s(desc):
     return {"type": "string", "description": desc}
 
 
-def tools() -> list:
+GROUPS = {"store": "gm_", "portfolio": "pf_"}
+
+
+def tools(group: str = "") -> list:
+    """The tool list; `group` (store | portfolio | all) lets the extension run as two servers, so a session
+    that needs only one side does not resend the other side's declarations every turn (H3)."""
+    group = group or os.environ.get("GMG_TOOLS", "all")
+    return [t for t in _tools() if group == "all" or t["name"].startswith(GROUPS[group])]
+
+
+def _tools() -> list:
     spec, _ = upstream.load()
     mats = sorted(spec.MATERIALS)
     roles = sorted({r for p in PL.PLANS.values() for r in p["roles"]})
@@ -144,6 +155,8 @@ def handle(msg: dict):
 
 
 def main() -> int:
+    if "--tools" in sys.argv:
+        os.environ["GMG_TOOLS"] = sys.argv[sys.argv.index("--tools") + 1]
     try:
         upstream.ready()
     except upstream.NotReady:

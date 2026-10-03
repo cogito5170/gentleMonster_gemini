@@ -36,8 +36,8 @@ def to_decl(s: dict) -> dict:
     return out
 
 
-def declarations() -> list:
-    return [{"name": t["name"], "description": t["description"], "parameters": to_decl(t["inputSchema"])} for t in ext_mcp.tools()]
+def declarations(group: str = "") -> list:
+    return [{"name": t["name"], "description": t["description"], "parameters": to_decl(t["inputSchema"])} for t in ext_mcp.tools(group)]
 
 
 def run(brief: str, brand: str = "", transport=None, model: str = "", max_turns: int = 24, sleep=time.sleep, log=None) -> dict:
