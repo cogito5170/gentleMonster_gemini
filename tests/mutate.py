@@ -41,9 +41,23 @@ M = [
     ("ext: no geometry repair", "gmg/agent.py", "                if c[\"cast\"][r][\"shape\"] != own:", "                if False:"),
     ("hook: never denies", "gmg/hook.py", '    return {"decision": "deny",', '    return {"decision": "allow",'),
     ("loop: off-list not counted", "gmg/loop.py", '"offlist": fc.get("name") not in prev_next', '"offlist": False'),
+    ("pf: abstract gate off", "gmg/portfolio.py", '    if meas["abstract_ratio"] > lim:', "    if False:"),
+    ("pf: language not checked", "gmg/portfolio.py", '    if lang == "ko" and meas["language"] == "en" or', '    if False and lang == "ko" and meas["language"] == "en" or'),
+    ("pf: more_direct not checked", "gmg/portfolio.py", "        if a1 > LIMIT_DIRECT or (a1 >= a0 and a0 > 0):", "        if False:"),
+    ("pf: refocus not checked", "gmg/portfolio.py", "        elif new.lower().count(topic.lower()) <= old.lower().count(topic.lower()) and", "        elif False and"),
+    ("pf: not exactly three proposals", "gmg/portfolio.py", "        if len(opts) != 3:", "        if False:"),
+    ("pf: labels inside words", "gmg/portfolio.py", 'r"(?<![A-Za-z0-9])[A-Ha-h1-8](?![A-Za-z0-9])"', 'r"[A-Ha-h1-8]"'),
+    ("pf: retry not recorded", "gmg/portfolio.py", '        L.log("RETRY", call=last)', "        pass"),
+    ("pf: before not kept", "gmg/portfolio.py", "measures=meas, before=o[\"text\"])", "measures=meas, before=\"\")"),
+    ("pf: concept reason not checked", "gmg/portfolio.py", "        if v and not any(w in r.lower() for w in pool):", "        if False:"),
+    ("photo: small subjects missed", "gmg/photo.py", "regions += n >= .003 * m.size", "regions += n >= .01 * m.size"),
+    ("photo: palette not distinct", "gmg/photo.py", "def distinct(pal, n: int = 5, gap: float = 30)", "def distinct(pal, n: int = 5, gap: float = 0)"),
+    ("render: failure cause not kept", "gmg/agent.py", '            L.log("NOTE", step="render", why=why)', "            pass"),
+    ("amend: unsupported called supported", "gmg/agent.py", '("language", "ko_and_en"): "NOT supported:', '("language", "ko_and_en"): "supported:'),
+    ("pf: keep ignored", "gmg/portfolio.py", "and not any(k in x.lower() for k in kept))", ")"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
-TESTS = ["tests/test_gmg.py", "tests/test_ext.py"]
+TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py"]
 
 
 def main() -> int:

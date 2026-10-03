@@ -95,3 +95,77 @@ def run(brief: str, brand: str = "", transport=None, model: str = "", max_turns:
     return {"job": job, "state": state, "stop": stop, "final": final, "seconds": round(time.time() - t0, 1),
             "turns": turns, "calls": calls, "claimed": hook.claimed(final),
             "hook": hook.decide({"prompt_response": final}, spec_out) if final else {}}
+
+
+def _mime(p: Path) -> str:
+    b = p.read_bytes()[:12]
+    return "image/png" if b.startswith(b"\x89PNG") else "image/webp" if b[8:12] == b"WEBP" else "image/jpeg"
+
+
+def user_turn(contents: list, q: dict, transport=None, model: str = "", max_turns: int = 12, sleep=time.sleep, log=None) -> dict:
+    """One user turn of a conversation (contents is the shared history and grows). q: {"text", "images": [paths], "n"}."""
+    import base64
+    model = model or MODEL
+    transport = transport or http
+    system = (ROOT / "GEMINI.md").read_text(encoding="utf-8")
+    decls = declarations()
+    imgs = [Path(p) for p in q.get("images", [])]
+    contents.append({"role": "user", "parts": [{"text": q["text"] + "".join(f"\n[attached: {p}]" for p in imgs)}] +
+                     [{"inline_data": {"mime_type": _mime(p), "data": base64.b64encode(p.read_bytes()).decode()}} for p in imgs]})
+    rec = {"calls": [], "turns": [], "final": "", "stop": "answered"}
+    t0, prev_next = time.time(), None
+    for turn in range(max_turns):
+        body = {"systemInstruction": {"parts": [{"text": system}]}, "contents": contents, "tools": [{"functionDeclarations": decls}]}
+        d = None
+        for attempt in range(1, 6):
+            ts = time.time()
+            code, txt, rh = transport(f"{API}/models/{model}:generateContent", body,
+                                      {"Content-Type": "application/json", "x-goog-api-key": key()}, {"step": "agent", "turn": turn, "q": q.get("n")})
+            if code == 200:
+                d = json.loads(txt)
+                break
+            w = _retry_delay(txt, rh)
+            rec["turns"].append({"turn": turn, "attempt": attempt, "http": code, "wait": w})
+            if code not in (429, 500, 502, 503, 504) or attempt == 5:
+                break
+            sleep(min(w, 60) if w is not None else 2 ** attempt)
+        if d is None:
+            rec["stop"] = "http_error"
+            break
+        cand = (d.get("candidates") or [{}])[0]
+        rec["turns"].append({"turn": turn, "ms": int((time.time() - ts) * 1000), "finish": cand.get("finishReason"),
+                             "usage": d.get("usageMetadata") or {}, "reported": d.get("modelVersion", "미보고")})
+        parts = (cand.get("content") or {}).get("parts") or []
+        if not parts:
+            rec["stop"] = f"empty_{cand.get('finishReason')}"
+            break
+        contents.append({"role": "model", "parts": parts})
+        fcs = [p["functionCall"] for p in parts if "functionCall" in p]
+        if not fcs:
+            rec["final"] = "".join(p.get("text", "") for p in parts if not p.get("thought"))
+            rec["stop"] = "answered" if cand.get("finishReason") == "STOP" else f"finish_{cand.get('finishReason')}"
+            break
+        resp = []
+        for fc in fcs:
+            r = ext_mcp.handle({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": fc.get("name"), "arguments": fc.get("args") or {}}})
+            res = json.loads(r["result"]["content"][0]["text"]) if "result" in r else {"ok": False, "problems": [str(r.get("error"))]}
+            rec["calls"].append({"tool": fc.get("name"), "args": fc.get("args"), "ok": res.get("ok"), "problems": res.get("problems", []),
+                                 "offlist": prev_next is not None and fc.get("name") not in prev_next})
+            prev_next = [n.get("tool") for n in res.get("next", [])] + [o["call"]["tool"] for o in res.get("options", []) if "call" in o] + ["pf_choose", "pf_show"]
+            fr = {"name": fc.get("name"), "response": {"result": res}}
+            if fc.get("id"):
+                fr["id"] = fc["id"]
+            resp.append({"functionResponse": fr})
+            if log:
+                log(f"[q{q.get('n')}] {fc.get('name')} -> ok={res.get('ok')}")
+        contents.append({"role": "user", "parts": resp})
+    else:
+        rec["stop"] = "turn_cap"
+    rec["seconds"] = round(time.time() - t0, 1)
+    return rec
+
+
+def converse(turns, transport=None, model: str = "", max_turns: int = 12, sleep=time.sleep, log=None) -> list:
+    """One conversation, many user turns (a replay); state carries over. -> one record per user turn."""
+    contents = []
+    return [user_turn(contents, q, transport, model, max_turns, sleep, log) for q in turns]

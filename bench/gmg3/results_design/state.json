@@ -1,0 +1,371 @@
+{
+ "terms": {
+  "SPA": "STYLIST, PHOTOGRAPHER, ARCHITECT"
+ },
+ "texts": [
+  {
+   "id": "t1",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "검은 바닥 위의 붉은 점들",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "",
+   "about": "q22_cover_draft.jpg",
+   "measures": {
+    "chars": 14,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t2",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "사라지는 빛의 궤적",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "",
+   "about": "q22_cover_draft.jpg",
+   "measures": {
+    "chars": 10,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t3",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "어둠 속, 파동하는 윤곽",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "",
+   "about": "q22_cover_draft.jpg",
+   "measures": {
+    "chars": 13,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t4",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "흐릿한 윤곽의 중첩",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "",
+   "about": "q22_cover_draft.jpg",
+   "measures": {
+    "chars": 10,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t5",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "차갑게 굳은 반영의 파편",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "",
+   "about": "q22_cover_draft.jpg",
+   "measures": {
+    "chars": 13,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  }
+ ],
+ "photos": [
+  {
+   "file": "L1_night_red_light.jpg",
+   "brightness": 0.066,
+   "dark_share": 0.979,
+   "contrast": 0.045,
+   "saturation": 0.26,
+   "warmth": 0.005,
+   "hue_deg": 275,
+   "hue": "purple",
+   "mono": false,
+   "sharpness": 127.6,
+   "centre_focus": 1.0,
+   "subject_share": 0.021,
+   "subject_regions": 3,
+   "colors": [
+    "#1c1417"
+   ],
+   "layout_like": false,
+   "id": "p80aa6b",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L1_night_red_light.jpg"
+  },
+  {
+   "file": "L2_puddle_reflection.jpg",
+   "brightness": 0.411,
+   "dark_share": 0.0,
+   "contrast": 0.067,
+   "saturation": 0.266,
+   "warmth": -0.119,
+   "hue_deg": 209,
+   "hue": "blue",
+   "mono": false,
+   "sharpness": 46.3,
+   "centre_focus": 1.18,
+   "subject_share": 0.32,
+   "subject_regions": 5,
+   "colors": [
+    "#35547d",
+    "#797671",
+    "#205ea5",
+    "#5c6971"
+   ],
+   "layout_like": false,
+   "id": "p37dd08",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L2_puddle_reflection.jpg"
+  },
+  {
+   "file": "L3_sprout_sand.jpg",
+   "brightness": 0.736,
+   "dark_share": 0.0,
+   "contrast": 0.048,
+   "saturation": 0.264,
+   "warmth": 0.212,
+   "hue_deg": 40,
+   "hue": "orange",
+   "mono": false,
+   "sharpness": 579.8,
+   "centre_focus": 0.99,
+   "subject_share": 0.006,
+   "subject_regions": 1,
+   "colors": [
+    "#cdbb97"
+   ],
+   "layout_like": false,
+   "id": "p443afc",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L3_sprout_sand.jpg"
+  },
+  {
+   "file": "L4_string_lights_bw.jpg",
+   "brightness": 0.152,
+   "dark_share": 0.69,
+   "contrast": 0.073,
+   "saturation": 0.006,
+   "warmth": -0.0,
+   "hue_deg": null,
+   "hue": "none",
+   "mono": true,
+   "sharpness": 86.3,
+   "centre_focus": 0.56,
+   "subject_share": 0.01,
+   "subject_regions": 0,
+   "colors": [
+    "#1e1e1e",
+    "#3b3b3b"
+   ],
+   "layout_like": false,
+   "id": "pec1ee9",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L4_string_lights_bw.jpg"
+  },
+  {
+   "file": "L5_sunset_sea.jpg",
+   "brightness": 0.461,
+   "dark_share": 0.0,
+   "contrast": 0.207,
+   "saturation": 0.459,
+   "warmth": 0.214,
+   "hue_deg": 354,
+   "hue": "red",
+   "mono": false,
+   "sharpness": 102.8,
+   "centre_focus": 1.55,
+   "subject_share": 0.388,
+   "subject_regions": 1,
+   "colors": [
+    "#df8165",
+    "#293446",
+    "#d09981"
+   ],
+   "layout_like": false,
+   "id": "pe76064",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L5_sunset_sea.jpg"
+  }
+ ],
+ "pages": {},
+ "proposals": [],
+ "rankings": [
+  {
+   "id": "r1",
+   "by": "single_subject",
+   "order": [
+    "p443afc",
+    "pe76064",
+    "p80aa6b",
+    "pec1ee9",
+    "p37dd08"
+   ],
+   "table": [
+    {
+     "rank": 1,
+     "photo": "p443afc",
+     "file": "L3_sprout_sand.jpg",
+     "score": 0.991,
+     "evidence": {
+      "brightness": 0.736,
+      "saturation": 0.264,
+      "sharpness": 579.8,
+      "subject_regions": 1,
+      "subject_share": 0.006,
+      "hue": "orange"
+     }
+    },
+    {
+     "rank": 2,
+     "photo": "pe76064",
+     "file": "L5_sunset_sea.jpg",
+     "score": 0.971,
+     "evidence": {
+      "brightness": 0.461,
+      "saturation": 0.459,
+      "sharpness": 102.8,
+      "subject_regions": 1,
+      "subject_share": 0.388,
+      "hue": "red"
+     }
+    },
+    {
+     "rank": 3,
+     "photo": "p80aa6b",
+     "file": "L1_night_red_light.jpg",
+     "score": -0.008,
+     "evidence": {
+      "brightness": 0.066,
+      "saturation": 0.26,
+      "sharpness": 127.6,
+      "subject_regions": 3,
+      "subject_share": 0.021,
+      "hue": "purple"
+     }
+    },
+    {
+     "rank": 4,
+     "photo": "pec1ee9",
+     "file": "L4_string_lights_bw.jpg",
+     "score": -0.009,
+     "evidence": {
+      "brightness": 0.152,
+      "saturation": 0.006,
+      "sharpness": 86.3,
+      "subject_regions": 0,
+      "subject_share": 0.01,
+      "hue": "none"
+     }
+    },
+    {
+     "rank": 5,
+     "photo": "p37dd08",
+     "file": "L2_puddle_reflection.jpg",
+     "score": -0.022,
+     "evidence": {
+      "brightness": 0.411,
+      "saturation": 0.266,
+      "sharpness": 46.3,
+      "subject_regions": 5,
+      "subject_share": 0.32,
+      "hue": "blue"
+     }
+    }
+   ]
+  }
+ ],
+ "concepts": [
+  {
+   "phrase": "Where did you last stop?",
+   "table": [
+    {
+     "term": "SPA",
+     "definition": "STYLIST, PHOTOGRAPHER, ARCHITECT",
+     "connects": "partly",
+     "reason": "'Where did you last stop?'은 공간적 위치나 경험의 종착지를 묻는 질문으로, 사진 속 장소나 디자인적 발상지(Architect)를 환기할 수 있으나 Stylist와 Photographer의 역할과는 직접적인 연결성이 부족함."
+    }
+   ],
+   "yes": 0,
+   "of": 1
+  }
+ ],
+ "options": [
+  {
+   "n": 1,
+   "label": "A",
+   "title": "adopt t1",
+   "call": {
+    "tool": "pf_pages",
+    "args": {
+     "action": "adopt",
+     "choice": "t1"
+    }
+   }
+  },
+  {
+   "n": 2,
+   "label": "B",
+   "title": "adopt t2",
+   "call": {
+    "tool": "pf_pages",
+    "args": {
+     "action": "adopt",
+     "choice": "t2"
+    }
+   }
+  },
+  {
+   "n": 3,
+   "label": "C",
+   "title": "adopt t3",
+   "call": {
+    "tool": "pf_pages",
+    "args": {
+     "action": "adopt",
+     "choice": "t3"
+    }
+   }
+  },
+  {
+   "n": 4,
+   "label": "D",
+   "title": "adopt t4",
+   "call": {
+    "tool": "pf_pages",
+    "args": {
+     "action": "adopt",
+     "choice": "t4"
+    }
+   }
+  },
+  {
+   "n": 5,
+   "label": "E",
+   "title": "adopt t5",
+   "call": {
+    "tool": "pf_pages",
+    "args": {
+     "action": "adopt",
+     "choice": "t5"
+    }
+   }
+  }
+ ],
+ "last": {
+  "tool": "pf_concept",
+  "args": {
+   "phrase": "Where did you last stop?"
+  }
+ },
+ "adopted": []
+}

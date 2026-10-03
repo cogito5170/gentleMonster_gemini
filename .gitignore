@@ -5,3 +5,4 @@ build/
 out/
 bench/results/_work/
 bench/results_rev2/_work/
+bench/gmg3/results_*/work/

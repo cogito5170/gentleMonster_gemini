@@ -42,11 +42,11 @@ ok(man["contextFileName"] == "GEMINI.md" and "server.py" in "".join(man["mcpServ
 hk = json.loads((ROOT / "hooks" / "hooks.json").read_text())
 ok("verdict_gate.py" in hk["hooks"]["AfterAgent"][0]["hooks"][0]["command"], "AfterAgent hook configured")
 g = (ROOT / "GEMINI.md").read_text()
-ok(len(g) < 1200 and "next" in g and "gm_new" in g, f"GEMINI.md is short ({len(g)} chars) and says: follow next")
+ok(len(g) < 1600 and "next" in g and "gm_new" in g and "pf_show" in g, f"GEMINI.md is short ({len(g)} chars), says: follow next, and routes")
 
 sec("tools: few, Gemini-declarable")
 T = ext_mcp.tools()
-ok([t["name"] for t in T] == ["gm_new", "gm_plan", "gm_cast", "gm_story", "gm_finish", "gm_explain"], "six tools")
+ok([t["name"] for t in T][:6] == ["gm_new", "gm_plan", "gm_cast", "gm_story", "gm_finish", "gm_explain"] and len(T) == 16, f"{len(T)} tools, the store chain first")
 D = loop.declarations()
 ok(all(d["parameters"]["type"] == "OBJECT" for d in D) and "maxLength" not in json.dumps(D), "declarations use only keys Gemini takes")
 
@@ -193,7 +193,7 @@ pr = subprocess.run([sys.executable, str(ROOT / "server.py")], input="\n".join(j
                     env=dict(os.environ), timeout=300, cwd=str(TMP))
 o = {x["id"]: x for x in map(json.loads, pr.stdout.splitlines())}
 ok(len(o) == 4 and o[1]["result"]["protocolVersion"] == "2025-03-26", "four replies, protocol echoed, stdout only JSON-RPC")
-ok(len(o[2]["result"]["tools"]) == 6, "tools/list: 6")
+ok(len(o[2]["result"]["tools"]) == 16, "tools/list: 16")
 r3 = json.loads(o[3]["result"]["content"][0]["text"])
 ok(o[3]["result"]["isError"] and r3["next"][0]["tool"] == "gm_new", "a bad job id -> isError, and the call that fixes it")
 ok(json.loads(o[4]["result"]["content"][0]["text"])["next"][0]["tool"] == "gm_new", "an unknown tool -> told where to start")

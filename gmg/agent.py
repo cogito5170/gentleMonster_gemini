@@ -530,12 +530,106 @@ def gm_explain(job: str) -> dict:
             "next": [n_ for n_ in v["next"] if n_["tool"] != "gm_explain"] or [{"tool": "gm_new", "why": "start another job"}]}
 
 
+# ------------------------------------------------------------------ S6 / S8: constraints on a job, render options
+CONSTRAINTS = {"language": ["en_only", "ko_and_en"], "text_size": ["small", "normal"], "pages": ["one", "multi"],
+               "include_rationale": [True, False], "generated_photos": [True, False], "follow_route": [True, False]}
+OUTPUTS = ["layout_pdf", "moodboard_pdf", "blueprint_pdf", "video"]
+# what gentleMonster @ the pinned commit can honour, and what it cannot -- said, not faked
+SUPPORT = {("language", "en_only"): "printed pages are English already (spec.check refuses Korean text)",
+           ("language", "ko_and_en"): "NOT supported: gentleMonster prints English only (spec.check refuses Korean)",
+           ("text_size", "small"): "NOT supported by the pinned layout/moodboard templates (fixed type sizes); recorded",
+           ("text_size", "normal"): "the templates' size",
+           ("pages", "one"): "the layout PDF is one page; the moodboard is several spreads (NOT one page)",
+           ("pages", "multi"): "the moodboard has several spreads",
+           ("include_rationale", True): "the job's `why` (design intent) is printed on the layout page",
+           ("include_rationale", False): "NOT supported: the layout page always prints the design intent",
+           ("generated_photos", True): "with fewer than 3 photos the moodboard fills with renders of the room (labelled generated)",
+           ("generated_photos", False): "recorded; the moodboard then needs 3 or more photos",
+           ("follow_route", True): "the video camera walks the drawn route (flows[0]) and holds at the 3 stops",
+           ("follow_route", False): "NOT supported: the video always follows the drawn route"}
+
+
+def gm_amend(job: str, constraints=None, reference_image: str = "") -> dict:
+    L = _ledger(job)
+    cs = dict(constraints or {})
+    probs, said = [], {}
+    for k, v in cs.items():
+        if k not in CONSTRAINTS or v not in CONSTRAINTS[k]:
+            probs.append(f"{k}={v!r}: allowed {k} values are {CONSTRAINTS.get(k, 'none (unknown constraint)')}")
+        else:
+            said[k] = SUPPORT[(k, v)]
+    if reference_image:
+        if not Path(reference_image).is_file():
+            probs.append(f"reference_image {reference_image!r} is not a file")
+        else:
+            cs["reference_image"] = str(Path(reference_image).resolve())
+            said["reference_image"] = "the moodboard reads its spread order and masthead from it (measured; the vision read needs a model)"
+    if probs:
+        raise ToolError(probs, [{"tool": "gm_amend", "args": {"job": job, "constraints": CONSTRAINTS}}])
+    L.log("CONSTRAINT", constraints=cs, effect=said)
+    return {"ok": True, "job": job, "effect": said, "next": [{"tool": "gm_render", "args": {"job": job, "outputs": OUTPUTS}}]}
+
+
+def gm_render(job: str, outputs=None) -> dict:
+    """Draw what is asked with the pinned gentleMonster. Heavy outputs (blueprint, video) only when named."""
+    import contextlib
+    import sys
+    L = _ledger(job)
+    if L.status()["artifacts"].get("job") != "done":
+        raise ToolError(["the job has not passed gm_finish (or job.json changed since)"], [EXPLAIN(job)])
+    outputs = [outputs] if isinstance(outputs, str) else list(outputs or ["layout_pdf"])
+    bad = [o for o in outputs if o not in OUTPUTS]
+    if bad:
+        raise ToolError([f"outputs {bad} are not in {OUTPUTS}"], [{"tool": "gm_render", "args": {"job": job, "outputs": OUTPUTS}}])
+    cons = {}
+    for e in L.run():
+        if e.get("kind") == "CONSTRAINT":
+            cons.update(e["constraints"])
+    from gentle_monster import pipeline
+    done, notes = {}, []
+    for o in outputs:
+        try:
+            with contextlib.redirect_stdout(sys.stderr):
+                if o == "layout_pdf":
+                    r = pipeline.layout(job, moodboard=False, use_llm=False, log=lambda m: None)
+                    L.artifact(r["pdf"], "layout")
+                    done[o] = Path(r["pdf"]).name
+                elif o == "moodboard_pdf":
+                    refs = [cons["reference_image"]] if cons.get("reference_image") else []
+                    if cons.get("generated_photos") is False and len(pipeline._kept(job, "photos")) < 3:
+                        raise RuntimeError("generated photos are not allowed and the job has fewer than 3 photos")
+                    r = pipeline.layout(job, refs=refs, moodboard=True, use_llm=False, log=lambda m: None)
+                    L.artifact(r["moodboard"], "moodboard")
+                    done[o] = Path(r["moodboard"]).name
+                elif o == "blueprint_pdf":
+                    r = pipeline.blueprint(job, log=lambda m: None)
+                    L.artifact(r["pdf"], "blueprint")
+                    done[o] = Path(r["pdf"]).name
+                elif o == "video":
+                    mp4 = pipeline.video(job, log=lambda m: None)
+                    L.artifact(mp4, "video")
+                    done[o] = Path(mp4).name
+        except Exception as e:                              # noqa: BLE001 -- a failed output is said, with its cause, not hidden
+            why = f"{o} failed: {type(e).__name__}: {str(e)[:200]}"
+            L.log("NOTE", step="render", why=why)
+            notes.append(why)
+    for k, v in cons.items():
+        if (k, v) in SUPPORT and "NOT supported" in SUPPORT[(k, v)]:
+            notes.append(f"{k}={v}: {SUPPORT[(k, v)]}")
+    return {"ok": not [n for n in notes if "failed" in n], "job": job, "drawn": done, "notes": notes, "next": [EXPLAIN(job)]}
+
+
 PREREQ = {"gm_plan": "new", "gm_cast": "plan", "gm_story": "cast", "gm_finish": "story"}
-TOOLS = {"gm_new": gm_new, "gm_plan": gm_plan, "gm_cast": gm_cast, "gm_story": gm_story, "gm_finish": gm_finish, "gm_explain": gm_explain}
+TOOLS = {"gm_new": gm_new, "gm_plan": gm_plan, "gm_cast": gm_cast, "gm_story": gm_story, "gm_finish": gm_finish, "gm_explain": gm_explain,
+         "gm_amend": gm_amend, "gm_render": gm_render}
 
 
 def call(name: str, args: dict) -> dict:
     """One tool call -> a result dict. Never raises for a bad call: the result says what to fix and what to call."""
+    if name.startswith("pf_"):
+        from gmg import portfolio
+        if name in portfolio.TOOLS:
+            return portfolio.call(name, args)
     if name not in TOOLS:
         return {"ok": False, "problems": [f"there is no tool {name}"], "next": [{"tool": "gm_new", "why": "start here"}]}
     try:

@@ -1,0 +1,473 @@
+{
+ "terms": {
+  "SPA-Connection": "The designer's role as a creator of spaces where people stop and stay.",
+  "Spatial-Impact": "The physical environment where a person is compelled to pause.",
+  "Photographic-Engagement": "A captured moment that invites prolonged observation."
+ },
+ "texts": [
+  {
+   "id": "t1",
+   "kind": "storyline",
+   "lang": "ko",
+   "text": "모래 위 홀로 돋아난 새싹은 고립된 의식이 무의식의 대지에서 발현되는 찰나를 상징한다. 채도 낮은 베이지 톤과 대비되는 새싹의 선명한 포커스는 무의식의 심연에서 길어 올린 가장 진실한 형상이다.",
+   "register": "poetic",
+   "pattern": "reflection",
+   "label": "",
+   "about": "r1",
+   "measures": {
+    "chars": 108,
+    "abstract_ratio": 0.111,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t2",
+   "kind": "page_text",
+   "lang": "ko",
+   "text": "지평선은 의식과 무의식이 맞닿는 물리적인 경계입니다. 위쪽은 오렌지빛으로 물들고 아래쪽은 짙은 남색으로 가라앉은 이 색감은 차가운 심연과 뜨거운 열망 사이의 긴장을 보여줍니다. 단순한 수평선 위에서 관찰자는 자신의 내면 깊이를 가늠합니다.",
+   "register": "poetic",
+   "pattern": "reflection",
+   "label": "",
+   "about": "q1:A",
+   "measures": {
+    "chars": 133,
+    "abstract_ratio": 0.067,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t3",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "빛의 떨림이 멈추는 자리.",
+   "register": "poetic",
+   "pattern": "plain",
+   "label": "",
+   "about": "/home/user/gentleMonster_gemini/bench/gmg3/images/design/q22_cover_draft.jpg",
+   "measures": {
+    "chars": 14,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t4",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "검은 밤, 붉은 점들이 번지는 기록.",
+   "register": "poetic",
+   "pattern": "reflection",
+   "label": "",
+   "about": "/home/user/gentleMonster_gemini/bench/gmg3/images/design/q22_cover_draft.jpg",
+   "measures": {
+    "chars": 20,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t5",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "눈에 보이지 않는 것을 향한 시선인가?",
+   "register": "poetic",
+   "pattern": "question",
+   "label": "",
+   "about": "/home/user/gentleMonster_gemini/bench/gmg3/images/design/q22_cover_draft.jpg",
+   "measures": {
+    "chars": 21,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t6",
+   "kind": "cover_line",
+   "lang": "ko",
+   "text": "수평선 위, 색이 스며드는 순간.",
+   "register": "poetic",
+   "pattern": "threshold",
+   "label": "",
+   "about": "/home/user/gentleMonster_gemini/bench/gmg3/images/design/q22_cover_draft.jpg",
+   "measures": {
+    "chars": 18,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t7",
+   "kind": "statement",
+   "lang": "ko",
+   "text": "공간은 사람을 머물게 하고, 사진은 그 머묾의 기억을 다시 불러온다. 당신이 머물고 싶은 좋은 공간과 오래 바라보고 싶은 사진을 통해, 사람들에게 머묾의 가치를 전달하고자 한다.",
+   "register": "poetic",
+   "pattern": "reflection",
+   "label": "",
+   "about": "/home/user/gentleMonster_gemini/bench/gmg3/images/design/q23_notes.jpg",
+   "measures": {
+    "chars": 99,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t8",
+   "kind": "statement",
+   "lang": "ko",
+   "text": "빛의 떨림이 멈춘 자리에서 머묾은 시작되고, 사진은 그 머묾의 기억을 다시 불러온다. 당신을 머물게 하는 공간과 오래 바라보고 싶은 사진, 그 사이의 연결을 설계한다.",
+   "register": "poetic",
+   "pattern": "cycle",
+   "label": "",
+   "about": "combined_concepts",
+   "measures": {
+    "chars": 93,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t9",
+   "kind": "statement",
+   "lang": "ko",
+   "text": "어디에서 너는 멈추는가? 나는 스타일링된 존재의 순간을 마주할 때, 사진 속 정지된 풍경을 목격할 때, 혹은 건축의 공간을 지나칠 때 멈춘다. 여기서 SPA는 스타일링(Styling), 포토그래피(Photography), 아키텍처(Architecture)라는, 나를 멈추게 하는 세 가지의 대상이자 언어이다.",
+   "register": "poetic",
+   "pattern": "reflection",
+   "label": "",
+   "about": "reconstruction_SPA",
+   "measures": {
+    "chars": 172,
+    "abstract_ratio": 0.027,
+    "language": "ko+en"
+   }
+  },
+  {
+   "id": "t10",
+   "kind": "statement",
+   "lang": "ko",
+   "text": "나는 매혹적인 스타일링에 시선이 멈추고, 찰나의 사진 속 장면에서 걸음을 멈추며, 견고한 건축물이 빚어낸 공간 속에서 머묾을 배운다. 그리하여 나는 멈추는 법을 통해 대상을 이해하고, 다시 그것을 기록하고 설계한다. 이것이 SPA의 정의이다.",
+   "register": "poetic",
+   "pattern": "reflection",
+   "label": "",
+   "about": "final_polishing",
+   "measures": {
+    "chars": 135,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  }
+ ],
+ "photos": [
+  {
+   "file": "L1_night_red_light.jpg",
+   "brightness": 0.066,
+   "dark_share": 0.979,
+   "contrast": 0.045,
+   "saturation": 0.26,
+   "warmth": 0.005,
+   "hue_deg": 275,
+   "hue": "purple",
+   "mono": false,
+   "sharpness": 127.6,
+   "centre_focus": 1.0,
+   "subject_share": 0.021,
+   "subject_regions": 3,
+   "colors": [
+    "#1c1417"
+   ],
+   "layout_like": false,
+   "id": "p80aa6b",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L1_night_red_light.jpg"
+  },
+  {
+   "file": "L2_puddle_reflection.jpg",
+   "brightness": 0.411,
+   "dark_share": 0.0,
+   "contrast": 0.067,
+   "saturation": 0.266,
+   "warmth": -0.119,
+   "hue_deg": 209,
+   "hue": "blue",
+   "mono": false,
+   "sharpness": 46.3,
+   "centre_focus": 1.18,
+   "subject_share": 0.32,
+   "subject_regions": 5,
+   "colors": [
+    "#35547d",
+    "#797671",
+    "#205ea5",
+    "#5c6971"
+   ],
+   "layout_like": false,
+   "id": "p37dd08",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L2_puddle_reflection.jpg"
+  },
+  {
+   "file": "L3_sprout_sand.jpg",
+   "brightness": 0.736,
+   "dark_share": 0.0,
+   "contrast": 0.048,
+   "saturation": 0.264,
+   "warmth": 0.212,
+   "hue_deg": 40,
+   "hue": "orange",
+   "mono": false,
+   "sharpness": 579.8,
+   "centre_focus": 0.99,
+   "subject_share": 0.006,
+   "subject_regions": 1,
+   "colors": [
+    "#cdbb97"
+   ],
+   "layout_like": false,
+   "id": "p443afc",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L3_sprout_sand.jpg"
+  },
+  {
+   "file": "L4_string_lights_bw.jpg",
+   "brightness": 0.152,
+   "dark_share": 0.69,
+   "contrast": 0.073,
+   "saturation": 0.006,
+   "warmth": -0.0,
+   "hue_deg": null,
+   "hue": "none",
+   "mono": true,
+   "sharpness": 86.3,
+   "centre_focus": 0.56,
+   "subject_share": 0.01,
+   "subject_regions": 0,
+   "colors": [
+    "#1e1e1e",
+    "#3b3b3b"
+   ],
+   "layout_like": false,
+   "id": "pec1ee9",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L4_string_lights_bw.jpg"
+  },
+  {
+   "file": "L5_sunset_sea.jpg",
+   "brightness": 0.461,
+   "dark_share": 0.0,
+   "contrast": 0.207,
+   "saturation": 0.459,
+   "warmth": 0.214,
+   "hue_deg": 354,
+   "hue": "red",
+   "mono": false,
+   "sharpness": 102.8,
+   "centre_focus": 1.55,
+   "subject_share": 0.388,
+   "subject_regions": 1,
+   "colors": [
+    "#df8165",
+    "#293446",
+    "#d09981"
+   ],
+   "layout_like": false,
+   "id": "pe76064",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L5_sunset_sea.jpg"
+  },
+  {
+   "file": "L6_cloudy_parking.jpg",
+   "brightness": 0.508,
+   "dark_share": 0.009,
+   "contrast": 0.098,
+   "saturation": 0.0,
+   "warmth": 0.0,
+   "hue_deg": null,
+   "hue": "none",
+   "mono": true,
+   "sharpness": 33.3,
+   "centre_focus": 2.83,
+   "subject_share": 0.46,
+   "subject_regions": 1,
+   "colors": [
+    "#707070",
+    "#969696",
+    "#464546"
+   ],
+   "layout_like": false,
+   "id": "p1ebe66",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L6_cloudy_parking.jpg"
+  }
+ ],
+ "pages": {},
+ "proposals": [
+  {
+   "id": "q1",
+   "after": 1,
+   "options": [
+    {
+     "title": "The Horizon Line",
+     "summary": "Sunset gradient against the deep sea surface.",
+     "label": "A",
+     "n": 1
+    },
+    {
+     "title": "Points of Light",
+     "summary": "Distant red and yellow blurred points in the black night.",
+     "label": "B",
+     "n": 2
+    },
+    {
+     "title": "Fractured Surface",
+     "summary": "Reflections shivering in a gray blue puddle.",
+     "label": "C",
+     "n": 3
+    }
+   ],
+   "adopted": "A"
+  }
+ ],
+ "rankings": [
+  {
+   "id": "r1",
+   "by": "single_subject",
+   "order": [
+    "p443afc",
+    "pe76064",
+    "p80aa6b",
+    "pec1ee9",
+    "p37dd08"
+   ],
+   "table": [
+    {
+     "rank": 1,
+     "photo": "p443afc",
+     "file": "L3_sprout_sand.jpg",
+     "score": 0.991,
+     "evidence": {
+      "brightness": 0.736,
+      "saturation": 0.264,
+      "sharpness": 579.8,
+      "subject_regions": 1,
+      "subject_share": 0.006,
+      "hue": "orange"
+     }
+    },
+    {
+     "rank": 2,
+     "photo": "pe76064",
+     "file": "L5_sunset_sea.jpg",
+     "score": 0.971,
+     "evidence": {
+      "brightness": 0.461,
+      "saturation": 0.459,
+      "sharpness": 102.8,
+      "subject_regions": 1,
+      "subject_share": 0.388,
+      "hue": "red"
+     }
+    },
+    {
+     "rank": 3,
+     "photo": "p80aa6b",
+     "file": "L1_night_red_light.jpg",
+     "score": -0.008,
+     "evidence": {
+      "brightness": 0.066,
+      "saturation": 0.26,
+      "sharpness": 127.6,
+      "subject_regions": 3,
+      "subject_share": 0.021,
+      "hue": "purple"
+     }
+    },
+    {
+     "rank": 4,
+     "photo": "pec1ee9",
+     "file": "L4_string_lights_bw.jpg",
+     "score": -0.009,
+     "evidence": {
+      "brightness": 0.152,
+      "saturation": 0.006,
+      "sharpness": 86.3,
+      "subject_regions": 0,
+      "subject_share": 0.01,
+      "hue": "none"
+     }
+    },
+    {
+     "rank": 5,
+     "photo": "p37dd08",
+     "file": "L2_puddle_reflection.jpg",
+     "score": -0.022,
+     "evidence": {
+      "brightness": 0.411,
+      "saturation": 0.266,
+      "sharpness": 46.3,
+      "subject_regions": 5,
+      "subject_share": 0.32,
+      "hue": "blue"
+     }
+    }
+   ]
+  }
+ ],
+ "concepts": [
+  {
+   "phrase": "Where did you last stop? connects to STYLIST, PHOTOGRAPHER, ARCHITECT (SPA)",
+   "table": [
+    {
+     "term": "SPA-Connection",
+     "definition": "The designer's role as a creator of spaces where people stop and stay.",
+     "connects": "yes",
+     "reason": "'Stop' captures the essence of the Architect's 'good space' where people stay, and the Photographer's 'good photo' that commands a long look, aligning with the SPA persona."
+    },
+    {
+     "term": "Spatial-Impact",
+     "definition": "The physical environment where a person is compelled to pause.",
+     "connects": "yes",
+     "reason": "It invites the audience into the designer's world, questioning their experience of the spaces the Architect crafts."
+    },
+    {
+     "term": "Photographic-Engagement",
+     "definition": "A captured moment that invites prolonged observation.",
+     "connects": "partly",
+     "reason": "While 'stop' implies a physical pause, it also mirrors the way a viewer stops to engage with a compelling photograph."
+    }
+   ],
+   "yes": 2,
+   "of": 3
+  }
+ ],
+ "options": [
+  {
+   "n": 1,
+   "label": "A",
+   "title": "adopt t10",
+   "call": {
+    "tool": "pf_pages",
+    "args": {
+     "action": "adopt",
+     "choice": "t10"
+    }
+   }
+  }
+ ],
+ "last": {
+  "tool": "pf_write",
+  "args": {
+   "kind": "statement",
+   "register": "poetic",
+   "language": "ko",
+   "max_chars": 0,
+   "about": "final_polishing",
+   "n": 1
+  }
+ },
+ "adopted": [
+  {
+   "text": "t1"
+  },
+  {
+   "proposal": "q1",
+   "option": "A",
+   "title": "The Horizon Line"
+  },
+  {
+   "text": "t2"
+  }
+ ]
+}
