@@ -42,10 +42,10 @@ gentlemonster-agy --check
 ```
 
 Then type **`gentlemonster-agy`**.
-- **Model.** It starts agy in `~/gentlemonster` with `--model` set to agy's own name for **Gemini 3 Flash** (`gemini-3-flash-preview`), taken from `agy models`.
-- **If agy does not offer that model,** it stops and lists the models agy does offer. Choosing one is your decision: `export GENTLEMONSTER_AGY_MODEL=` followed by its name, then run it again.
+- **Model.** It starts agy in `~/gentlemonster` with `--model gemini-3.8-flash-high`. This is your choice: agy does not offer `gemini-3-flash-preview`, and its list on your Mac starts with Gemini 3.8 Flash (High).
+- **Another model.** `export GENTLEMONSTER_AGY_MODEL=` followed by a name from `agy models`. If agy stops offering the chosen model, the launcher stops and lists what agy offers. It never picks another one by itself.
 - **Served model.** An interactive agy session does not tell the extension which model served it, so tool results say "served model unknown". `gentlemonster-agy --check` runs one turn and records it.
-- **Quota.** `agy -p "/usage"` or `"/quota"` shows it without spending any. When the plan quota runs out, agy says so itself.
+- **Quota.** `agy -p "/usage"` or `"/quota"` shows it without spending any. On your Mac it reported a **weekly** limit per model family: Gemini models and Claude/GPT models, each with its own reset time. When the quota runs out, agy says so itself.
 
 What the preview could not check without your Mac:
 - that agy reads the MCP servers from `~/gentlemonster/.agents/mcp_config.json` and the rules from `.agents/rules/`. If `--check` reports no gentleMonster tool called, run `agy mcp list` and tell baseline;

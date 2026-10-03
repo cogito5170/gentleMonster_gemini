@@ -59,15 +59,23 @@ ok(AG.ext_dir() == ext, "GENTLEMONSTER_EXT names the checkout")
 del os.environ["GENTLEMONSTER_EXT"]
 
 print("== model choice (agy's own names)")
-lst = json.dumps([{"slug": "gemini-3.5-flash", "displayName": "Gemini 3.5 Flash"}, {"slug": "gemini-3-flash", "displayName": "Gemini 3 Flash"},
-                  {"slug": "gemini-3.1-pro", "displayName": "Gemini 3.1 Pro"}])
-ok(AG.pick_model(lst)[0] == "gemini-3-flash", "the slug for Gemini 3 Flash is picked, not 3.5")
-ok(AG.pick_model(json.dumps({"models": [{"id": "gemini-3-flash-preview"}]}))[0] == "gemini-3-flash-preview", "an id field works too")
-ok(AG.pick_model("gemini-3.8-flash\tGemini 3.8 Flash\ngemini-3-flash\tGemini 3 Flash\n")[0] == "gemini-3-flash", "tab-separated text works too")
-slug, names = AG.pick_model(json.dumps([{"slug": "gemini-3.5-flash"}, {"slug": "gemini-3.1-flash-lite"}, {"slug": "gemini-3-flash-lite"}]))
-ok(slug is None and "gemini-3.5-flash" in names, "no Gemini 3 Flash -> no pick (the user chooses), and the offered names are listed")
+REAL = """gemini-3.8-flash-high     Gemini 3.8 Flash (High)
+gemini-3.8-flash-medium   Gemini 3.8 Flash (Medium)
+gemini-3.7-flash-high     Gemini 3.7 Flash (High)
+gemini-3.1-pro-high       Gemini 3.1 Pro (High)
+claude-sonnet-4-6         Claude Sonnet 4.6 (Thinking)
+"""                                               # `agy models` on the user's Mac, 2026-10-03 (abridged)
+lst = json.dumps([{"slug": "gemini-3.8-flash-medium", "displayName": "Gemini 3.8 Flash (Medium)"},
+                  {"slug": "gemini-3.8-flash-high", "displayName": "Gemini 3.8 Flash (High)"}])
+ok(AG.pick_model(REAL)[0] == "gemini-3.8-flash-high" and "claude-sonnet-4-6" in AG.pick_model(REAL)[1], "the user's agy list: the chosen default is found")
+ok(AG.pick_model(lst)[0] == "gemini-3.8-flash-high", "the json shape works too")
+slug, names = AG.pick_model("gemini-3.8-flash-medium   Gemini 3.8 Flash (Medium)\ngemini-3.8-flash-highest  x\n")
+ok(slug is None and names == ["gemini-3.8-flash-medium", "gemini-3.8-flash-highest"], "default not offered -> no pick, no look-alike taken; the offered names are listed")
+ok(AG.DEFAULT == "gemini-3.8-flash-high", "the default is the user's choice")
 ok(not any(AG.is_flash_3(x) for x in ("gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-3-flash-lite", "Gemini 3.8 Flash")) and
    all(AG.is_flash_3(x) for x in ("gemini-3-flash-preview", "Gemini 3 Flash", "models/gemini-3-flash")), "Gemini 3 Flash is told apart from 3.x and lite")
+ok(AG.same_model("gemini-3.8-flash-high", "Gemini 3.8 Flash (High)") and not AG.same_model("gemini-3.8-flash-high", "gemini-3.7-flash-high"),
+   "the agy slug and its display name compare; another version does not")
 
 print("== served model from agy output (shape assumed)")
 ok(AG.served_models(json.dumps({"result": "2", "model": "gemini-3-flash"})) == ["gemini-3-flash"], "json: a model string")
@@ -116,7 +124,7 @@ models_json = TMP / "models.json"
 echo "ARGS $@ | CWD $(pwd) | MODEL=$GENTLEMONSTER_MODEL HOST=$GENTLEMONSTER_HOST" >> {log}
 [ "$1" = "--version" ] && echo 1.2.16 && exit 0
 [ "$1" = "models" ] && cat {models_json} && exit 0
-case " $* " in *" -p "*) echo '{{"model": "gemini-3-flash", "steps": [{{"tool": "mcp_gentlemonster-portfolio_pf_show"}}], "result": "0"}}' ;; esac
+case " $* " in *" -p "*) echo '{{"model": "Gemini 3.8 Flash (High)", "steps": [{{"tool": "mcp_gentlemonster-portfolio_pf_show"}}], "result": "0"}}' ;; esac
 exit 0
 """)
 (bin_ / "agy").chmod(0o755)
@@ -136,23 +144,23 @@ def launch(*args, path=True, model=""):
 
 
 shutil.rmtree(ws)
-models_json.write_text(lst)
+models_json.write_text(REAL)
 rc, out, calls = launch("-x", "hello")
-ok(rc == 0 and calls[-1].startswith("ARGS --model gemini-3-flash -x hello") and f"CWD {ws}" in calls[-1] and "MODEL=gemini-3-flash HOST=agy" in calls[-1],
-   f"agy starts in the workspace with agy's slug for Gemini 3 Flash, arguments passed, model told to the extension ({calls[-1:]})")
+ok(rc == 0 and calls[-1].startswith("ARGS --model gemini-3.8-flash-high -x hello") and f"CWD {ws}" in calls[-1] and "MODEL=gemini-3.8-flash-high HOST=agy" in calls[-1],
+   f"agy starts in the workspace with the chosen model, arguments passed, model told to the extension ({calls[-1:]})")
 ok((ws / ".agents" / "mcp_config.json").is_file() and (ws / ".agents" / "rules" / AG.RULE).is_file(), "the launcher writes the workspace files")
 rc, out, calls = launch("-x", model="gemini-3.5-flash")
 ok(rc == 0 and calls[-1].startswith("ARGS --model gemini-3.5-flash -x") and not any(c.startswith("ARGS models") for c in calls),
    "GENTLEMONSTER_AGY_MODEL is the user's choice and is used as is")
-models_json.write_text(json.dumps([{"slug": "gemini-3.5-flash"}, {"slug": "gemini-3.1-pro"}]))
+models_json.write_text(json.dumps([{"slug": "gemini-3.5-flash"}, {"slug": "gemini-3.1-pro"}]))   # no gemini-3.8-flash-high
 rc, out, calls = launch()
-ok(rc == 2 and len(out) == 1 and "gemini-3.1-pro" in out[0] and not any("--model" in c for c in calls), "no Gemini 3 Flash in agy -> stop, list, agy not started")
+ok(rc == 2 and len(out) == 1 and "gemini-3.1-pro" in out[0] and not any("--model" in c for c in calls), "the chosen model not offered by agy -> stop, list, agy not started")
 rc, out, calls = launch("--version")
 ok(rc == 0 and out == ["1.2.16"] and calls == ["ARGS --version | CWD " + str(Path.cwd()) + " | MODEL= HOST="] or (rc == 0 and out == ["1.2.16"]),
    "--version passes through to agy")
 models_json.write_text(lst)
 rc, out, calls = launch("--check")
-ok(rc == 0 and any("served model: gemini-3-flash (as asked)" in o and "pf_show" in o for o in out) and "-p" in calls[-1] and "--output-format json" in calls[-1],
+ok(rc == 0 and any("served model: Gemini 3.8 Flash (High) (as asked)" in o and "pf_show" in o for o in out) and "-p" in calls[-1] and "--output-format json" in calls[-1],
    f"--check runs one headless turn and prints the served model ({out})")
 rc, out, calls = launch(path=False)
 ok(rc == 1 and len(out) == 1 and "agy is not on PATH" in out[0], "no agy -> one line with the install command")

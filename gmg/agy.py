@@ -21,7 +21,7 @@ import re
 import sys
 from pathlib import Path
 
-WANTED = "gemini-3-flash-preview"
+DEFAULT = "gemini-3.8-flash-high"   # the user's choice for agy (2026-10-03): agy offers no gemini-3-flash-preview
 RULE = "gentlemonster.md"
 
 
@@ -105,12 +105,10 @@ def is_flash_3(name: str) -> bool:
     return bool(re.search(r"(^|-)gemini-3-flash(-preview)?($|-)", n)) and "lite" not in n
 
 
-def pick_model(models_text: str) -> "tuple[str | None, list[str]]":
-    """agy's own slug for gemini-3-flash-preview, if it offers one; and every name it offers."""
+def pick_model(models_text: str, wanted: str = DEFAULT) -> "tuple[str | None, list[str]]":
+    """`wanted` if agy offers it under that slug (no look-alike is taken in its place); and every name agy offers."""
     names = list(dict.fromkeys(s for s in _strings(_load(models_text)) if s and len(s) < 80))
-    hits = [s for s in names if is_flash_3(s)]
-    slug = next((s for s in hits if " " not in s), hits[0] if hits else None)
-    return slug, names
+    return (wanted if wanted in names else None), names
 
 
 def served_models(output: str) -> "list[str]":
@@ -147,12 +145,13 @@ def tools_called(output: str) -> "list[str]":
 
 
 def main_model() -> int:
-    """`gmg agy-model`: stdin = `agy models --output-format json`; prints the slug, or stops with the choice for the user."""
+    """`gmg agy-model`: stdin = `agy models` (json or the text table); prints DEFAULT if agy offers it, or stops with the choice
+    for the user. GENTLEMONSTER_AGY_MODEL (the launcher) skips this."""
     slug, names = pick_model(sys.stdin.read())
     if slug:
         print(slug)
         return 0
-    sys.stderr.write(f"gentlemonster-agy: agy offers no {WANTED}; it offers: {', '.join(names) or '(nothing listed)'} -- "
+    sys.stderr.write(f"gentlemonster-agy: agy offers no {DEFAULT}; it offers: {', '.join(names) or '(nothing listed)'} -- "
                      "choosing one is your decision: export GENTLEMONSTER_AGY_MODEL= followed by one of them, then run again\n")
     return 2
 

@@ -31,7 +31,7 @@ The same tools run in agy, signed in with the user's Google account. There is no
 | Install: `curl -fsSL https://antigravity.google/cli/install.sh \| bash` | verified (README) |
 | Install location (the block adds `~/.local/bin` to `PATH`) | **assumption** |
 | `--model <slug>`; `agy models --output-format json` lists the slugs; in print mode an unknown `--model` fails and lists the models | verified (CHANGELOG 1.x: "stable, user-facing model slugs", `models` subcommand, print-mode hard fail) |
-| agy's slug for `gemini-3-flash-preview` | **unknown**: `gentlemonster-agy` finds it at run time, or stops and asks |
+| agy's models | **verified on the user's Mac (2026-10-03)**: `agy models` lists gemini-3.8/3.7/3.6-flash-high/medium/low, gemini-3.1-pro-high/low, claude-sonnet-4-6, claude-opus-4-6-thinking, gpt-oss-120b-medium; **no gemini-3-flash-preview**. The launcher stopped as designed; the user chose **gemini-3.8-flash-high** (now the default) |
 | `-p`, `--output-format text\|json\|stream-json`; `AGY_ERROR` line and exit 3 on model/agent failure; `denied_actions` in JSON when a tool is refused | verified (CHANGELOG) |
 | a `model` field in the json/stream-json output | **assumption**. The status-line payload has `.model.display_name` (verified, examples/statusline). `agy-served` reads any `model` string or object. |
 | MCP: stdio servers in `mcp_config.json` (user level `~/.gemini/config/mcp_config.json`, `agy mcp add/list/remove`) | verified (CHANGELOG) |
@@ -45,7 +45,11 @@ The same tools run in agy, signed in with the user's Google account. There is no
   - The status line can show quota usage.
   - When the plan quota runs out, agy can use AI credits ("Use AI Credits" / G1 credits). Otherwise it says "Your AI credits balance is too low to continue."
   - agy stops at once on a daily cap instead of retrying.
-- **Unknown here:** requests per day or minute per model for a Google account. They are not in the repository, and the docs site is blocked. The Mac run's `agy -p "/usage"`, the first line the block prints after sign-in, will show them.
+- **Verified on the user's Mac (2026-10-03).** `agy -p "/usage"` printed two weekly limits:
+  - Gemini models: 96% remaining, reset 2026-10-11 00:56 KST;
+  - Claude and GPT models: 100% remaining, reset 2026-10-11 01:29 KST.
+
+  So for this account the limit is a **weekly share per model family**, not requests per minute.
 - **What the extension shows.** The MCP server never sees agy's quota. agy reports limits itself, and `gentlemonster-agy` does not hide them.
 
 ## Fallback: Gemini CLI with Login with Google (S5)

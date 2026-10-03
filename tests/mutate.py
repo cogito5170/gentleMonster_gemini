@@ -107,6 +107,7 @@ M = [
     ("agy: flash-lite taken for flash", "gmg/agy.py", ' and "lite" not in n', ""),
     ("agy: a refused tool call passes", "gmg/agy.py", "    return 0 if ok and called and not denied else 1", "    return 0 if ok and called else 1"),
     ("agy: model choice made silently", "install/gentlemonster-agy", '| "$GMG" agy-model) || exit 2', '| "$GMG" agy-model) || M=gemini-3.5-flash'),
+    ("agy: a look-alike taken for the chosen model", "gmg/agy.py", "return (wanted if wanted in names else None), names", "return (wanted if wanted in names else (names[0] if names else None)), names"),
     ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
     ("H3: colours not nudged", "gmg/agent.py", "        for _ in range(30):", "        for _ in range(0):"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),

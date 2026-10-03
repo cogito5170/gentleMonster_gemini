@@ -1,8 +1,8 @@
 #!/bin/sh
 # gentlemonster-agy: Antigravity CLI (agy) in the gentleMonster workspace, with this extension's MCP servers and rules.
-# agy signs in with your Google account (no API key, no Gemini API quota). The model is agy's own name for
-# gemini-3-flash-preview (from `agy models`); if agy has none, it stops and lists what agy offers -- the choice is yours
-# (GENTLEMONSTER_AGY_MODEL). `--check` runs one headless turn that calls a gentleMonster tool and prints the served model.
+# agy signs in with your Google account (no API key, no Gemini API quota). The model is gemini-3.8-flash-high, the user's
+# choice (agy offers no gemini-3-flash-preview); GENTLEMONSTER_AGY_MODEL overrides it. If agy does not offer the model, it
+# stops and lists what agy offers. `--check` runs one headless turn that calls a gentleMonster tool and prints the served model.
 W="${GENTLEMONSTER_WORKSPACE:-$HOME/gentlemonster}"
 GMG="$HOME/.gentlemonster/venv/bin/gmg"
 if ! command -v agy >/dev/null 2>&1; then
