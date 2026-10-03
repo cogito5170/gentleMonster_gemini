@@ -1,6 +1,6 @@
 # gentleMonster for Gemini: preview 0.4.0
 
-**This is a preview, not a release.** It is pinned to one commit, `2453034609aa8d3b19f74c54431b6028ded1575e`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
+**This is a preview, not a release.** Each install block is pinned to one commit: **B** (Gemini CLI) to `d0854c8c74c107c7aabc15fadb7aeaf779a43406`, which carries the heap fix (CMD-GMG8); **A** (Antigravity) stays at `2453034609aa8d3b19f74c54431b6028ded1575e`, because the heap fix does not concern agy. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
 
 There are two ways to run it on a Mac. Both use the same tools, and both keep your work in `~/gentleMonster_gemini_out`.
 
@@ -76,7 +76,22 @@ Paste the whole block below into Terminal. It has no comment lines and no placeh
 - runs `gmg doctor`.
 
 ```
-INSTALL_BLOCK
+mkdir -p "$HOME/.gentlemonster/bin" "$HOME/.gentlemonster/cli" "$HOME/.gentlemonster/cli-home"
+npm install --prefix "$HOME/.gentlemonster/cli" --no-fund --no-audit @google/gemini-cli@0.62.0
+GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home" "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions uninstall gentlemonster ; true
+GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home" "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref d0854c8c74c107c7aabc15fadb7aeaf779a43406 --consent --skip-settings
+cp "$HOME/.gentlemonster/cli-home/.gemini/extensions/gentlemonster/install/gentlemonster" "$HOME/.gentlemonster/bin/gentlemonster"
+chmod 755 "$HOME/.gentlemonster/bin/gentlemonster"
+grep -qs 'gentlemonster/bin' "$HOME/.zshrc" || echo 'export PATH="$HOME/.gentlemonster/bin:$PATH"' | tee -a "$HOME/.zshrc"
+export PATH="$HOME/.gentlemonster/bin:$PATH"
+python3 -m venv "$HOME/.gentlemonster/venv"
+"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet --upgrade pip
+"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet "$HOME/.gentlemonster/cli-home/.gemini/extensions/gentlemonster[render]"
+"$HOME/.gentlemonster/venv/bin/python3" -m playwright install chromium
+"$HOME/.gentlemonster/venv/bin/gmg" setup
+if [ -n "$GEMINI_API_KEY" ]; then echo "GEMINI_API_KEY is set"; else echo "GEMINI_API_KEY is NOT set: see USAGE.md step 1"; fi
+gentlemonster --version
+"$HOME/.gentlemonster/venv/bin/gmg" doctor
 ```
 
 Running the block again is safe. It reinstalls the same pinned versions and does not add the `PATH` line twice.

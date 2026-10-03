@@ -90,6 +90,15 @@ ok(not good and "telemetry is off" in msg, "doctor flags settings without the fi
 _, (good, msg) = tm(h)
 ok(good and "heap fix" in msg, "doctor: the fix is in the private CLI's settings")
 
+h = home("docver")
+os.environ["HOME"] = str(h)
+fake = h / "gemini"
+fake.write_text('#!/bin/sh\necho "$GEMINI_CLI_HOME"\n')
+fake.chmod(0o755)
+from gmg import cli as CLI  # noqa: E402
+ok(CLI.cli_version(str(fake), private=True) == str(private(h).parent.parent),
+   "doctor's version check runs the private CLI in its own home, so your ~/.gemini is not written")
+
 print("== the launcher")
 
 

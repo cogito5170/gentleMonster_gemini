@@ -64,7 +64,7 @@ ok("cp \"$HOME/.gentlemonster/cli-home/.gemini/extensions/gentlemonster/install/
 ok(block.count('GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home"') == 2 and "export GEMINI_CLI_HOME" not in block,
    "the block installs the extension into the private CLI home without exporting it into your shell")
 usage = (ROOT / "USAGE.md").read_text()
-ok(block.strip() in usage or "INSTALL_BLOCK" in usage, "USAGE.md shows the same block")
+ok(block.strip() in usage and "INSTALL_BLOCK" not in usage and "PREVIEW_SHA" not in block, "USAGE.md shows the same block, pinned")
 ok("preview" in usage.lower() and "not a release" in usage.lower(), "USAGE.md says preview, not a release")
 print("\n" + ("all passed" if not FAIL else f"{len(FAIL)} failed"))
 sys.exit(1 if FAIL else 0)

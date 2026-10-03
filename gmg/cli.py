@@ -30,6 +30,16 @@ def _name(brief: str, name: str) -> str:
     return "gmg_" + hashlib.sha256(brief.encode()).hexdigest()[:10]
 
 
+def cli_version(g: str, private: bool) -> str:
+    """`gemini --version`. The private CLI runs in its own home, as the launcher runs it, so your ~/.gemini is not written."""
+    import subprocess
+    env = dict(os.environ)
+    if private:
+        from gmg import telemetry as TM
+        env["GEMINI_CLI_HOME"] = str(TM.cli_home())
+    return subprocess.run([g, "--version"], capture_output=True, text=True, timeout=60, env=env).stdout.strip()
+
+
 def doctor(host: str = "") -> int:
     """host "" = Gemini CLI with an API key; "agy" = Antigravity CLI (Google sign-in); "google" = Gemini CLI with Login with Google."""
     ok = True
@@ -77,7 +87,7 @@ def doctor(host: str = "") -> int:
     g = None if host == "agy" else str(private) if private.is_file() else shutil.which("gemini")
     if g:
         try:
-            v = subprocess.run([g, "--version"], capture_output=True, text=True, timeout=60).stdout.strip()
+            v = cli_version(g, private=g == str(private))
             say(v == CLI_PIN, f"Gemini CLI {v}" + (" (private, used by `gentlemonster`)" if g == str(private) else "") + ("" if v == CLI_PIN else
                 f" -- the pinned CLI is {CLI_PIN}; paste the install block from USAGE.md again"))
         except Exception as e:                              # noqa: BLE001

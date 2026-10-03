@@ -116,6 +116,7 @@ M = [
     ("heap: doctor does not flag a missing fix", "gmg/telemetry.py", '    if not _enabled(d):\n        return False, (f"heap fix missing', '    if False:\n        return False, (f"heap fix missing'),
     ("heap: launcher does not apply the fix", "install/gentlemonster", '  "$HOME/.gentlemonster/venv/bin/gmg" cli-settings >/dev/null 2>&1', "  :"),
     ("heap: private home not exported", "install/gentlemonster", "export GEMINI_CLI_HOME", ":"),
+    ("heap: doctor runs the private CLI in your home", "gmg/cli.py", '        env["GEMINI_CLI_HOME"] = str(TM.cli_home())', "        pass"),
     ("cap: results not capped", "gmg/ext_mcp.py", "    if len(text) <= CAP:", "    if True:"),
     ("cap: next list cut", "gmg/ext_mcp.py", '    t = {k: (v if k == "next" else shrink(v)) for k, v in r.items()}', "    t = {k: shrink(v) for k, v in r.items()}"),
     ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
