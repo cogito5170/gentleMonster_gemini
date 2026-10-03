@@ -1,7 +1,7 @@
 mkdir -p "$HOME/.gentlemonster/bin" "$HOME/.gentlemonster/cli" "$HOME/.gentlemonster/cli-home"
 npm install --prefix "$HOME/.gentlemonster/cli" --no-fund --no-audit @google/gemini-cli@0.62.0
 GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home" "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions uninstall gentlemonster ; true
-GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home" "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref d0854c8c74c107c7aabc15fadb7aeaf779a43406 --consent --skip-settings
+GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home" "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref b9cc1eb3853d8d57c20a5944736e3ca965922a10 --consent --skip-settings
 cp "$HOME/.gentlemonster/cli-home/.gemini/extensions/gentlemonster/install/gentlemonster" "$HOME/.gentlemonster/bin/gentlemonster"
 chmod 755 "$HOME/.gentlemonster/bin/gentlemonster"
 grep -qs 'gentlemonster/bin' "$HOME/.zshrc" || echo 'export PATH="$HOME/.gentlemonster/bin:$PATH"' | tee -a "$HOME/.zshrc"

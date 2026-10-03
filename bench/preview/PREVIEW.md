@@ -1,6 +1,6 @@
 # Preview 0.4.0 (CMD-GMG6)
 
-**Frozen preview sha, B block (Gemini CLI):** `d0854c8c74c107c7aabc15fadb7aeaf779a43406` (CMD-GMG8: the heap fix and the tool-result cap, [HEAP.md](HEAP.md); the B block installs into the private CLI home `~/.gentlemonster/cli-home`, and its empty-HOME rerun is [`install_emptyhome_gmg8.log`](install_emptyhome_gmg8.log)).
+**Frozen preview sha, B block (Gemini CLI):** `b9cc1eb3853d8d57c20a5944736e3ca965922a10` (CMD-GMG8: the heap fix and the tool-result cap, [HEAP.md](HEAP.md); the B block installs into the private CLI home `~/.gentlemonster/cli-home`, and its empty-HOME rerun is [`install_emptyhome_gmg8.log`](install_emptyhome_gmg8.log)).
 
 **Frozen preview sha, A block (agy):** `2453034609aa8d3b19f74c54431b6028ded1575e` (agy default gemini-3.8-flash-high; before it `62af1a5d85ef026e8c83036441a2369ef587f78d`) (CMD-GMG7: adds the Antigravity path, [AGY.md](AGY.md); the GMG6 record below was made at `86ae399`, and the B block was rerun at `62af1a5d85ef026e8c83036441a2369ef587f78d` with every doctor line ok). The install block in [`../../USAGE.md`](../../USAGE.md) installs exactly this commit.
 

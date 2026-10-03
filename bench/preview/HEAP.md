@@ -65,6 +65,17 @@ To rerun one row: `GEMINI_JS=<path to the 0.62.0 bundle/gemini.js> TURNS=300 MOD
 - The agy launcher, its workspace config and `gmg doctor --host agy` are unchanged.
 - The doctor line for the heap fix is skipped with `--host agy`.
 
+## Install test
+[`install_emptyhome_gmg8.log`](install_emptyhome_gmg8.log) records the B block at `b9cc1eb3853d8d57c20a5944736e3ca965922a10`. It was run twice in an empty HOME with `zsh -i`, stdin closed.
+- **Extension.** It is in `~/.gentlemonster/cli-home/.gemini/extensions/gentlemonster`, at that ref.
+- **The fix.** The private `settings.json` holds exactly the block above.
+- **Doctor.** Every `gmg doctor` line is `ok`, including "heap fix: the private Gemini CLI keeps telemetry local and discarded, with no prompts logged".
+- **The second run changed nothing.**
+- **MCP servers.** `gentlemonster mcp list` shows both servers **Connected** from the private home.
+- **No `~/.gemini` in HOME after both runs.** The first run, at `d0854c8`, did leave one: `gmg doctor` ran the private CLI's `--version` without `GEMINI_CLI_HOME`, and the CLI wrote `projects.json` temp files into `~/.gemini`. That is fixed in `b9cc1eb`, with a test and a mutation.
+- **Side effect: three notices on stderr.** With telemetry enabled, the CLI prints them to stderr only, never stdout: a clamped export timeout, a deprecated `metricReader` option and `[TELEMETRY] GEMINI_MEMORY_MONITOR_INTERVAL`. Nothing is exported: the target is local and the file is `/dev/null`.
+- **Not tested here: a real Mac, and a live model turn.** No Gemini request was spent on this directive.
+
 ## Tests
 - **`tests/test_heapfix.py`** checks the following:
   - the fix is written to the private settings when telemetry is off, and the sign-in choice is copied;
@@ -72,7 +83,7 @@ To rerun one row: `GEMINI_JS=<path to the 0.62.0 bundle/gemini.js> TURNS=300 MOD
   - a rerun changes nothing;
   - a private config that enables telemetry is left alone, and other keys are kept;
   - a `GEMINI_CLI_HOME` you set yourself is respected;
-  - doctor flags an old launcher and settings without the fix;
+  - doctor flags an old launcher and settings without the fix, and runs the private CLI in its own home;
   - the launcher runs the CLI in the private home;
   - the cap: small results unchanged, big ones under 4000 characters with `next` whole and the full result on disk, essentials kept.
 - **`tests/test_install.py`** checks that the block installs into the private home.
@@ -82,6 +93,7 @@ To rerun one row: `GEMINI_JS=<path to the 0.62.0 bundle/gemini.js> TURNS=300 MOD
   - your `~/.gemini` written;
   - prompts logged;
   - doctor not flagging;
+  - doctor running the private CLI in your home;
   - launcher not applying the fix;
   - private home not exported;
   - results not capped;
