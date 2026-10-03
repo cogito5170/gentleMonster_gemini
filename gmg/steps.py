@@ -98,8 +98,13 @@ def read_brief(ctx, brief: str, brand: str = "") -> dict:
     if probs:
         raise StepFailed("brief", probs)
     W, D = stated_size(brief)
-    out = dict(v, brand=brand or v["brand_named"] or "Gentle Monster", W=W, D=D, text=brief)
-    src = "given" if brand else ("named in the brief" if v["brand_named"] else "none named -> Gentle Monster (the gentleMonster default)")
+    named = v["brand_named"].strip()
+    # a brand counts as named only if its Latin letters are in the brief itself -- the model may not invent one
+    seen = bool(named) and any(w.lower() in brief.lower() for w in re.findall(r"[A-Za-z]{2,}", named))
+    out = dict(v, brand=brand or (named if seen else "") or "Gentle Monster", W=W, D=D, text=brief)
+    src = ("given" if brand else "named in the brief" if seen else
+           f"the model read {named!r} as a brand but it is not in the brief -> Gentle Monster" if named else
+           "none named -> Gentle Monster (the gentleMonster default)")
     return _decide(ctx, "brief", out, asks, brief=brief, why={"brand": src, "size": "read from the brief by code" if W else "not stated"})
 
 

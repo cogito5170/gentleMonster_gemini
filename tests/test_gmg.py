@@ -58,7 +58,9 @@ ok(len(bad) == 6, f"enum · Korean · count · sentences · must-word · pattern
 ok(not any("rule" in b.lower() for b in bad), "facts, not rule names")
 ok(S.check({"b": "x"}, s)[0].endswith(".a is missing"), "a missing field is named")
 g = S.to_gemini(s)
-ok(g["type"] == "OBJECT" and "english" not in json.dumps(g) and "pattern" not in json.dumps(g) and g["propertyOrdering"] == list(s["properties"]),
+ok(g["properties"]["b"]["description"] == "(at most 10 characters, English)" and g["properties"]["d"]["description"] == "(2-3 sentences)",
+   "limits Gemini has no key for are said in the description")
+ok(g["type"] == "OBJECT" and '"english"' not in json.dumps(g) and "pattern" not in json.dumps(g) and g["propertyOrdering"] == list(s["properties"]),
    "responseSchema keeps only Gemini keys, ordered")
 
 sec("size is read by code, not by the model")
@@ -96,6 +98,7 @@ ok(spec.check(job) == [], "job.json passes the pinned spec.check")
 ok(r["artifacts"] == {"job": "done", "synopsis": "done"}, "artifacts recorded with their hashes")
 ok(all(e.get("reported") == "gemini-3.1-flash-lite" for e in L.run() if e["kind"] == "MODEL_CALL"), "every call records the model the response named")
 ok(L.decision("brief")["output"]["W"] == 9.0, "the stated width reaches the plan")
+ok(L.decision("brief")["output"]["brand"] == "Gentle Monster", "a brand the model read but the brief does not contain is not used")
 ok(FAKE_KEY not in L.path.read_text(), "the key is not in the ledger")
 ok(all("#" in w["d"] or any(c.isdigit() for c in w["d"]) or w["d"] for w in job["why"]) and len(job["why"]) == 4, "why = 4 items")
 ok(all(w["d"].startswith(f_) for w, f_ in zip(job["why"], L.decision("story")["facts"])), "each why starts with the code's measured fact")

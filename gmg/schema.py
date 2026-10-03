@@ -12,8 +12,23 @@ HANGUL = re.compile("[가-힣]")
 _GEMINI_KEYS = {"type", "enum", "properties", "required", "items", "minItems", "maxItems", "description", "nullable", "propertyOrdering"}
 
 
+def _hint(s: dict) -> str:
+    """Limits Gemini's schema has no key for, said in words in the description (code still enforces them)."""
+    h = []
+    if "maxLength" in s:
+        h.append(f"at most {s['maxLength']} characters")
+    if "sentences" in s:
+        lo, hi = s["sentences"]
+        h.append(f"{lo} sentence" if lo == hi == 1 else f"{lo}-{hi} sentences")
+    if s.get("english"):
+        h.append("English")
+    return " ".join(filter(None, [s.get("description", ""), f"({', '.join(h)})" if h else ""]))
+
+
 def to_gemini(s: dict) -> dict:
     out = {}
+    if s.get("type") == "string" and _hint(s):
+        out["description"] = _hint(s)
     for k, v in s.items():
         if k not in _GEMINI_KEYS:
             continue
@@ -24,7 +39,7 @@ def to_gemini(s: dict) -> dict:
             out["propertyOrdering"] = list(v)
         elif k == "items":
             out[k] = to_gemini(v)
-        else:
+        elif k != "description" or "description" not in out:
             out[k] = v
     return out
 

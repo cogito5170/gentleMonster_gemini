@@ -19,6 +19,7 @@ M = [
     ("Korean not caught", "gmg/schema.py", 'if s.get("english") and HANGUL.search(v):', "if False:"),
     ("no re-ask", "gmg/steps.py", "def _ask(ctx, step, prompt, sch, extra=None, retries=1,", "def _ask(ctx, step, prompt, sch, extra=None, retries=0,"),
     ("size not read", "gmg/steps.py", "            return float(m.group(1)), float(m.group(2))", "            return None, None"),
+    ("brand invented", "gmg/steps.py", "    out = dict(v, brand=brand or (named if seen else \"\") or \"Gentle Monster\"", "    out = dict(v, brand=brand or named or \"Gentle Monster\""),
     ("cast fallback off", "gmg/steps.py", "        if bad:                                     # keep", "        if False:                                   # keep"),
     ("why without the measured fact", "gmg/steps.py", 'out["why"] = [{"t": w["t"], "d": f"{F[i]} {w[\'meaning\']}"}', 'out["why"] = [{"t": w["t"], "d": w["meaning"]}'),
     ("pin not checked", "gmg/upstream.py", 'if head(r) != LOCK["commit"]:\n        raise NotReady(f"gentleMonster is not', 'if False:\n        raise NotReady(f"gentleMonster is not'),
