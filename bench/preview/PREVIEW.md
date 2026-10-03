@@ -1,6 +1,6 @@
 # Preview 0.4.0 (CMD-GMG6)
 
-**Frozen preview sha:** `86ae399e0028e7bdfe95b38681a70413fec34675`. The install block in [`../../USAGE.md`](../../USAGE.md) installs exactly this commit.
+**Frozen preview sha:** `62af1a5d85ef026e8c83036441a2369ef587f78d` (CMD-GMG7: adds the Antigravity path, [AGY.md](AGY.md); the GMG6 record below was made at `86ae399`, and the B block was rerun at `62af1a5d85ef026e8c83036441a2369ef587f78d` with every doctor line ok). The install block in [`../../USAGE.md`](../../USAGE.md) installs exactly this commit.
 
 ## What it contains
 - **The GMG4 extension** (the H1 guard, the served-model record, two MCP servers; the CLI pin is now 0.62.0), with GMG3's portfolio tools.

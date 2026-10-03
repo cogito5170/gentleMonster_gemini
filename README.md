@@ -14,6 +14,8 @@ English; gentleMonster prints English pages.
 > overrides it for experiments). It also explains how to export real use (`gmg export`). The exports go only to the
 > private `cogito5170/gm-photos` repository, under `usage/`.
 
+**Antigravity CLI (CMD-GMG7).** The same MCP servers and rules also run inside Google's Antigravity CLI (`agy`), which signs in with a Google account (no API key, no Gemini API quota): `gentlemonster-agy`, installed by USAGE.md section A. What is verified from agy's own repository and what is still an assumption until the run on the Mac is listed in [`bench/preview/AGY.md`](bench/preview/AGY.md).
+
 **Which model serves.**
 
 | Gemini CLI | `gemini-3-flash-preview` (API key) | `gemini-3.1-flash-lite` (API key) |

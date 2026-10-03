@@ -1,0 +1,39 @@
+== Antigravity install block (install/macos-agy.zsh) at 62af1a5d85ef026e8c83036441a2369ef587f78d, empty HOME, zsh -i, stdin closed, a FAKE agy on PATH (no real sign-in, no model call)
+== run 2 output (run 1 is the same plus the first clone):
+(fake agy on PATH)
+1.2.16 (fake)
+plan	Gemini 3 Flash	100% remaining
+Failed to install browsers
+Error: Failed to download Chrome for Testing 153.0.8010.12 (playwright chromium v1243), caused by
+Error: Download failure, code=1
+[setup] gentleMonster @ 5fdc25e7d62c ok ($HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47)
+1.2.16 (fake)
+  ok   gentleMonster at the pinned commit 5fdc25e7d62c
+  --   no API key needed (Antigravity CLI signs in with your Google account)
+  ok   Antigravity CLI 1.2.16 (fake)
+  ok   agy workspace $HOME/gentlemonster has this extension's MCP servers and rules
+  ok   PIL (for the PDFs)
+  ok   numpy (for the PDFs)
+  ok   matplotlib (for the PDFs)
+  ok   playwright (for the PDFs)
+  ok   Chromium starts (the PDFs are drawn in it)
+served model: gemini-3-flash (as asked); gentleMonster tools called: pf_show
+
+== run 2 vs run 1 (~/.zshrc, launcher, workspace files, extension commit): no change
+export PATH="$HOME/.gentlemonster/bin:$PATH"
+cda8631105cd21a79d2f822d6c234a50db6108c3c622bb9ea50d1f66e74adb3d  .gentlemonster/bin/gentlemonster-agy
+d8ea09e4bc3910210ee2f844a0298ecc98238cca63601c62e678ae2a165eeb10  gentlemonster/.agents/mcp_config.json
+38f47fec9145b5ef66fb21518b3694c47bfd5682b4763db66da312c51c8dc34d  gentlemonster/.agents/rules/gentlemonster.md
+62af1a5d85ef026e8c83036441a2369ef587f78d
+
+== calls the fake agy received (run 2)
+AGY --version | cwd=$HOME | model= host=
+AGY -p /usage | cwd=$HOME | model= host=
+AGY --version | cwd=$HOME | model= host=
+AGY --version | cwd=$HOME | model= host=
+AGY models --output-format json | cwd=$HOME | model= host=
+AGY --model gemini-3-flash -p Call the gentleMonster tool pf_show once, then reply with one line: the number of texts it reports. --output-format json | cwd=$HOME/gentlemonster | model=gemini-3-flash host=agy
+
+== each MCP server started exactly as .agents/mcp_config.json says (initialize, tools/list, one call)
+gentlemonster: serverInfo 0.4.0-preview, 8 tools
+gentlemonster-portfolio: serverInfo 0.4.0-preview, 8 tools, pf_show ok
