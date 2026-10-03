@@ -96,7 +96,7 @@ M = [
     ("launcher: model not forced", "install/gentlemonster", 'exec "$G" -m "$GENTLEMONSTER_MODEL" "$@"', 'exec "$G" "$@"'),
     ("launcher: model not passed to the extension", "install/gentlemonster", "export GENTLEMONSTER_MODEL\n", "\n"),
     ("launcher: CLI version not checked", "install/gentlemonster", 'if [ "$V" != "$PIN" ]; then', "if false; then"),
-    ("launcher: extension not checked", "install/gentlemonster", 'if [ ! -f "$HOME/.gemini/extensions/gentlemonster/gemini-extension.json" ]; then', "if false; then"),
+    ("launcher: extension not checked", "install/gentlemonster", 'if [ ! -f "$GEMINI_CLI_HOME/.gemini/extensions/gentlemonster/gemini-extension.json" ]; then', "if false; then"),
     ("launcher: model forced on management commands", "install/gentlemonster", '  mcp|extensions|extension|skills|skill|hooks|hook|gemma) exec "$G" "$@" ;;', '  nothing-matches) exec "$G" "$@" ;;'),
     ("agy: MCP server path wrong", "gmg/agy.py", '"args": [str(ext / "server.py"), "--tools", group]', '"args": [str(ext / "srv.py"), "--tools", group]'),
     ("agy: instructions file missing", "gmg/agy.py", ',\n            f".agents/rules/{RULE}": rules}', "}"),
@@ -108,11 +108,21 @@ M = [
     ("agy: a refused tool call passes", "gmg/agy.py", "    return 0 if ok and called and not denied else 1", "    return 0 if ok and called else 1"),
     ("agy: model choice made silently", "install/gentlemonster-agy", '| "$GMG" agy-model) || exit 2', '| "$GMG" agy-model) || M=gemini-3.5-flash'),
     ("agy: a look-alike taken for the chosen model", "gmg/agy.py", "return (wanted if wanted in names else None), names", "return (wanted if wanted in names else (names[0] if names else None)), names"),
+    # CMD-GMG8: the heap fix and the tool-result cap
+    ("heap: setting not written", "gmg/telemetry.py", '        d["telemetry"] = dict(FIX["telemetry"])', "        pass"),
+    ("heap: user telemetry config overwritten", "gmg/telemetry.py", '    if not _enabled(d):\n        d["telemetry"]', '    if True:\n        d["telemetry"]'),
+    ("heap: user's ~/.gemini written", "gmg/telemetry.py", 'return cli_home() / ".gemini" / "settings.json"', 'return _home() / ".gemini" / "settings.json"'),
+    ("heap: prompts logged", "gmg/telemetry.py", '"outfile": "/dev/null", "logPrompts": False}', '"outfile": "/dev/null", "logPrompts": True}'),
+    ("heap: doctor does not flag a missing fix", "gmg/telemetry.py", '    if not _enabled(d):\n        return False, (f"heap fix missing', '    if False:\n        return False, (f"heap fix missing'),
+    ("heap: launcher does not apply the fix", "install/gentlemonster", '  "$HOME/.gentlemonster/venv/bin/gmg" cli-settings >/dev/null 2>&1', "  :"),
+    ("heap: private home not exported", "install/gentlemonster", "export GEMINI_CLI_HOME", ":"),
+    ("cap: results not capped", "gmg/ext_mcp.py", "    if len(text) <= CAP:", "    if True:"),
+    ("cap: next list cut", "gmg/ext_mcp.py", '    t = {k: (v if k == "next" else shrink(v)) for k, v in r.items()}', "    t = {k: shrink(v) for k, v in r.items()}"),
     ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
     ("H3: colours not nudged", "gmg/agent.py", "        for _ in range(30):", "        for _ in range(0):"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
-TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py", "tests/test_install.py", "tests/test_agy.py"]
+TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py", "tests/test_install.py", "tests/test_agy.py", "tests/test_heapfix.py"]
 
 
 def main() -> int:

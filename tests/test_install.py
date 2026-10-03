@@ -37,10 +37,10 @@ def run_launcher(version, extension, *args, model=""):
     if version:
         b = home / ".gentlemonster" / "cli" / "node_modules" / ".bin"
         b.mkdir(parents=True)
-        (b / "gemini").write_text("#!/bin/sh\n[ \"$1\" = --version ] && echo " + version + " && exit 0\necho ARGS \"$@\" MODEL=$GENTLEMONSTER_MODEL\n")
+        (b / "gemini").write_text("#!/bin/sh\n[ \"$1\" = --version ] && echo " + version + " && exit 0\necho ARGS \"$@\" MODEL=$GENTLEMONSTER_MODEL\n[ \"$GEMINI_CLI_HOME\" = \"$HOME/.gentlemonster/cli-home\" ] || echo WRONG_HOME\n")
         (b / "gemini").chmod(0o755)
     if extension:
-        e = home / ".gemini" / "extensions" / "gentlemonster"
+        e = home / ".gentlemonster" / "cli-home" / ".gemini" / "extensions" / "gentlemonster"
         e.mkdir(parents=True)
         (e / "gemini-extension.json").write_text("{}")
     p = subprocess.run(["sh", str(launcher), *args], capture_output=True, text=True, env={"HOME": str(home), "PATH": "/usr/bin:/bin", **({"GENTLEMONSTER_MODEL": model} if model else {})})
@@ -60,7 +60,9 @@ rc, out = run_launcher("", True)
 ok(rc == 1 and len(out) == 1 and "missing" in out[0], "no private CLI -> one line")
 rc, out = run_launcher("0.62.0", False)
 ok(rc == 1 and len(out) == 1 and "extension is not installed" in out[0], "no extension -> one line")
-ok("cp \"$HOME/.gemini/extensions/gentlemonster/install/gentlemonster\"" in block, "the block installs this launcher from the pinned extension")
+ok("cp \"$HOME/.gentlemonster/cli-home/.gemini/extensions/gentlemonster/install/gentlemonster\"" in block, "the block installs this launcher from the pinned extension")
+ok(block.count('GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home"') == 2 and "export GEMINI_CLI_HOME" not in block,
+   "the block installs the extension into the private CLI home without exporting it into your shell")
 usage = (ROOT / "USAGE.md").read_text()
 ok(block.strip() in usage or "INSTALL_BLOCK" in usage, "USAGE.md shows the same block")
 ok("preview" in usage.lower() and "not a release" in usage.lower(), "USAGE.md says preview, not a release")

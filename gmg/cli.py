@@ -84,6 +84,9 @@ def doctor(host: str = "") -> int:
             say(False, f"Gemini CLI version could not be read: {type(e).__name__}")
     elif host != "agy":
         print("  --   Gemini CLI not on PATH (the extension needs it; the API harness does not)")
+    if host != "agy":
+        from gmg import telemetry as TM
+        say(*TM.check())
     for mod in ("PIL", "numpy", "matplotlib", "playwright"):
         try:
             __import__(mod)
@@ -112,6 +115,7 @@ def main(argv=None) -> int:
     dr.add_argument("--host", choices=["", "agy", "google"], default="")
     ag = sub.add_parser("agy-setup", help="write the agy workspace files (MCP servers, rules); rerun-safe")
     ag.add_argument("--workspace", default=str(Path.home() / "gentlemonster"))
+    sub.add_parser("cli-settings", help="for the gentlemonster launcher: put the heap fix into the private CLI's settings when telemetry is off")
     sub.add_parser("agy-model", help="stdin: agy models --output-format json; prints agy's slug for gemini-3-flash-preview")
     sub.add_parser("agy-served", help="stdin: an agy -p --output-format json run; records and prints the served model")
     sub.add_parser("plans")
@@ -152,6 +156,11 @@ def main(argv=None) -> int:
             from gmg import agy as AG
             changed = AG.setup(a.workspace, str(Path(sys.executable)))
             print(f"agy workspace {a.workspace}: " + (", ".join(changed) + " written" if changed else "up to date"))
+            return 0
+        if a.cmd == "cli-settings":
+            from gmg import telemetry as TM
+            p, changed = TM.ensure()
+            print(f"{p}: " + ("heap fix written" if changed else "up to date"))
             return 0
         if a.cmd == "agy-model":
             from gmg import agy as AG

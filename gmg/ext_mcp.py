@@ -122,6 +122,42 @@ def _tools() -> list:
     ]
 
 
+CAP = 4000                       # characters per tool result (CMD-GMG8 S2, as well_used_gemini): the CLI keeps every result in its history
+KEEP = ("ok", "next", "problems", "say", "verdict", "job", "served", "unmeasured_images")
+
+
+def cap_result(r: dict) -> dict:
+    """A result over CAP keeps its closed `next` list and the essentials; long lists keep their last 10 items and long text
+    is cut; the full result goes to <GMG_OUT>/results/<id>.json and the trimmed one says so. Never image bytes (no tool
+    returns them; paths and measured values only)."""
+    text = json.dumps(r, ensure_ascii=False, separators=(",", ":"))
+    if len(text) <= CAP:
+        return r
+    import hashlib
+    import os
+    from pathlib import Path
+    rid = hashlib.sha256(text.encode()).hexdigest()[:12]
+    out = Path(os.environ.get("GMG_OUT") or (Path.home() / "gentleMonster_gemini_out")) / "results"
+    out.mkdir(parents=True, exist_ok=True)
+    (out / f"{rid}.json").write_text(text, encoding="utf-8")
+
+    def shrink(v):
+        if isinstance(v, list) and len(v) > 10:
+            return v[-10:]
+        if isinstance(v, str) and len(v) > 800:
+            return v[:800] + " ..."
+        return v
+    t = {k: (v if k == "next" else shrink(v)) for k, v in r.items()}
+    t["truncated"] = {"result_id": rid, "chars": len(text), "note": f"result over {CAP} characters: long lists keep their last 10 items; "
+                      f"the full result is kept on disk (results/{rid}.json)"}
+    if len(json.dumps(t, ensure_ascii=False, separators=(",", ":"))) > CAP:
+        t = {k: (v if k == "next" else shrink(v)) for k, v in r.items() if k in KEEP}
+        t["truncated"] = {"result_id": rid, "chars": len(text), "dropped": sorted(set(r) - set(KEEP)),
+                          "note": f"result over {CAP} characters: only the essentials are shown; the full result is kept on disk "
+                                  f"(results/{rid}.json)"}
+    return t
+
+
 def handle(msg: dict):
     mid, method, p = msg.get("id"), msg.get("method"), msg.get("params") or {}
     if mid is None:
@@ -157,6 +193,7 @@ def handle(msg: dict):
                 r["served"] = w
             usage.log("call", tool=p.get("name"), args=p.get("arguments") or {}, ok=bool(r.get("ok")), redirected=g is not None,
                       problems=(r.get("problems") or [])[:8], next=[n.get("tool") for n in r.get("next") or [] if isinstance(n, dict)])
+            r = cap_result(r)
             res = {"content": [{"type": "text", "text": json.dumps(r, ensure_ascii=False, separators=(",", ":"))}], "isError": not r.get("ok", False)}
         elif method == "ping":
             res = {}

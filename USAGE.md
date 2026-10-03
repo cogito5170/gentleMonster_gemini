@@ -53,7 +53,7 @@ What the preview could not check without your Mac:
 
 ## B. Gemini CLI
 
-**With Login with Google (no API key).** Run the B install block below. Then start with `env -u GEMINI_API_KEY gentlemonster` and choose **Login with Google** when the CLI asks.
+**With Login with Google (no API key).** Run the B install block below. Then start with `env -u GEMINI_API_KEY gentlemonster` and choose **Login with Google** when the CLI asks. The private CLI keeps its own sign-in, so you sign in once for it.
 - This uses the Code Assist free tier, not the API key's quota.
 - **Model.** CLI 0.62.0 serves `gemini-3-flash-preview` as asked only when your account has preview-model access. Otherwise it switches to the latest Gemini Flash. Every tool result says so when that happens.
 - **Checks.** `"$HOME/.gentlemonster/venv/bin/gmg" doctor --host google` checks everything except the key.
@@ -66,33 +66,22 @@ Before you start:
 - **A Gemini API key**, in `GEMINI_API_KEY`.
 - **A billing-enabled key, for real use.** The free tier allows only **20 requests per day** for `gemini-3-flash-preview`, and one store job took about 7 requests in the flash-lite bench (more when the model is asked again). When the quota runs out, the CLI stops with a quota error until the next day.
 
-Paste the whole block below into Terminal. It has no comment lines and no placeholders, so zsh runs it as is. It does five things:
+Paste the whole block below into Terminal. It has no comment lines and no placeholders, so zsh runs it as is. It does the following:
 - installs a **private** Gemini CLI **0.62.0** under `~/.gentlemonster`. Your own `gemini`, if you have one, is not touched, and no `sudo` is needed. 0.62.0 serves `gemini-3-flash-preview` as asked (README, "Which model serves");
-- installs the extension at the pinned commit, and the command **`gentlemonster`**. Its folder is added to `PATH` with one line in `~/.zshrc`, added once;
+- installs the extension at the pinned commit **into the private CLI's own home**, `~/.gentlemonster/cli-home`. That CLI keeps its settings, extensions and sign-in there. Your own `~/.gemini` is not touched;
+- installs the command **`gentlemonster`**. Its folder is added to `PATH` with one line in `~/.zshrc`, added once;
+- **applies the heap fix** (CMD-GMG8). Gemini CLI 0.62 with telemetry off keeps every request in memory, and long sessions die with "JavaScript heap out of memory". The private CLI's settings get telemetry kept local and discarded, with no prompts logged. A setting there that already enables telemetry is left alone;
 - puts the Python parts in their own folder, `~/.gentlemonster/venv`;
 - checks that `GEMINI_API_KEY` is set, without printing it;
 - runs `gmg doctor`.
 
 ```
-mkdir -p "$HOME/.gentlemonster/bin" "$HOME/.gentlemonster/cli"
-npm install --prefix "$HOME/.gentlemonster/cli" --no-fund --no-audit @google/gemini-cli@0.62.0
-"$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions uninstall gentlemonster ; true
-"$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref 2453034609aa8d3b19f74c54431b6028ded1575e --consent --skip-settings
-cp "$HOME/.gemini/extensions/gentlemonster/install/gentlemonster" "$HOME/.gentlemonster/bin/gentlemonster"
-chmod 755 "$HOME/.gentlemonster/bin/gentlemonster"
-grep -qs 'gentlemonster/bin' "$HOME/.zshrc" || echo 'export PATH="$HOME/.gentlemonster/bin:$PATH"' | tee -a "$HOME/.zshrc"
-export PATH="$HOME/.gentlemonster/bin:$PATH"
-python3 -m venv "$HOME/.gentlemonster/venv"
-"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet --upgrade pip
-"$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet "$HOME/.gemini/extensions/gentlemonster[render]"
-"$HOME/.gentlemonster/venv/bin/python3" -m playwright install chromium
-"$HOME/.gentlemonster/venv/bin/gmg" setup
-if [ -n "$GEMINI_API_KEY" ]; then echo "GEMINI_API_KEY is set"; else echo "GEMINI_API_KEY is NOT set: see USAGE.md step 1"; fi
-gentlemonster --version
-"$HOME/.gentlemonster/venv/bin/gmg" doctor
+INSTALL_BLOCK
 ```
 
 Running the block again is safe. It reinstalls the same pinned versions and does not add the `PATH` line twice.
+
+**Installed before CMD-GMG8?** Paste the block again. The extension now lives in the private CLI's home. An older copy in `~/.gemini/extensions/gentlemonster` belongs to your own `gemini`; remove it with `gemini extensions uninstall gentlemonster` if you no longer want it there.
 
 For the API key: if the block says `GEMINI_API_KEY is NOT set`, run `export GEMINI_API_KEY=` followed by your key, with no space. Add the same line to `~/.zshrc`, then paste the block again.
 
@@ -152,7 +141,6 @@ Each batch is scored at the frozen commit before anything is tuned on it. A batc
 ## Remove
 
 ```
-"$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions uninstall gentlemonster
 rm -rf "$HOME/.gentlemonster" "$HOME/gentlemonster/.agents"
 ```
 

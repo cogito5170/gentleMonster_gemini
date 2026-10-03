@@ -4,17 +4,29 @@
 # checked before every start. GENTLEMONSTER_MODEL overrides the model for experiments and is passed on, so the
 # extension's served-model check compares against what was asked.
 # Other arguments pass through; management commands (mcp, extensions, skills, hooks, gemma) take no model.
-# The user's own `gemini` is never touched.
+# The user's own `gemini` and ~/.gemini are never touched.
 PIN=0.62.0
 G="$HOME/.gentlemonster/cli/node_modules/.bin/gemini"
+# The private CLI keeps its own settings, extensions and sign-in in ~/.gentlemonster/cli-home/.gemini (GEMINI_CLI_HOME);
+# your own ~/.gemini is not read for them and never written.
+if [ -z "$GEMINI_CLI_HOME" ]; then
+  GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home"
+fi
+export GEMINI_CLI_HOME
 V=$("$G" --version 2>/dev/null | tr -d '[:space:]')
 if [ "$V" != "$PIN" ]; then
   echo "gentlemonster: the private Gemini CLI is ${V:-missing}, not $PIN -- run: npm install --prefix \"\$HOME/.gentlemonster/cli\" @google/gemini-cli@$PIN"
   exit 1
 fi
-if [ ! -f "$HOME/.gemini/extensions/gentlemonster/gemini-extension.json" ]; then
+if [ ! -f "$GEMINI_CLI_HOME/.gemini/extensions/gentlemonster/gemini-extension.json" ]; then
   echo "gentlemonster: the extension is not installed -- paste the install block from USAGE.md again"
   exit 1
+fi
+# Heap fix (CMD-GMG8, from well_used_gemini HEAP.md): with telemetry off, Gemini CLI 0.62 keeps every request in memory and
+# long sessions die of heap OOM. Telemetry kept local and discarded (no prompts logged) goes into the private CLI's settings
+# when they do not enable telemetry already.
+if [ -x "$HOME/.gentlemonster/venv/bin/gmg" ]; then
+  "$HOME/.gentlemonster/venv/bin/gmg" cli-settings >/dev/null 2>&1
 fi
 case "$1" in
   mcp|extensions|extension|skills|skill|hooks|hook|gemma) exec "$G" "$@" ;;

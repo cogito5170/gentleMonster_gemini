@@ -1,0 +1,38 @@
+default: turns 294 · heap 104 -> 236 MB · slope 533.8 KB/turn · request 53 -> 552 KB · tool result median 2168 chars
+   turn    0  heap   104.0 MB  rss   248.6 MB  request     53.4 KB
+   turn   49  heap   112.1 MB  rss   260.0 MB  request    167.0 KB
+   turn   98  heap   129.9 MB  rss   280.8 MB  request    280.6 KB
+   turn  147  heap   149.1 MB  rss   301.8 MB  request    394.2 KB
+   turn  196  heap   178.9 MB  rss   335.2 MB  request    447.8 KB
+   turn  245  heap   203.1 MB  rss   361.3 MB  request    501.3 KB
+default2: turns 290 · heap 102 -> 232 MB · slope 532.7 KB/turn · request 53 -> 543 KB · tool result median 2168 chars
+   turn    0  heap   102.1 MB  rss   230.6 MB  request     53.4 KB
+   turn   48  heap   113.8 MB  rss   262.6 MB  request    164.7 KB
+   turn   96  heap   127.2 MB  rss   276.6 MB  request    275.9 KB
+   turn  144  heap   145.2 MB  rss   296.0 MB  request    387.3 KB
+   turn  192  heap   176.4 MB  rss   329.2 MB  request    438.6 KB
+   turn  240  heap   203.1 MB  rss   361.6 MB  request    489.9 KB
+   turn  288  heap   231.7 MB  rss   392.2 MB  request    541.1 KB
+clihome: turns 290 · heap 104 -> 132 MB · slope 79.5 KB/turn · request 53 -> 544 KB · tool result median 2168 chars
+   turn    0  heap   103.5 MB  rss   239.3 MB  request     53.4 KB
+   turn   48  heap   122.5 MB  rss   269.6 MB  request    164.7 KB
+   turn   96  heap   119.9 MB  rss   277.4 MB  request    275.9 KB
+   turn  144  heap   118.6 MB  rss   286.0 MB  request    387.3 KB
+   turn  192  heap   131.9 MB  rss   290.7 MB  request    438.7 KB
+   turn  240  heap   128.3 MB  rss   300.6 MB  request    490.1 KB
+   turn  288  heap   132.4 MB  rss   305.4 MB  request    541.4 KB
+userfix: turns 144 · heap 104 -> 118 MB · slope 55.5 KB/turn · request 53 -> 385 KB · tool result median 2167 chars
+   turn    0  heap   103.9 MB  rss   245.9 MB  request     53.4 KB
+   turn   24  heap   114.2 MB  rss   259.2 MB  request    109.0 KB
+   turn   48  heap   122.5 MB  rss   270.3 MB  request    164.7 KB
+   turn   72  heap   112.1 MB  rss   275.5 MB  request    220.3 KB
+   turn   96  heap   120.0 MB  rss   277.9 MB  request    275.9 KB
+   turn  120  heap   128.0 MB  rss   282.0 MB  request    331.6 KB
+fixed: turns 292 · heap 104 -> 234 MB · slope 534.9 KB/turn · request 53 -> 548 KB · tool result median 2168 chars
+   turn    0  heap   103.7 MB  rss   247.7 MB  request     53.4 KB
+   turn   48  heap   111.9 MB  rss   259.1 MB  request    164.6 KB
+   turn   96  heap   128.6 MB  rss   278.1 MB  request    275.9 KB
+   turn  144  heap   148.6 MB  rss   299.8 MB  request    387.3 KB
+   turn  192  heap   177.0 MB  rss   331.4 MB  request    438.4 KB
+   turn  240  heap   202.6 MB  rss   359.6 MB  request    489.5 KB
+   turn  288  heap   234.0 MB  rss   392.3 MB  request    540.5 KB
