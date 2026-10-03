@@ -17,6 +17,7 @@ import os
 import re
 import sys
 import urllib.request
+from pathlib import Path
 
 from gmg import MODEL, run, upstream
 from gmg.gemini import API, key
@@ -103,6 +104,9 @@ def main(argv=None) -> int:
         if c == "explain":
             x.add_argument("--step", default="")
     sub.add_parser("runs")
+    ex = sub.add_parser("export", help="one JSONL per session of real use, paths/keys/image bytes removed; review before sharing")
+    ex.add_argument("--out", default="")
+    ex.add_argument("--session", default="")
     ck = sub.add_parser("check")
     ck.add_argument("job")
     a = ap.parse_args(argv)
@@ -112,6 +116,14 @@ def main(argv=None) -> int:
             return 0
         if a.cmd == "doctor":
             return doctor()
+        if a.cmd == "export":
+            from gmg import usage
+            files = usage.export(Path(a.out) if a.out else None, a.session)
+            for f in files:
+                print(f)
+            print(f"{len(files)} session file(s). Read them before sharing; share only into the private repo cogito5170/gm-photos under usage/."
+                  if files else "nothing logged yet (usage.jsonl is empty)")
+            return 0
         if a.cmd == "plans":
             from gmg import plans as PL
             for k, p in PL.PLANS.items():

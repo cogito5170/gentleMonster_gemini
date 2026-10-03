@@ -134,10 +134,12 @@ def handle(msg: dict):
         elif method == "tools/list":
             res = {"tools": tools()}
         elif method == "tools/call":
+            g = None
             with contextlib.redirect_stdout(sys.stderr):
                 try:
                     from gmg import turn
-                    r = turn.gate(p.get("name") or "") or agent.call(p.get("name"), p.get("arguments") or {})
+                    g = turn.gate(p.get("name") or "")
+                    r = g or agent.call(p.get("name"), p.get("arguments") or {})
                     if p.get("name") == "pf_choose" and r.get("ok"):
                         turn.mark_chose()
                     if p.get("name") == "pf_pages" and r.get("ok") and (p.get("arguments") or {}).get("action") != "show":
@@ -149,10 +151,12 @@ def handle(msg: dict):
                 except Exception as e:                      # noqa: BLE001
                     r = {"ok": False, "problems": [f"{type(e).__name__}: " + re.sub(r"AIza[0-9A-Za-z_-]{20,}", "***", str(e))],
                          "next": [{"tool": "gm_explain", "why": "see where the job stands"}]}
-            from gmg import served
+            from gmg import served, usage
             w = served.warning()
             if w:
                 r["served"] = w
+            usage.log("call", tool=p.get("name"), args=p.get("arguments") or {}, ok=bool(r.get("ok")), redirected=g is not None,
+                      problems=(r.get("problems") or [])[:8], next=[n.get("tool") for n in r.get("next") or [] if isinstance(n, dict)])
             res = {"content": [{"type": "text", "text": json.dumps(r, ensure_ascii=False, separators=(",", ":"))}], "isError": not r.get("ok", False)}
         elif method == "ping":
             res = {}

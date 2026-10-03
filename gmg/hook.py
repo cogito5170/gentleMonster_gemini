@@ -70,6 +70,8 @@ def main() -> int:
         w = served(inp)
         if w:
             out["systemMessage"] = (out.get("systemMessage", "") + " " + w).strip()
+        from gmg import usage
+        usage.log("gate", decision=out.get("decision") or "pass", answer=str(inp.get("prompt_response") or "")[:4000])
     except Exception as e:                                  # noqa: BLE001
         out = {"systemMessage": f"[gentlemonster] the answer was NOT checked against the ledger ({type(e).__name__})"}
     print(json.dumps(out))

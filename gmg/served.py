@@ -52,6 +52,8 @@ def record(model: str, source: str) -> dict:
     out.mkdir(parents=True, exist_ok=True)
     with open(out / "served.jsonl", "a", encoding="utf-8") as f:
         f.write(json.dumps(rec) + "\n")
+    from gmg import usage
+    usage.log("served", model=model, source=source, differs=rec["differs"])
     ledgers = sorted(out.glob("*/gmg_ledger.jsonl"), key=lambda p: p.stat().st_mtime, reverse=True)
     if ledgers:
         Ledger(ledgers[0].parent).log("SERVED", model=model, source=source, differs=rec["differs"])

@@ -49,14 +49,16 @@ FLOW = re.compile(r"스토리\s*라인|story\s*-?line|이어지는\s*(?:스토�
 WIDEN = re.compile(r"(?:범주|카테고리|categor\w*)[^.?!\n]{0,20}(?:확장|넓|늘리|추가)|(?:widen|expand|broaden|add)[^.?!\n]{0,20}categor", re.I)
 
 
-def record(prompt: str) -> dict:
-    t = {"prompt": (prompt or "")[:2000], "terse": bool(TERSE.match(prompt or "")), "images": images_in(prompt), "chose": False,
+def record(prompt: str, session: str = "") -> dict:
+    t = {"prompt": (prompt or "")[:2000], "session": session or "unknown", "terse": bool(TERSE.match(prompt or "")), "images": images_in(prompt), "chose": False,
          "questions": [] if TERSE.match(prompt or "") else questions_in(prompt), "adopts": adopted_in(prompt),
          "flow": bool(FLOW.search(prompt or "")) and not TERSE.match(prompt or ""), "flowed": False,
          "widen": bool(WIDEN.search(prompt or ""))}
     p = _path()
     p.parent.mkdir(parents=True, exist_ok=True)
     p.write_text(json.dumps(t, ensure_ascii=False))
+    from gmg import usage
+    usage.log("turn", session=t["session"], prompt=(prompt or "")[:4000], images=t["images"], terse=t["terse"])
     return t
 
 

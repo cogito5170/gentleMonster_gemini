@@ -83,11 +83,20 @@ M = [
     ("loop: daily quota waited out", "gmg/loop.py", "QUOTA_GONE = 600 ", "QUOTA_GONE = 10**9 "),
     ("route: a redirect fires forever", "gmg/turn.py", "    t[\"fired\"] = (t.get(\"fired\") or []) + [which]", "    t[\"fired\"] = []"),
     ("route: pf_pages show counts as the page map", "gmg/ext_mcp.py", ' and (p.get("arguments") or {}).get("action") != "show":', ":"),
+    ("export: paths kept", "gmg/usage.py", "        s = PATHS.sub(self._path, s)", "        s = s"),
+    ("export: keys kept", "gmg/usage.py", '        s = KEYS.sub("***", s)', "        s = s"),
+    ("export: blobs kept", "gmg/usage.py", '        s = BLOB.sub("[bytes removed]", s)', "        s = s"),
+    ("export: image not measured", "gmg/usage.py", '"measured": _measure(p)}', '"measured": None}'),
+    ("export: image not named by hash", "gmg/usage.py", '                    return f"[image sha256:{sha[:16]}]"', '                    return "[path]"'),
+    ("export: redirects counted as re-asks", "gmg/usage.py", 'if c.get("ok") is False and not c.get("redirected")),', 'if c.get("ok") is False),'),
+    ("usage: tool calls not logged", "gmg/ext_mcp.py", '            usage.log("call",', '            (lambda *a, **k: None)("call",'),
+    ("usage: hook drops the session id", "hooks/turn_note.py", 'inp.get("session_id", "")', '""'),
+    ("usage: session id not hashed", "gmg/usage.py", '"session": hashlib.sha256(s.encode()).hexdigest()[:16]', '"session": s'),
     ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
     ("H3: colours not nudged", "gmg/agent.py", "        for _ in range(30):", "        for _ in range(0):"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
-TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py"]
+TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py"]
 
 
 def main() -> int:
