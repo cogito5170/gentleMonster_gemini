@@ -1,6 +1,6 @@
 # gentleMonster for Gemini: preview 0.4.0
 
-**This is a preview, not a release.** It is pinned to one commit, `62af1a5d85ef026e8c83036441a2369ef587f78d`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
+**This is a preview, not a release.** It is pinned to one commit, `2453034609aa8d3b19f74c54431b6028ded1575e`. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
 
 There are two ways to run it on a Mac. Both use the same tools, and both keep your work in `~/gentleMonster_gemini_out`.
 
@@ -25,8 +25,8 @@ agy --version
 agy -p "/usage"
 mkdir -p "$HOME/.gentlemonster/bin"
 test -d "$HOME/.gentlemonster/ext/.git" || git clone -q https://github.com/cogito5170/gentleMonster_gemini "$HOME/.gentlemonster/ext"
-git -C "$HOME/.gentlemonster/ext" fetch -q --depth 1 origin 62af1a5d85ef026e8c83036441a2369ef587f78d
-git -C "$HOME/.gentlemonster/ext" checkout -q 62af1a5d85ef026e8c83036441a2369ef587f78d
+git -C "$HOME/.gentlemonster/ext" fetch -q --depth 1 origin 2453034609aa8d3b19f74c54431b6028ded1575e
+git -C "$HOME/.gentlemonster/ext" checkout -q 2453034609aa8d3b19f74c54431b6028ded1575e
 python3 -m venv "$HOME/.gentlemonster/venv"
 "$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet --upgrade pip
 "$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet -e "$HOME/.gentlemonster/ext[render]"
@@ -77,7 +77,7 @@ Paste the whole block below into Terminal. It has no comment lines and no placeh
 mkdir -p "$HOME/.gentlemonster/bin" "$HOME/.gentlemonster/cli"
 npm install --prefix "$HOME/.gentlemonster/cli" --no-fund --no-audit @google/gemini-cli@0.62.0
 "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions uninstall gentlemonster ; true
-"$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref 62af1a5d85ef026e8c83036441a2369ef587f78d --consent --skip-settings
+"$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref 2453034609aa8d3b19f74c54431b6028ded1575e --consent --skip-settings
 cp "$HOME/.gemini/extensions/gentlemonster/install/gentlemonster" "$HOME/.gentlemonster/bin/gentlemonster"
 chmod 755 "$HOME/.gentlemonster/bin/gentlemonster"
 grep -qs 'gentlemonster/bin' "$HOME/.zshrc" || echo 'export PATH="$HOME/.gentlemonster/bin:$PATH"' | tee -a "$HOME/.zshrc"

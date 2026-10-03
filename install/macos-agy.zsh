@@ -4,8 +4,8 @@ agy --version
 agy -p "/usage"
 mkdir -p "$HOME/.gentlemonster/bin"
 test -d "$HOME/.gentlemonster/ext/.git" || git clone -q https://github.com/cogito5170/gentleMonster_gemini "$HOME/.gentlemonster/ext"
-git -C "$HOME/.gentlemonster/ext" fetch -q --depth 1 origin 62af1a5d85ef026e8c83036441a2369ef587f78d
-git -C "$HOME/.gentlemonster/ext" checkout -q 62af1a5d85ef026e8c83036441a2369ef587f78d
+git -C "$HOME/.gentlemonster/ext" fetch -q --depth 1 origin 2453034609aa8d3b19f74c54431b6028ded1575e
+git -C "$HOME/.gentlemonster/ext" checkout -q 2453034609aa8d3b19f74c54431b6028ded1575e
 python3 -m venv "$HOME/.gentlemonster/venv"
 "$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet --upgrade pip
 "$HOME/.gentlemonster/venv/bin/python3" -m pip install --quiet -e "$HOME/.gentlemonster/ext[render]"
