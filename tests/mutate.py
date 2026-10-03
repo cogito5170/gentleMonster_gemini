@@ -68,7 +68,7 @@ M = [
     ("P1: storyline accepted by pf_write", "gmg/portfolio.py", '    if kind == "storyline":', "    if False:"),
     ("P1: photo kinds without a photo", "gmg/portfolio.py", '    if kind in PHOTO_KINDS and not any(p["id"] == about for p in st["photos"]):', "    if False:"),
     ("P2: unmeasured images not listed", "gmg/ext_mcp.py", '                    if um and p.get("name") != "pf_photos":', "                    if False:"),
-    ("P3: terse reply not routed", "gmg/ext_mcp.py", "turn.gate(p.get(\"name\") or \"\") or agent.call", "agent.call"),
+    ("P3: terse reply not routed", "gmg/ext_mcp.py", "                    g = turn.gate(p.get(\"name\") or \"\")", "                    g = None"),
     ("P2/P3: turn note never added", "gmg/loop.py", '([{"text": f"<hook_context>{note}</hook_context>"}] if note else [])', "[]"),
     ("P3: terse reply not in the note", "gmg/turn.py", "    if t[\"terse\"]:\n        out.append(", "    if False:\n        out.append("),
     ("P2: images not in the note", "gmg/turn.py", "    if t[\"images\"]:\n        out.append(", "    if False:\n        out.append("),
