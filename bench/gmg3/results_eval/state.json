@@ -1,0 +1,349 @@
+{
+ "terms": {
+  "STYLE": "a person with style -- what someone chooses, combines and wears",
+  "PICTURE": "a scene that looks like a photograph",
+  "ARCHITECTURE": "a space or building that holds you",
+  "SPA": "STYLE, PICTURE, ARCHITECTURE: the three things the applicant stops for"
+ },
+ "texts": [
+  {
+   "id": "t1",
+   "kind": "cover_line",
+   "lang": "en",
+   "text": "A Person with Style, A Moment like A Photograph, A Building That Holds Me — I Stop.",
+   "source": "seed"
+  },
+  {
+   "id": "t2",
+   "kind": "question",
+   "lang": "en",
+   "text": "Where Did You Last Stop?",
+   "source": "seed"
+  },
+  {
+   "id": "t3",
+   "kind": "statement",
+   "lang": "ko",
+   "text": "사람은 공간을 만들고, 공간은 다시 사람을 만든다. 나는 그 사이에서, 사람이 발걸음을 멈추는 순간을 설계한다.",
+   "source": "seed"
+  },
+  {
+   "id": "t4",
+   "kind": "answer",
+   "lang": "ko",
+   "text": "패션은 나라는 언어를 시각적으로 번역하여 세상에 건네는 첫인사이자, 가장 직관적인 자기표현의 방식이기 때문에 중요합니다. 나는 패션을 단순히 옷을 입는 행위가 아니라, 내가 누구인지, 어떤 순간을 살고 있는지를 타인과 공유하는 소통의 도구로 생각합니다. 나에게 좋은 패션이란 유행을 맹목적으로 따르는 것이 아니라, 나의 내면과 외면의 균형을 찾아 나만의 고유한 서사를 입히는 일입니다. 패션은 곧 나의 태도이자, 세상과 만나는 가장 솔직한 방식입니다.",
+   "keep": [],
+   "register": "poetic",
+   "pattern": "plain",
+   "label": "",
+   "about": "",
+   "measures": {
+    "chars": 252,
+    "abstract_ratio": 0.051,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t5",
+   "kind": "answer",
+   "lang": "ko",
+   "text": "패션은 나를 가장 빠르게 보여줄 수 있는 수단이라 중요합니다. 나는 패션을 단순히 옷을 입는 게 아니라, 내가 어떤 사람인지 보여주는 일종의 '명함'으로 생각합니다. 진짜 좋은 패션은 유행을 무작정 따라가는 게 아니라, 나에게 가장 잘 어울리는 옷을 골라 내 색깔을 분명히 드러내는 것입니다. 결국 패션은 나라는 사람을 가장 나답게 보여주는 방법입니다.",
+   "keep": [],
+   "parent": "t4",
+   "op": "more_direct",
+   "arg": "",
+   "register": "direct",
+   "measures": {
+    "chars": 197,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   },
+   "before": "패션은 나라는 언어를 시각적으로 번역하여 세상에 건네는 첫인사이자, 가장 직관적인 자기표현의 방식이기 때문에 중요합니다. 나는 패션을 단순히 옷을 입는 행위가 아니라, 내가 누구인지, 어떤 순간을 살고 있는지를 타인과 공유하는 소통의 도구로 생각합니다. 나에게 좋은 패션이란 유행을 맹목적으로 따르는 것이 아니라, 나의 내면과 외면의 균형을 찾아 나만의 고유한 서사를 입히는 일입니다. 패션은 곧 나의 태도이자, 세상과 만나는 가장 솔직한 방식입니다."
+  },
+  {
+   "id": "t6",
+   "kind": "storyline",
+   "lang": "ko",
+   "text": "좋은 공간은 멈춤을 만들고, 멈춤은 나를 돌아보게 합니다. 그 공간 안에서 나는 어떤 옷을 입고, 어떤 태도로 서 있는지 생각합니다. 패션은 단순히 옷을 걸치는 것이 아니라, 내가 머무는 공간과 조화를 이루며 나라는 사람의 밀도를 증명하는 일입니다. 이제, 내가 멈춰 섰던 그곳에서의 기록을 시작합니다.",
+   "keep": [],
+   "register": "direct",
+   "pattern": "threshold",
+   "label": "",
+   "about": "",
+   "measures": {
+    "chars": 169,
+    "abstract_ratio": 0.023,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t7",
+   "kind": "caption",
+   "lang": "ko",
+   "text": "스타일, 나라는 사람을 읽히게 만드는 가장 분명한 문장.",
+   "keep": [],
+   "register": "direct",
+   "pattern": "signal",
+   "label": "한 줄 문구",
+   "about": "",
+   "measures": {
+    "chars": 31,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t8",
+   "kind": "answer",
+   "lang": "ko",
+   "text": "스타일은 나를 가장 빠르게 정의하는 시각적 언어이기에 중요합니다. 단순히 유행하는 옷을 입는 것이 아니라, 나의 성격과 취향을 가장 솔직하게 투영하는 것이 스타일이라 생각합니다. 좋은 스타일은 남의 시선을 쫓는 것이 아니라, 나의 체형과 분위기를 이해하고 가장 나다운 인상을 만드는 것입니다. 결국 스타일은 나를 대변하는 가장 강력한 무기입니다.",
+   "keep": [],
+   "parent": "t5",
+   "op": "refocus",
+   "arg": "스타일",
+   "register": "direct",
+   "measures": {
+    "chars": 193,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   },
+   "before": "패션은 나를 가장 빠르게 보여줄 수 있는 수단이라 중요합니다. 나는 패션을 단순히 옷을 입는 게 아니라, 내가 어떤 사람인지 보여주는 일종의 '명함'으로 생각합니다. 진짜 좋은 패션은 유행을 무작정 따라가는 게 아니라, 나에게 가장 잘 어울리는 옷을 골라 내 색깔을 분명히 드러내는 것입니다. 결국 패션은 나라는 사람을 가장 나답게 보여주는 방법입니다."
+  },
+  {
+   "id": "t9",
+   "kind": "storyline",
+   "lang": "ko",
+   "text": "내가 가장 자주 멈추는 곳은 길 위입니다. 스타일이 좋은 사람이 지나가면 나는 자연스레 걸음을 멈춥니다. 그들의 헤어, 의상, 액세서리는 물론, 걷는 방식과 표정, 태도까지 세심하게 관찰합니다. 이 모든 요소가 모여 그 사람만의 고유한 스타일을 완성하기 때문입니다. 그래서 나의 첫 번째 이야기는 '스타일'입니다. 단순히 보이는 것들을 넘어, 한 사람의 삶이 배어 나오는 그 결정적인 순간들에 대하여 기록하려 합니다.",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "",
+   "about": "",
+   "measures": {
+    "chars": 233,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t10",
+   "kind": "storyline",
+   "lang": "ko",
+   "text": "스타일은 단순히 '무엇을 입었는가'에 그치지 않습니다. 그것은 그 사람이 세상을 대하는 태도이자, 자신이 누구인지 말해주는 가장 즉각적인 메시지입니다. 옷깃을 세우는 작은 습관이나, 시선이 머무는 방향, 그리고 그 모든 것을 짊어지고 걷는 걸음걸이까지. 나는 이 모든 것을 관찰하며, 그들이 만들어내는 세상의 조각들을 수집합니다. 이제, 나를 멈추게 했던 그 스타일들을 하나씩 펼쳐 보려 합니다.",
+   "keep": [],
+   "register": "direct",
+   "pattern": "cycle",
+   "label": "",
+   "about": "",
+   "measures": {
+    "chars": 221,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t11",
+   "kind": "sector",
+   "lang": "ko",
+   "text": "SECTOR A: The Silhouette. \n직선과 곡선이 만나는 지점, 그곳에 스타일의 정수가 있습니다. 나는 절제된 형태 안에서 가장 강렬한 개성을 발산하는 실루엣에 주목합니다. 옷의 구조와 몸의 라인이 겹쳐지며 만들어내는 긴장감, 그리고 그 안에서 피어나는 당당함. 오늘 내가 기록한 첫 번째 스타일의 조각은, 가장 단순한 실루엣이 전달하는 가장 복잡한 이야기입니다.",
+   "keep": [],
+   "register": "direct",
+   "pattern": "plain",
+   "label": "SECTOR A 소개",
+   "about": "",
+   "measures": {
+    "chars": 210,
+    "abstract_ratio": 0.0,
+    "language": "ko"
+   }
+  },
+  {
+   "id": "t12",
+   "kind": "storyline",
+   "lang": "ko",
+   "text": "4 PICTURE. \n멈춰 서서 바라본 것들은 이제 내 안의 기억으로 남습니다. 스타일은 그저 스쳐 지나가는 풍경이 아니라, 셔터를 누르는 순간 내 취향의 일부가 됩니다. 각기 다른 색과 질감으로 존재하는 사람들을 프레임 안에 담아내며, 나는 비로소 그들과 나 사이의 연결고리를 발견합니다. 이제, 렌즈를 통해 포착한 이 장면들이 나의 스타일을 완성하는 또 하나의 기록이 됩니다.",
+   "keep": [],
+   "register": "direct",
+   "pattern": "reflection",
+   "label": "",
+   "about": "",
+   "measures": {
+    "chars": 212,
+    "abstract_ratio": 0.019,
+    "language": "ko"
+   }
+  }
+ ],
+ "photos": [
+  {
+   "file": "L1_night_red_light.jpg",
+   "brightness": 0.066,
+   "dark_share": 0.979,
+   "contrast": 0.045,
+   "saturation": 0.26,
+   "warmth": 0.005,
+   "hue_deg": 275,
+   "hue": "purple",
+   "mono": false,
+   "sharpness": 127.6,
+   "centre_focus": 1.0,
+   "subject_share": 0.021,
+   "subject_regions": 3,
+   "colors": [
+    "#1c1417"
+   ],
+   "layout_like": false,
+   "id": "p80aa6b",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L1_night_red_light.jpg"
+  },
+  {
+   "file": "L2_puddle_reflection.jpg",
+   "brightness": 0.411,
+   "dark_share": 0.0,
+   "contrast": 0.067,
+   "saturation": 0.266,
+   "warmth": -0.119,
+   "hue_deg": 209,
+   "hue": "blue",
+   "mono": false,
+   "sharpness": 46.3,
+   "centre_focus": 1.18,
+   "subject_share": 0.32,
+   "subject_regions": 5,
+   "colors": [
+    "#35547d",
+    "#797671",
+    "#205ea5",
+    "#5c6971"
+   ],
+   "layout_like": false,
+   "id": "p37dd08",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L2_puddle_reflection.jpg"
+  },
+  {
+   "file": "L3_sprout_sand.jpg",
+   "brightness": 0.736,
+   "dark_share": 0.0,
+   "contrast": 0.048,
+   "saturation": 0.264,
+   "warmth": 0.212,
+   "hue_deg": 40,
+   "hue": "orange",
+   "mono": false,
+   "sharpness": 579.8,
+   "centre_focus": 0.99,
+   "subject_share": 0.006,
+   "subject_regions": 1,
+   "colors": [
+    "#cdbb97"
+   ],
+   "layout_like": false,
+   "id": "p443afc",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L3_sprout_sand.jpg"
+  },
+  {
+   "file": "L4_string_lights_bw.jpg",
+   "brightness": 0.152,
+   "dark_share": 0.69,
+   "contrast": 0.073,
+   "saturation": 0.006,
+   "warmth": -0.0,
+   "hue_deg": null,
+   "hue": "none",
+   "mono": true,
+   "sharpness": 86.3,
+   "centre_focus": 0.56,
+   "subject_share": 0.01,
+   "subject_regions": 0,
+   "colors": [
+    "#1e1e1e",
+    "#3b3b3b"
+   ],
+   "layout_like": false,
+   "id": "pec1ee9",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L4_string_lights_bw.jpg"
+  },
+  {
+   "file": "L5_sunset_sea.jpg",
+   "brightness": 0.461,
+   "dark_share": 0.0,
+   "contrast": 0.207,
+   "saturation": 0.459,
+   "warmth": 0.214,
+   "hue_deg": 354,
+   "hue": "red",
+   "mono": false,
+   "sharpness": 102.8,
+   "centre_focus": 1.55,
+   "subject_share": 0.388,
+   "subject_regions": 1,
+   "colors": [
+    "#df8165",
+    "#293446",
+    "#d09981"
+   ],
+   "layout_like": false,
+   "id": "pe76064",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L5_sunset_sea.jpg"
+  },
+  {
+   "file": "L6_cloudy_parking.jpg",
+   "brightness": 0.508,
+   "dark_share": 0.009,
+   "contrast": 0.098,
+   "saturation": 0.0,
+   "warmth": 0.0,
+   "hue_deg": null,
+   "hue": "none",
+   "mono": true,
+   "sharpness": 33.3,
+   "centre_focus": 2.83,
+   "subject_share": 0.46,
+   "subject_regions": 1,
+   "colors": [
+    "#707070",
+    "#969696",
+    "#464546"
+   ],
+   "layout_like": false,
+   "id": "p1ebe66",
+   "path": "/home/user/gentleMonster_gemini/bench/gmg3/images/library/L6_cloudy_parking.jpg"
+  }
+ ],
+ "pages": {
+  "0": {
+   "n": 0,
+   "title": "COVER",
+   "role": "SPA · STYLE / PICTURE / ARCHITECTURE · Where Did You Last Stop?"
+  }
+ },
+ "proposals": [],
+ "rankings": [],
+ "concepts": [],
+ "options": [
+  {
+   "n": 1,
+   "label": "A",
+   "title": "adopt t12",
+   "call": {
+    "tool": "pf_pages",
+    "args": {
+     "action": "adopt",
+     "choice": "t12"
+    }
+   }
+  }
+ ],
+ "last": {
+  "tool": "pf_write",
+  "args": {
+   "kind": "storyline",
+   "register": "direct",
+   "language": "ko",
+   "max_chars": 0,
+   "about": "",
+   "n": 1
+  }
+ },
+ "adopted": []
+}
