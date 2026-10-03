@@ -1,0 +1,20 @@
+
+changed 7 packages in 9s
+Failed to uninstall "gentlemonster": Extension not found.
+You have consented to the following:
+The extension you are about to install may have been created by a third-party developer and sourced from a public repository. Google does not vet, endorse, or guarantee the functionality or security of extensions. Please carefully inspect any extension and its source code before installing to understand the permissions it requires and the actions it may perform.
+Extension "gentlemonster" installed successfully and enabled.
+Failed to install browsers
+Error: Failed to download Chrome for Testing 153.0.8010.12 (playwright chromium v1243), caused by
+Error: Download failure, code=1
+[setup] cloning https://github.com/cogito5170/gentleMonster -> $HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47
+[setup] gentleMonster @ 5fdc25e7d62c ok ($HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47)
+GEMINI_API_KEY is set
+  ok   gentleMonster at the pinned commit 5fdc25e7d62c
+  ok   GEMINI_API_KEY is set
+  ok   gemini-3.1-flash-lite is listed and takes generateContent
+  ok   Gemini CLI 0.60.0
+  ok   PIL (for the PDFs)
+  ok   numpy (for the PDFs)
+  ok   matplotlib (for the PDFs)
+  ok   playwright (for the PDFs)

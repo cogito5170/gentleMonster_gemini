@@ -6,13 +6,9 @@ every call, exactly which call may come next and with which values; code does th
 materials, stops and the verdict (the pinned gentleMonster `spec.check`). Product text (GEMINI.md, tool
 descriptions, outputs) is English: flash-lite follows English instructions best and gentleMonster prints English pages.
 
-```bash
-npm install -g @google/gemini-cli@0.60.0   # 0.60.0: the last CLI that serves gemini-3.1-flash-lite as asked (see below)
-gemini extensions install https://github.com/cogito5170/gentleMonster_gemini --ref claude/sleepy-cori-h0ug3b
-export GEMINI_API_KEY=...            # environment only
-gemini -m gemini-3.1-flash-lite
-> Design a store with gentleMonster. Brief: ...
-```
+> **Preview 0.4.0, not a release.** The preview is pinned to one commit and is not published to any package index.
+> **To install on a Mac, use [USAGE.md](USAGE.md).** It has a zsh block that pastes as is, and it explains how to export real use
+> (`gmg export`). The exports go only to the private `cogito5170/gm-photos` repository, under `usage/`.
 
 **Which model serves (H2).** From Gemini CLI **0.61.0**, `-m gemini-3.1-flash-lite` is rewritten to
 `gemini-3.5-flash-lite` for API-key, Vertex and gateway auth: `isGemini31LaunchedForAuthType()` is true for those auth

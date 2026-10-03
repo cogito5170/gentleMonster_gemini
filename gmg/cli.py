@@ -74,6 +74,17 @@ def doctor() -> int:
             say(True, f"{mod} (for the PDFs)")
         except ImportError:
             say(False, f"{mod} missing -- pip install 'gentlemonster-gemini[render]' (decisions still run with --no-draw)")
+    try:
+        from playwright.sync_api import sync_playwright
+        upstream.load()
+        from gentle_monster import paths as GP              # the pinned code's own launcher (it prefers a preinstalled Chromium)
+        with sync_playwright() as pw:
+            GP.launch(pw, gl=False).close()
+        say(True, "Chromium starts (the PDFs are drawn in it)")
+    except ImportError:
+        pass
+    except Exception as e:                                  # noqa: BLE001 -- also upstream.NotReady: said above
+        say(False, f"Chromium does not start ({type(e).__name__}) -- run: {sys.executable} -m playwright install chromium")
     return 0 if ok else 1
 
 
