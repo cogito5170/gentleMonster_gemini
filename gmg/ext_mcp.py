@@ -136,7 +136,14 @@ def handle(msg: dict):
         elif method == "tools/call":
             with contextlib.redirect_stdout(sys.stderr):
                 try:
-                    r = agent.call(p.get("name"), p.get("arguments") or {})
+                    from gmg import turn
+                    r = turn.gate(p.get("name") or "") or agent.call(p.get("name"), p.get("arguments") or {})
+                    if p.get("name") == "pf_choose" and r.get("ok"):
+                        turn.mark_chose()
+                    um = turn.unmeasured()
+                    if um and p.get("name") != "pf_photos":
+                        r["unmeasured_images"] = um
+                        r.setdefault("next", []).insert(0, {"tool": "pf_photos", "args": {"paths": um}, "why": "the user attached these; measure them before writing about them"})
                 except Exception as e:                      # noqa: BLE001
                     r = {"ok": False, "problems": [f"{type(e).__name__}: " + re.sub(r"AIza[0-9A-Za-z_-]{20,}", "***", str(e))],
                          "next": [{"tool": "gm_explain", "why": "see where the job stands"}]}

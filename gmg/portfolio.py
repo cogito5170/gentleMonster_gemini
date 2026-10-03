@@ -16,7 +16,8 @@ from pathlib import Path
 from gmg import upstream
 from gmg.ledger import Ledger
 
-KINDS = ["answer", "cover_line", "statement", "question", "caption", "page_text", "storyline", "sector"]
+KINDS = ["answer", "cover_line", "statement", "question", "caption", "page_text", "sector"]   # page flow is pf_pages, not text
+PHOTO_KINDS = ("caption", "sector")                                                             # need a measured photo
 PATTERNS = ["plain", "signal", "couplet", "cycle", "reflection", "threshold", "question", "list"]
 REGISTERS = ["direct", "poetic"]
 LANGS = ["ko", "en", "ko+en"]
@@ -238,8 +239,14 @@ def pf_sort(by: str = "", photos=None, groups=None, k: int = 3) -> dict:
 def pf_write(kind: str, items, register: str = "direct", language: str = "ko", max_chars: int = 0, about: str = "", keep=None) -> dict:
     L = _ws()
     st = state(L)
+    if kind == "storyline":
+        raise ToolError(["a storyline is page flow: propose it with pf_pages (action propose, exactly 3 options after a page)"],
+                        [{"tool": "pf_pages", "args": {"action": "propose", "after": "page number", "options": "3 x {title, summary}"}}])
     if kind not in KINDS:
         raise ToolError([f"kind {kind!r} is not one of {KINDS}"], [{"tool": "pf_write", "args": {"kind": KINDS}}])
+    if kind in PHOTO_KINDS and not any(p["id"] == about for p in st["photos"]):
+        raise ToolError([f"a {kind} is about a photo: `about` must be the id of a measured photo (got {about!r})"],
+                        [{"tool": "pf_photos", "why": "measure the photo first; its id goes in `about`"}, {"tool": "pf_sort", "why": "or pick from the measured photos"}])
     if register not in REGISTERS or language not in LANGS:
         raise ToolError([f"register must be one of {REGISTERS} and language one of {LANGS}"], [{"tool": "pf_write"}])
     items = [{"text": items}] if isinstance(items, str) else [i if isinstance(i, dict) else {"text": str(i)} for i in (items or [])]
@@ -267,6 +274,21 @@ def pf_write(kind: str, items, register: str = "direct", language: str = "ko", m
                      {"tool": "pf_pages", "args": {"action": ["adopt", "propose"]}, "why": "adopt one or propose what comes next"}]}
 
 
+ALIASES = [("style", "스타일"), ("fashion", "패션"), ("picture", "사진"), ("photo", "사진"), ("architecture", "건축"), ("space", "공간"),
+           ("hair", "머리"), ("hair", "헤어"), ("eyewear", "안경"), ("glasses", "안경"), ("clothes", "옷"), ("shoes", "신발"),
+           ("accessory", "액세서리"), ("accessory", "악세사리"), ("colour", "색"), ("color", "색"), ("scent", "향")]
+
+
+def forms(word: str) -> "set[str]":
+    """The word and its other-language forms (closed table), lower-case."""
+    w = word.strip().lower()
+    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}
+
+
+def _has(text: str, word: str) -> int:
+    return max(text.lower().count(f) for f in forms(word))
+
+
 def _op_check(op, arg, old, new, lang, keep=()) -> "list[str]":
     bad = []
     if op == "more_direct":
@@ -277,13 +299,13 @@ def _op_check(op, arg, old, new, lang, keep=()) -> "list[str]":
         topic = (arg or "").strip()
         if not topic:
             bad.append("refocus needs arg = the topic")
-        elif new.lower().count(topic.lower()) <= old.lower().count(topic.lower()) and topic.lower() not in new.lower():
-            bad.append(f"the new text does not centre on {topic!r} (it appears {new.lower().count(topic.lower())} times)")
+        elif _has(new, topic) <= _has(old, topic) and not _has(new, topic):
+            bad.append(f"the new text does not centre on {topic!r} (any of {sorted(forms(topic))} appears {_has(new, topic)} times)")
     elif op == "widen_categories":
         cats = [c.strip() for c in re.split(r"[,·/]", arg or "") if c.strip()]
         if not cats:
             bad.append("widen_categories needs arg = the categories, comma-separated")
-        miss = [c for c in cats if c.lower() not in new.lower()]
+        miss = [c for c in cats if not _has(new, c)]
         if miss:
             bad.append(f"these categories are not in the new text: {', '.join(miss)}")
     elif op == "shorten":

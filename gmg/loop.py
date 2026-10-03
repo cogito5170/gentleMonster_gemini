@@ -120,6 +120,8 @@ def user_turn(contents: list, q: dict, transport=None, model: str = "", max_turn
     system = (ROOT / "GEMINI.md").read_text(encoding="utf-8")
     decls = declarations()
     imgs = [Path(p) for p in q.get("images", [])]
+    from gmg import turn
+    turn.record(q["text"] + "".join(f"\n[attached: {p}]" for p in imgs))      # what the BeforeAgent hook does in the CLI
     contents.append({"role": "user", "parts": [{"text": q["text"] + "".join(f"\n[attached: {p}]" for p in imgs)}] +
                      [{"inline_data": {"mime_type": _mime(p), "data": base64.b64encode(p.read_bytes()).decode()}} for p in imgs]})
     rec = {"calls": [], "turns": [], "final": "", "stop": "answered"}

@@ -407,6 +407,26 @@ def gm_story(job, title, subtitle, line, synopsis, keywords, quote, why) -> dict
             "next": [offer_finish(job, c["anchors"], c["materials"])]}
 
 
+def _nudge(palette, gap: float = 30) -> "list[str]":
+    """Move a colour that sits within `gap` (RGB distance) of an earlier one: lighter if dark, darker if light, in
+    steps of 12 per channel, until it clears every earlier colour. Returns what changed."""
+    out = []
+    for j in range(1, len(palette)):
+        c = _rgb(palette[j]["hex"])
+        step = 12 if sum(c) / 3 < 128 else -12
+        moved = False
+        for _ in range(30):
+            if all(sum((a - b) ** 2 for a, b in zip(c, _rgb(palette[i]["hex"]))) ** .5 >= gap for i in range(j)):
+                break
+            c = [min(255, max(0, v + step)) for v in c]
+            moved = True
+        if moved:
+            new = "#%02x%02x%02x" % tuple(c)
+            out.append(f"colour {j + 1} {palette[j]['hex']} -> {new} (too close to an earlier colour)")
+            palette[j] = dict(palette[j], hex=new)
+    return out
+
+
 def _rgb(h):
     return [int(h[i:i + 2], 16) for i in (1, 3, 5)]
 
@@ -433,11 +453,9 @@ def gm_finish(job, palette, accent, material_names, stops, draw: bool = True) ->
                if not (isinstance(x, dict) and re.fullmatch(r"#[0-9a-fA-F]{6}", str(x.get("hex", ""))))]
     probs += bad_hex
     if not probs:
-        cols = [_rgb(x["hex"]) for x in palette]
-        for i in range(5):
-            for j in range(i + 1, 5):
-                if sum((a - b) ** 2 for a, b in zip(cols[i], cols[j])) ** .5 < 30:
-                    probs.append(f"colours {i + 1} and {j + 1} ({palette[i]['hex']}, {palette[j]['hex']}) are almost the same")
+        nudged = _nudge(palette)            # near-identical colours are pushed apart by code, not sent back (H3)
+        if nudged:
+            L.log("NORMALIZE", step="finish", cut=nudged)
         probs += [q for x in palette for q in _text_checks(x.get("name"), "a colour name")]
     if str(accent) not in ("1", "2", "3", "4", "5"):
         probs.append(f"accent {accent!r} must be 1-5 (which palette colour)")

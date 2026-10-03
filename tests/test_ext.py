@@ -40,7 +40,8 @@ sec("manifest, hook config, GEMINI.md")
 man = json.loads((ROOT / "gemini-extension.json").read_text())
 ok(man["contextFileName"] == "GEMINI.md" and "server.py" in "".join(man["mcpServers"]["gentlemonster"]["args"]), "manifest names GEMINI.md and server.py")
 hk = json.loads((ROOT / "hooks" / "hooks.json").read_text())
-ok("verdict_gate.py" in hk["hooks"]["AfterAgent"][0]["hooks"][0]["command"], "AfterAgent hook configured")
+ok("verdict_gate.py" in hk["hooks"]["AfterAgent"][0]["hooks"][0]["command"] and "turn_note.py" in hk["hooks"]["BeforeAgent"][0]["hooks"][0]["command"],
+   "AfterAgent and BeforeAgent hooks configured")
 g = (ROOT / "GEMINI.md").read_text()
 ok(len(g) < 1600 and "next" in g and "gm_new" in g and "pf_show" in g, f"GEMINI.md is short ({len(g)} chars), says: follow next, and routes")
 

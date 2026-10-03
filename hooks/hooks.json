@@ -12,6 +12,19 @@
           }
         ]
       }
+    ],
+    "BeforeAgent": [
+      {
+        "hooks": [
+          {
+            "name": "gm-turn-note",
+            "type": "command",
+            "command": "python3 ${extensionPath}${/}hooks${/}turn_note.py",
+            "timeout": 10000,
+            "description": "Records the user's turn (terse reply? attached images?) so tool results can route it."
+          }
+        ]
+      }
     ]
   }
 }

@@ -18,7 +18,12 @@ os.environ["GEMINI_API_KEY"] = "AIza" + "TESTKEY0123456789abcdefghijklmnop"
 import numpy as np  # noqa: E402
 from PIL import Image, ImageDraw  # noqa: E402
 
-from gmg import agent, loop, photo, portfolio as PF, upstream  # noqa: E402
+from gmg import agent, ext_mcp, loop, photo, portfolio as PF, upstream  # noqa: E402
+
+
+def ext_mcp_handle(name, args):
+    r = ext_mcp.handle({"jsonrpc": "2.0", "id": 1, "method": "tools/call", "params": {"name": name, "arguments": args}})
+    return json.loads(r["result"]["content"][0]["text"])
 from gmg.fake_agent import FakeAgent  # noqa: E402
 
 FAIL = []
@@ -200,14 +205,50 @@ class Script:
 
 
 sec("converse: one conversation, state carried across user turns")
-sc = Script([[("call", "pf_show", {}), ("call", "pf_write", {"kind": "caption", "register": "direct", "language": "ko", "items": [{"text": "웅덩이"}]}), ("text", "A안: 웅덩이")],
-             [("call", "pf_choose", {"option": "다시"}), ("call", "pf_write", {"kind": "caption", "register": "direct", "language": "ko", "items": [{"text": "새싹"}]}), ("text", "B: 새싹")],
+import hashlib  # noqa: E402
+pid = "p" + hashlib.sha256(Path(one).read_bytes()).hexdigest()[:6]
+cap = lambda w: ("call", "pf_write", {"kind": "caption", "register": "direct", "language": "ko", "about": pid, "items": [{"text": w}]})  # noqa: E731
+sc = Script([[("call", "pf_show", {}), ("call", "pf_photos", {"paths": [one]}), cap("웅덩이"), ("text", "A안: 웅덩이")],
+             [("call", "pf_choose", {"option": "다시 시도"}), cap("새싹"), ("text", "B: 새싹")],
              [("text", "커밋은 호스트가 할 일입니다.")]])
 recs = loop.converse([{"n": 1, "text": "사진에 붙일 단어 하나", "images": [one]}, {"n": 2, "text": "다시 시도"}, {"n": 3, "text": "커밋해줘"}], transport=sc, sleep=lambda s: None)
-ok([[c["tool"] for c in r_["calls"]] for r_ in recs] == [["pf_show", "pf_write"], ["pf_choose", "pf_write"], []], "per-turn calls recorded; the repo request calls no tool")
+ok([[c["tool"] for c in r_["calls"]] for r_ in recs] == [["pf_show", "pf_photos", "pf_write"], ["pf_choose", "pf_write"], []], "per-turn calls recorded; the repo request calls no tool")
 ok(all(r_["stop"] == "answered" for r_ in recs) and not any(c["offlist"] for r_ in recs for c in r_["calls"]), "each turn ends in an answer; no off-list call")
 texts = [t["text"] for t in PF.state()["texts"]]
 ok("웅덩이" in texts and "새싹" in texts, "state carried: both captions are in the workspace")
+
+sec("proposals 1-4 (design-set fixes) and the H3 colour nudge")
+from gmg import turn  # noqa: E402
+r = PF.call("pf_write", {"kind": "storyline", "register": "direct", "language": "ko", "items": [{"text": "다음 쪽은 스타일."}]})
+ok(r["ok"] is False and r["next"][0]["tool"] == "pf_pages", "P1: a storyline is page flow -> pf_pages, not pf_write")
+r = PF.call("pf_write", {"kind": "sector", "register": "direct", "language": "ko", "items": [{"text": "검정과 베이지."}]})
+ok(r["ok"] is False and r["next"][0]["tool"] == "pf_photos", "P1: a photo-based kind without a measured photo -> measure it first")
+r = PF.call("pf_write", {"kind": "sector", "register": "direct", "language": "ko", "about": pid, "items": [{"text": "검정과 베이지."}]})
+ok(r["ok"], "P1: with a measured photo id it is accepted")
+turn.record("다시 시도")
+o = ext_mcp_handle("pf_write", {"kind": "answer", "register": "direct", "language": "ko", "items": [{"text": "다시 쓴 답."}]})
+ok(o["ok"] is False and o["next"][0]["tool"] == "pf_choose", "P3: after a terse reply, any other pf tool is redirected to pf_choose")
+ext_mcp_handle("pf_choose", {"option": "다시 시도"})
+o = ext_mcp_handle("pf_write", {"kind": "answer", "register": "direct", "language": "ko", "items": [{"text": "다시 쓴 답."}]})
+ok(o["ok"], "P3: once pf_choose resolved it, the turn goes on")
+turn.record("이 사진으로 SECTOR A를 써라\n[attached: " + two + "]")
+o = ext_mcp_handle("pf_show", {})
+ok(o.get("unmeasured_images") == [] or o.get("unmeasured_images") is None or o["next"][0]["tool"] == "pf_photos", "P2: attached images are checked against the measured ones")
+fresh = img("fresh", (90, 40, 40), [(150, 100, 20, (240, 240, 200))])
+turn.record("이 사진은? [attached: " + fresh + "]")
+o = ext_mcp_handle("pf_show", {})
+ok(o.get("unmeasured_images") == [fresh] and o["next"][0]["tool"] == "pf_photos", "P2: an attached, unmeasured image is listed and pf_photos comes first")
+turn.record("다음")
+st0 = PF.call("pf_write", {"kind": "answer", "register": "direct", "language": "ko", "items": [{"text": "좋은 패션은 몸에 맞는 옷이다."}]})["texts"][0]["id"]
+r = PF.call("pf_revise", {"op": "refocus", "arg": "style", "targets": [st0], "texts": ["좋은 스타일은 몸에 맞게 고른 옷과 신발이다."]})
+ok(r["ok"], "P4: refocus on 'style' accepts a Korean text about 스타일")
+r = PF.call("pf_revise", {"op": "widen_categories", "arg": "hair, eyewear, shoes", "targets": ["last"], "texts": ["머리, 안경, 신발까지 본다."]})
+ok(r["ok"], "P4: widen with English category names accepts the Korean words")
+pal = [{"hex": "#e0e0e0", "name": "a"}, {"hex": "#e5e5e5", "name": "b"}, {"hex": "#202020", "name": "c"}, {"hex": "#252525", "name": "d"}, {"hex": "#c0392b", "name": "e"}]
+ch = agent._nudge(pal)
+rgbs = [[int(x["hex"][i:i + 2], 16) for i in (1, 3, 5)] for x in pal]
+ok(len(ch) == 2 and all(sum((a - b) ** 2 for a, b in zip(rgbs[i], rgbs[j])) ** .5 >= 30 for i in range(5) for j in range(i + 1, 5)),
+   f"H3: near-identical colours are pushed apart by code ({ch})")
 
 shutil.rmtree(TMP, ignore_errors=True)
 print("\n" + ("all passed" if not FAIL else f"{len(FAIL)} failed"))

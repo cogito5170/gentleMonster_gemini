@@ -44,7 +44,7 @@ M = [
     ("pf: abstract gate off", "gmg/portfolio.py", '    if meas["abstract_ratio"] > lim:', "    if False:"),
     ("pf: language not checked", "gmg/portfolio.py", '    if lang == "ko" and meas["language"] == "en" or', '    if False and lang == "ko" and meas["language"] == "en" or'),
     ("pf: more_direct not checked", "gmg/portfolio.py", "        if a1 > LIMIT_DIRECT or (a1 >= a0 and a0 > 0):", "        if False:"),
-    ("pf: refocus not checked", "gmg/portfolio.py", "        elif new.lower().count(topic.lower()) <= old.lower().count(topic.lower()) and", "        elif False and"),
+    ("pf: refocus not checked", "gmg/portfolio.py", "        elif _has(new, topic) <= _has(old, topic) and not _has(new, topic):", "        elif False:"),
     ("pf: not exactly three proposals", "gmg/portfolio.py", "        if len(opts) != 3:", "        if False:"),
     ("pf: labels inside words", "gmg/portfolio.py", 'r"(?<![A-Za-z0-9])[A-Ha-h1-8](?![A-Za-z0-9])"', 'r"[A-Ha-h1-8]"'),
     ("pf: retry not recorded", "gmg/portfolio.py", '        L.log("RETRY", call=last)', "        pass"),
@@ -65,6 +65,12 @@ M = [
     ("new: brand spelling not canonical", "gmg/agent.py", "    if re.sub(r\"[^a-z]\", \"\", b.lower()) in canon and", "    if False and"),
     ("new: tool name taken as a brand claim", "gmg/agent.py", "    named = bool(b) and b.lower() in request.lower()", "    named = bool(b)"),
     ("H3: tool groups ignored", "gmg/ext_mcp.py", 'return [t for t in _tools() if group == "all" or t["name"].startswith(GROUPS[group])]', "return _tools()"),
+    ("P1: storyline accepted by pf_write", "gmg/portfolio.py", '    if kind == "storyline":', "    if False:"),
+    ("P1: photo kinds without a photo", "gmg/portfolio.py", '    if kind in PHOTO_KINDS and not any(p["id"] == about for p in st["photos"]):', "    if False:"),
+    ("P2: unmeasured images not listed", "gmg/ext_mcp.py", '                    if um and p.get("name") != "pf_photos":', "                    if False:"),
+    ("P3: terse reply not routed", "gmg/ext_mcp.py", "turn.gate(p.get(\"name\") or \"\") or agent.call", "agent.call"),
+    ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
+    ("H3: colours not nudged", "gmg/agent.py", "        for _ in range(30):", "        for _ in range(0):"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
 TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py"]
