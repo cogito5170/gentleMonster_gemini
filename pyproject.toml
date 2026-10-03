@@ -1,0 +1,24 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "gentlemonster-gemini"
+version = "0.1.0"
+description = "gentleMonster on gemini-3.1-flash-lite: one tool = one decision, code does the reasoning"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+# what the pinned gentleMonster needs to draw the PDFs (gmg render); the decision steps need none of it
+render = ["pillow", "numpy", "matplotlib", "playwright", "imageio-ffmpeg"]
+
+[project.scripts]
+gmg = "gmg.cli:main"
+gmg-mcp = "gmg.mcp:main"
+
+[tool.setuptools]
+packages = ["gmg"]
+
+[tool.setuptools.package-data]
+gmg = ["lock.json"]
