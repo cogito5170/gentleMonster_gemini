@@ -109,8 +109,11 @@ M = [
     ("agy: model choice made silently", "install/gentlemonster-agy", '| "$GMG" agy-model) || exit 2', '| "$GMG" agy-model) || M=gemini-3.5-flash'),
     ("agy: a look-alike taken for the chosen model", "gmg/agy.py", "return (wanted if wanted in names else None), names", "return (wanted if wanted in names else (names[0] if names else None)), names"),
     # CMD-GMG8: the heap fix and the tool-result cap
-    ("heap: setting not written", "gmg/telemetry.py", '        d["telemetry"] = dict(FIX["telemetry"])', "        pass"),
-    ("heap: user telemetry config overwritten", "gmg/telemetry.py", '    if not _enabled(d):\n        d["telemetry"]', '    if True:\n        d["telemetry"]'),
+    ("heap: setting not written", "gmg/telemetry.py", '        d["telemetry"] = {**tel, **FIX["telemetry"]}', "        pass"),
+    ("heap: a disabled block replaced whole", "gmg/telemetry.py", '        d["telemetry"] = {**tel, **FIX["telemetry"]}', '        d["telemetry"] = dict(FIX["telemetry"])'),
+    ("heap: a disabled block's keys win over the fix", "gmg/telemetry.py", '        d["telemetry"] = {**tel, **FIX["telemetry"]}', '        d["telemetry"] = {**FIX["telemetry"], **tel}'),
+    ("heap: launcher overrides a user-set GEMINI_CLI_HOME", "install/gentlemonster", 'if [ -z "$GEMINI_CLI_HOME" ]; then', "if true; then"),
+    ("heap: user telemetry config overwritten", "gmg/telemetry.py", '    if not _enabled(d):\n        tel =', '    if True:\n        tel ='),
     ("heap: user's ~/.gemini written", "gmg/telemetry.py", 'return cli_home() / ".gemini" / "settings.json"', 'return _home() / ".gemini" / "settings.json"'),
     ("heap: prompts logged", "gmg/telemetry.py", '"outfile": "/dev/null", "logPrompts": False}', '"outfile": "/dev/null", "logPrompts": True}'),
     ("heap: doctor does not flag a missing fix", "gmg/telemetry.py", '    if not _enabled(d):\n        return False, (f"heap fix missing', '    if False:\n        return False, (f"heap fix missing'),

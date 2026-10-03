@@ -69,10 +69,13 @@ private(h).write_text(json.dumps(mine))
 ok(not changed and json.loads(private(h).read_text()) == mine, "a private config that enables telemetry is left alone")
 h = home("keep")
 private(h).parent.mkdir(parents=True)
-private(h).write_text(json.dumps({"model": {"name": "z"}, "telemetry": {"enabled": False, "target": "gcp"}}))
+private(h).write_text(json.dumps({"model": {"name": "z"}, "telemetry": {"enabled": False, "target": "gcp", "outfile": "/tmp/t.log",
+                                                                      "logPrompts": True, "otlpEndpoint": "http://x:4317"}}))
 tm(h)
 d = json.loads(private(h).read_text())
-ok(d["model"] == {"name": "z"} and d["telemetry"] == TM.FIX["telemetry"], "other private settings are kept; disabled telemetry is replaced by the fix")
+ok(d["model"] == {"name": "z"}, "other private settings are kept")
+ok(d["telemetry"] == {**TM.FIX["telemetry"], "otlpEndpoint": "http://x:4317"},
+   "a disabled telemetry block is merged: the four keys are set (target, outfile, logPrompts overridden), otlpEndpoint is kept")
 h = home("envhome")
 alt = TMP / "althome"
 tm(h, {"GEMINI_CLI_HOME": str(alt)})
@@ -102,12 +105,12 @@ ok(CLI.cli_version(str(fake), private=True) == str(private(h).parent.parent),
 print("== the launcher")
 
 
-def launch(h, env=None):
+def launch(h, env=None, home_cli=None):
     b = h / ".gentlemonster" / "cli" / "node_modules" / ".bin"
     b.mkdir(parents=True, exist_ok=True)
     (b / "gemini").write_text('#!/bin/sh\n[ "$1" = --version ] && echo 0.62.0 && exit 0\necho "HOME_CLI=$GEMINI_CLI_HOME"\n')
     (b / "gemini").chmod(0o755)
-    e = h / ".gentlemonster" / "cli-home" / ".gemini" / "extensions" / "gentlemonster"
+    e = (home_cli or h / ".gentlemonster" / "cli-home") / ".gemini" / "extensions" / "gentlemonster"
     e.mkdir(parents=True, exist_ok=True)
     (e / "gemini-extension.json").write_text("{}")
     v = h / ".gentlemonster" / "venv" / "bin"
@@ -123,6 +126,11 @@ h = home("l1", user)
 ok(launch(h) == f"HOME_CLI={h}/.gentlemonster/cli-home" and json.loads(private(h).read_text())["telemetry"] == TM.FIX["telemetry"],
    "the launcher runs the CLI in its private home and writes the fix there")
 ok((h / ".gemini" / "settings.json").read_text() == user, "the user's ~/.gemini/settings.json is untouched by the launcher")
+h = home("l2", user)
+mine = h / "my-cli-home"
+ok(launch(h, {"GEMINI_CLI_HOME": str(mine)}, home_cli=mine) == f"HOME_CLI={mine}" and
+   json.loads((mine / ".gemini" / "settings.json").read_text())["telemetry"] == TM.FIX["telemetry"] and not private(h).exists(),
+   "a GEMINI_CLI_HOME set before launch is kept by the launcher, and the fix goes there")
 
 print("== the tool-result cap")
 small = {"ok": True, "texts": [{"id": "t1", "text": "x"}], "next": [{"tool": "pf_write"}]}
