@@ -1,0 +1,32 @@
+#!/bin/sh
+# gentlemonster-agy: Antigravity CLI (agy) in the gentleMonster workspace, with this extension's MCP servers and rules.
+# agy signs in with your Google account (no API key, no Gemini API quota). The model is agy's own name for
+# gemini-3-flash-preview (from `agy models`); if agy has none, it stops and lists what agy offers -- the choice is yours
+# (GENTLEMONSTER_AGY_MODEL). `--check` runs one headless turn that calls a gentleMonster tool and prints the served model.
+W="${GENTLEMONSTER_WORKSPACE:-$HOME/gentlemonster}"
+GMG="$HOME/.gentlemonster/venv/bin/gmg"
+if ! command -v agy >/dev/null 2>&1; then
+  echo "gentlemonster-agy: agy is not on PATH -- install it: curl -fsSL https://antigravity.google/cli/install.sh | bash"
+  exit 1
+fi
+if [ ! -x "$GMG" ]; then
+  echo "gentlemonster-agy: the gentleMonster tools are not installed -- paste the Antigravity install block from USAGE.md"
+  exit 1
+fi
+"$GMG" agy-setup --workspace "$W" >/dev/null || exit 1
+case "$1" in
+  --version|--help|-h|models|mcp|agents|plugins|skills) exec agy "$@" ;;
+esac
+M="${GENTLEMONSTER_AGY_MODEL:-}"
+if [ -z "$M" ]; then
+  M=$(agy models --output-format json 2>/dev/null | "$GMG" agy-model) || exit 2
+fi
+GENTLEMONSTER_MODEL="$M"
+GENTLEMONSTER_HOST=agy
+export GENTLEMONSTER_MODEL GENTLEMONSTER_HOST
+cd "$W" || exit 1
+if [ "$1" = "--check" ]; then
+  agy --model "$M" -p "Call the gentleMonster tool pf_show once, then reply with one line: the number of texts it reports." --output-format json | "$GMG" agy-served
+  exit $?
+fi
+exec agy --model "$M" "$@"

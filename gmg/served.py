@@ -44,11 +44,13 @@ def from_transcript(path) -> "list[str]":
     return found
 
 
-def record(model: str, source: str) -> dict:
-    """Append one served-model record; also a SERVED event in the most recently touched ledger."""
+def record(model: str, source: str, same: "bool | None" = None) -> dict:
+    """Append one served-model record; also a SERVED event in the most recently touched ledger.
+    `same`: the caller's own comparison (agy names models by its own slugs); default: the served name starts with the asked one."""
     from gmg.ledger import Ledger
     asked = asked_model()
-    rec = {"t": round(time.time(), 3), "model": model, "source": source, "asked": asked, "differs": not str(model).startswith(asked)}
+    rec = {"t": round(time.time(), 3), "model": model, "source": source, "asked": asked,
+           "differs": not (str(model).startswith(asked) if same is None else same)}
     out = _out()
     out.mkdir(parents=True, exist_ok=True)
     with open(out / "served.jsonl", "a", encoding="utf-8") as f:
@@ -69,8 +71,16 @@ def latest() -> "dict | None":
     return json.loads(lines[-1]) if lines else None
 
 
+AGY_FRESH = 12 * 3600      # an agy session's served model counts as known for this long after a recorded check
+
+
 def warning() -> "str | None":
     r = latest()
+    if os.environ.get("GENTLEMONSTER_HOST") == "agy" and not (r and r.get("source") == "agy" and time.time() - r.get("t", 0) < AGY_FRESH):
+        return ("served model unknown: an interactive agy session does not report it to the extension -- "
+                "`gentlemonster-agy --check` runs one turn and records it")
+    if r and r["differs"] and r.get("source") == "agy":
+        return f"served by {r['model']}, not {r.get('asked', asked_model())} (agy chose another model than --model asked)"
     if r and r["differs"]:
         return (f"served by {r['model']}, not {r.get('asked', asked_model())} (the Gemini CLI changed the model; start it with "
                 f"`gentlemonster`, which runs the pinned CLI {CLI_PIN} -- see README)")

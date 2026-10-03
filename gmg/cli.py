@@ -30,7 +30,8 @@ def _name(brief: str, name: str) -> str:
     return "gmg_" + hashlib.sha256(brief.encode()).hexdigest()[:10]
 
 
-def doctor() -> int:
+def doctor(host: str = "") -> int:
+    """host "" = Gemini CLI with an API key; "agy" = Antigravity CLI (Google sign-in); "google" = Gemini CLI with Login with Google."""
     ok = True
 
     def say(good, what):
@@ -43,22 +44,37 @@ def doctor() -> int:
     except upstream.NotReady as e:
         say(False, str(e))
     k = key()
-    say(bool(k), "GEMINI_API_KEY is set" + ("" if k else " (value never shown)"))
     model = asked_model()
-    if k:
-        try:
-            req = urllib.request.Request(f"{API}/models/{model}", headers={"x-goog-api-key": k})
-            with urllib.request.urlopen(req, timeout=30) as r:
-                m = json.loads(r.read().decode())
-            say("generateContent" in m.get("supportedGenerationMethods", []), f"{model} is listed and takes generateContent")
-        except Exception as e:                              # noqa: BLE001
-            say(False, f"{model} could not be read: {type(e).__name__}")
+    if host:
+        print(f"  --   no API key needed ({'Antigravity CLI' if host == 'agy' else 'Gemini CLI'} signs in with your Google account)")
     else:
-        say(False, f"{model} not checked (no key) -- an unchecked model is not counted as ok")
+        say(bool(k), "GEMINI_API_KEY is set" + ("" if k else " (value never shown)"))
+        if k:
+            try:
+                req = urllib.request.Request(f"{API}/models/{model}", headers={"x-goog-api-key": k})
+                with urllib.request.urlopen(req, timeout=30) as r:
+                    m = json.loads(r.read().decode())
+                say("generateContent" in m.get("supportedGenerationMethods", []), f"{model} is listed and takes generateContent")
+            except Exception as e:                          # noqa: BLE001
+                say(False, f"{model} could not be read: {type(e).__name__}")
+        else:
+            say(False, f"{model} not checked (no key) -- an unchecked model is not counted as ok")
     import shutil
     import subprocess
+    if host == "agy":
+        a = shutil.which("agy")
+        try:
+            v = subprocess.run([a, "--version"], capture_output=True, text=True, timeout=60).stdout.strip() if a else ""
+        except Exception:                                   # noqa: BLE001
+            v = ""
+        say(bool(v), f"Antigravity CLI {v}" if v else "agy not found on PATH -- install it (USAGE.md, Antigravity)")
+        from gmg import agy as AG
+        w = Path.home() / "gentlemonster"
+        good = all((w / rel).is_file() and (w / rel).read_text(encoding="utf-8") == text
+                   for rel, text in AG.files(w, str(Path(sys.executable))).items())
+        say(good, f"agy workspace {w} has this extension's MCP servers and rules" + ("" if good else " -- run: gentlemonster-agy --version"))
     private = Path.home() / ".gentlemonster" / "cli" / "node_modules" / ".bin" / "gemini"     # the `gentlemonster` launcher's CLI
-    g = str(private) if private.is_file() else shutil.which("gemini")
+    g = None if host == "agy" else str(private) if private.is_file() else shutil.which("gemini")
     if g:
         try:
             v = subprocess.run([g, "--version"], capture_output=True, text=True, timeout=60).stdout.strip()
@@ -66,7 +82,7 @@ def doctor() -> int:
                 f" -- the pinned CLI is {CLI_PIN}; paste the install block from USAGE.md again"))
         except Exception as e:                              # noqa: BLE001
             say(False, f"Gemini CLI version could not be read: {type(e).__name__}")
-    else:
+    elif host != "agy":
         print("  --   Gemini CLI not on PATH (the extension needs it; the API harness does not)")
     for mod in ("PIL", "numpy", "matplotlib", "playwright"):
         try:
@@ -92,7 +108,12 @@ def main(argv=None) -> int:
     ap = argparse.ArgumentParser(prog="gmg", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     sub = ap.add_subparsers(dest="cmd", required=True)
     sub.add_parser("setup")
-    sub.add_parser("doctor")
+    dr = sub.add_parser("doctor")
+    dr.add_argument("--host", choices=["", "agy", "google"], default="")
+    ag = sub.add_parser("agy-setup", help="write the agy workspace files (MCP servers, rules); rerun-safe")
+    ag.add_argument("--workspace", default=str(Path.home() / "gentlemonster"))
+    sub.add_parser("agy-model", help="stdin: agy models --output-format json; prints agy's slug for gemini-3-flash-preview")
+    sub.add_parser("agy-served", help="stdin: an agy -p --output-format json run; records and prints the served model")
     sub.add_parser("plans")
     m = sub.add_parser("make")
     m.add_argument("brief")
@@ -126,7 +147,18 @@ def main(argv=None) -> int:
             upstream.setup()
             return 0
         if a.cmd == "doctor":
-            return doctor()
+            return doctor(a.host)
+        if a.cmd == "agy-setup":
+            from gmg import agy as AG
+            changed = AG.setup(a.workspace, str(Path(sys.executable)))
+            print(f"agy workspace {a.workspace}: " + (", ".join(changed) + " written" if changed else "up to date"))
+            return 0
+        if a.cmd == "agy-model":
+            from gmg import agy as AG
+            return AG.main_model()
+        if a.cmd == "agy-served":
+            from gmg import agy as AG
+            return AG.main_served()
         if a.cmd == "export":
             from gmg import usage
             files = usage.export(Path(a.out) if a.out else None, a.session)

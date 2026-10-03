@@ -98,11 +98,20 @@ M = [
     ("launcher: CLI version not checked", "install/gentlemonster", 'if [ "$V" != "$PIN" ]; then', "if false; then"),
     ("launcher: extension not checked", "install/gentlemonster", 'if [ ! -f "$HOME/.gemini/extensions/gentlemonster/gemini-extension.json" ]; then', "if false; then"),
     ("launcher: model forced on management commands", "install/gentlemonster", '  mcp|extensions|extension|skills|skill|hooks|hook|gemma) exec "$G" "$@" ;;', '  nothing-matches) exec "$G" "$@" ;;'),
+    ("agy: MCP server path wrong", "gmg/agy.py", '"args": [str(ext / "server.py"), "--tools", group]', '"args": [str(ext / "srv.py"), "--tools", group]'),
+    ("agy: instructions file missing", "gmg/agy.py", ',\n            f".agents/rules/{RULE}": rules}', "}"),
+    ("agy: --model dropped", "install/gentlemonster-agy", 'exec agy --model "$M" "$@"', 'exec agy "$@"'),
+    ("agy: served model not checked", "gmg/agy.py", "    ok = same_model(asked, models[-1])", "    ok = True"),
+    ("agy: served model not recorded", "gmg/agy.py", '    served.record(models[-1], "agy", same=same_model(asked, models[-1]))', "    pass"),
+    ("agy: unknown served model not marked", "gmg/served.py", 'if os.environ.get("GENTLEMONSTER_HOST") == "agy" and', "if False and"),
+    ("agy: flash-lite taken for flash", "gmg/agy.py", ' and "lite" not in n', ""),
+    ("agy: a refused tool call passes", "gmg/agy.py", "    return 0 if ok and called and not denied else 1", "    return 0 if ok and called else 1"),
+    ("agy: model choice made silently", "install/gentlemonster-agy", '| "$GMG" agy-model) || exit 2', '| "$GMG" agy-model) || M=gemini-3.5-flash'),
     ("P4: no aliases", "gmg/portfolio.py", "    return {w} | {b for a, b in ALIASES if a == w} | {a for a, b in ALIASES if b == w}", "    return {w}"),
     ("H3: colours not nudged", "gmg/agent.py", "        for _ in range(30):", "        for _ in range(0):"),
     ("loop: server delay ignored", "gmg/loop.py", "sleep(min(w, 60) if w is not None else 2 ** attempt)", "sleep(1)"),
 ]
-TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py", "tests/test_install.py"]
+TESTS = ["tests/test_gmg.py", "tests/test_ext.py", "tests/test_pf.py", "tests/test_usage.py", "tests/test_install.py", "tests/test_agy.py"]
 
 
 def main() -> int:
