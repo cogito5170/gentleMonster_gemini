@@ -1,0 +1,134 @@
+{
+ "cli": "@google/gemini-cli 0.62.0",
+ "argv": "-m gemini-3.1-flash-lite -p <loop.PROMPT b1> --yolo --skip-trust --allowed-mcp-server-names gentlemonster -o json",
+ "built_in_tools_excluded": true,
+ "extension_ref": "claude/sleepy-cori-h0ug3b @ 4b5d09c",
+ "response": "gm-14234f0a: DONE -- files: job.json, synopsis.md\n\nThe Rainy Threshold\n\nYou step past the threshold pillars into a hushed space where the outside storm instantly vanishes. Before you lies the Wet Obsidian Monolith, standing in solitary stillness amid polished concrete. You wander around the empty void, discovering eyewear resting upon minimalist displays at the edges of the room.",
+ "stats": {
+  "models": {
+   "gemini-3.5-flash-lite": {
+    "api": {
+     "totalRequests": 6,
+     "totalErrors": 0,
+     "totalLatencyMs": 19088,
+     "errorsByType": {}
+    },
+    "tokens": {
+     "input": 29974,
+     "prompt": 86801,
+     "candidates": 1363,
+     "total": 92519,
+     "cached": 56827,
+     "thoughts": 4355,
+     "tool": 0
+    },
+    "roles": {
+     "main": {
+      "totalRequests": 6,
+      "totalErrors": 0,
+      "totalLatencyMs": 19088,
+      "tokens": {
+       "input": 29974,
+       "prompt": 86801,
+       "candidates": 1363,
+       "total": 92519,
+       "cached": 56827,
+       "thoughts": 4355,
+       "tool": 0
+      }
+     }
+    }
+   }
+  },
+  "tools": {
+   "totalCalls": 10,
+   "totalSuccess": 9,
+   "totalFail": 1,
+   "totalDurationMs": 188,
+   "totalDecisions": {
+    "accept": 9,
+    "reject": 0,
+    "modify": 0,
+    "auto_accept": 0
+   },
+   "byName": {
+    "update_topic": {
+     "count": 5,
+     "success": 4,
+     "fail": 1,
+     "durationMs": 20,
+     "decisions": {
+      "accept": 4,
+      "reject": 0,
+      "modify": 0,
+      "auto_accept": 0
+     }
+    },
+    "mcp_gentlemonster_gm_new": {
+     "count": 1,
+     "success": 1,
+     "fail": 0,
+     "durationMs": 17,
+     "decisions": {
+      "accept": 1,
+      "reject": 0,
+      "modify": 0,
+      "auto_accept": 0
+     }
+    },
+    "mcp_gentlemonster_gm_plan": {
+     "count": 1,
+     "success": 1,
+     "fail": 0,
+     "durationMs": 64,
+     "decisions": {
+      "accept": 1,
+      "reject": 0,
+      "modify": 0,
+      "auto_accept": 0
+     }
+    },
+    "mcp_gentlemonster_gm_cast": {
+     "count": 1,
+     "success": 1,
+     "fail": 0,
+     "durationMs": 15,
+     "decisions": {
+      "accept": 1,
+      "reject": 0,
+      "modify": 0,
+      "auto_accept": 0
+     }
+    },
+    "mcp_gentlemonster_gm_story": {
+     "count": 1,
+     "success": 1,
+     "fail": 0,
+     "durationMs": 10,
+     "decisions": {
+      "accept": 1,
+      "reject": 0,
+      "modify": 0,
+      "auto_accept": 0
+     }
+    },
+    "mcp_gentlemonster_gm_finish": {
+     "count": 1,
+     "success": 1,
+     "fail": 0,
+     "durationMs": 62,
+     "decisions": {
+      "accept": 1,
+      "reject": 0,
+      "modify": 0,
+      "auto_accept": 0
+     }
+    }
+   }
+  },
+  "files": {
+   "totalLinesAdded": 0,
+   "totalLinesRemoved": 0
+  }
+ }
+}
