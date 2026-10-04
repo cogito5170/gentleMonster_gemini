@@ -26,7 +26,7 @@
   - after, they are .50 / .31 / .26 / .17 / .06, in the same order.
   - `warm` now spans 0–.72 instead of .50–.64. See [`design_check.json`](design_check.json).
 
-**Mood groups, tested and not changed.**
+**Mood groups, tested and not changed.** Rerun: `python3 bench/gmg5/mood_halves.py` (committed for CMD-GMG10; `tests/test_gmg5.py` checks it reproduces the table). Its "after" columns take the 10th/90th percentiles from the training half only.
 - **The test.** I learned one mood list per reference group, out of the nine moods (one or two each), by greedy search on half of the set (split by sha256 parity). Then I assigned the other half by `mood_fit`.
 
   | scales | trained on half 0, tested on half 1 | trained on half 1, tested on half 0 |
@@ -48,8 +48,8 @@ Other features did no better on both halves, and with 13–23 photos per group a
 **The upstream rule failed on real photographs.** It used the share of perfectly flat 8×8 blocks, at or above .12. It flagged **16 of 87** reference photographs as layouts: crushed black backgrounds, a white sky, studio grounds. Its own calibration had seen "photos 0.000–0.001".
 
 **The new rule needs two signals:**
-- flat, non-black blocks at or above .08 (a black block is not paper);
-- and a long straight edge at or above .6, meaning one pixel row or column that is 60 % a strong step. Frames, columns, rules and text lines make one.
+- flat, non-black blocks at or above .17 (first chosen as .08; a black block is not paper);
+- and a long straight edge at or above .52 (first .6), meaning one pixel row or column that is at least that share a strong step. Frames, columns, rules and text lines make one.
 
 | | upstream rule | new rule |
 |---|---|---|
@@ -57,11 +57,13 @@ Other features did no better on both halves, and with 13–23 photos per group a
 | the user's 5 photographs (design question 4) | 0 | 0 |
 | the user's reference layout, 2 draft pages and notes page (design questions 11, 22, 23, 26) | 4 | 3 |
 
+The design-data results are the same with .17 / .52 (0 of 92 photos, 3 of the 4 pages).
+
 - **The miss** is `8.jpg`, a page of hand-written notes (design question 23). It has no ruled edges, so it now measures as a photograph.
 - **Disclosure.** While choosing the two thresholds I also looked at the signals of images 10–14, which belong to eval_seen questions 32–42. They are not counted here and are not in the stored signals or tests. All five were pages, and the rule as chosen catches all of them.
-- **Margins are thin.**
-  - Edge: the closest photograph is at .385 and the lowest caught design page at .66.
-  - Flat: the closest caught design page is at .306, against .08.
+- **Margins (corrected after BD-273).** Each signal only has to clear the photos that the other signal lets through:
+  - with the first thresholds (.08 / .6), the highest edge among photos with flat ≥ .08 is .385 (3 photos). The 6 photos with edge ≥ .6 are excluded by flat alone: the highest flat among them is .035. On the page side, the lowest caught design page is at flat .306 and edge .662. So the margins were .045 on flat (.035 → .08) and .062 on edge (.6 → .662);
+  - the design data alone allows flat in (.035, .306] and edge in (.385, .662]. The thresholds now in `gmg/photo.py` are its middle, **.17 / .52**, chosen blind (CMD-GMG10). That gives a margin of about .135 on each side: 2 photos have flat ≥ .17 (highest edge .385), and 11 photos have edge ≥ .52 (highest flat .035).
 - Values only, no image content: [`layout_like_signals.json`](layout_like_signals.json).
 
 **Request for the gentleMonster owner** (gentleMonster is read-only here): `photos.split` uses the same flat-block score and `REF_THRESHOLD` = .12. It will take dark or high-key photographs for reference layouts. The rule above is a drop-in replacement.

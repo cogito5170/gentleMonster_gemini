@@ -124,6 +124,9 @@ M = [
     ("cap: next list cut", "gmg/ext_mcp.py", '    t = {k: (v if k == "next" else shrink(v)) for k, v in r.items()}', "    t = {k: shrink(v) for k, v in r.items()}"),
     # CMD-GMG5 S4: what the public reference set changed
     ("g5: sharpness scale back to /400", "gmg/photo.py", '    sh = level(m, "sharpness")', '    sh = min(m["sharpness"] / 400, 1)'),
+    ("g5: sharpness scale linear", "gmg/photo.py", "        v, lo, hi = math.log(max(v, 1.0)), math.log(lo), math.log(hi)", "        pass"),
+    ("g5: sharpness scale bounds moved", "gmg/photo.py", '"sharpness": (280.0, 2500.0)}', '"sharpness": (300.0, 2500.0)}'),
+    ("g5: thresholds back to .08/.6", "gmg/photo.py", "LAYOUT_FLAT, LAYOUT_EDGE = .17, .52", "LAYOUT_FLAT, LAYOUT_EDGE = .08, .6"),
     ("g5: warmth scale uncalibrated", "gmg/photo.py", '"warm": w, "cool": 1 - w', '"warm": .5 + m["warmth"], "cool": .5 - m["warmth"]'),
     ("g5: layout_like counts black blocks", "gmg/photo.py", "(((B.max(1) - B.min(1)) == 0) & (B.mean(1) >= 24))", "((B.max(1) - B.min(1)) < 2)"),
     ("g5: layout_like without the edge signal", "gmg/photo.py", "return flat >= LAYOUT_FLAT and edge >= LAYOUT_EDGE", "return flat >= LAYOUT_FLAT"),

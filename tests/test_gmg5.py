@@ -57,6 +57,11 @@ for k, (lo, hi) in photo.SCALE.items():
 lv = [photo.level(m, "sharpness") for m in M]
 ok(sum(x >= 1 for x in lv) <= 10 and sum(x <= 0 for x in lv) <= 10, f"sharpness: {sum(x >= 1 for x in lv)} at the top, {sum(x <= 0 for x in lv)} at the bottom (sharpness/400 put 74 of 87 at the top)")
 ok(len({round(photo.score(m, 'sharpest'), 3) for m in M}) >= 60, "'sharpest' ranks the set instead of tying it")
+geo = math.sqrt(280.0 * 2500.0)
+ok(photo.level({"sharpness": 280.0}, "sharpness") == 0.0 and photo.level({"sharpness": 2500.0}, "sharpness") == 1.0 and
+   abs(photo.level({"sharpness": geo}, "sharpness") - .5) < 1e-9 and abs(photo.level({"sharpness": 1000.0}, "sharpness") - .5815) < 1e-3,
+   "sharpness is on a log scale: 280 -> 0, 2500 -> 1, their geometric mean (837) -> .5, 1000 -> .58 (a linear scale gives .25 and .32)")
+ok(photo.SCALE["sharpness"] == (280.0, 2500.0), "the sharpness scale is 280-2500")
 for mood in ("bright", "dark", "saturated", "muted", "warm", "cool", "sharp", "soft"):
     f = [photo.mood_fit(m, [mood]) for m in M]
     ok(q(f, .9) - q(f, .1) >= .8, f"mood {mood}: spreads over the set ({q(f, .1):.2f}-{q(f, .9):.2f})")
@@ -66,11 +71,18 @@ night = [photo.mood_fit(r["measured"], ["dark"]) for r in rows if r["group"] == 
 day = [photo.mood_fit(r["measured"], ["dark"]) for r in rows if r["group"] == "beach_dusk"]
 ok(sorted(night)[len(night) // 2] > sorted(day)[len(day) // 2] + .3, "dark: night streets sit well above beach dusk (medians)")
 
+sys.path.insert(0, str(B5))
+import mood_halves  # noqa: E402
+mh = mood_halves.run()
+ok([mh[(n, h)][1] for n in ("before", "after") for h in (0, 1)] == [.41, .58, .50, .58],
+   "bench/gmg5/mood_halves.py reproduces the half-split result: before .41/.58, after .50/.58")
+
 print("== layout_like: a page, board or screenshot, not a photograph")
+ok((photo.LAYOUT_FLAT, photo.LAYOUT_EDGE) == (.17, .52), "thresholds: the middle of the design-only region (flat .035-.306, edge .385-.662), chosen blind")
 sig = json.loads((B5 / "layout_like_signals.json").read_text())
 rule = lambda r: r["flat"] >= photo.LAYOUT_FLAT and r["edge"] >= photo.LAYOUT_EDGE  # noqa: E731
 ok(not any(rule(r) for r in sig["refset"]), "0 of 87 reference photographs (the upstream flat-block score flagged 16)")
-hard = [r for r in sig["refset"] if r["flat"] >= photo.LAYOUT_FLAT]
+hard = [r for r in sig["refset"] if r["flat"] >= .08]
 ok(len(hard) >= 3 and not any(photo.layout_like(B5 / "refset" / r["file"]) for r in hard),
    f"the {len(hard)} photographs with large flat areas (a white sky, a studio ground) are still photographs: no long straight edges")
 gm = sig["gm_photos"]

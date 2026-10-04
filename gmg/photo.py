@@ -73,7 +73,8 @@ def measure(path) -> dict:
             "colors": distinct(GP.palette(p, 8)), "layout_like": layout_like(p)}
 
 
-LAYOUT_FLAT, LAYOUT_EDGE = .08, .6     # calibrated in bench/gmg5/CALIBRATION.md
+LAYOUT_FLAT, LAYOUT_EDGE = .17, .52    # the middle of the region the design data allows, chosen blind (CMD-GMG10 S4;
+                                       # bench/gmg5/CALIBRATION.md). Before: .08, .6
 
 
 def layout_signals(p) -> "tuple[float, float]":
