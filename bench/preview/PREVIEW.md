@@ -33,12 +33,13 @@
 `playwright install chromium` could not download here: `cdn.playwright.dev` is blocked by this sandbox's network policy. Doctor still passes, because the pinned code's launcher finds the preinstalled Chromium. On a Mac, that line downloads Chromium normally.
 
 **Not tested yet:**
-- **A live session's served model (D5, D6).**
-  - At 13:44 UTC on 2026-10-03, smoke runs with CLI 0.60.0, 0.61.0 and 0.62.0 (`-m gemini-3-flash-preview -p`) each got HTTP 429.
-  - This key's free-tier quota for `gemini-3-flash` is **20 requests per day**, and it was already used up.
-  - At 00:16 UTC on 2026-10-04, one `gentlemonster -p` turn from the B install at `b9cc1eb` got HTTP 429 again: `generate_content_free_tier_requests, limit: 20, model: gemini-3-flash`, "retry in 23h43m". The key's quota is shared with other sessions; the recording holds no response, so no served model ([`install_emptyhome_gmg8.log`](install_emptyhome_gmg8.log)).
-  - Next: one turn after 2026-10-05 00:00 UTC, unless the quota is used up before then again.
 - **A real macOS machine.**
+
+**Tested live (D5, D6), 2026-10-04 15:34 UTC.** After the user turned billing on (BD-294), one `gentlemonster -p "Reply with the single word OK."` was run from the B install at `216efc2`, in an empty HOME ([`install_emptyhome_gmg11.log`](install_emptyhome_gmg11.log)).
+- **Answer:** `OK`, exit 0.
+- **Served model:** **`gemini-3-flash-preview`, as asked.** It was read from the private CLI home's chat recording with `gmg.served.from_transcript`.
+- **Tokens for that one turn:** 11,822 input, mostly the CLI's system prompt, GEMINI.md and the tool schemas. Also 1 output and 496 thinking tokens.
+- **Earlier tries:** 2026-10-03 13:44 and 2026-10-04 00:16 UTC both got HTTP 429, because the free tier (20 requests a day for `gemini-3-flash`) was used up.
 
 ## Model and CLI pin (S7)
 - **models.list.** It lists `models/gemini-3-flash-preview` (version `3-flash-preview-12-2025`) with `generateContent`. This call costs nothing.

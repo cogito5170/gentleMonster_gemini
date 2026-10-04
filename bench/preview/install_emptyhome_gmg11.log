@@ -117,3 +117,7 @@ gentlemonster
 
 == the installed gmg carries the GMG10 calibration
 installed thresholds 0.17 0.52 (280.0, 2500.0)
+
+== live smoke turn (CMD-GMG6 D5/D6), 2026-10-04T15:34:25Z, the B install above at 216efc2, billing on (BD-294): gentlemonster -p "Reply with the single word OK."
+exit=0; stdout: OK
+served model in the private CLI home's chat recording (gmg.served.from_transcript): gemini-3-flash-preview (asked: gemini-3-flash-preview)
