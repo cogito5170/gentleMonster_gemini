@@ -109,3 +109,9 @@ Configured MCP servers:
 
 ✓ gentlemonster (from gentlemonster): python3 $HOME/.gentlemonster/cli-home/.gemini/extensions/gentlemonster/server.py --tools store (stdio) - Connected
 ✓ gentlemonster-portfolio (from gentlemonster): python3 $HOME/.gentlemonster/cli-home/.gemini/extensions/gentlemonster/server.py --tools portfolio (stdio) - Connected
+
+== live smoke turn (CMD-GMG6 D5/D6), 2026-10-04T00:16:37Z, the B install above at b9cc1eb: gentlemonster -p "Reply with the single word OK."
+exit=1 -- HTTP 429:
+Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-3-flash
+Please retry in 23h43m7.202489287s.
+served model in the chat recording: none (no response)

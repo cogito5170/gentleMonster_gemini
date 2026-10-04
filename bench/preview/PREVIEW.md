@@ -36,7 +36,8 @@
 - **A live session's served model (D5, D6).**
   - At 13:44 UTC on 2026-10-03, smoke runs with CLI 0.60.0, 0.61.0 and 0.62.0 (`-m gemini-3-flash-preview -p`) each got HTTP 429.
   - This key's free-tier quota for `gemini-3-flash` is **20 requests per day**, and it was already used up.
-  - Next: one `gentlemonster -p` turn after the reset, with the served model read from the CLI's chat recording.
+  - At 00:16 UTC on 2026-10-04, one `gentlemonster -p` turn from the B install at `b9cc1eb` got HTTP 429 again: `generate_content_free_tier_requests, limit: 20, model: gemini-3-flash`, "retry in 23h43m". The key's quota is shared with other sessions; the recording holds no response, so no served model ([`install_emptyhome_gmg8.log`](install_emptyhome_gmg8.log)).
+  - Next: one turn after 2026-10-05 00:00 UTC, unless the quota is used up before then again.
 - **A real macOS machine.**
 
 ## Model and CLI pin (S7)
