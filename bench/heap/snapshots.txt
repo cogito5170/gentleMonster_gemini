@@ -1,0 +1,17 @@
+CMD-GMG9 S2: object counts in the heap snapshots (bench/heap/snapcount.py; snapdiff.py for the diff). The .heapsnapshot
+files (90-180 MB each) are not kept; these are the printed results.
+
+run (snapshot)                 turn   SchemaEnv  LogRecordImpl  SpanImpl  ValueScope
+gmload_fix (at 125 MB)          133        280            358       198           3
+gmload_fix150 (at 150 MB)       745       1502            235       127           3
+gmshow_fix (at 140 MB)          828       1670            241       124           3
+gmload_id (at 135 MB)           486        984            418       193           3   ("$id": created, never compiled)
+wugload_snap (at 117 MB)        404         13             66        28           3   (built-in read_file)
+
+snapschemas.py on gmload_fix150: 1490 of 1502 SchemaEnv hold
+  type=object, properties: {by, photos, k, groups, wait_for_previous}  (pf_sort's parameter schema + the CLI's wait_for_previous)
+the other 12 are JSON Schema meta-schemas.
+
+snapdiff.py gmload_fix -> gmload_fix150 (self size +28.0 MB): see residual.txt.
+strs.py on gmload_fix (turn 133): strings 66.4 MB, of which 59.3 MB in 285 strings >= 10 KB, mostly the CLI's own source
+(31.8 + 7.0 MB chunk sources); pf_sort results: 266 strings, 0.4 MB, one copy each (held by ChatRecordingService).

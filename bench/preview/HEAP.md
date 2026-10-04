@@ -53,9 +53,11 @@ To rerun one row: `GEMINI_JS=<path to the 0.62.0 bundle/gemini.js> TURNS=300 MOD
 ## The residual, explained (CMD-GMG9 S2)
 **The question.** With the fix, this workload measured 79.5 KB/turn. WUG measured 3.9 KB/turn in a long run. Numbers are in [`../heap/residual.txt`](../heap/residual.txt). No Gemini request was made: the model is fake.
 
-1. **Most of the 79.5 is the run's length, not a leak.**
-   - The fit covered turns 58–290 of a 290-turn run, and the early turns grow fastest: 84–87 KB/turn in turns 0–100 and 48–51 in turns 100–300.
-   - The same workload over 1,000 turns fits **29.6 and 34.3 KB/turn** (two runs). WUG's own 300-turn runs gave 30 KB/turn.
+1. **Most of the gap from 79.5 to ~30 is the fit window; part is run-to-run noise.** (Corrected after BD-274.)
+   - GMG8 fitted turns 58–290 of a 290-turn run, and the early turns grow fastest: 84–87 KB/turn in turns 0–100 and 48–51 in turns 100–300.
+   - The same workload over 1,000 turns fits **29.6 and 34.3 KB/turn** (two runs); WUG's own 300-turn runs gave 30 KB/turn.
+   - Fitted over the same turns 58–290, those two runs give 71.4 and 63.2 against GMG8's 79.5. So a 230-turn window varies by roughly ±10 KB/turn between runs.
+   - The logs behind every slope are in [`../heap/runs/`](../heap/runs/) (`python3 bench/heap/analyze.py bench/heap/runs/NAME`).
 2. **This harness reproduces WUG's number.** WUG's long-run workload on this harness gave **−4.2 KB/turn** over 2,829 turns (103 → 116 MB). That workload is the CLI's built-in `read_file` on 200 local files, 16,938 characters per result, with a 0.4 s model delay. So neither the harness nor the private-home route is the difference; the workload is.
 3. **What holds the memory.** I compared heap snapshots at turn 133 and turn 745 of the pf_sort run. Self size grew by 28.0 MB, or 46 KB/turn:
    - **Parameter validators, about 2 per turn.** `SchemaEnv` objects went from 280 to 1,502. 1,490 of them hold the pf_sort parameter schema, with the `wait_for_previous` property the CLI adds. Their generated code takes 8.6 MB: validator source strings, `ValueScope` and `ValueScopeName` objects, and `_Code`. Most of the 8.8 MB of compiled code is probably theirs too, since every compile creates a new function.

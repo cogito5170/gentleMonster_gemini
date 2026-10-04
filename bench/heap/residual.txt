@@ -10,8 +10,10 @@ wugload_fix    WUG's long-run workload: built-in read_file, 16938 chars,       2
                0.4 s model delay (WUG measured 3.9 KB/turn over 2980 turns)
 wugload_snap   same, 800 turns (snapshot at 117 MB, turn 404)                    799  104->119    13.0
 
-GMG8's 79.5 KB/turn was a 290-turn run: its fit (turns 58-290) is mostly the early growth (84-87 KB/turn in turns 0-100,
-48-51 in 100-300); the same workload over 1000 turns fits 29.6-34.3.
+GMG8's 79.5 KB/turn was a 290-turn run fitted over turns 58-290, where the early growth dominates (84-87 KB/turn in turns
+0-100, 48-51 in 100-300); the same workload over 1000 turns fits 29.6-34.3. Fitted over the same turns 58-290, the two
+1000-turn runs give 71.4 and 63.2 (BD-274 note 1: part of the gap is run-to-run noise on a short window).
+Logs: bench/heap/runs/NAME/{heap.log,api.log}; python3 bench/heap/analyze.py bench/heap/runs/NAME reproduces each slope.
 
 Heap snapshot diff, gmload_fix (turn 133) -> gmload_fix150 (turn 745), self size +28.0 MB = 46 KB/turn:
    +8.82 MB  code

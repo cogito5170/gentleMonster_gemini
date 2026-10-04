@@ -1,0 +1,116 @@
+== run 1: B install block at deffd8e2f89f5572316a9ab5542d2cc48b8b95d4, empty HOME, zsh -i, stdin closed
+
+
+added 7 packages in 10s
+npm notice
+npm notice New major version of npm available! 10.9.4 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
+Failed to uninstall "gentlemonster": Extension not found.
+You have consented to the following:
+The extension you are about to install may have been created by a third-party developer and sourced from a public repository. Google does not vet, endorse, or guarantee the functionality or security of extensions. Please carefully inspect any extension and its source code before installing to understand the permissions it requires and the actions it may perform.
+Extension "gentlemonster" installed successfully and enabled.
+export PATH="$HOME/.gentlemonster/bin:$PATH"
+Downloading Chrome for Testing 153.0.8010.12 (playwright chromium v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+Error: Download failed: server returned code 403 body 'request blocked: no rule or allowlist entry allows host "cdn.playwright.dev"'. URL: https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+    at IncomingMessage.handleError ($HOME/.gentlemonster/venv/lib/python3.11/site-packages/playwright/driver/package/lib/coreBundle.js:32551:23)
+    at IncomingMessage.emit (node:events:526:24)
+    at endReadableNT (node:internal/streams/readable:1764:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Downloading Chrome for Testing 153.0.8010.12 (playwright chromium v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+Error: Download failed: server returned code 403 body 'request blocked: no rule or allowlist entry allows host "cdn.playwright.dev"'. URL: https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+    at IncomingMessage.handleError ($HOME/.gentlemonster/venv/lib/python3.11/site-packages/playwright/driver/package/lib/coreBundle.js:32551:23)
+    at IncomingMessage.emit (node:events:526:24)
+    at endReadableNT (node:internal/streams/readable:1764:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Downloading Chrome for Testing 153.0.8010.12 (playwright chromium v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+Error: Download failed: server returned code 403 body 'request blocked: no rule or allowlist entry allows host "cdn.playwright.dev"'. URL: https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+    at IncomingMessage.handleError ($HOME/.gentlemonster/venv/lib/python3.11/site-packages/playwright/driver/package/lib/coreBundle.js:32551:23)
+    at IncomingMessage.emit (node:events:526:24)
+    at endReadableNT (node:internal/streams/readable:1764:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Downloading Chrome for Testing 153.0.8010.12 (playwright chromium v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+Error: Download failed: server returned code 403 body 'request blocked: no rule or allowlist entry allows host "cdn.playwright.dev"'. URL: https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+    at IncomingMessage.handleError ($HOME/.gentlemonster/venv/lib/python3.11/site-packages/playwright/driver/package/lib/coreBundle.js:32551:23)
+    at IncomingMessage.emit (node:events:526:24)
+    at endReadableNT (node:internal/streams/readable:1764:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Downloading Chrome for Testing 153.0.8010.12 (playwright chromium v1243) from https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+Error: Download failed: server returned code 403 body 'request blocked: no rule or allowlist entry allows host "cdn.playwright.dev"'. URL: https://cdn.playwright.dev/builds/cft/153.0.8010.12/linux64/chrome-linux64.zip
+    at IncomingMessage.handleError ($HOME/.gentlemonster/venv/lib/python3.11/site-packages/playwright/driver/package/lib/coreBundle.js:32551:23)
+    at IncomingMessage.emit (node:events:526:24)
+    at endReadableNT (node:internal/streams/readable:1764:12)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21)
+Failed to install browsers
+Error: Failed to download Chrome for Testing 153.0.8010.12 (playwright chromium v1243), caused by
+Error: Download failure, code=1
+    at ChildProcess.<anonymous> ($HOME/.gentlemonster/venv/lib/python3.11/site-packages/playwright/driver/package/lib/coreBundle.js:32428:32)
+    at ChildProcess.emit (node:events:514:28)
+    at ChildProcess._handle.onexit (node:internal/child_process:295:12)
+[setup] cloning https://github.com/cogito5170/gentleMonster -> $HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47
+[setup] gentleMonster @ 5fdc25e7d62c ok ($HOME/.cache/gentleMonster_gemini/5fdc25e7d62c6cbd221aa8ad7340a4553171af47)
+GEMINI_API_KEY is set
+0.62.0
+  ok   gentleMonster at the pinned commit 5fdc25e7d62c
+  ok   GEMINI_API_KEY is set
+  ok   gemini-3-flash-preview is listed and takes generateContent
+  ok   Gemini CLI 0.62.0 (private, used by `gentlemonster`)
+  ok   heap fix: the private Gemini CLI keeps telemetry local and discarded, with no prompts logged
+  ok   PIL (for the PDFs)
+  ok   numpy (for the PDFs)
+  ok   matplotlib (for the PDFs)
+  ok   playwright (for the PDFs)
+  ok   Chromium starts (the PDFs are drawn in it)
+
+== run 2: state compared with run 1 (~/.zshrc, launcher sha256, extension ref, private CLI version, private settings.json, extensions)
+no change
+export PATH="$HOME/.gentlemonster/bin:$PATH"
+611d32159ab24696b8f2f0c38803b75409682e540f845273479256c761c84b65  .gentlemonster/bin/gentlemonster
+{
+  "source": "https://github.com/cogito5170/gentleMonster_gemini",
+  "type": "git",
+  "ref": "deffd8e2f89f5572316a9ab5542d2cc48b8b95d4"
+}
+0.62.0
+{
+  "telemetry": {
+    "enabled": true,
+    "target": "local",
+    "outfile": "/dev/null",
+    "logPrompts": false
+  }
+}
+.
+..
+extension-enablement.json
+gentlemonster
+
+0.62.0
+  ok   gentleMonster at the pinned commit 5fdc25e7d62c
+  ok   GEMINI_API_KEY is set
+  ok   gemini-3-flash-preview is listed and takes generateContent
+  ok   Gemini CLI 0.62.0 (private, used by `gentlemonster`)
+  ok   heap fix: the private Gemini CLI keeps telemetry local and discarded, with no prompts logged
+  ok   PIL (for the PDFs)
+  ok   numpy (for the PDFs)
+  ok   matplotlib (for the PDFs)
+  ok   playwright (for the PDFs)
+  ok   Chromium starts (the PDFs are drawn in it)
+
+== after both runs: HOME holds no .gemini
+. .. .cache .config .gentlemonster .npm .zshrc 
+
+== S3 in the installed launcher: the private settings before
+{"telemetry": {"enabled": false, "target": "gcp", "otlpEndpoint": "http://localhost:4317"}}
+== after one `gentlemonster --version`
+0.62.0
+{
+  "telemetry": {
+    "enabled": true,
+    "target": "local",
+    "otlpEndpoint": "http://localhost:4317",
+    "outfile": "/dev/null",
+    "logPrompts": false
+  }
+}
