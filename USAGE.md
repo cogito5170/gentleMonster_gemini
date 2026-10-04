@@ -1,6 +1,6 @@
 # gentleMonster for Gemini: preview 0.4.0
 
-**This is a preview, not a release.** Each install block is pinned to one commit: **B** (Gemini CLI) to `deffd8e2f89f5572316a9ab5542d2cc48b8b95d4`, which carries the heap fix (CMD-GMG8, CMD-GMG9); **A** (Antigravity) stays at `2453034609aa8d3b19f74c54431b6028ded1575e`, because the heap fix does not concern agy. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
+**This is a preview, not a release.** Each install block is pinned to one commit: **B** (Gemini CLI) to `216efc272dc8f9b9d88a0c439671a6121de1e6e6`, which carries the heap fix (CMD-GMG8, CMD-GMG9) and the GMG5/GMG10 photo calibration; **A** (Antigravity) stays at `2453034609aa8d3b19f74c54431b6028ded1575e`, because the heap fix does not concern agy. It is not published to any package index. Real use of it becomes the data for the next fixes (CMD-GMG6).
 
 There are two ways to run it on a Mac. Both use the same tools, and both keep your work in `~/gentleMonster_gemini_out`.
 
@@ -79,7 +79,7 @@ Paste the whole block below into Terminal. It has no comment lines and no placeh
 mkdir -p "$HOME/.gentlemonster/bin" "$HOME/.gentlemonster/cli" "$HOME/.gentlemonster/cli-home"
 npm install --prefix "$HOME/.gentlemonster/cli" --no-fund --no-audit @google/gemini-cli@0.62.0
 GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home" "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions uninstall gentlemonster ; true
-GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home" "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref deffd8e2f89f5572316a9ab5542d2cc48b8b95d4 --consent --skip-settings
+GEMINI_CLI_HOME="$HOME/.gentlemonster/cli-home" "$HOME/.gentlemonster/cli/node_modules/.bin/gemini" extensions install https://github.com/cogito5170/gentleMonster_gemini --ref 216efc272dc8f9b9d88a0c439671a6121de1e6e6 --consent --skip-settings
 cp "$HOME/.gentlemonster/cli-home/.gemini/extensions/gentlemonster/install/gentlemonster" "$HOME/.gentlemonster/bin/gentlemonster"
 chmod 755 "$HOME/.gentlemonster/bin/gentlemonster"
 grep -qs 'gentlemonster/bin' "$HOME/.zshrc" || echo 'export PATH="$HOME/.gentlemonster/bin:$PATH"' | tee -a "$HOME/.zshrc"
