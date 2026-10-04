@@ -1,0 +1,54 @@
+{
+ "what": "CMD-GMG10 S4: held-out check of layout_like on the eval_seen images (gm-photos@780f412 top level, questions 32-42), run after the blind thresholds .17/.52 were committed (a58ae90). Values only, no image content. All five are pages, not photographs.",
+ "rows": [
+  {
+   "file": "10.jpg",
+   "question": 32,
+   "role": "draft_spread",
+   "flat": 0.513,
+   "edge": 0.969,
+   "blind_17_52": true,
+   "first_08_6": true
+  },
+  {
+   "file": "11.jpg",
+   "question": 39,
+   "role": "draft_spread",
+   "flat": 0.524,
+   "edge": 0.969,
+   "blind_17_52": true,
+   "first_08_6": true
+  },
+  {
+   "file": "12.jpg",
+   "question": 41,
+   "role": "draft_spread",
+   "flat": 0.456,
+   "edge": 0.971,
+   "blind_17_52": true,
+   "first_08_6": true
+  },
+  {
+   "file": "13.jpg",
+   "question": 41,
+   "role": "draft_spread",
+   "flat": 0.569,
+   "edge": 0.99,
+   "blind_17_52": true,
+   "first_08_6": true
+  },
+  {
+   "file": "14.jpg",
+   "question": 42,
+   "role": "case_study",
+   "flat": 0.088,
+   "edge": 0.931,
+   "blind_17_52": false,
+   "first_08_6": true
+  }
+ ],
+ "caught": {
+  "blind_17_52": 4,
+  "first_08_6": 5
+ }
+}

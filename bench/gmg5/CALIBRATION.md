@@ -59,6 +59,11 @@ Other features did no better on both halves, and with 13–23 photos per group a
 
 The design-data results are the same with .17 / .52 (0 of 92 photos, 3 of the 4 pages).
 
+**Held-out check (CMD-GMG10 S4).** I committed the blind thresholds first (`a58ae90`), then checked both rules on images 10–14 of the eval_seen questions 32–42. All five are pages ([`layout_like_heldout.json`](layout_like_heldout.json), values only).
+- **.17 / .52, chosen blind: 4 of 5 caught.** The miss is `14.jpg`, the case-study page of question 42: flat .088, edge .931.
+- **.08 / .6, chosen after seeing these images: 5 of 5.** That number is not a held-out result.
+- **Kept: .17 / .52.** Moving back to .08 because of `14.jpg` would repeat the deviation. The question itself calls `14.jpg` a case-study photo ("사례 사진"), so measuring it as a photo is not clearly wrong.
+
 - **The miss** is `8.jpg`, a page of hand-written notes (design question 23). It has no ruled edges, so it now measures as a photograph.
 - **Disclosure.** While choosing the two thresholds I also looked at the signals of images 10–14, which belong to eval_seen questions 32–42. They are not counted here and are not in the stored signals or tests. All five were pages, and the rule as chosen catches all of them.
 - **Margins (corrected after BD-273).** Each signal only has to clear the photos that the other signal lets through:
